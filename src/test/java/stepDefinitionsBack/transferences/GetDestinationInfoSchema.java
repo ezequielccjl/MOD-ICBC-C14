@@ -10,15 +10,15 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import mapeo.Alias;
 import mapeo.Data;
-import util.link;
+import util.Link;
 
-public class getDestinationInfoSchema {
+public class GetDestinationInfoSchema {
 	
 	@When("^envio el json$")
 	public void envio_el_json() {
 		
 		RequestSpecification reqSpec = new RequestSpecBuilder().
-	            setBaseUri(link.transfer).
+	            setBaseUri(Link.TRANSFERENCE).
 	            setContentType(ContentType.JSON).
 	            addHeader("channel", "mbr").
 	            build();

@@ -13,6 +13,6 @@ import cucumber.api.junit.Cucumber;
 		strict = true,
 		dryRun = false)
 
-public class testRunnerBack {
+public class TestRunnerBack {
 	
 }

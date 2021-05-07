@@ -12,9 +12,9 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import mapeo.Alias;
 import mapeo.Data;
-import util.link;
+import util.Link;
 
-public class getDestinationInfo {
+public class GetDestinationInfo {
 	
 	Response respuesta;
 
@@ -22,7 +22,7 @@ public class getDestinationInfo {
 	public void envio_el_json_con_los_datos_del_cliente() {
 			
 		RequestSpecification reqSpec = new RequestSpecBuilder().
-		            setBaseUri(link.transfer).
+		            setBaseUri(Link.TRANSFERENCE).
 		            setContentType(ContentType.JSON).
 		            addHeader("channel", "mbr").
 		            build();
