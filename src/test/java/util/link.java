@@ -1,7 +1,10 @@
 package util;
 
+import util.url.Environment;
+import util.url.Url.UrlFactory;
+
 public class link {
 	
-    public static final String transfer = "https://mds-channel-transfer-account-1-0-fbd.apps.ocp4-tst.intranet.local/channel-transfer-account/1.0/get-destination-info";
+    public static final String transfer = UrlFactory.load("channel-transfer-account", "get-destination-info", "1.0", Environment.FBD);
 
 }
