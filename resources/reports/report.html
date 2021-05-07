@@ -46,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>May 7, 2021 10:35:39 AM</span>
+                    <span class='label suite-start-time blue darken-3'>May 7, 2021 07:37:08 PM</span>
 				</a>
 			</li>
 			<li>
@@ -137,7 +137,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -152,7 +152,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -172,43 +172,61 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Consultar Alias</span>
-						<span class='test-time'>May 7, 2021 10:35:39 AM</span>
+						<span class='test-time'>May 7, 2021 07:37:08 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 4s+16ms</span>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 3s+913ms</span>
 	<div class='desc'>
-		<b>Scenario</b>
+		<b>ScenarioOutline</b>
 		<span class="desc-text">Llamada al metodo POST que consultar los datos del cliente</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='3' class='node when pass' status='pass'>
+		<li test-id='3' class='node scenario pass' status='pass'>
 			
-			<b>When</b>
+			<b>Scenario</b>
 			
-			<span class="bdd-step-name">When envio el json con los datos del cliente</span>
-				<div class='pre'>passed</div>
+			<span class="bdd-step-name">Llamada al metodo POST que consultar los datos del cliente</span>
 			
+				<ul class='steps'>
+					<li test-id='4' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When envio el json con los datos del cliente "gabo123"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then verifica que trae al cliente correcto</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
 		</li>
-		<li test-id='4' class='node then pass' status='pass'>
+		<li test-id='6' class='node scenario pass' status='pass'>
 			
-			<b>Then</b>
+			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Then verifica que trae al cliente correcto</span>
-				<div class='pre'>passed</div>
+			<span class="bdd-step-name">Llamada al metodo POST que consultar los datos del cliente</span>
 			
+				<ul class='steps'>
+					<li test-id='7' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When envio el json con los datos del cliente "pepinillo"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then verifica que trae al cliente correcto</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
 		</li>
 	</ul>
 </div>
-<div class='scenario node' test-id='5' status='pass'>
-	<span class='duration right label'>0h 0m 0s+912ms</span>
+<div class='scenario node' test-id='9' status='pass'>
+	<span class='duration right label'>0h 0m 0s+869ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">Llamada al metodo POST para validar el schema</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='6' class='node when pass' status='pass'>
+		<li test-id='10' class='node when pass' status='pass'>
 			
 			<b>When</b>
 			
@@ -216,7 +234,7 @@
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='7' class='node then pass' status='pass'>
+		<li test-id='11' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
@@ -269,31 +287,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 7, 2021 10:35:39 AM</div>
+					<div class='panel-lead'>May 7, 2021 07:37:08 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 7, 2021 10:35:44 AM</div>
+			 		<div class='panel-lead'>May 7, 2021 07:37:13 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>5,038ms</div>
+					<div class='panel-lead'>4,880ms</div>
 				</div>
 			</div>
 		</div>
@@ -314,7 +332,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 2,
+				passChild: 3,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -323,7 +341,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 4,
+				passGrandChild: 6,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

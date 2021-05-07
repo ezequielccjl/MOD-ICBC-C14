@@ -33,12 +33,12 @@ public class getDestinationInfoSchema {
 			post().
 		then().
 			assertThat().
-			body(matchesJsonSchemaInClasspath("schema.json"));
+			body(matchesJsonSchemaInClasspath("schemaGetDestinationInfo.json"));
 	}
 
 	@Then("^valido el schema$")
 	public void valido_el_schema() {
-
+		
 	}
 
 }
