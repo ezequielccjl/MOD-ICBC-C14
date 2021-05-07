@@ -11,7 +11,7 @@ public class Url {
 		this.environment = environment;
 	}
 
-	private final static String TEMPLATE = "https://mds-${serviceName}${versionDash}-${environment}.apps.ocp4-tst.intranet.local/${serviceName}/${version}/${operationName}";
+	private final static String TEMPLATE = "https://mds-${serviceName}-${versionDash}-${environment}.apps.ocp4-tst.intranet.local/${serviceName}/${version}/${operationName}";
 	private String serviceName;
 	private String operationName;
 	private String version;
