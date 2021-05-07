@@ -1,7 +1,8 @@
-package stepDefinitions;
+package stepDefinitionsBack;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertEquals;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,7 +14,7 @@ import mapeo.Alias;
 import mapeo.Data;
 import util.link;
 
-public class stepDefinitionsBack {
+public class getDestinationInfo {
 	
 	Response respuesta;
 
@@ -46,7 +47,9 @@ public class stepDefinitionsBack {
 
 	@Then("^verifica que trae al cliente correcto$")
 	public void verifica_que_trae_al_cliente_correcto() {
-
+		
+		assertEquals(200, respuesta.getStatusCode());
+			
 	}
 
 }
