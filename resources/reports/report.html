@@ -46,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>May 10, 2021 01:48:15 PM</span>
+                    <span class='label suite-start-time blue darken-3'>May 10, 2021 05:55:19 PM</span>
 				</a>
 			</li>
 			<li>
@@ -137,7 +137,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -152,7 +152,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>8</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -172,12 +172,12 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Consultar Alias</span>
-						<span class='test-time'>May 10, 2021 01:48:15 PM</span>
+						<span class='test-time'>May 10, 2021 05:55:19 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 4s+348ms</span>
+	<span class='duration right label'>0h 0m 4s+681ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
 		<span class="desc-text">Llamada al metodo POST que consultar los datos del cliente</span>
@@ -217,16 +217,33 @@
 					</li>
 				</ul>
 		</li>
+		<li test-id='9' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Llamada al metodo POST que consultar los datos del cliente</span>
+			
+				<ul class='steps'>
+					<li test-id='10' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When envio el json con los datos del cliente "XLR2001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then verifica que trae al cliente correcto</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
 	</ul>
 </div>
-<div class='scenario node' test-id='9' status='pass'>
-	<span class='duration right label'>0h 0m 0s+995ms</span>
+<div class='scenario node' test-id='12' status='pass'>
+	<span class='duration right label'>0h 0m 0s+934ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">Llamada al metodo POST para validar el schema</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='10' class='node when pass' status='pass'>
+		<li test-id='13' class='node when pass' status='pass'>
 			
 			<b>When</b>
 			
@@ -234,7 +251,7 @@
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='11' class='node then pass' status='pass'>
+		<li test-id='14' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
@@ -287,31 +304,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>8</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 10, 2021 01:48:15 PM</div>
+					<div class='panel-lead'>May 10, 2021 05:55:19 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 10, 2021 01:48:20 PM</div>
+			 		<div class='panel-lead'>May 10, 2021 05:55:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>5,443ms</div>
+					<div class='panel-lead'>5,715ms</div>
 				</div>
 			</div>
 		</div>
@@ -332,7 +349,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 3,
+				passChild: 4,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -341,7 +358,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 6,
+				passGrandChild: 8,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

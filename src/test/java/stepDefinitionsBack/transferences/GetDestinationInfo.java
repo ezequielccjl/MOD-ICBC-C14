@@ -17,17 +17,21 @@ import util.Link;
 public class GetDestinationInfo {
 	
 	Response respuesta;
+	
+	private String nombre;
 
 	@When("^envio el json con los datos del cliente \"([^\"]*)\"$")
-	public void envio_el_json_con_los_datos_del_cliente(String arg1) {
-			
+	public void envio_el_json_con_los_datos_del_cliente(String nombre) {
+		
+		this.nombre = nombre;
+		
 		RequestSpecification reqSpec = new RequestSpecBuilder().
 		            setBaseUri(Link.TRANSFERENCE).
 		            setContentType(ContentType.JSON).
 		            addHeader("channel", "mbr").
 		            build();
-		
-		Alias alias = new Alias(new Data("gabo123",""));
+
+		Alias alias = new Alias(new Data(nombre,""));
 			
 		respuesta =
 				
@@ -39,7 +43,7 @@ public class GetDestinationInfo {
 				post().
 			then().
 				statusCode(200).
-				body("data.externalAccount.aliasName", equalTo("gabo123")).
+				body("data.externalAccount.aliasName", equalTo(nombre)).log().all().
 				extract().
 				response();
 		

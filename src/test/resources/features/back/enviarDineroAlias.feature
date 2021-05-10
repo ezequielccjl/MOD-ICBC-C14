@@ -8,6 +8,7 @@ Feature: Consultar Alias
       | alias     |
       | gabo123   |
       | pepinillo |
+      | XLR2001   |
 
   Scenario: Llamada al metodo POST para validar el schema
     When envio el json
