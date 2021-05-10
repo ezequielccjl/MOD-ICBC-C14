@@ -1,4 +1,4 @@
-package stepDefinitionsBack;
+package stepDefinitionsBack.transferences;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -18,7 +18,7 @@ public class GetDestinationInfoSchema {
 	public void envio_el_json() {
 		
 		RequestSpecification reqSpec = new RequestSpecBuilder().
-	            setBaseUri(Link.transfer).
+	            setBaseUri(Link.TRANSFERENCE).
 	            setContentType(ContentType.JSON).
 	            addHeader("channel", "mbr").
 	            build();
@@ -42,3 +42,4 @@ public class GetDestinationInfoSchema {
 	}
 
 }
+

@@ -1,4 +1,4 @@
-package stepDefinitionsBack;
+package stepDefinitionsBack.transferences;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -17,21 +17,17 @@ import util.Link;
 public class GetDestinationInfo {
 	
 	Response respuesta;
-	
-	String nombre;
-	
+
 	@When("^envio el json con los datos del cliente \"([^\"]*)\"$")
-	public void envio_el_json_con_los_datos_del_cliente(String nombre) {
-		
-		this.nombre = nombre;
-		
+	public void envio_el_json_con_los_datos_del_cliente(String arg1) {
+			
 		RequestSpecification reqSpec = new RequestSpecBuilder().
-		            setBaseUri(Link.transfer).
+		            setBaseUri(Link.TRANSFERENCE).
 		            setContentType(ContentType.JSON).
 		            addHeader("channel", "mbr").
 		            build();
 		
-		Alias alias = new Alias(new Data(nombre,""));
+		Alias alias = new Alias(new Data("gabo123",""));
 			
 		respuesta =
 				
@@ -43,15 +39,15 @@ public class GetDestinationInfo {
 				post().
 			then().
 				statusCode(200).
-				body("data.externalAccount.aliasName", equalTo(nombre)).
+				body("data.externalAccount.aliasName", equalTo("gabo123")).
 				extract().
 				response();
-					
+		
 	}
-
+	
 	@Then("^verifica que trae al cliente correcto$")
 	public void verifica_que_trae_al_cliente_correcto() {
-				
+	
 		assertEquals(200, respuesta.getStatusCode());
 			
 	}
