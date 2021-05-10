@@ -8,13 +8,13 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/resources/features"},
+		features = {"src/test/resources/features/back"},
 		glue = {"stepDefinitionsBack"},
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:resources/reports/report.html"},
 		monochrome = true,
 		strict = true,
 		dryRun = false)
 
-public class testRunnerBack {
+public class TestRunnerBack {
 		
 }
