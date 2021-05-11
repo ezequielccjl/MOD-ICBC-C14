@@ -3,13 +3,14 @@ package stepDefinitionsBack.transferences;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
+import com.ebanking.retail.model.DestinationInfoInput;
+import com.ebanking.retail.model.RequestDestinationInfoInput;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import mapeo.Alias;
-import mapeo.Data;
 import util.Link;
 
 public class GetDestinationInfoSchema {
@@ -22,13 +23,14 @@ public class GetDestinationInfoSchema {
 	            setContentType(ContentType.JSON).
 	            addHeader("channel", "mbr").
 	            build();
-	
-		Alias alias = new Alias(new Data("gabo123",""));
+		
+		DestinationInfoInput destinationInfoInput = (new DestinationInfoInput()).originDocumentNumber("").destinationAliasCbuCvu("gabo123");
+		RequestDestinationInfoInput requestDestinationInfoInput = (new RequestDestinationInfoInput()).data(destinationInfoInput);
 	
 		given().
 			relaxedHTTPSValidation().
 			spec(reqSpec).
-			body(alias).
+			body(requestDestinationInfoInput).
 		when().
 			post().
 		then().

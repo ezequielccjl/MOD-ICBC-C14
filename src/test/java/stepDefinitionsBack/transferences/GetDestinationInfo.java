@@ -4,14 +4,15 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
+import com.ebanking.retail.model.DestinationInfoInput;
+import com.ebanking.retail.model.RequestDestinationInfoInput;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import mapeo.Alias;
-import mapeo.Data;
 import util.Link;
 
 public class GetDestinationInfo {
@@ -31,14 +32,15 @@ public class GetDestinationInfo {
 		            addHeader("channel", "mbr").
 		            build();
 
-		Alias alias = new Alias(new Data(nombre,""));
+		DestinationInfoInput destinationInfoInput = (new DestinationInfoInput()).originDocumentNumber("").destinationAliasCbuCvu(nombre);
+		RequestDestinationInfoInput requestDestinationInfoInput = (new RequestDestinationInfoInput()).data(destinationInfoInput);
 			
 		respuesta =
 				
 			given().
 				relaxedHTTPSValidation().
 				spec(reqSpec).
-				body(alias).
+				body(requestDestinationInfoInput).
 			when().
 				post().
 			then().
