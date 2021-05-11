@@ -1,4 +1,4 @@
-package stepDefinitionsBack.transferences;
+package step.definition.back.transfer.account;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;

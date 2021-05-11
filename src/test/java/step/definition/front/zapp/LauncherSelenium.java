@@ -1,4 +1,4 @@
-package stepDefinitionsFront;
+package step.definition.front.zapp;
 
 import java.io.IOException;
 
