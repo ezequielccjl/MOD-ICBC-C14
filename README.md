@@ -1,4 +1,15 @@
-# mds-automation - automation
+# MDS Automation
+
+## Estructura de nombres de paquetes y carpetas
+En pos de simplificar el trabajo entre las diferentes células, se considera conveniente llevar adelante la siguiente estructura.
+
+##### Back
+- Paquetes java: se agruparan por *servicios*. En caso de no existir el paquete, deberá crearse bajo la estructura `step.definition.back`
+- Features: se agruparan por *servicios*. En caso de no existir la carpeta, deberá crearse dentro de la carpeta `features/back`
+
+##### Front
+- Paquetes java: se agruparan por *aplicación*. En caso de no existir el paquete, deberá crearse bajo la estructura `step.definition.front`. Inicialmente tendremos un paquete `zap`. Podrán crearse nuevos paquetes, si se considera necesario.
+- Features: se agruparan por *aplicación*. En caso de no existir la carpeta, deberá crearse dentro de la carpeta `features/front`. Podrán crearse nuevas carpetas, si se considera necesario
 
 ## Como saber que depencias cargar para testear un servicio?
 Supongamos que debemos testear la operacion **getDestinationInfo** del servicio **channel-transfer-account**
@@ -8,7 +19,7 @@ Para encontrar la dependencia correcta debemos ir a **[Appflow](https://appflow-
 - Buscamos la operación (getDestinationInfo)
 - Ampliamos en **Versiones y generación de release**
 - Ampliamos en **Lista de Tareas**
-- EN APPFLOW! Copiamos la dependencia clickeando en "generateMSClient" (se muestra un formato a modo de EJEMPLO )
+- EN APPFLOW! Copiamos la dependencia clickeando en "generateMSClient" (se muestra un formato a modo de EJEMPLO)
 
 ```
 <dependency>
