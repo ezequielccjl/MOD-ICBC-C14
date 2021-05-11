@@ -4,3 +4,5 @@ target
 .project
 
 /app_root/logs
+
+/resources/reports/*
