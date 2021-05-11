@@ -3,6 +3,6 @@ target
 .classpath
 .project
 
-/app_root/logs
+app_root/logs
 
-/resources/reports/*
+resources/reports/*
