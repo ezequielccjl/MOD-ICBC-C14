@@ -2,14 +2,16 @@
 
 ## Estructura de nombres de paquetes y carpetas
 En pos de simplificar el trabajo entre las diferentes células, se considera conveniente llevar adelante la siguiente estructura.
+Para acortar nombre, se suprimira la palabra 'channel' a la hora de nombrar los servicios. Ejemplo, si el servicio se llama 'channel-transfer-account', simplemente utilizamos el nombre 'transfer-account' para nombre de carpeta y 'transfer.account' para nombre de paquete.
+El nombramiento de paquetes respeta el estandar propuesto por java, separando cada palabra por puntos.
 
 ##### Back
-- Paquetes java: se agruparan por *servicios*. En caso de no existir el paquete, deberá crearse bajo la estructura `step.definition.back`
+- Paquetes java: se agruparan por *servicios*. En caso de no existir el paquete, deberá crearse bajo la estructura `com.icbc.segmento.digital.back.step.`
 - Features: se agruparan por *servicios*. En caso de no existir la carpeta, deberá crearse dentro de la carpeta `features/back`
 
 ##### Front
-- Paquetes java: se agruparan por *aplicación*. En caso de no existir el paquete, deberá crearse bajo la estructura `step.definition.front`. Inicialmente tendremos un paquete `zap`. Podrán crearse nuevos paquetes, si se considera necesario.
-- Features: se agruparan por *aplicación*. En caso de no existir la carpeta, deberá crearse dentro de la carpeta `features/front`. Podrán crearse nuevas carpetas, si se considera necesario
+- Paquetes java: deberán crearse bajo la estructura `com.icbc.segmento.digital.front`. Por el momento no hay sugerencias de paquetes.
+- Features: deberán crearse dentro de la carpeta `features/front`. Podrán crearse subcarpetas si se considera necesario.
 
 ## Como saber que depencias cargar para testear un servicio?
 Supongamos que debemos testear la operacion **getDestinationInfo** del servicio **channel-transfer-account**

@@ -1,17 +1,17 @@
-package step.definition.back.transfer.account;
+package com.icbc.segmento.digital.back.step.transfer.account;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import com.ebanking.retail.model.DestinationInfoInput;
 import com.ebanking.retail.model.RequestDestinationInfoInput;
+import com.icbc.segmento.digital.util.Link;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import util.Link;
 
 public class GetDestinationInfoSchema {
 	

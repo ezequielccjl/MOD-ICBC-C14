@@ -1,4 +1,4 @@
-package util;
+package com.icbc.segmento.digital.util;
 
 public class Link {
 	

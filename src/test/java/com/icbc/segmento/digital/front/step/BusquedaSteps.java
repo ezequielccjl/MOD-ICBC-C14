@@ -1,4 +1,4 @@
-package step.definition.front.zapp;
+package com.icbc.segmento.digital.front.step;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package util.url;
+package com.icbc.segmento.digital.util.url;
 
 public enum Environment {
 	FBD("fbd"), QAT("qat");

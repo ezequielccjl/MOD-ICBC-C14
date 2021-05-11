@@ -1,4 +1,4 @@
-package test.runner;
+package com.icbc.segmento.digital.test.runner;
 
 import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/front"},
-		glue = {"step.definition.front"},
+		glue = {"com.icbc.segmento.digital.front.step"},
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:resources/reports/report.html"},
 		monochrome = true,
 		strict = true,

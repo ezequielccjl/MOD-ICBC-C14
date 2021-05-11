@@ -1,4 +1,4 @@
-package util.url;
+package com.icbc.segmento.digital.util.url;
 
 public class Url {
 
