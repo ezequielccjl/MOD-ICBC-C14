@@ -13,27 +13,28 @@ import cucumber.api.java.en.When;
 public class BusquedaSteps {
 
 	WebDriver driver;
+	PageModel Pagina = new PageModel();
 	  
     @Given("El usuario esta en la pagina de google")
-    public void el_usuario_esta_en_la_pagina_de_google() throws InterruptedException, IOException {
-    	LauncherSelenium.navegador("Busqueda en google");
+    public void el_usuario_esta_en_la_pagina_de_google() {
+    	PageModel.navegarGoogle();
+    	Pagina.buscarBarraBusqueda();
     }
 
     @When("^Ingresa la busqueda$")
     public void ingresa_la_busqueda() {
 
-    	driver.findElement(By.name("q")).sendKeys("Facebook");
+    	Pagina.escribirBusqueda("facebook");
     	
     }
 
     @Then("^valida que la busqueda este ok$")
     public void valida_que_la_busqueda_este_ok() {
-
-    	driver.findElement(By.xpath("//a[contains(text(),'Facebook - Inicia sesión o regístrate')]")).click();	    	
+    	Pagina.clickFacebook(); 
     }
 
     @And("^hace click en buscar$")
     public void hace_click_en_buscar() {
-    	driver.findElement(By.name("btnK")).click();
+    	Pagina.clickBuscar();
     }
 }

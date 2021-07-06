@@ -1,0 +1,127 @@
+package com.icbc.segmento.digital.front.pom;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BasePage {
+	
+	protected static WebDriver driver;
+	private static WebDriverWait wait;
+	private static Actions action;
+	
+	static {
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");
+		//ChromeOptions chromeOptions = new ChromeOptions();
+		driver = new ChromeDriver(chromeOptions());
+		wait = new WebDriverWait(driver, 15);
+	}
+	
+	private static ChromeOptions chromeOptions(){
+		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+		chromePrefs.put("download.default_directory", "D:\\");	
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setExperimentalOption("prefs", chromePrefs);
+	    chromeOptions.addArguments("--disable-dev-shm-usage");
+	    chromeOptions.addArguments("--ignore-certificate-errors");
+	    return chromeOptions;
+	}
+	
+	public BasePage(WebDriver driver) {
+		BasePage.driver = driver;
+		wait = new WebDriverWait(driver, 15);
+	}
+	
+	public static void navigateTo(String url) {
+		driver.get(url);
+		driver.manage().window().maximize();
+	}
+	
+	public static void closeBrowser() {
+		driver.quit();
+	}
+	
+	public WebElement find(String locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+	}
+	
+	public void clickElement(String locator) {
+		driver.findElement(By.xpath(locator)).click();
+	}
+		
+	public void write(String locator, String textToWrite) {
+		find(locator).clear();
+		find(locator).sendKeys(textToWrite);
+	}
+	//para el combobox por valor
+	public void selectFromDropdownByValue(String locator, String valueToSelect) {
+		Select dropdown = new Select(find(locator));
+		
+		dropdown.selectByValue(valueToSelect);
+	}
+	//para el combobox por index
+	public void selectFromDropdownByIndex(String locator, int valueToSelect) {
+		Select dropdown = new Select(find(locator));
+		
+		dropdown.selectByIndex(valueToSelect);
+	}
+	//para el combobox por texto
+	public void selectFromDropdownByText(String locator, String valueToSelect) {
+		Select dropdown = new Select(find(locator));
+		
+		dropdown.selectByVisibleText(valueToSelect);
+	}
+	//pasar el mouse sobre un elemento
+	public void hoverOverElement(String locator) {
+		action.moveToElement(find(locator));
+	}
+	//para hacer un doble clic
+	public void doubleClick(String locator) {
+		action.doubleClick(find(locator));
+	}
+	//para hacer clic derecho
+	public void rightClick(String locator) {
+		action.contextClick(find(locator));
+	}
+	//para switchear a otro iFrame
+	public void switchToiFrame(int iFrameID) {
+		driver.switchTo().frame(iFrameID);
+	}
+	//para volver al padre iFrame
+	public void switchParentFrame() {
+		driver.switchTo().parentFrame();
+	}
+	//para rechazar una alerta
+	public void dismissAlert() {
+		driver.switchTo().alert().dismiss();
+	}
+	//para guardar un texto de un elemento
+	public String textFromElement(String locator) {
+		return find(locator).getText();
+	}
+	//para ver si el boton esta habilitado para ser clickeado
+	public boolean elementEnabled(String locator) {
+		return find(locator).isEnabled();
+	}
+	//para ver si el elemento esta
+	public boolean elementIsDisplayed(String locator) {
+		return find(locator).isDisplayed();
+	}
+	
+	public boolean elementIsSelected(String locator) {
+		return find(locator).isSelected();
+	}
+	
+	public List<WebElement> bringMeAllElements(String locator){
+		return driver.findElements(By.xpath(locator));
+	}
+}

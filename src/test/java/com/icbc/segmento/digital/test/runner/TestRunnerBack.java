@@ -2,16 +2,18 @@ package com.icbc.segmento.digital.test.runner;
 
 import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/back"},
 		glue = {"com.icbc.segmento.digital.back"},
-		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:resources/reports/report.html"},
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/back/cucumber-reports.json"},
 		monochrome = true,
 		strict = true,
-		dryRun = false)
+		dryRun = false,
+		snippets = SnippetType.CAMELCASE)
 
 public class TestRunnerBack {
 

@@ -1,6 +1,10 @@
 package com.icbc.segmento.digital.test.runner;
 
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+
+import com.icbc.segmento.digital.front.pom.BasePage;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -8,11 +12,17 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = {"src/test/resources/features/front"},
 		glue = {"com.icbc.segmento.digital.front.step"},
-		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:resources/reports/report.html"},
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/front/cucumber-reports.json"},
 		monochrome = true,
 		strict = true,
-		dryRun = false)
+		dryRun = false,
+		tags = {"@prueba"})
 
 public class TestRunnerFront {
+	
+	@AfterClass
+	public static void cleanDriver() {
+		BasePage.closeBrowser();
+	}
 	
 }
