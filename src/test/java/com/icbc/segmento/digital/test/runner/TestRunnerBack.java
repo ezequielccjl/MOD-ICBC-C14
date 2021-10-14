@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/back"},
-		glue = {"com.icbc.segmento.digital.back"},
+		glue = {"com.icbc.segmento.digital.back.step"},
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/back/cucumber-reports.json"},
 		monochrome = true,
 		strict = true,

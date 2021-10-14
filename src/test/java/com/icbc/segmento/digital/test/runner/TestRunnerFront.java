@@ -16,7 +16,7 @@ import cucumber.api.junit.Cucumber;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@prueba"})
+		tags = {""})
 
 public class TestRunnerFront {
 	
