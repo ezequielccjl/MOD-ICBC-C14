@@ -8,6 +8,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
+import com.icbc.segmento.digital.front.pom.PageModel;
+
 @RunWith(Cucumber.class)
 @CucumberOptions()
 public class PagarTarjetaCredito {
@@ -15,7 +17,8 @@ public class PagarTarjetaCredito {
 	PageModel page = new PageModel();
 		
     @Given("^El usuario se logea con \"([^\"]*)\" y \"([^\"]*)\"$")
-    public void elUsuarioSeLogeaConSomethingYSomething(String user, String password, String strArg1, String strArg2) {
+    public void elUsuarioSeLogeaConSomethingYSomething(String user, String password) {
+    	System.out.println("asd");
         page.navigateToDEV();
         page.ingresarUsuario(user);
         page.ingresarContraseña(password);

@@ -7,16 +7,18 @@ import com.icbc.segmento.digital.front.pom.BasePage;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import cucumber.api.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/front"},
 		glue = {"com.icbc.segmento.digital.front.step"},
-		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/front/cucumber-reports.json"},
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:\", \"json:target/front/cucumber-reports.json"},
+		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {""})
+		tags = {"@tagPagarTarjetaCredito"})
 
 public class TestRunnerFront {
 	
@@ -24,5 +26,7 @@ public class TestRunnerFront {
 	public static void cleanDriver() {
 		BasePage.closeBrowser();
 	}
+	
+	//com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/front/cucumber-reports.json
 	
 }

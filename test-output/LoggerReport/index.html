@@ -119,7 +119,7 @@
 								        </span>
 							        </a>
 							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
-						    	        <a class="dropdown-item" href="#"><span class="cf">@prueba</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@tagPagarTarjetaCredito</span></a>
 						    	        <div class="dropdown-divider"></div>
 						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 						    	      </div>
@@ -138,40 +138,48 @@
 										<h6 class="mb-3 ml-1">Test Logs</h6>
 											<div class="tsc" status="fail">
 											<div class="st fail test l0" 
-												tags="@prueba"
+												tags=""
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">fail</span>&nbsp;&nbsp;
-												<span class="tn">[Busqueda] started</span>
-												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @prueba</span>
-												</span>
+												<span class="tn">[El usuario paga la tarjeta de credito] started</span>
 												
 											</div>
 											<div class="st fail test l1" 
-												tags="@prueba"
+												tags="@tagPagarTarjetaCredito"
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">fail</span>&nbsp;&nbsp;
-												<span class="tn">|---[Busqueda exitosa] started</span>
+												<span class="tn">|---[Pagar tarjeta de credito] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @prueba</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
 												</span>
 												
 											</div>
 											<div class="st fail test l2" 
+												tags="@tagPagarTarjetaCredito"
+												devices="">
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Pagar tarjeta de credito] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
+												</span>
+												
+											</div>
+											<div class="st fail test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">fail</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario esta en la pagina de google] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "usuario53" y "Prueba01"] started</span>
 												
 												<div class="st fail">
-													<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+													<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 													<span class="ts">fail</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario esta en la pagina de google]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "usuario53" y "Prueba01"]</span>
 													
-													<span class="td">threw an exception<br><textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.BusquedaSteps
+													<span class="td">threw an exception<br><textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.PagarTarjetaCredito
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:47)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.getInstance(DefaultJavaObjectFactory.java:33)
 	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:49)
@@ -216,64 +224,79 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:41)
 	... 36 more
-Caused by: java.lang.ExceptionInInitializerError
-	at com.icbc.segmento.digital.front.step.BusquedaSteps.<init>(BusquedaSteps.java:16)
-	... 41 more
-Caused by: java.lang.IllegalStateException: The driver executable does not exist: C:\Users\LL211555\drivers\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:518)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;
+	at org.openqa.selenium.net.UrlChecker.<init>(UrlChecker.java:62)
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:197)
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:79)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
 	at com.icbc.segmento.digital.front.pom.BasePage.<clinit>(BasePage.java:21)
-	... 42 more
+	at com.icbc.segmento.digital.front.step.PagarTarjetaCredito.<init>(PagarTarjetaCredito.java:17)
+	... 41 more
 </textarea></span>
 												</div>
 											</div>
-											<div class="st skip test l2" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">skip</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When Ingresa la busqueda] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar] started</span>
 												
 												<div class="st skip">
-													<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+													<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 													<span class="ts">skip</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When Ingresa la busqueda]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar]</span>
 													
 													<span class="td">Step skipped</span>
 												</div>
 											</div>
-											<div class="st skip test l2" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">skip</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And hace click en buscar] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar] started</span>
 												
 												<div class="st skip">
-													<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+													<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 													<span class="ts">skip</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And hace click en buscar]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar]</span>
 													
 													<span class="td">Step skipped</span>
 												</div>
 											</div>
-											<div class="st skip test l2" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 												<span class="ts">skip</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then valida que la busqueda este ok] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar] started</span>
 												
 												<div class="st skip">
-													<span class="tt">10.13.2021 16:47:36</span>&nbsp;
+													<span class="tt">10.18.2021 16:29:55</span>&nbsp;
 													<span class="ts">skip</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then valida que la busqueda este ok]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l3" 
+												tags=""
+												devices="">
+												<span class="tt">10.18.2021 16:29:55</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago] started</span>
+												
+												<div class="st skip">
+													<span class="tt">10.18.2021 16:29:55</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago]</span>
 													
 													<span class="td">Step skipped</span>
 												</div>

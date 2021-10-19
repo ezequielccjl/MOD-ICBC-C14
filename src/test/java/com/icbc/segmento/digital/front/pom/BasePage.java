@@ -17,7 +17,7 @@ public class BasePage {
 	private static Actions action;
 	
 	static {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver95.exe");
 		driver = new ChromeDriver(chromeOptions());
 		wait = new WebDriverWait(driver, 50);
 	}

@@ -46,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Oct 13, 2021 04:47:36 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Oct 18, 2021 04:29:55 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -74,7 +74,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@prueba</a></li>
+					<li><a href='#'>@tagPagarTarjetaCredito</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -146,7 +146,7 @@
                     <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='25%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='75%'>3</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='20%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='80%'>4</span> others
                 </div>
             </div>
         </div>
@@ -166,8 +166,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Busqueda</span>
-						<span class='test-time'>Oct 13, 2021 04:47:36 PM</span>
+						<span class='test-name'>El usuario paga la tarjeta de credito</span>
+						<span class='test-time'>Oct 18, 2021 04:29:55 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -177,19 +177,22 @@
     <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-<div class='test-desc'>El usuario realiza una busqueda</div>
-<div class='scenario node' test-id='2' status='fail'>
+<div class='scenariooutline node' test-id='2' status='fail'>
     <div class='category-list'>
-        <span class='category label'>@prueba</span>
+        <span class='category label'>@tagPagarTarjetaCredito</span>
     </div>
-    <span class='duration right label'>0h 0m 0s+156ms</span>
+    <span class='duration right label'>0h 0m 0s+611ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> Scenario: Busqueda exitosa</div>
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Pagar tarjeta de credito</div>
+        <table class='runtime-table table-striped table'><tr><td>user</td><td>password</td><td>cuentaDebitar</td><td>monedaPagar</td><td>importe</td></tr><tr><td>usuario53</td><td>Prueba01</td><td>0530/01006879/57</td><td>PESOS</td><td>1</td></tr></table>
     </div>
     <ul class='steps'>
-        <li test-id='3' class='node given fail' status='fail'>
-            <div class="step-name" title="BusquedaSteps.el_usuario_esta_en_la_pagina_de_google()"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Given El usuario esta en la pagina de google</div>
-                <textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.BusquedaSteps
+        <li test-id='3' class='node scenario fail' status='fail'>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Pagar tarjeta de credito</div>
+            <ul class='gc steps'>
+                    <li test-id='4' class='gc given fail' status='fail'>
+                        <h6 class="step-name" title="PagarTarjetaCredito.elUsuarioSeLogeaConSomethingYSomething(String,String)"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Given El usuario se logea con "usuario53" y "Prueba01"</h6>
+                            <textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.PagarTarjetaCredito
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:47)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.getInstance(DefaultJavaObjectFactory.java:33)
 	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:49)
@@ -234,33 +237,39 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:41)
 	... 36 more
-Caused by: java.lang.ExceptionInInitializerError
-	at com.icbc.segmento.digital.front.step.BusquedaSteps.<init>(BusquedaSteps.java:16)
-	... 41 more
-Caused by: java.lang.IllegalStateException: The driver executable does not exist: C:\Users\LL211555\drivers\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:518)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;
+	at org.openqa.selenium.net.UrlChecker.<init>(UrlChecker.java:62)
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:197)
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:79)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
 	at com.icbc.segmento.digital.front.pom.BasePage.<clinit>(BasePage.java:21)
-	... 42 more
+	at com.icbc.segmento.digital.front.step.PagarTarjetaCredito.<init>(PagarTarjetaCredito.java:17)
+	... 41 more
 </textarea>
-        </li>
-        <li test-id='4' class='node when skip' status='skip'>
-            <div class="step-name" title="BusquedaSteps.ingresa_la_busqueda()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When Ingresa la busqueda</div>
-                <div class="node-step">Step skipped</div>
-        </li>
-        <li test-id='5' class='node and skip' status='skip'>
-            <div class="step-name" title="BusquedaSteps.hace_click_en_buscar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And hace click en buscar</div>
-                <div class="node-step">Step skipped</div>
-        </li>
-        <li test-id='6' class='node then skip' status='skip'>
-            <div class="step-name" title="BusquedaSteps.valida_que_la_busqueda_este_ok()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then valida que la busqueda este ok</div>
-                <div class="node-step">Step skipped</div>
+                                                </li>
+                    <li test-id='5' class='gc when skip' status='skip'>
+                        <h6 class="step-name" title="PagarTarjetaCredito.elUsuarioClickeaEnPagar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When El usuario clickea en pagar</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+                    <li test-id='6' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="PagarTarjetaCredito.seleccionaSomethingSomethingSomethingYClickeaContinuar(String,String,String,String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+                    <li test-id='7' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="PagarTarjetaCredito.clickeaPagar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Clickea pagar</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+                    <li test-id='8' class='gc then skip' status='skip'>
+                        <h6 class="step-name" title="PagarTarjetaCredito.visualizaComprobanteDePago()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Visualiza comprobante de pago</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+            </ul>
         </li>
     </ul>
 </div>
@@ -306,7 +315,7 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@prueba</span>
+						<span class='category-name'>@tagPagarTarjetaCredito</span>
 						<span class='category-status right'>
 						<span class='label fail'>2</span>
 						</span>
@@ -328,13 +337,13 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 13, 2021 04:47:36 PM</td>
-										<td class='linked' test-id='1'>Busqueda</td>
+										<td>Oct 18, 2021 04:29:55 PM</td>
+										<td class='linked' test-id='2'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Oct 13, 2021 04:47:36 PM</td>
-										<td class='linked' test-id='2'>Busqueda.Busqueda exitosa</td>
+										<td>Oct 18, 2021 04:29:55 PM</td>
+										<td class='linked' test-id='3'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito.Pagar tarjeta de credito</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
@@ -386,10 +395,10 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 13, 2021 04:47:36 PM</td>
-										<td class='linked' test-id='3'>Busqueda.Busqueda exitosa.Given El usuario esta en la pagina de google</td>
+										<td>Oct 18, 2021 04:29:55 PM</td>
+										<td class='linked' test-id='4'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito.Pagar tarjeta de credito.Given El usuario se logea con "usuario53" y "Prueba01"</td>
 										<td>
-											<textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.BusquedaSteps
+											<textarea disabled class="code-block">cucumber.runtime.CucumberException: Failed to instantiate class com.icbc.segmento.digital.front.step.PagarTarjetaCredito
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:47)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.getInstance(DefaultJavaObjectFactory.java:33)
 	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:49)
@@ -434,20 +443,20 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at cucumber.runtime.java.DefaultJavaObjectFactory.cacheNewInstance(DefaultJavaObjectFactory.java:41)
 	... 36 more
-Caused by: java.lang.ExceptionInInitializerError
-	at com.icbc.segmento.digital.front.step.BusquedaSteps.<init>(BusquedaSteps.java:16)
-	... 41 more
-Caused by: java.lang.IllegalStateException: The driver executable does not exist: C:\Users\LL211555\drivers\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:518)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;
+	at org.openqa.selenium.net.UrlChecker.<init>(UrlChecker.java:62)
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:197)
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:79)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
 	at com.icbc.segmento.digital.front.pom.BasePage.<clinit>(BasePage.java:21)
-	... 42 more
+	at com.icbc.segmento.digital.front.step.PagarTarjetaCredito.<init>(PagarTarjetaCredito.java:17)
+	... 41 more
 </textarea>
 										</td>
 									</tr>
@@ -485,25 +494,25 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>5</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 13, 2021 04:47:36 PM</div>
+					<div class='panel-lead'>Oct 18, 2021 04:29:55 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 13, 2021 04:47:36 PM</div>
+			 		<div class='panel-lead'>Oct 18, 2021 04:29:56 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 0s+526ms</div>
+					<div class='panel-lead'>0h 0m 0s+928ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -519,7 +528,7 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@prueba</td>
+							<td>@tagPagarTarjetaCredito</td>
 							<td>0</td>
 							<td>2</td>
 							<td>0</td>
@@ -556,21 +565,21 @@ Caused by: java.lang.IllegalStateException: The driver executable does not exist
 				infoChild: 0,
 				debugChild: 0,
 				exceptionsChild: 1,
-				grandChildCount: 4,
+				grandChildCount: 5,
 				passGrandChild: 0,
 				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 3,
+				skipGrandChild: 4,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 4,
+				exceptionsGrandChild: 5,
 			};
 		</script>
 		<script>
 			var timeline = {
-			        "Busqueda":0.156
+			        "El usuario paga la tarjeta de credito":0.611
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
