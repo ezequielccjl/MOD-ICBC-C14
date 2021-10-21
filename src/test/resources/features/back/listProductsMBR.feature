@@ -1,4 +1,4 @@
-
+@listProductsMBR
 Feature: Servicio - Consulta a los productos
 
   Scenario Outline: Llamada al metodo POST listProducts

@@ -11,7 +11,7 @@ public class Url {
 		this.version = version;
 		this.environment = environment;
 	}
-
+//												mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=
 	private final static String templateMDS = "https://mds-${serviceName}-${versionDash}-${environment}.apps.ocp4-tst.intranet.local/${serviceName}/${version}/${operationName}";
 	private final static String templateBLR = "https://blr-${serviceName}-${versionDash}-${environment}.apps.ocp4-tst.intranet.local/${serviceName}/${version}/${operationName}";
 	private String serviceName;

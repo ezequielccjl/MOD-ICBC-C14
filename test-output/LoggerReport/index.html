@@ -42,6 +42,14 @@
 							</a>
 						</li>
 												<li>
+							<a href="tag.html">
+							<span class="nav-icon">
+							<i class="fa fa-tag"></i>
+							</span>
+							<span class="nav-text">Tags</span>
+							</a>
+						</li>
+						<li>
 							<a href="dashboard.html">
 							<span class="nav-icon">
 							<i class="fa fa-dashboard"></i>
@@ -90,11 +98,24 @@
 										
 										
 										
-										<a class="dropdown-item" href="#"><span class="tf" status="skip"><i class="fa fa-dot-circle-o text-blue"></i>Skip</span></a>
+										
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 									</div>
 								</li>
+						        <li class="nav-item dropdown">
+							        <a class="nav-link b-l" data-toggle="dropdown">
+							            <span class="text-xs">
+								      		<i class="fa fa-tag"></i>
+								      		<i class="fa fa-caret-down"></i>
+								        </span>
+							        </a>
+							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
+						    	        <a class="dropdown-item" href="#"><span class="cf">@listProductsMBR</span></a>
+						    	        <div class="dropdown-divider"></div>
+						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
+						    	      </div>
+						        </li>
 						        <li class="nav-item lightsout"><a class="nav-link b-l" href="#"><span><i class="fa fa-desktop"></i></span></a></li>
 								<li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
 								<li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
@@ -107,67 +128,80 @@
 								<div class="col-md-8 col-sm-12">
 									<div class="logger-content">
 										<h6 class="mb-3 ml-1">Test Logs</h6>
-											<div class="tsc" status="skip">
-											<div class="st skip test l0" 
-												tags=""
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags="@listProductsMBR"
 												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">[Servicio - Consulta a los productos] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
+												</span>
 												
 											</div>
-											<div class="st skip test l1" 
+											<div class="st pass test l1" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">|---[Llamada al metodo POST listProducts] started</span>
 												
 											</div>
-											<div class="st skip test l2" 
-												tags=""
+											<div class="st pass test l2" 
+												tags="@listProductsMBR"
 												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Llamada al metodo POST listProducts] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
+												</span>
 												
 											</div>
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
+												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""] started</span>
 												
-											</div>
-											<div class="st skip test l3" 
-												tags=""
-												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-												<span class="ts">skip</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01] started</span>
-												
-												<div class="st skip">
-													<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-													<span class="ts">skip</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01]</span>
+												<div class="st pass">
+													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""]</span>
 													
-													<span class="td">Step skipped</span>
+													<span class="td"></span>
 												</div>
 											</div>
-											<div class="st skip test l3" 
+											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01] started</span>
+												
+												<div class="st pass">
+													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente] started</span>
 												
-												<div class="st skip">
-													<span class="tt">10.21.2021 16:22:50</span>&nbsp;
-													<span class="ts">skip</span>&nbsp;&nbsp; 
+												<div class="st pass">
+													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente]</span>
 													
-													<span class="td">Step skipped</span>
+													<span class="td"></span>
 												</div>
 											</div>
 											</div>

@@ -42,8 +42,7 @@ public class DeleteExtractionMBR {
 				.dueDate(fechafecha)
 				.amount(amount)
 				.beneficiaryDocumentCode("12345678")
-				.beneficiaryDocumentNumber("04")
-				;
+				.beneficiaryDocumentNumber("04");
 		
 		System.out.println(deleteExtraction);
 		

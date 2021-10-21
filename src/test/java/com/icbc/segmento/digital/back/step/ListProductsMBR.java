@@ -24,10 +24,15 @@ import com.ebanking.model.RequestHeader;
 import com.ebanking.retail.model.ChannelDeleteExtractionInput;
 import com.ebanking.retail.model.ChannelProductListInputMbr;
 import com.ebanking.retail.model.Filter;
+import com.ebanking.retail.model.LoginSessionInput;
 import com.ebanking.retail.model.ProductListInput;
 import com.ebanking.retail.model.RequestChannelDeleteExtractionInput;
 import com.ebanking.retail.model.RequestChannelProductListInputMbr;
-import com.ebanking.retail.model.ProductListInput;
+import com.ebanking.retail.model.RequestLoginSessionInput;
+
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
@@ -39,20 +44,31 @@ public class ListProductsMBR {
 		Response resp;
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri("mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
-				.setContentType(ContentType.JSON)
+				.setBaseUri("https://mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
+				//.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
 		
-				resp = 
+		/*LoginSessionInput loginSessionInput = new LoginSessionInput()
+				.userName(user)
+				.encodedPassword(pass)
+				.deviceId(deviceId);
+		
+		RequestLoginSessionInput request = (new RequestLoginSessionInput())
+				.data(loginSessionInput);*/
+		
+		resp = 
 				given().
 				relaxedHTTPSValidation().
 				spec(requestSpec).
-				body(request).
+				contentType(ContentType.JSON).
+				queryParam("klogonUserId", user).
+				queryParam("klogonPass", pass).
+				queryParam("kdeviceId", deviceId).
 			when().
 				post().
 			then().
-				//body("header.resultCode", equalTo("ok")).
+				body("result", equalTo("ok")).
 				//body(matchesJsonSchemaInClasspath("schemas/responseGetVirtualCard.json")).
 				log().all().
 				extract().
@@ -65,6 +81,7 @@ public class ListProductsMBR {
 
     @When("^Hace la consulta al servicio con (.+) (.+)$")
     public void haceLaConsultaAlServicioCon(String transactionid, String filter)  {
+    /*
     	List<Filter> listCode = new ArrayList<Filter>();
 		listCode.add(new Filter().code("01"));
 		listCode.add(new Filter().code("02"));
@@ -84,7 +101,7 @@ public class ListProductsMBR {
 																						 	
 		RequestChannelProductListInputMbr requestChannelProductListInput = (new RequestChannelProductListInputMbr()).data(channelProductListInput);
 		
-		/*
+		
 		respuesta =		
 				given().
 					spec(reqSpec2).
@@ -105,8 +122,8 @@ public class ListProductsMBR {
     }
 
     @Then("^Verifico que se cargaron los productos correctamente$")
-    public void verificoQueSeCargaronLosProductosCorrectamente() throws Throwable {
-        throw new PendingException();
+    public void verificoQueSeCargaronLosProductosCorrectamente() {
+
     }
     
 }
