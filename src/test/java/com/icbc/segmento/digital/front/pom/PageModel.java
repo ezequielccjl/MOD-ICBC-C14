@@ -20,11 +20,13 @@ public class PageModel extends BasePage{
 	
 	
 	public PageModel() {
+		
 		super(driver);
+		
 	}
 
 	public void navigateToDEV() {
-		navigateTo("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+		navigateTo("www.google.com");
 	}
 	
 	public void ingresarUsuario(String usuario) {

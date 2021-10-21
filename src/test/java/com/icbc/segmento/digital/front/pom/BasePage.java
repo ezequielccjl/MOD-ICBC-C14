@@ -1,4 +1,6 @@
 package com.icbc.segmento.digital.front.pom;
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -17,16 +19,24 @@ public class BasePage {
 	private static Actions action;
 	
 	static {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver95.exe");
+		System.out.println("hola");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");
+		//System.out.println("\"webdriver.chrome.driver\", System.getProperty(\"user.home\") + \"/drivers/chromedriver.exe\");
 		driver = new ChromeDriver(chromeOptions());
+		System.out.println("hola3");
 		wait = new WebDriverWait(driver, 50);
+		System.out.println("hola4");
 	}
 	
 	private static ChromeOptions chromeOptions(){
+		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+		chromePrefs.put("download.default_directory", "D:\\");	
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--disable-dev-shm-usage");
-		chromeOptions.addArguments("--ignore-certificate-errors");
-		return chromeOptions;
+//		chromeOptions.setHeadless(true);
+		chromeOptions.setExperimentalOption("prefs", chromePrefs);
+	    chromeOptions.addArguments("--disable-dev-shm-usage");
+	    chromeOptions.addArguments("--ignore-certificate-errors");
+	    return chromeOptions;
 	}
 	
 	public BasePage(WebDriver driver) {
