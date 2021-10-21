@@ -1,24 +1,11 @@
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+Feature: Servicio - Consulta a los productos
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+  Scenario Outline: Llamada al metodo POST listProducts
+    Given El usuario se loguea exitosamente con "<usuario>" "<pass>" "<deviceId>"
+    When Hace la consulta al servicio con "<transactionId>" <filter>
+    Then Verifico que se cargaron los productos correctamente
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | usuario   | pass     |deviceId | transactionId                        | filter |
+      | F27308585 | prueba01 |         |c88e9362-fe9a-43e6-945c-0a11ed70da6f  |		  01 |

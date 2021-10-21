@@ -237,6 +237,31 @@
 	<version>1.0.0-SNAPSHOT</version>
 </dependency>
     
+    <dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-product-stub</artifactId>
+	<version>3.1.0-SNAPSHOT</version>
+</dependency>
+    
+    
+    <dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-product-clients</artifactId>
+	<version>3.1.0-SNAPSHOT</version>
+</dependency>
+    
+    <dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-security-authentication-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+    
+    <dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-security-authentication-clients</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+    
     
     
 		

@@ -13,7 +13,8 @@ import cucumber.api.junit.Cucumber;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		snippets = SnippetType.CAMELCASE)
+		snippets = SnippetType.CAMELCASE,
+		tags = {""})
 
 public class TestRunnerBack {
 
