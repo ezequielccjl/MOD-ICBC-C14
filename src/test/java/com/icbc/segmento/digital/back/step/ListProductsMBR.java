@@ -75,22 +75,18 @@ public class ListProductsMBR {
 		listCode.add(new Filter().code("38"));
 		listCode.add(new Filter().code("61"));
 		listCode.add(new Filter().code("62"));
-				
-		//ProductListInput productListInput = (new ProductListInput()).filter(listCode);
-		
-		Header cookieHeader = new Header("Cookie", hzSessionId);
-		RequestHeader cookieHeader2 = new RequestHeader().sessionId(hzSessionId);
 			
 		ChannelProductListInputMbr channelProductListInput = new ChannelProductListInputMbr().filter(listCode);
+		System.out.println("dse_sessionId=" +hzSessionId + " aaaaaaaaa");
 																 	
 		RequestChannelProductListInputMbr requestChannelProductListInput = (RequestChannelProductListInputMbr) (new RequestChannelProductListInputMbr())
-				.data(channelProductListInput)
-				.header(cookieHeader2);		
+				.data(channelProductListInput);		
 		
 		listProductResponse =		
 				given().
 					spec(requestSpec).
 					contentType(ContentType.JSON).
+					header("Cookie", hzSessionId).
 					body(requestChannelProductListInput).
 				when().
 					post().

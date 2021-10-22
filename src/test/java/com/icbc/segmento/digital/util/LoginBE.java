@@ -51,7 +51,7 @@ public class LoginBE {
 	
 	public String getHzSessionId(String aJsonOutput) {
 		String hzSessionId = aJsonOutput.substring(aJsonOutput.length()-55, aJsonOutput.length()-3);
-		return hzSessionId;
+		return "dse_sessionId=" + hzSessionId;
 	}
 	
 }
