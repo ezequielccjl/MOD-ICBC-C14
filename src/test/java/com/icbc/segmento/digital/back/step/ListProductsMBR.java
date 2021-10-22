@@ -29,6 +29,7 @@ import com.ebanking.retail.model.ProductListInput;
 import com.ebanking.retail.model.RequestChannelDeleteExtractionInput;
 import com.ebanking.retail.model.RequestChannelProductListInputMbr;
 import com.ebanking.retail.model.RequestLoginSessionInput;
+import com.icbc.segmento.digital.util.LoginBE;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
@@ -41,39 +42,32 @@ public class ListProductsMBR {
 	@Given("El usuario se loguea exitosamente con {string} {string} {string}")
 	public void elUsuarioSeLogueaExitosamenteCon(String user, String pass, String deviceId) {
 	    
-		Response resp;
-		RequestSpecification requestSpec;
-		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri("https://mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
-				//.setContentType(ContentType.JSON)
-				.setRelaxedHTTPSValidation()
-				.build();
+//		Response resp;
+//		RequestSpecification requestSpec;
+//		requestSpec = (RequestSpecification) new RequestSpecBuilder()
+//				.setBaseUri("https://mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
+//				.setRelaxedHTTPSValidation()
+//				.build();
+//		
+//		resp = 
+//				given().
+//				relaxedHTTPSValidation().
+//				spec(requestSpec).
+//				contentType(ContentType.JSON).
+//				queryParam("klogonUserId", user).
+//				queryParam("klogonPass", pass).
+//				queryParam("kdeviceId", deviceId).
+//			when().
+//				post().
+//			then().
+//				body("result", equalTo("ok")).
+//				log().all().
+//				extract().
+//				response();
 		
-		/*LoginSessionInput loginSessionInput = new LoginSessionInput()
-				.userName(user)
-				.encodedPassword(pass)
-				.deviceId(deviceId);
-		
-		RequestLoginSessionInput request = (new RequestLoginSessionInput())
-				.data(loginSessionInput);*/
-		
-		resp = 
-				given().
-				relaxedHTTPSValidation().
-				spec(requestSpec).
-				contentType(ContentType.JSON).
-				queryParam("klogonUserId", user).
-				queryParam("klogonPass", pass).
-				queryParam("kdeviceId", deviceId).
-			when().
-				post().
-			then().
-				body("result", equalTo("ok")).
-				//body(matchesJsonSchemaInClasspath("schemas/responseGetVirtualCard.json")).
-				log().all().
-				extract().
-				response();
-		
+		LoginBE login = new LoginBE(user, pass, deviceId);
+		Response resp = login.getResponse();
+		String hzSessionId = login.getHzSessionId(resp.asString());
 		
 		assertEquals("El status code es incorrecto" + resp.getStatusCode() , 200, resp.getStatusCode());
 	    
