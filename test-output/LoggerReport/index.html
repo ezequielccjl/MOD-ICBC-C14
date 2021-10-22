@@ -50,6 +50,14 @@
 							</a>
 						</li>
 						<li>
+							<a href="exception.html">
+							<span class="nav-icon">
+							<i class="fa fa-warning"></i>
+							</span>
+							<span class="nav-text">Exceptions</span>
+							</a>
+						</li>
+						<li>
 							<a href="dashboard.html">
 							<span class="nav-icon">
 							<i class="fa fa-dashboard"></i>
@@ -94,7 +102,7 @@
 									</a>
 									<div class="dropdown-menu pt-0 mt-2 animate fadeIn">
 										<a class="dropdown-item" href="#"><span class="tf" status="pass"><i class="fa fa-dot-circle-o text-success"></i>Pass</span></a>
-										
+										<a class="dropdown-item" href="#"><span class="tf" status="fail"><i class="fa fa-dot-circle-o text-danger"></i>Fail</span></a>
 										
 										
 										
@@ -128,31 +136,31 @@
 								<div class="col-md-8 col-sm-12">
 									<div class="logger-content">
 										<h6 class="mb-3 ml-1">Test Logs</h6>
-											<div class="tsc" status="pass">
-											<div class="st pass test l0" 
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
 												tags="@listProductsMBR"
 												devices="">
-												<span class="tt">10.22.2021 12:56:44</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.22.2021 15:36:55</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">[Servicio - Consulta a los productos] started</span>
 												<span class="category-list">
 													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
 												</span>
 												
 											</div>
-											<div class="st pass test l1" 
+											<div class="st fail test l1" 
 												tags=""
 												devices="">
-												<span class="tt">10.22.2021 12:56:44</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.22.2021 15:36:55</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">|---[Llamada al metodo POST listProducts] started</span>
 												
 											</div>
-											<div class="st pass test l2" 
+											<div class="st fail test l2" 
 												tags="@listProductsMBR"
 												devices="">
-												<span class="tt">10.22.2021 12:56:44</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.22.2021 15:36:55</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Llamada al metodo POST listProducts] started</span>
 												<span class="category-list">
 													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
@@ -162,12 +170,12 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.22.2021 12:56:44</span>&nbsp;
+												<span class="tt">10.22.2021 15:36:55</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.22.2021 12:56:47</span>&nbsp;
+													<span class="tt">10.22.2021 15:36:59</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""]</span>
 													
@@ -177,31 +185,37 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.22.2021 12:56:47</span>&nbsp;
+												<span class="tt">10.22.2021 15:36:59</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.22.2021 12:56:47</span>&nbsp;
+													<span class="tt">10.22.2021 15:37:00</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01]</span>
 													
 													<span class="td"></span>
 												</div>
 											</div>
-											<div class="st pass test l3" 
+											<div class="st fail test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.22.2021 12:56:47</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.22.2021 15:37:00</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente] started</span>
 												
-												<div class="st pass">
-													<span class="tt">10.22.2021 12:56:47</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
+												<div class="st fail">
+													<span class="tt">10.22.2021 15:37:00</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente]</span>
 													
-													<span class="td"></span>
+													<span class="td">threw an exception<br><textarea disabled class="code-block">java.lang.AssertionError: El status code es incorrecto403 expected:<200> but was:<403>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at com.icbc.segmento.digital.back.step.ListProductsMBR.verificoQueSeCargaronLosProductosCorrectamente(ListProductsMBR.java:109)
+	at ?.Verifico que se cargaron los productos correctamente(src/test/resources/features/back/listProductsMBR.feature:7)
+</textarea></span>
 												</div>
 											</div>
 											</div>

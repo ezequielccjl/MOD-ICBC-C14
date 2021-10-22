@@ -8,6 +8,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -29,6 +30,7 @@ import com.ebanking.retail.model.ProductListInput;
 import com.ebanking.retail.model.RequestChannelDeleteExtractionInput;
 import com.ebanking.retail.model.RequestChannelProductListInputMbr;
 import com.ebanking.retail.model.RequestLoginSessionInput;
+import com.icbc.segmento.digital.util.Link;
 import com.icbc.segmento.digital.util.LoginBE;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -39,43 +41,30 @@ import static org.junit.Assert.assertEquals;
 @CucumberOptions()
 public class ListProductsMBR {
 
+	private static String hzSessionId;
+	private static Response listProductResponse;
+	
 	@Given("El usuario se loguea exitosamente con {string} {string} {string}")
 	public void elUsuarioSeLogueaExitosamenteCon(String user, String pass, String deviceId) {
-	    
-//		Response resp;
-//		RequestSpecification requestSpec;
-//		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-//				.setBaseUri("https://mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
-//				.setRelaxedHTTPSValidation()
-//				.build();
-//		
-//		resp = 
-//				given().
-//				relaxedHTTPSValidation().
-//				spec(requestSpec).
-//				contentType(ContentType.JSON).
-//				queryParam("klogonUserId", user).
-//				queryParam("klogonPass", pass).
-//				queryParam("kdeviceId", deviceId).
-//			when().
-//				post().
-//			then().
-//				body("result", equalTo("ok")).
-//				log().all().
-//				extract().
-//				response();
 		
 		LoginBE login = new LoginBE(user, pass, deviceId);
-		Response resp = login.getResponse();
-		String hzSessionId = login.getHzSessionId(resp.asString());
+		Response loginResponse = login.getResponse();
+		hzSessionId = login.getHzSessionId(loginResponse.asString());
 		
-		assertEquals("El status code es incorrecto" + resp.getStatusCode() , 200, resp.getStatusCode());
+		assertEquals("El status code es incorrecto" + loginResponse.getStatusCode() , 200, loginResponse.getStatusCode());
 	    
 	}
 
     @When("^Hace la consulta al servicio con (.+) (.+)$")
     public void haceLaConsultaAlServicioCon(String transactionid, String filter)  {
-    /*
+    
+    	RequestSpecification requestSpec;
+		requestSpec = (RequestSpecification) new RequestSpecBuilder()
+				.setBaseUri(Link.LISTPRODUCTS)
+//				.setContentType(ContentType.JSON)
+				.setRelaxedHTTPSValidation()
+				.build();
+    	
     	List<Filter> listCode = new ArrayList<Filter>();
 		listCode.add(new Filter().code("01"));
 		listCode.add(new Filter().code("02"));
@@ -84,40 +73,40 @@ public class ListProductsMBR {
 		listCode.add(new Filter().code("17"));
 		listCode.add(new Filter().code("37"));
 		listCode.add(new Filter().code("38"));
+		listCode.add(new Filter().code("61"));
 		listCode.add(new Filter().code("62"));
+				
+		//ProductListInput productListInput = (new ProductListInput()).filter(listCode);
 		
-		RequestHeader requestHeader = (new RequestHeader()).channel("mbr").transactionId(transactionid);
-		
-		ProductListInput productListInput = (new ProductListInput()).filter(listCode);
+		Header cookieHeader = new Header("Cookie", hzSessionId);
+		RequestHeader cookieHeader2 = new RequestHeader().sessionId(hzSessionId);
 			
-		ChannelProductListInputMbr channelProductListInput = ( (Object) new ChannelProductListInputMbr()).productListInput(productListInput);
-
-																						 	
-		RequestChannelProductListInputMbr requestChannelProductListInput = (new RequestChannelProductListInputMbr()).data(channelProductListInput);
+		ChannelProductListInputMbr channelProductListInput = new ChannelProductListInputMbr().filter(listCode);
+																 	
+		RequestChannelProductListInputMbr requestChannelProductListInput = (RequestChannelProductListInputMbr) (new RequestChannelProductListInputMbr())
+				.data(channelProductListInput)
+				.header(cookieHeader2);		
 		
-		
-		respuesta =		
+		listProductResponse =		
 				given().
-					spec(reqSpec2).
-					cookie("JSESSIONID", sesion).
+					spec(requestSpec).
+					contentType(ContentType.JSON).
 					body(requestChannelProductListInput).
 				when().
 					post().
 				then().
-					body("header.resultCode", equalTo("ok")).
-					body("data.accounts[0].productType.code", equalTo("01")).
-					log().
-					all().
+//					body("header.resultCode", equalTo("ok")).
+//					body("data.accounts[0].productType.code", equalTo("01")).
+					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
-	}
-*/
-    }
+		
+		}
 
     @Then("^Verifico que se cargaron los productos correctamente$")
     public void verificoQueSeCargaronLosProductosCorrectamente() {
-
+		assertEquals("El status code es incorrecto " + listProductResponse.getStatusCode() , 200, listProductResponse.getStatusCode());    	
     }
     
 }

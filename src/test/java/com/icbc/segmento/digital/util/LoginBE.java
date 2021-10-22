@@ -3,11 +3,6 @@ package com.icbc.segmento.digital.util;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -20,7 +15,6 @@ public class LoginBE {
 	private static String pass;
 	private static String deviceId;
 	private static Response resp;
-	private static JSONObject jsonObject;
 	
 	public LoginBE(String user, String pass, String deviceId) {
 		LoginBE.user = user;
@@ -32,7 +26,7 @@ public class LoginBE {
 
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri("https://mbrdev.intranet.local/icbc/servlet/Login?klogonUserId=F27308585&klogonPass=prueba01&kdeviceId=")
+				.setBaseUri(Link.LOGIN)
 				.setRelaxedHTTPSValidation()
 				.build();
 		
@@ -48,7 +42,7 @@ public class LoginBE {
 				post().
 			then().
 				body("result", equalTo("ok")).
-				log().all().
+//				log().all().
 				extract().
 				response();
 	
