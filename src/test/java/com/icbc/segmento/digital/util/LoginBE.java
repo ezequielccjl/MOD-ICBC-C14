@@ -3,6 +3,8 @@ package com.icbc.segmento.digital.util;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.util.HashMap;
+
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -30,11 +32,15 @@ public class LoginBE {
 				.setRelaxedHTTPSValidation()
 				.build();
 		
+//		HashMap<String, String> loginData = getLoginDataHashMap(user, pass, deviceId);
+		
+		
 		resp = 
 				given().
 				relaxedHTTPSValidation().
 				spec(requestSpec).
 				contentType(ContentType.JSON).
+//				queryParams(loginData).
 				queryParam("klogonUserId", user).
 				queryParam("klogonPass", pass).
 				queryParam("kdeviceId", deviceId).
@@ -47,6 +53,17 @@ public class LoginBE {
 				response();
 	
 		return resp;
+	}
+	
+	public HashMap<String, String> getLoginDataHashMap(String user, String pass, String deviceId) {
+		
+		HashMap<String, String> loginData = new HashMap<String, String>();
+		
+		loginData.put("user", user);
+		loginData.put("pass", pass);
+		loginData.put("deviceId", deviceId);
+		
+		return loginData;
 	}
 	
 	public String getHzSessionId(String aJsonOutput) {

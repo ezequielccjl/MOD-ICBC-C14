@@ -14,7 +14,7 @@ import com.icbc.segmento.digital.front.pom.PageModel;
 @CucumberOptions()
 public class PagarTarjetaCredito {
 
-	PageModel page = new PageModel();
+	PageModel page = new PageModel();;
 		
     @Given("^El usuario se logea con \"([^\"]*)\" y \"([^\"]*)\"$")
     public void elUsuarioSeLogeaConSomethingYSomething(String user, String password) {
