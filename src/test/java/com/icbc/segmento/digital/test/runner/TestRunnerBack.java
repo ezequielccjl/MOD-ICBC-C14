@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 		strict = true,
 		dryRun = false,
 		snippets = SnippetType.CAMELCASE,
-		tags = {"@listProductsMBR"})
+		tags = {"@listProductCardMBR"})
 
 public class TestRunnerBack {
 

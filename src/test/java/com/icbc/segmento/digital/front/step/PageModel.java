@@ -26,7 +26,7 @@ public class PageModel extends BasePage{
 	}
 
 	public void navigateToDEV() {
-		navigateTo("www.google.com");
+		navigateTo("https://www.google.com");
 	}
 	
 	public void ingresarUsuario(String usuario) {
