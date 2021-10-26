@@ -1,47 +1,42 @@
 package com.icbc.segmento.digital.front.step;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
+import cucumber.api.java.Before;
 
-import com.icbc.segmento.digital.front.pom.PageModel;
-
-@RunWith(Cucumber.class)
-@CucumberOptions()
-public class PagarTarjetaCredito {
-
+public class PagarTarjetaCredito {/*
 	PageModel page = new PageModel();
-		
-    @Given("^El usuario se logea con \"([^\"]*)\" y \"([^\"]*)\"$")
-    public void elUsuarioSeLogeaConSomethingYSomething(String user, String password) {
-    	System.out.println("asd");
+
+	
+	
+	@Given("El usuario se logea con {string} y {string}")
+	public void elUsuarioSeLogeaConY(String user, String pass) {
+		System.out.println("asd");
         page.navigateToDEV();
         page.ingresarUsuario(user);
-        page.ingresarContraseña(password);
-    }
+        page.ingresarContraseña(pass);
+	}
 
-    @When("^El usuario clickea en pagar$")
-    public void elUsuarioClickeaEnPagar() {
-        
-    }
+	@When("El usuario clickea en pagar")
+	public void elUsuarioClickeaEnPagar() {
+	}
 
-    @Then("^Visualiza comprobante de pago$")
-    public void visualizaComprobanteDePago() {
-        
-    }
+	@When("Selecciona {string} {string} {string} y clickea continuar")
+	public void seleccionaYClickeaContinuar(String string, String string2, String string3) {
 
-    @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y clickea continuar$")
-    public void seleccionaSomethingSomethingSomethingYClickeaContinuar(String cuentadebitar, String monedapagar, String importe, String strArg1, String strArg2, String strArg3) {
-        
-    }
+	}
 
-    @And("^Clickea pagar$")
-    public void clickeaPagar() {
-        
-    }
+	@When("Clickea pagar")
+	public void clickeaPagar() {
+	    
+	}
 
+	@Then("Visualiza comprobante de pago")
+	public void visualizaComprobanteDePago() {
+	    
+	}
+*/
 }

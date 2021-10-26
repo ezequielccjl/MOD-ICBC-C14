@@ -34,8 +34,8 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Cucumber.class)
-@CucumberOptions()
+//@RunWith(Cucumber.class)
+//@CucumberOptions()
 public class ListProductsMBR {
 
 	@Given("El usuario se loguea exitosamente con {string} {string} {string}")

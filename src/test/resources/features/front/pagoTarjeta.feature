@@ -12,4 +12,4 @@ Feature: El usuario paga la tarjeta de credito
 		
 		Examples:
 		| user    | password | cuentaDebitar   | monedaPagar | importe |
-		|usuario53| Prueba01 | 0530/01006879/57| PESOS       | 1       |
+		|corona01 | Prueba01 | 0530/01006879/57| PESOS       | 1       |

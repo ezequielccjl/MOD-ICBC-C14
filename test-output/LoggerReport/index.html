@@ -111,7 +111,7 @@
 								        </span>
 							        </a>
 							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
-						    	        <a class="dropdown-item" href="#"><span class="cf">@listProductsMBR</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@tagPagarTarjetaCredito</span></a>
 						    	        <div class="dropdown-divider"></div>
 						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 						    	      </div>
@@ -130,46 +130,46 @@
 										<h6 class="mb-3 ml-1">Test Logs</h6>
 											<div class="tsc" status="pass">
 											<div class="st pass test l0" 
-												tags="@listProductsMBR"
+												tags=""
 												devices="">
-												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">[Servicio - Consulta a los productos] started</span>
-												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
-												</span>
+												<span class="tn">[El usuario paga la tarjeta de credito] started</span>
 												
 											</div>
 											<div class="st pass test l1" 
-												tags=""
+												tags="@tagPagarTarjetaCredito"
 												devices="">
-												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">|---[Llamada al metodo POST listProducts] started</span>
+												<span class="tn">|---[Pagar tarjeta de credito] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
+												</span>
 												
 											</div>
 											<div class="st pass test l2" 
-												tags="@listProductsMBR"
+												tags="@tagPagarTarjetaCredito"
 												devices="">
-												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Llamada al metodo POST listProducts] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Pagar tarjeta de credito] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @listProductsMBR</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 17:56:29</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "corona01" y "Prueba01"] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea exitosamente con "F27308585" "prueba01" ""]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "corona01" y "Prueba01"]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -177,14 +177,14 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "c88e9362-fe9a-43e6-945c-0a11ed70da6f" 01]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -192,14 +192,44 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.21.2021 17:56:32</span>&nbsp;
+													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que se cargaron los productos correctamente]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar] started</span>
+												
+												<div class="st pass">
+													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago] started</span>
+												
+												<div class="st pass">
+													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago]</span>
 													
 													<span class="td"></span>
 												</div>
