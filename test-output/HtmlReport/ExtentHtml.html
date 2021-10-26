@@ -36,6 +36,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -45,11 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-<<<<<<< HEAD
-			<span class='label blue darken-3 suite-start-time'>Oct 25, 2021 05:25:46 PM</span>
-=======
-			<span class='label blue darken-3 suite-start-time'>Oct 25, 2021 05:16:20 PM</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+			<span class='label blue darken-3 suite-start-time'>Oct 26, 2021 03:08:42 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -65,6 +62,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -76,11 +75,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-<<<<<<< HEAD
-					<li><a href='#'>@tagPagarTarjetaCredito</a></li>
-=======
-					<li><a href='#'>@listProductCardMBR</a></li>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+					<li><a href='#'>@pantallaPagarCredito</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -121,10 +116,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -135,10 +130,10 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -149,10 +144,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='20%'><span class='strong'>1</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='20%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='60%'>3</span> others
                 </div>
             </div>
         </div>
@@ -170,16 +165,11 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-<<<<<<< HEAD
 						<span class='test-name'>El usuario paga la tarjeta de credito</span>
-						<span class='test-time'>Oct 25, 2021 05:25:47 PM</span>
-=======
-						<span class='test-name'>Servicio - Consulta a los productos</span>
-						<span class='test-time'>Oct 25, 2021 05:16:20 PM</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
-						<span class='test-status right pass'>pass</span>
+						<span class='test-time'>Oct 26, 2021 03:08:42 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class="sr-filters bdd-filters">
@@ -188,60 +178,63 @@
     <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-<div class='scenariooutline node' test-id='2' status='pass'>
-<<<<<<< HEAD
+<div class='scenariooutline node' test-id='2' status='fail'>
     <div class='category-list'>
-        <span class='category label'>@tagPagarTarjetaCredito</span>
+        <span class='category label'>@pantallaPagarCredito</span>
     </div>
-    <span class='duration right label'>0h 0m 8s+704ms</span>
+    <span class='duration right label'>0h 0m 8s+951ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: Pagar tarjeta de credito</div>
-        <table class='runtime-table table-striped table'><tr><td>user</td><td>password</td><td>cuentaDebitar</td><td>monedaPagar</td><td>importe</td></tr><tr><td>corona01</td><td>Prueba01</td><td>0530/01006879/57</td><td>PESOS</td><td>1</td></tr></table>
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Pagar tarjeta de credito</div>
+        <table class='runtime-table table-striped table'><tr><td>user</td><td>password</td><td>cuentaDebitar</td><td>monedaPagar</td><td>importe</td></tr><tr><td>corona01</td><td>Prueba01</td><td>0825/01111044/88</td><td>PESOS</td><td>1</td></tr></table>
     </div>
     <ul class='steps'>
-        <li test-id='3' class='node scenario pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Pagar tarjeta de credito</div>
+        <li test-id='3' class='node scenario fail' status='fail'>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Pagar tarjeta de credito</div>
             <ul class='gc steps'>
                     <li test-id='4' class='gc given pass' status='pass'>
                         <h6 class="step-name" title="PagoTarjeta.elUsuarioSeLogeaConY(String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given El usuario se logea con "corona01" y "Prueba01"</h6>
                             <div class="node-step"></div>
                     </li>
-                    <li test-id='5' class='gc when pass' status='pass'>
-                        <h6 class="step-name" title="PagoTarjeta.elUsuarioClickeaEnPagar()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When El usuario clickea en pagar</h6>
-                            <div class="node-step"></div>
+                    <li test-id='5' class='gc when fail' status='fail'>
+                        <h6 class="step-name" title="PagoTarjeta.elUsuarioClickeaEnPagar()"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>When El usuario clickea en pagar</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(),'Pagar')]"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'VDAEB061', ip: '123.200.223.184', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\CE211556\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63858}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 20901fc5a897c221500f0ec53cbfde76
+*** Element info: {Using=xpath, value=//button[contains(text(),'Pagar')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.icbc.segmento.digital.front.step.PagoTarjeta.elUsuarioClickeaEnPagar(PagoTarjeta.java:71)
+	at ?.El usuario clickea en pagar(src/test/resources/features/front/pagoTarjeta.feature:6)
+</textarea>
+                                                </li>
+                    <li test-id='6' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="PagoTarjeta.seleccionaYClickeaContinuar(String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Selecciona "0825/01111044/88" "PESOS" "1" y clickea continuar</h6>
+                            <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='6' class='gc and pass' status='pass'>
-                        <h6 class="step-name" title="PagoTarjeta.seleccionaYClickeaContinuar(String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar</h6>
-                            <div class="node-step"></div>
+                    <li test-id='7' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="PagoTarjeta.clickeaPagar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Clickea pagar</h6>
+                            <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='7' class='gc and pass' status='pass'>
-                        <h6 class="step-name" title="PagoTarjeta.clickeaPagar()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Clickea pagar</h6>
-                            <div class="node-step"></div>
-                    </li>
-                    <li test-id='8' class='gc then pass' status='pass'>
-                        <h6 class="step-name" title="PagoTarjeta.visualizaComprobanteDePago()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Visualiza comprobante de pago</h6>
-=======
-    <span class='duration right label'>0h 0m 5s+8ms</span>
-    <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: Llamada al metodo POST listProductCard</div>
-        <table class='runtime-table table-striped table'><tr><td>user</td><td>pass</td><td>deviceId</td><td>transactionId</td></tr><tr><td>F27308585</td><td>prueba01</td><td></td><td>0d27a017-b54b-413e-925c-7c88c500c7c2</td></tr></table>
-    </div>
-    <ul class='steps'>
-        <li test-id='3' class='node scenario pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Llamada al metodo POST listProductCard</div>
-            <ul class='gc steps'>
-                    <li test-id='4' class='gc given pass' status='pass'>
-                        <h6 class="step-name" title="ListProductCardMBR.elUsuarioSeLogueaCorrectamenteConSomethingSomethingSomething(String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given El usuario se loguea correctamente con "F27308585" "prueba01" ""</h6>
-                            <div class="node-step"></div>
-                    </li>
-                    <li test-id='5' class='gc when pass' status='pass'>
-                        <h6 class="step-name" title="ListProductCardMBR.haceLaConsultaAlServicioConSomething(String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Hace la consulta al servicio con "0d27a017-b54b-413e-925c-7c88c500c7c2"</h6>
-                            <div class="node-step"></div>
-                    </li>
-                    <li test-id='6' class='gc then pass' status='pass'>
-                        <h6 class="step-name" title="ListProductCardMBR.verificoQueCargoLosProductosCorrectamente()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verifico que cargo los productos correctamente</h6>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
-                            <div class="node-step"></div>
+                    <li test-id='8' class='gc then skip' status='skip'>
+                        <h6 class="step-name" title="PagoTarjeta.visualizaComprobanteDePago()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Visualiza comprobante de pago</h6>
+                            <div class="node-step">Step skipped</div>
                     </li>
             </ul>
         </li>
@@ -289,19 +282,15 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-<<<<<<< HEAD
-						<span class='category-name'>@tagPagarTarjetaCredito</span>
-=======
-						<span class='category-name'>@listProductCardMBR</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+						<span class='category-name'>@pantallaPagarCredito</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
 							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 						<div class='category-tests'>
@@ -315,24 +304,14 @@
 								</thead>
 								<tbody>
 									<tr>
-<<<<<<< HEAD
-										<td>Oct 25, 2021 05:25:47 PM</td>
+										<td>Oct 26, 2021 03:08:42 PM</td>
 										<td class='linked' test-id='2'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Oct 25, 2021 05:25:47 PM</td>
+										<td>Oct 26, 2021 03:08:42 PM</td>
 										<td class='linked' test-id='3'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito.Pagar tarjeta de credito</td>
-=======
-										<td>Oct 25, 2021 05:16:20 PM</td>
-										<td class='linked' test-id='1'>Servicio - Consulta a los productos</td>
-										<td><span class='test-status pass'>pass</span></td>
-									</tr>
-									<tr>
-										<td>Oct 25, 2021 05:16:20 PM</td>
-										<td class='linked' test-id='3'>Servicio - Consulta a los productos.Llamada al metodo POST listProductCard.Llamada al metodo POST listProductCard</td>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
-										<td><span class='test-status pass'>pass</span></td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -348,7 +327,87 @@
 		</div>
 	</div>
 </div>
-<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 26, 2021 03:08:46 PM</td>
+										<td class='linked' test-id='5'>El usuario paga la tarjeta de credito.Pagar tarjeta de credito.Pagar tarjeta de credito.When El usuario clickea en pagar</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(),'Pagar')]"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'VDAEB061', ip: '123.200.223.184', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\CE211556\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63858}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 20901fc5a897c221500f0ec53cbfde76
+*** Element info: {Using=xpath, value=//button[contains(text(),'Pagar')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.icbc.segmento.digital.front.step.PagoTarjeta.elUsuarioClickeaEnPagar(PagoTarjeta.java:71)
+	at ?.El usuario clickea en pagar(src/test/resources/features/front/pagoTarjeta.feature:6)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -374,31 +433,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-<<<<<<< HEAD
-					<div class='panel-lead'>Oct 25, 2021 05:25:46 PM</div>
-=======
-					<div class='panel-lead'>Oct 25, 2021 05:16:20 PM</div>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+					<div class='panel-lead'>Oct 26, 2021 03:08:42 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-<<<<<<< HEAD
-			 		<div class='panel-lead'>Oct 25, 2021 05:25:55 PM</div>
-=======
-			 		<div class='panel-lead'>Oct 25, 2021 05:16:25 PM</div>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+			 		<div class='panel-lead'>Oct 26, 2021 03:08:51 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-<<<<<<< HEAD
-					<div class='panel-lead'>0h 0m 8s+988ms</div>
-=======
-					<div class='panel-lead'>0h 0m 5s+323ms</div>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+					<div class='panel-lead'>0h 0m 9s+238ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -414,16 +461,12 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-<<<<<<< HEAD
-							<td>@tagPagarTarjetaCredito</td>
-=======
-							<td>@listProductCardMBR</td>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+							<td>@pantallaPagarCredito</td>
+							<td>0</td>
 							<td>2</td>
 							<td>0</td>
-							<td>0</td>
 							<td>
-									100%
+									0%
 							</td>
 						</tr>
 					</table>
@@ -438,42 +481,38 @@
 		<script>
 			var statusGroup = {
                 parentCount: 1,
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				childCount: 1,
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
 				debugChild: 0,
-				exceptionsChild: 0,
+				exceptionsChild: 1,
 				grandChildCount: 5,
-				passGrandChild: 5,
-				failGrandChild: 0,
+				passGrandChild: 1,
+				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 3,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 4,
 			};
 		</script>
 		<script>
 			var timeline = {
-<<<<<<< HEAD
-			        "El usuario paga la tarjeta de credito":8.704
-=======
-			        "Servicio - Consulta a los productos":5.008
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+			        "El usuario paga la tarjeta de credito":8.951
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

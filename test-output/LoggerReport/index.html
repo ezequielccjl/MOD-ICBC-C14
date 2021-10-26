@@ -50,6 +50,14 @@
 							</a>
 						</li>
 						<li>
+							<a href="exception.html">
+							<span class="nav-icon">
+							<i class="fa fa-warning"></i>
+							</span>
+							<span class="nav-text">Exceptions</span>
+							</a>
+						</li>
+						<li>
 							<a href="dashboard.html">
 							<span class="nav-icon">
 							<i class="fa fa-dashboard"></i>
@@ -94,11 +102,11 @@
 									</a>
 									<div class="dropdown-menu pt-0 mt-2 animate fadeIn">
 										<a class="dropdown-item" href="#"><span class="tf" status="pass"><i class="fa fa-dot-circle-o text-success"></i>Pass</span></a>
+										<a class="dropdown-item" href="#"><span class="tf" status="fail"><i class="fa fa-dot-circle-o text-danger"></i>Fail</span></a>
 										
 										
 										
-										
-										
+										<a class="dropdown-item" href="#"><span class="tf" status="skip"><i class="fa fa-dot-circle-o text-blue"></i>Skip</span></a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 									</div>
@@ -111,11 +119,7 @@
 								        </span>
 							        </a>
 							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
-<<<<<<< HEAD
-						    	        <a class="dropdown-item" href="#"><span class="cf">@tagPagarTarjetaCredito</span></a>
-=======
-						    	        <a class="dropdown-item" href="#"><span class="cf">@listProductCardMBR</span></a>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+						    	        <a class="dropdown-item" href="#"><span class="cf">@pantallaPagarCredito</span></a>
 						    	        <div class="dropdown-divider"></div>
 						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 						    	      </div>
@@ -132,170 +136,135 @@
 								<div class="col-md-8 col-sm-12">
 									<div class="logger-content">
 										<h6 class="mb-3 ml-1">Test Logs</h6>
-											<div class="tsc" status="pass">
-											<div class="st pass test l0" 
-<<<<<<< HEAD
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
 												tags=""
 												devices="">
-												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:42</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">[El usuario paga la tarjeta de credito] started</span>
-=======
-												tags="@listProductCardMBR"
-												devices="">
-												<span class="tt">10.25.2021 17:16:20</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">[Servicio - Consulta a los productos] started</span>
-												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @listProductCardMBR</span>
-												</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
 												
 											</div>
-											<div class="st pass test l1" 
-												tags="@tagPagarTarjetaCredito"
+											<div class="st fail test l1" 
+												tags="@pantallaPagarCredito"
 												devices="">
-<<<<<<< HEAD
-												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:42</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">|---[Pagar tarjeta de credito] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @pantallaPagarCredito</span>
 												</span>
 												
 											</div>
-											<div class="st pass test l2" 
-												tags="@tagPagarTarjetaCredito"
+											<div class="st fail test l2" 
+												tags="@pantallaPagarCredito"
 												devices="">
-												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:42</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Pagar tarjeta de credito] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @tagPagarTarjetaCredito</span>
-=======
-												<span class="tt">10.25.2021 17:16:20</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">|---[Llamada al metodo POST listProductCard] started</span>
-												
-											</div>
-											<div class="st pass test l2" 
-												tags="@listProductCardMBR"
-												devices="">
-												<span class="tt">10.25.2021 17:16:20</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Llamada al metodo POST listProductCard] started</span>
-												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @listProductCardMBR</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+													<span class="category badge"><i class="fa fa-tag"></i> @pantallaPagarCredito</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-<<<<<<< HEAD
-												<span class="tt">10.25.2021 17:25:47</span>&nbsp;
+												<span class="tt">10.26.2021 15:08:42</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "corona01" y "Prueba01"] started</span>
 												
 												<div class="st pass">
-													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
+													<span class="tt">10.26.2021 15:08:46</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se logea con "corona01" y "Prueba01"]</span>
 													
 													<span class="td"></span>
 												</div>
 											</div>
-											<div class="st pass test l3" 
+											<div class="st fail test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:46</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar] started</span>
 												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
+												<div class="st fail">
+													<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When El usuario clickea en pagar]</span>
 													
-													<span class="td"></span>
+													<span class="td">threw an exception<br><textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(),'Pagar')]"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'VDAEB061', ip: '123.200.223.184', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\CE211556\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63858}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 20901fc5a897c221500f0ec53cbfde76
+*** Element info: {Using=xpath, value=//button[contains(text(),'Pagar')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.icbc.segmento.digital.front.step.PagoTarjeta.elUsuarioClickeaEnPagar(PagoTarjeta.java:71)
+	at ?.El usuario clickea en pagar(src/test/resources/features/front/pagoTarjeta.feature:6)
+</textarea></span>
 												</div>
 											</div>
-											<div class="st pass test l3" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar] started</span>
+												<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0825/01111044/88" "PESOS" "1" y clickea continuar] started</span>
 												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0530/01006879/57" "PESOS" "1" y clickea continuar]</span>
-=======
-												<span class="tt">10.25.2021 17:16:20</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea correctamente con "F27308585" "prueba01" ""] started</span>
-												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:16:24</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El usuario se loguea correctamente con "F27308585" "prueba01" ""]</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
+												<div class="st skip">
+													<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona "0825/01111044/88" "PESOS" "1" y clickea continuar]</span>
 													
-													<span class="td"></span>
+													<span class="td">Step skipped</span>
 												</div>
 											</div>
-											<div class="st pass test l3" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-<<<<<<< HEAD
-												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar] started</span>
 												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
+												<div class="st skip">
+													<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Clickea pagar]</span>
-=======
-												<span class="tt">10.25.2021 17:16:24</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "0d27a017-b54b-413e-925c-7c88c500c7c2"] started</span>
-												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:16:25</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Hace la consulta al servicio con "0d27a017-b54b-413e-925c-7c88c500c7c2"]</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
 													
-													<span class="td"></span>
+													<span class="td">Step skipped</span>
 												</div>
 											</div>
-											<div class="st pass test l3" 
+											<div class="st skip test l3" 
 												tags=""
 												devices="">
-<<<<<<< HEAD
-												<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
 												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago] started</span>
 												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:25:55</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
+												<div class="st skip">
+													<span class="tt">10.26.2021 15:08:51</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
 													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Visualiza comprobante de pago]</span>
-=======
-												<span class="tt">10.25.2021 17:16:25</span>&nbsp;
-												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que cargo los productos correctamente] started</span>
-												
-												<div class="st pass">
-													<span class="tt">10.25.2021 17:16:25</span>&nbsp;
-													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifico que cargo los productos correctamente]</span>
->>>>>>> 8e95990209a34d6268aa96710fd4cd450d9f49bf
 													
-													<span class="td"></span>
+													<span class="td">Step skipped</span>
 												</div>
 											</div>
 											</div>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,11 +24,19 @@ public class PagoTarjeta {
 	private WebDriverWait wait;
 	private Actions action;
 	WebElement ingresarBtn;
+	WebElement pagarBtn;
+	WebElement liCuentaCorriente;
+	WebElement cuentaCorriente;
+	WebElement liMonedaWeb;
+	WebElement moneda;
 	int i = 0;
 	
 	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
 	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
 	private String btnIngresar = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[2]/div/ly-flex-layout/div/ly-button/button";
+	private String btnPagar = "//*[@id=\"flex_163526211107270629\"]/ly-button[1]/button";
+	private String liCuenta = "/html/body/main[1]/div/app-root/ly-app-container/div/app-card-payment-form-cont/ly-layout-container/div/div/app-card-payment-form-data/form/ly-form-field[1]/div/ly-select/div/div/ly-drop-frame/div/div[1]/ly-list-item/li";
+	private String liMoneda = "/html/body/main[1]/div/app-root/ly-app-container/div/app-card-payment-form-cont/ly-layout-container/div/div/app-card-payment-form-data/form/ly-form-field[2]/div/ly-select/div/div/ly-drop-frame/div/div[1]";
 	
 	@Given("El usuario se logea con {string} y {string}")
 	public void elUsuarioSeLogeaConY(String user, String pass) {
@@ -54,11 +63,37 @@ public class PagoTarjeta {
 	}
 
 	@When("El usuario clickea en pagar")
-	public void elUsuarioClickeaEnPagar() {
+	public void elUsuarioClickeaEnPagar() throws InterruptedException {
+
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2000)");
+		pagarBtn = driver.findElement(By.xpath("//button[contains(text(),'Pagar')]"));
+		pagarBtn.click();
+		
 	}
 
 	@When("Selecciona {string} {string} {string} y clickea continuar")
-	public void seleccionaYClickeaContinuar(String string, String string2, String string3) {
+	public void seleccionaYClickeaContinuar(String cuentaDebitar, String monedaPagar, String importe) throws InterruptedException {
+		
+		Thread.sleep(3000);
+		liCuentaCorriente = driver.findElement(By.xpath(liCuenta));
+		liCuentaCorriente.click();
+		
+		Thread.sleep(1000);
+		System.out.println("//div[contains(text(),'" + cuentaDebitar + "')]");
+		cuentaCorriente = driver.findElement(By.xpath("//div[contains(text(),'"+ cuentaDebitar +"')]"));
+		cuentaCorriente.click();
+		
+		Thread.sleep(1000);
+		liMonedaWeb = driver.findElement(By.xpath(liMoneda));
+		liMonedaWeb.click();
+		
+		Thread.sleep(1000);
+		moneda = driver.findElement(By.xpath("//span[contains(text(),'"+monedaPagar+"')]"));
+		cuentaCorriente.click();
+		
+		
 	}
 
 	@When("Clickea pagar")
