@@ -18,7 +18,7 @@ import cucumber.api.java.BeforeStep;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@pantallaPagarCredito"})
+		tags = {"@consultaAliasCBU"})
 
 public class TestRunnerFront {
 	

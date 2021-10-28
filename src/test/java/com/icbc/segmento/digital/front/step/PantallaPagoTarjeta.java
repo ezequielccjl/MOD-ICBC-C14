@@ -18,7 +18,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class PagoTarjeta {
+public class PantallaPagoTarjeta {
 	//PageModel page = new PageModel();
 	public WebDriver driver;
 	private WebDriverWait wait;
@@ -68,7 +68,7 @@ public class PagoTarjeta {
 		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2000)");
-		pagarBtn = driver.findElement(By.xpath("//button[contains(text(),'Pagar')]"));
+		pagarBtn = driver.findElement(By.xpath("/html/body/main[1]/div/app-root/ly-app-container/div/app-home/ly-layout-container[1]/div/ly-section/div/ly-block[2]/div/app-card[1]/ly-card/div/ly-card-footer/div/div[1]/ly-flex-layout/div/ly-button[1]/button"));
 		pagarBtn.click();
 		
 	}
@@ -113,10 +113,6 @@ public class PagoTarjeta {
 	    chromeOptions.addArguments("--disable-dev-shm-usage");
 	    chromeOptions.addArguments("--ignore-certificate-errors");
 	    return chromeOptions;
-	}
-	
-	public void navigateToDEV() {
-		navigateTo("www.google.com");
 	}
 	
 	public void ingresarUsuario(String usuario) {
