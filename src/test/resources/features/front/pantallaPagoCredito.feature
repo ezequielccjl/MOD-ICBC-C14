@@ -1,6 +1,6 @@
 Feature: El usuario paga la tarjeta de credito
 
-	@tagPagarTarjetaCredito
+	@pantallaPagarCredito
 	Scenario Outline: Pagar tarjeta de credito
 		Given El usuario se logea con "<user>" y "<password>"
 		When El usuario clickea en pagar
@@ -12,4 +12,4 @@ Feature: El usuario paga la tarjeta de credito
 		
 		Examples:
 		| user    | password | cuentaDebitar   | monedaPagar | importe |
-		|corona01 | Prueba01 | 0530/01006879/57| PESOS       | 1       |
+		|corona01 | Prueba01 | 0825/01111044/88| PESOS       | 1       |
