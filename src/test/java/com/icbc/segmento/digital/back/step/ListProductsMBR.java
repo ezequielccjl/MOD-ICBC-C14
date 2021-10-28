@@ -77,7 +77,6 @@ public class ListProductsMBR {
 		listCode.add(new Filter().code("62"));
 			
 		ChannelProductListInputMbr channelProductListInput = new ChannelProductListInputMbr().filter(listCode);
-		System.out.println("dse_sessionId=" +hzSessionId + " aaaaaaaaa");
 																 	
 		RequestChannelProductListInputMbr requestChannelProductListInput = (RequestChannelProductListInputMbr) (new RequestChannelProductListInputMbr())
 				.data(channelProductListInput);		

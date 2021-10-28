@@ -71,4 +71,13 @@ public class LoginBE {
 		return "dse_sessionId=" + hzSessionId;
 	}
 	
+	public String getDocType(String aJsonOutput) {
+		String docType = aJsonOutput.substring(aJsonOutput.length()-229, aJsonOutput.length()-227);
+		return docType;
+	}
+	
+	public String getDocNum(String aJsonOutput) {
+		String docNum = aJsonOutput.substring(aJsonOutput.length()-215, aJsonOutput.length()-207);
+		return docNum;
+	}
 }
