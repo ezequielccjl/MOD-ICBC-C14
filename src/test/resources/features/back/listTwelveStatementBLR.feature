@@ -1,7 +1,7 @@
-Feature: Servicio - list twelve statement
+Feature: Servicio - list twelve statement BLR
 
-  @listTwelveStatement
-  Scenario Outline: Llamada al metodo POST listTwelveStatement
+  @listTwelveStatementBLR
+  Scenario Outline: Llamada al metodo POST listTwelveStatementBLR
     Given El usuario loguea correctamente con "<user>" "<pass>" "<deviceId>"
     When Hace la consulta con "<transactionId>" "<cardBrandIndicatorCode>" "<cardProductNumber>" <fromDate> <toDate> "<maxResultsNumber>"
     Then Verifico que la response sea correcta

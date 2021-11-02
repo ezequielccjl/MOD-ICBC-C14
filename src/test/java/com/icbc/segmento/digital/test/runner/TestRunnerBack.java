@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 		strict = true,
 		dryRun = false,
 		snippets = SnippetType.CAMELCASE,
-		tags = {"@deleteContactBLR"})
+		tags = {"@listTwelveStatementMBR"})
 
 public class TestRunnerBack {
 
