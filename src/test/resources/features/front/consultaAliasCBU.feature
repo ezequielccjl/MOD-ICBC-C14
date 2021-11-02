@@ -1,5 +1,6 @@
+@consultaAliasCBU
 Feature: Realizo consulta al Alias y CBU
-  @consultaAliasCBU
+  
   Scenario Outline: Consulta Alias CBU
     Given El usuario hace el login con "<user>" "<password>"
     When Ingresa a cbu alias qr

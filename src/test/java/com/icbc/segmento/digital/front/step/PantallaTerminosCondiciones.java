@@ -8,10 +8,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,6 +45,7 @@ public class PantallaTerminosCondiciones {
 	
 		System.out.println("asd");
 	    driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+	    driver.manage().window().setSize(new Dimension(250, 800));
 	    ingresarUsuario(user);
 	    ingresarContraseña(pass);
 	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
@@ -58,7 +62,26 @@ public class PantallaTerminosCondiciones {
     }
 
     @Then("^Verifica que se encuentre en terminos y condiciones$")
-    public void verificaQueSeEncuentreEnTerminosYCondiciones() {
+    public void verificaQueSeEncuentreEnTerminosYCondiciones() throws InterruptedException {
+    	Thread.sleep(2000);
+    	WebElement body = driver.findElement(By.tagName("body"));
+    	String bodyText = body.getText();
+
+    	// count occurrences of the string
+    	int cont = 0;
+
+    	// search for the String within the text
+    	while (bodyText.contains("Industrial and Commercial Bank of China (Argentina) S.A.")){
+
+    	    // when match is found, increment the count
+    	    cont++;
+
+    	    // continue searching from where you left off
+    	    bodyText = bodyText.substring(bodyText.indexOf("Industrial and Commercial Bank of China (Argentina) S.A.") + "Industrial and Commercial Bank of China (Argentina) S.A.".length());
+    	}
+    	System.out.println("cuantas veces: " + cont);
+    	
+    	assertEquals(2, cont);
         
     }
 

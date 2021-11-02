@@ -46,6 +46,7 @@ public class PantallaPagoTarjeta {
 
 			System.out.println("hola");
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+			driver.manage().window().setSize(new Dimension(250, 800));
 			System.out.println("hola2");
 			driver = new ChromeDriver(chromeOptions());
 			System.out.println("hola3");

@@ -1,10 +1,5 @@
 package com.icbc.segmento.digital.front.step;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.And;
-
 import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
@@ -15,13 +10,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PantallaContacto {
-	
-	//LA SEGUNDA VEZ QUE SE EJECUTA EL DRIVER LOS HOLAS APARECEN
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
+
+public class HomeProductos {
 	
 	public WebDriver driver;
 	private WebDriverWait wait;
@@ -29,60 +26,63 @@ public class PantallaContacto {
 	
 	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
 	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnMas = "/html/body/main[1]/div/app-root/ly-app-container/div/app-footer/ly-footer-bar/div/ly-flex-layout/div/ly-footer-bar-item[5]/button";
 	
-    @Given("^El usuario se logea con \"([^\"]*)\" \"([^\"]*)\"$")
-    public void elUsuarioSeLogeaConSomethingYSomething(String user, String pass) {
-
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");	
+	private String h1Cuentas = "/html/body/main[1]/div/app-root/ly-app-container/div/app-home/ly-layout-container[1]/div/ly-section/div/ly-block[1]/div/ly-title/div/h1";
+	
+    @Given("^El usuario \"([^\"]*)\" se loguea con \"([^\"]*)\"$")
+    public void elUsuarioSomethingSeLogueaConSomething(String user, String password) {
+    	System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");	
 		driver = new ChromeDriver(chromeOptions());
 		wait = new WebDriverWait(driver, 15);	
 	
 	    driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
 	    driver.manage().window().setSize(new Dimension(250, 800));
 	    ingresarUsuario(user);
-	    ingresarContraseña(pass);
+	    ingresarContraseña(password);
 	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
 	    ingresarBtn.click();
 	    System.out.println("Se ingresa");
+
     }
 
-    @When("Presiona en la pestania Mas")
-    public void presionaEnLaPestaniaMas() throws InterruptedException {
-    	System.out.println("PRESIONA BOTON MAS-------------");
-    	Thread.sleep(3000);
-    	WebElement buttonMas = driver.findElement(By.xpath(btnMas));
-    	buttonMas.click();
+    @When("^Revisa sus productos$")
+    public void revisaSusProductos() throws InterruptedException {
+    	Thread.sleep(2000);
+    	Boolean isPresent = driver.findElements(By.xpath(h1Cuentas)).size() > 0 ;
+    	
+    	while (isPresent == false) {
+    		Thread.sleep(300);
+    		isPresent = driver.findElements(By.xpath(h1Cuentas)).size() > 0 ;
+    		System.out.println("Se agregan 300ms");
+    		
+    		if(isPresent) {
+    			System.out.println("CARGARON LOS PRODS");
+    		} else {
+    			System.out.println("Esperando carga de prods...");
+    		}
+    		
+    	}
         
     }
 
-    @Then("^Verifica que se encuentre en Contacto$")
-    public void verificaQueSeEncuentreEnContacto() throws InterruptedException  {
+    @Then("^Verifica que tenga productos \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void verificaQueTengaProductosSomethingSomethingSomethingSomethingSomething(String cajaahorropesos, String cuentacorriente, String cajaahorrodolar, String tarjeta1, String tarjeta2) throws InterruptedException {
     	
     	Thread.sleep(2000);
+    	
     	WebElement body = driver.findElement(By.tagName("body"));
     	String bodyText = body.getText();
 
     	// count occurrences of the string
     	int cont = 0;
 
-    	if (bodyText.contains("Mesa de ayuda") && bodyText.contains("ICBC Mobile Banking y Access Banking") && bodyText.contains("0810-555-9200") && bodyText.contains("(54-11) 4820-9200") ){
+    	// search for the String within the text
+    	if (bodyText.contains(cajaahorropesos) && bodyText.contains(cuentacorriente) && bodyText.contains(cajaahorrodolar) && bodyText.contains(tarjeta1) && bodyText.contains(tarjeta2) ){
     	    cont++;
     	}
-    	
     	System.out.println("cuantas veces: " + cont);
     	
     	assertEquals(1, cont);
-        
-    }
-
-    @And("^Selecciona Contacto$")
-    public void seleccionaContacto() throws InterruptedException  {
-    	System.out.println("PRESIONA BOTON AYUDA-------------");
-    	Thread.sleep(1500);
-    	WebElement buttonContacto = driver.findElement(By.xpath("//li[contains(text(),'Contacto')]"));
-    	buttonContacto.click();
-        
     }
     
     public void ingresarUsuario(String usuario) {
@@ -112,6 +112,5 @@ public class PantallaContacto {
 	    chromeOptions.addArguments("--ignore-certificate-errors");
 	    return chromeOptions;
 	}
-	
 
 }
