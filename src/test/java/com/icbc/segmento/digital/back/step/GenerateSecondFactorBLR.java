@@ -1,5 +1,10 @@
 package com.icbc.segmento.digital.back.step;
 
+import com.icbc.segmento.digital.util.Link;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -16,53 +21,47 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.RunWith;
 
 import com.ebanking.model.RequestHeader;
+import com.ebanking.retail.model.AamrGenerarSegundoFactorInput;
 import com.ebanking.retail.model.GetSecondFactorInput;
+import com.ebanking.retail.model.RequestAamrGenerarSegundoFactorInput;
 import com.ebanking.retail.model.RequestGetSecondFactorInput;
 import com.icbc.segmento.digital.util.Link;
 
-@RunWith(Cucumber.class)
-@CucumberOptions()
-public class GetSecondFactorBLR {
+public class GenerateSecondFactorBLR {
 
 	private static RequestSpecification requestSpec;
 	private static Response response;
 	
-	@Given("Llamada al servicio getSecondFactorBLR")
-	public void llamadaAlServicioGetSecondFactorBLR() {
+	@Given("Llamada al servicio generateSecondFactorBLR")
+	public void llamadaAlServicioGenerateSecondFactorBLR() {
 	    
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.GETSECONDFACTORBLR)
+				.setBaseUri(Link.GENERATESECONDFACTORBLR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
 		
 	}
 
-	@When("Envio {string} {string} {string} {string} {string} {string} {string} true")
-	public void envioTrue(String channel, String password, String serviceName, String transactionId, String userId, String docNumber, String docCode) {
-	    
-		boolean generatorIndicator = true;
-		
+	@When("Envio {string} {string} {string} {string} {string} {string} {string} al servicio")
+	public void envioAlServicio(String channel, String transactionId, String documentNumber, String docTypeCode, String providerName, String medioCode, String claveCode) {
+	 
 		RequestHeader rh = new RequestHeader()
 				.channel(channel)
-				.password(password)
-				.serviceName(serviceName)
-				.transactionId(transactionId)
-				.userId(userId);
+				.transactionId(transactionId);
 		
-    	GetSecondFactorInput getSecondFactorInput = new GetSecondFactorInput()
-    			.docNumber(docNumber)
-    			.docCode(docCode)
-    			.generatorIndicator(generatorIndicator);
-    	
-    	
-    	RequestGetSecondFactorInput request = (RequestGetSecondFactorInput) new RequestGetSecondFactorInput()
-    			.data(getSecondFactorInput)
-    			.header(rh);
-    	
-    	System.out.println(request);
-    	
-    	response =		
+		AamrGenerarSegundoFactorInput generateSecondFactorInput = new AamrGenerarSegundoFactorInput()
+				.documentNumber(documentNumber)
+				.docTypeCode(docTypeCode)
+				.providerName(providerName)
+				.medioCode(medioCode)
+				.claveCode(claveCode);
+		
+		RequestAamrGenerarSegundoFactorInput request = (RequestAamrGenerarSegundoFactorInput) new RequestAamrGenerarSegundoFactorInput()
+				.data(generateSecondFactorInput)
+				.header(rh);
+		
+		response =		
 				given().
 					spec(requestSpec).
 					contentType(ContentType.JSON).
@@ -79,8 +78,8 @@ public class GetSecondFactorBLR {
 		
 	}
 
-	@Then("Verifico el status code")
-	public void verificoElStatusCode() {
+	@Then("Verificacion del status code")
+	public void verificacionDelStatusCode() {
 		assertEquals("El status code es incorrecto " + response.getStatusCode() , 200, response.getStatusCode());    	
 	}
 	

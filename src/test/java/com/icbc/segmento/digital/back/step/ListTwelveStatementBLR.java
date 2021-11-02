@@ -50,7 +50,7 @@ public class ListTwelveStatementBLR {
     	
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTTWELVESTATEMENT)
+				.setBaseUri(Link.LISTTWELVESTATEMENTBLR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
