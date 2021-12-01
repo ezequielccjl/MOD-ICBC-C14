@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 import java.util.HashMap;
 
+import org.json.JSONObject;
+
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -67,6 +69,8 @@ public class LoginBE {
 	}
 	
 	public String getHzSessionId(String aJsonOutput) {
+//		JSONObject jsonObj = new JSONObject(aJsonOutput);
+//		System.out.println("---"+jsonObj.getString("hzSessionId"));
 		String hzSessionId = aJsonOutput.substring(aJsonOutput.length()-55, aJsonOutput.length()-3);
 		return "dse_sessionId=" + hzSessionId;
 	}
