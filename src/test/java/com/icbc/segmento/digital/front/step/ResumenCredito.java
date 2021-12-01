@@ -33,7 +33,7 @@ public class ResumenCredito {
 	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
 	private String btnIngresar = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[2]/div/ly-flex-layout/div/ly-button/button";
 
-	private String spanResumen = "/html/body/main[1]/div/app-root/ly-app-container/div/app-summary/ly-layout-container/div/ly-tabs/div/div[2]/ly-tab[1]/div/ly-block[2]/div/ly-list/ul/ly-item/div/div/div/ly-vertical-detail-list/ly-flex-layout/div/ly-vertical-detail[1]/div/ly-vertical-detail-value/span";
+	private String spanResumen = "/html/body/main[1]/div/app-root/ly-app-container/div/app-statement/app-credit-card-statement-cont/ly-layout-container/div/ly-tabs/div/div[2]/ly-tab[1]/div/ly-block[2]/div/ly-list/ul/ly-item/div/div/div/ly-vertical-detail-list/ly-flex-layout/div/ly-vertical-detail[1]/div/ly-vertical-detail-value/span";
 	private String resumenBtnXpath  = "/html/body/main[1]/div/app-root/ly-app-container/div/app-home/ly-layout-container[1]/div/ly-section/div/ly-block[2]/div/app-card[1]/ly-card/div/ly-card-footer/div/div[1]/ly-flex-layout/div/ly-button[2]/button";
 	
     @Given("^El user \"([^\"]*)\" hace login con \"([^\"]*)\"$")
@@ -43,7 +43,7 @@ public class ResumenCredito {
 		driver = new ChromeDriver(chromeOptions());
 		wait = new WebDriverWait(driver, 15);	
 	
-	    driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+	    driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
 	    driver.manage().window().setSize(new Dimension(250, 800));
 	    
 	    ingresarUsuario(user);
@@ -56,20 +56,28 @@ public class ResumenCredito {
     @When("^Se dirige a seccion tarjetas y selecciona su menu$")
     public void seDirigeASeccionTarjetasYSeleccionaSuMenu() throws InterruptedException {
     	
-    	Thread.sleep(10000);
+    	Thread.sleep(5000);
+		
+		
 		
 		WebElement resumenBtn = driver.findElement(By.xpath("//button[contains(text(),'Resumen')]"));
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2000)");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+		jse.executeScript("arguments[0].scrollIntoView()", resumenBtn); 
+		
 		resumenBtn.click();
         
     }
 
     @Then("^Verifica sus resumenes$")
-    public void verificaSusResumenes() throws InterruptedException {
+    public void verificaSusResumenes() {
     	
-    	Thread.sleep(2000);
+    	//Thread.sleep(2000);
+    	
+    	WebElement element = wait.until(
+    	        ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Resumen')]")));
+
     	
     	Boolean hayResumen = false;
     	
@@ -87,6 +95,9 @@ public class ResumenCredito {
 
     @And("^Selecciona resumen$")
     public void seleccionaResumen() {
+    	
+    	//PARA OBTENER ÚLTIMO RESUMEN DENTRO DE UL
+    	//driver.findElement(By.xpath("//div[@class='pagination']/ul/li[last()]")).click();
         
     }
     

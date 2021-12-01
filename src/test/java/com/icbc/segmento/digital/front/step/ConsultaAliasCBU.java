@@ -35,17 +35,11 @@ public class ConsultaAliasCBU {
     @Given("^El usuario hace el login con \"([^\"]*)\" \"([^\"]*)\"$")
     public void elUsuarioHaceElLoginConSomethingSomething(String user, String password) {
 
-		System.out.println("hola");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		System.out.println("hola2");
 		driver = new ChromeDriver(chromeOptions());
-		System.out.println("hola3");
 		wait = new WebDriverWait(driver, 15);
-		System.out.println("hola4");
 	
-	
-		System.out.println("asd");
-	    driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+	    driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
 	    driver.manage().window().setSize(new Dimension(250, 800));
 	    ingresarUsuario(user);
 	    ingresarContraseña(password);

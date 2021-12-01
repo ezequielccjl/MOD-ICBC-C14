@@ -27,7 +27,7 @@ public class BasePage {
 		driver = new ChromeDriver(chromeOptions());
 		System.out.println("hola3");
 		wait = new WebDriverWait(driver, 15);
-		System.out.println("hola4");
+		System.out.println("holaaaaaaaaaaaaaaaaaaaaa4");
 	}
 	
 	private static ChromeOptions chromeOptions(){

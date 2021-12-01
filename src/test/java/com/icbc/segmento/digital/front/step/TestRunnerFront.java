@@ -18,15 +18,15 @@ import cucumber.api.java.BeforeStep;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@pantallaResumen"})
+		tags = {"@cardlessMaximos"})
 
 public class TestRunnerFront {
 	
+	/*
 	@AfterClass
 	public static void cleanDriver() {
 		BasePage.closeBrowser();
 	}
-	
-	//com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/front/cucumber-reports.json
+	*/
 	
 }

@@ -29,7 +29,6 @@ public class PantallaPagoTarjeta {
 	WebElement cuentaCorriente;
 	WebElement liMonedaWeb;
 	WebElement moneda;
-	int i = 0;
 	
 	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
 	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
@@ -41,21 +40,12 @@ public class PantallaPagoTarjeta {
 	@Given("El usuario se logea con {string} y {string}")
 	public void elUsuarioSeLogeaConY(String user, String pass) {
 		
-		i++;
-			System.out.println(i);
-
-			System.out.println("hola");
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 			driver.manage().window().setSize(new Dimension(250, 800));
-			System.out.println("hola2");
 			driver = new ChromeDriver(chromeOptions());
-			System.out.println("hola3");
 			wait = new WebDriverWait(driver, 15);
-			System.out.println("hola4");
 		
-		
-		System.out.println("asd");
-        driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+        driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
         ingresarUsuario(user);
         ingresarContraseña(pass);
         ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));

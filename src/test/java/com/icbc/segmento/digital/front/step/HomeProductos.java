@@ -35,7 +35,7 @@ public class HomeProductos {
 		driver = new ChromeDriver(chromeOptions());
 		wait = new WebDriverWait(driver, 15);	
 	
-	    driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
+	    driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
 	    driver.manage().window().setSize(new Dimension(250, 800));
 	    ingresarUsuario(user);
 	    ingresarContraseña(password);
@@ -83,6 +83,7 @@ public class HomeProductos {
     	System.out.println("cuantas veces: " + cont);
     	
     	assertEquals(1, cont);
+    	//modificar assert
     }
     
     public void ingresarUsuario(String usuario) {
