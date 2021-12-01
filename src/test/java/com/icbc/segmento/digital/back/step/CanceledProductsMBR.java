@@ -1,5 +1,6 @@
 package com.icbc.segmento.digital.back.step;
 
+
 import cucumber.api.PendingException;
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
@@ -22,11 +23,14 @@ import java.util.List;
 import org.junit.runner.RunWith;
 
 import com.ebanking.model.RequestHeader;
+import com.ebanking.retail.model.ChannelCanceledProductsInput;
 import com.ebanking.retail.model.ChannelDeleteExtractionInput;
 import com.ebanking.retail.model.ChannelProductListInputMbr;
+import com.ebanking.retail.model.ChannelProductType;
 import com.ebanking.retail.model.Filter;
 import com.ebanking.retail.model.LoginSessionInput;
 import com.ebanking.retail.model.ProductListInput;
+import com.ebanking.retail.model.RequestChannelCanceledProductsInput;
 import com.ebanking.retail.model.RequestChannelDeleteExtractionInput;
 import com.ebanking.retail.model.RequestChannelProductListInputMbr;
 import com.ebanking.retail.model.RequestLoginSessionInput;
@@ -39,14 +43,13 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
-public class ListProductsMBR {
-
+public class CanceledProductsMBR {
+	
 	private static String hzSessionId;
 	private static Response listProductResponse;
-	
-	@Given("El usuario se loguea exitosamente con {string} {string} {string}")
-	public void elUsuarioSeLogueaExitosamenteCon(String user, String pass, String deviceId) {
-		
+
+	@Given("Se realiza un login exitoso con {string} {string} {string}")
+	public void seRealizaUnLoginExitosoCon(String user, String pass, String deviceId) {
 		LoginBE login = new LoginBE(user, pass, deviceId);
 		Response loginResponse = login.getResponse();
 		hzSessionId = login.getHzSessionId(loginResponse.asString());
@@ -55,31 +58,29 @@ public class ListProductsMBR {
 	    
 	}
 
-    @When("^Hace la consulta al servicio con (.+) (.+)$")
-    public void haceLaConsultaAlServicioCon(String transactionid, String filter)  {
-    
-    	RequestSpecification requestSpec;
+	@When("Realiza la consulta canceledProductsMBR con {string} {string} {string}")
+	public void realizaLaConsultaCanceledProductsMBRCon(String channel, String transactionId, String clientNumber) {
+		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTS)
+				.setBaseUri(Link.CANCELEDPRODUCTSMBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
     	
-    	List<Filter> listCode = new ArrayList<Filter>();
-		listCode.add(new Filter().code("01"));
-		listCode.add(new Filter().code("02"));
-		listCode.add(new Filter().code("11"));
-		listCode.add(new Filter().code("12"));
-		listCode.add(new Filter().code("17"));
-		listCode.add(new Filter().code("37"));
-		listCode.add(new Filter().code("38"));
-		listCode.add(new Filter().code("61"));
-		listCode.add(new Filter().code("62"));
-			
-		ChannelProductListInputMbr channelProductListInput = new ChannelProductListInputMbr().filter(listCode);
+		List<ChannelProductType> codeList = new ArrayList<ChannelProductType>();
+		codeList.add(new ChannelProductType().code("87"));
+		
+		RequestHeader header = new RequestHeader()
+				.channel(channel)
+				.transactionId(transactionId);
+		
+		ChannelCanceledProductsInput data = new ChannelCanceledProductsInput()
+				.clientNumber(clientNumber)
+				.filterChannelProductTypesData(codeList);
 																 	
-		RequestChannelProductListInputMbr requestChannelProductListInput = (RequestChannelProductListInputMbr) (new RequestChannelProductListInputMbr())
-				.data(channelProductListInput);		
+		RequestChannelCanceledProductsInput requestChannelProductListInput = (RequestChannelCanceledProductsInput) (new RequestChannelCanceledProductsInput())
+				.data(data)
+				.header(header);		
 		
 		listProductResponse =		
 				given().
@@ -96,13 +97,12 @@ public class ListProductsMBR {
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
-		
-		}
+	}
 
-    @Then("^Verifico que se cargaron los productos correctamente$")
-    public void verificoQueSeCargaronLosProductosCorrectamente() {
+	@Then("Se verifica el codigo de respuesta que devuelve")
+	public void seVerificaElCodigoDeRespuestaQueDevuelve() {
 		assertEquals("El status code es incorrecto " + listProductResponse.getStatusCode() , 200, listProductResponse.getStatusCode());    	
-    }
-    
-}
 
+	}
+	
+}
