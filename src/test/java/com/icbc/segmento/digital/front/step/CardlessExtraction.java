@@ -23,6 +23,9 @@ import cucumber.api.java.en.And;
 
 public class CardlessExtraction {
 	
+	int montoConst;
+	BasePage bp;
+	
 	public WebDriver driver;
 	private WebDriverWait wait;
 	WebElement ingresarBtn;
@@ -41,9 +44,10 @@ public class CardlessExtraction {
     public void elSomethingHaceLogConSomething(String user, String password) {
     	System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");	
 		driver = new ChromeDriver(chromeOptions());
+		
 		wait = new WebDriverWait(driver, 15);	
 	
-	    driver.get("https://mbrfbd.intranet.local/mbr/fbd/shell-mf/#/login");
+		bp.navigateTo("https://mbrfbd.intranet.local/mbr/fbd/shell-mf/#/login");
 	    driver.manage().window().setSize(new Dimension(250, 800));
 	   //driver.manage().window().maximize();
 	    
@@ -60,7 +64,7 @@ public class CardlessExtraction {
     	WebElement element = wait.until(
     	        ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Quiero un nuevo producto')]")));
     	
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     	WebElement buttonMas = driver.findElement(By.xpath("//span[contains(text(),'Más')]"));
     	buttonMas.click();
     	System.out.println("PRESIONA BOTON MAS-------------");
@@ -68,7 +72,13 @@ public class CardlessExtraction {
 
     @Then("^Verifica orden completada$")
     public void verificaOrdenCompletada() {
-        
+        if (montoConst > 15000 ) {
+        	Boolean montoSuperiorBool = driver.findElement(By.xpath("//span[contains(text(),'Superaste el monto máximo permitido.')]")).isDisplayed();
+        	assertTrue(montoSuperiorBool);
+        	if(montoSuperiorBool) {
+        		System.out.println("VALIDACIÓN MONTO SUPERIOR COMPLETA.");
+        	}
+		}
     }
 
     @And("^Selecciona Extraccion sin tarjeta$")
@@ -83,7 +93,7 @@ public class CardlessExtraction {
     @And("^Selecciona nueva extraccion$")
     public void seleccionaNuevaExtraccion() {
     	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement buttonExtraction= driver.findElement(By.xpath("//a[contains(text(),' Nueva extracción sin tarjeta ')]"));
+    	WebElement buttonExtraction= driver.findElement(By.xpath("//a[contains(text(),'Nueva extracción sin tarjeta')]"));
     	buttonExtraction.click();
     	System.out.println("PRESIONA BOTON NUEVA EXTRACCION-------------");
     }
@@ -103,9 +113,11 @@ public class CardlessExtraction {
     @And("^Completa correctamente \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y presiona continuar$")
     public void completaCorrectamenteSomethingSomethingSomethingSomethingYPresionaContinuar(String origen, String monto, String tipo, String numero) {
     	
+    	montoConst = Integer.parseInt(monto);
+    	
     	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     	WebElement inputMontoElement= driver.findElement(By.xpath(inputMonto));
-    	inputMontoElement.sendKeys(Keys.DELETE);
+    	inputMontoElement.clear();
     	inputMontoElement.sendKeys(monto);
     	System.out.println("SE BORRA / MONTO: "+ monto);
     	
@@ -122,6 +134,13 @@ public class CardlessExtraction {
     	
     	WebElement btnContinuar2= driver.findElement(By.xpath("//button[contains(text(),'Continuar')]"));
     	btnContinuar2.click();
+    	
+    	WebElement smsInput = driver.findElement(By.xpath("//input[@maxlength='5']"));
+    	smsInput.sendKeys("11111");
+    	
+    	WebElement btnGenerarToken= driver.findElement(By.xpath("//button[contains(text(),'Generar')]"));
+    	btnGenerarToken.click();
+    	
     }
     
     private ChromeOptions chromeOptions(){

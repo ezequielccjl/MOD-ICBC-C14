@@ -9,5 +9,5 @@ Feature: El usuario se dirige a pantalla Contacto
     
     Examples:
 		| user    | password |
-		|corona01 | Prueba01 |
+		|U8295439 | prueba01 |
 

@@ -34,7 +34,7 @@ public class PantallaContacto {
     @Given("^El usuario se logea con \"([^\"]*)\" \"([^\"]*)\"$")
     public void elUsuarioSeLogeaConSomethingYSomething(String user, String pass) {
 
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");	
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");	
 		driver = new ChromeDriver(chromeOptions());
 		wait = new WebDriverWait(driver, 15);	
 	

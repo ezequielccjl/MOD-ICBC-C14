@@ -21,13 +21,9 @@ public class BasePage {
 	private static Actions action;
 
 	static {
-		System.out.println("hola");
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");
-		System.out.println("hola2");
 		driver = new ChromeDriver(chromeOptions());
-		System.out.println("hola3");
 		wait = new WebDriverWait(driver, 15);
-		System.out.println("holaaaaaaaaaaaaaaaaaaaaa4");
 	}
 	
 	private static ChromeOptions chromeOptions(){

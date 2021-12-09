@@ -1,6 +1,7 @@
 @cardlessExtraction
 Feature: El usuario realiza una extraccion sin tarjeta
 
+	@cardlessNormal
   Scenario Outline: Orden de extraccion sin tarjeta: Comprobacion de limites
     Given El "<user>" hace log con "<password>"
     When Clickea pestania mas
@@ -11,9 +12,9 @@ Feature: El usuario realiza una extraccion sin tarjeta
     Then Verifica orden completada
 
     Examples:
-		| user     | password | origen | montoInferior | montoCorrecto| tipo | numero   |
-		|corona01  | prueba01 | 39/29  | 				1 		 |2000   				| DNI	 | 11222333 |
-		|corona01  | prueba01 | 39/29  | 				1			 |25000  				| DNI	 | 11222333 |
+		| user       | password | origen | montoInferior | montoCorrecto| tipo | numero   |
+		|u92308675   | prueba01 | 39/29  | 				1 		 |1000   				| DNI	 | 32532678 |
+		#|u92308675   | prueba01 | 39/29  | 				1			 |20000  				| DNI	 | 32532678 |
 		
 		@cardlessMaximos
 		Scenario Outline: Orden de extraccion sin tarjeta: Repeticion hasta comprobar monto y numero maximo
@@ -25,9 +26,9 @@ Feature: El usuario realiza una extraccion sin tarjeta
     Then Verifica la orden completada
 
     Examples:
-		| user     | password | origen | monto | tipo  | numero   | loops |
-		|corona01  | prueba01 | 39/29  | 2000	 | DNI	 | 11222333 | 5			|
-		|corona01  | prueba01 | 39/29  | 1500  | DNI	 | 11222333 | 6			|
+		| user       | password | origen | monto | tipo  | numero   | loops |
+		|u92308675   | prueba01 | 39/29  | 10000 | DNI	 | 32532678 | 2			|
+		|u92308675   | prueba01 | 39/29  | 100   | DNI	 | 32532678 | 10			|
 		
 		
 		

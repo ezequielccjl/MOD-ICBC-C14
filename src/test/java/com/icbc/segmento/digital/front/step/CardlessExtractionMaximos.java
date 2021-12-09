@@ -2,6 +2,8 @@ package com.icbc.segmento.digital.front.step;
 
 import cucumber.api.PendingException;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -35,8 +37,6 @@ public class CardlessExtractionMaximos {
 	private String selectCajaAhorro = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[1]/div/ly-select/div/div/ly-drop-frame/div";
 	private String inputMonto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[2]/div/ly-text-field/div/input";
 	private String inputNumero = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-flex-layout/div/ly-form-field[2]/div/ly-text-field/div/input";
-	
-	private String inputCodSMS = "/html/body/div[8]/div[3]/div/div/ly-section/div/form/ly-block/div/ly-flex-layout/div/ly-form-field[2]/div/ly-text-field/div/input";
 
 
     @Given("^El \"([^\"]*)\" hace log in con \"([^\"]*)\"$")
@@ -70,7 +70,13 @@ public class CardlessExtractionMaximos {
 
     @Then("^Verifica la orden completada$")
     public void verificaLaOrdenCompletada() {
-        
+    	Boolean spanOrdenesDiarias = driver.findElement(By.xpath("//span[contains(text(),'Superaste la cantidad máxima de órdenes diarias permitidas.')]")).isDisplayed();
+    	assertTrue(spanOrdenesDiarias);
+    	if(spanOrdenesDiarias) {
+    		System.out.println("CANTIDAD DE VECES ALCANZADA.");
+    	}else {
+    		System.out.println("TODAVIA NO SE VERIFICO LA CANTIDAD DE VECESSSSSSSSSSSSSS");
+    	}
     }
 
     @And("^Selecciona opcion Extraccion sin tarjeta$")
@@ -91,20 +97,20 @@ public class CardlessExtractionMaximos {
     }
 
     @And("^Completa \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" segun la cantidad de \"([^\"]*)\"$")
-    public void completaSomethingSomethingSomethingSomethingSegunLaCantidadDeSomething(String origen, String monto, String tipo, String numero, String loops) {
+    public void completaSomethingSomethingSomethingSomethingSegunLaCantidadDeSomething(String origen, String monto, String tipo, String numero, String loops) throws InterruptedException {
         
     	for (int i = 0; i < Integer.parseInt(loops) ; i++) {
     		
     		if (i==0) {
     			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             	WebElement inputMontoElement= driver.findElement(By.xpath(inputMonto));
-            	inputMontoElement.sendKeys(Keys.DELETE);
+            	inputMontoElement.clear();
             	inputMontoElement.sendKeys(monto);
             	System.out.println("SE BORRA / MONTO: "+ monto);
             	
             	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             	WebElement inputNumeroElement= driver.findElement(By.xpath(inputNumero));
-            	inputNumeroElement.sendKeys(Keys.DELETE);
+            	inputNumeroElement.clear();
             	inputNumeroElement.sendKeys(numero);
 			}
         	
@@ -119,12 +125,14 @@ public class CardlessExtractionMaximos {
         	btnContinuar2.click();
         	
         	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        	WebElement inpSMS= driver.findElement(By.xpath(inputCodSMS));
+        	WebElement inpSMS= driver.findElement(By.xpath("//input[@maxlength='5']"));
         	inpSMS.sendKeys("11111");
         	
         	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         	WebElement btnGenerar= driver.findElement(By.xpath("//button[contains(text(),'Generar')]"));
         	btnGenerar.click();
+        	
+        	Thread.sleep(5000);
         	
         	WebElement buttonExtraction= driver.findElement(By.xpath("//a[contains(text(),' Nueva extracción sin tarjeta ')]"));
         	buttonExtraction.click();

@@ -13,4 +13,4 @@ Feature: El usuario navega por todas las subpantallas de Ayuda
 
     Examples:
 		| user    | password |
-		|corona01 | Prueba01 |
+		|U8295439 | prueba01 |
