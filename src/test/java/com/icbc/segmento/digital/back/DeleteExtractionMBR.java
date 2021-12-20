@@ -29,6 +29,10 @@ public class DeleteExtractionMBR {
 		long fecha = 1633662000000L;
 		double amount = 1000d;
 		
+//		String ddate = "2021-08-30";
+//		long dddate = Long.parseLong(ddate);
+//		Date ddddate = new Date(dddate);
+		
 		Date fechafecha = new Date (fecha);
 		
 		RequestHeader header = (new RequestHeader())

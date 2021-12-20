@@ -14,6 +14,8 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.runner.RunWith;
 
 import com.ebanking.model.RequestHeader;
@@ -23,8 +25,10 @@ import com.ebanking.retail.model.EditContactInput;
 import com.ebanking.retail.model.RequestAddContactsInput;
 import com.ebanking.retail.model.RequestDeleteContactInput;
 import com.ebanking.retail.model.RequestEditContactInput;
+import com.icbc.segmento.digital.util.DeleteContactAux;
 import com.icbc.segmento.digital.util.Link;
 import com.icbc.segmento.digital.util.LoginBE;
+import com.icbc.segmento.digital.util.Utilities;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
@@ -49,13 +53,9 @@ public class DeleteContactBLR {
     	
     }
 
-    @When("Realiza la consulta con los datos {string} {string} {string} {string} {string}")
-    public void realizaLaConsultaConLosDatos(String transactionid, String channel, String destinationcbucvualias, String documentnumber, String documentcode) {
-        
-    	//------------------------------------------------------------------------------------------------------------------------------------------------------
-    	
-    	
-    	
+    @When("Realiza la consulta con los datos {string} {string} {string} {string} {string} {string}")
+    public void realizaLaConsultaConLosDatos(String transactionid, String channel, String documentnumber, String documentcode,  String destinationcbucvualias, String errorCode) {
+        System.out.println("------------------------------ADDCONTACT");
     	RequestSpecification requestSpec2;
 		requestSpec2 = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.ADDCONTACTBLR)
@@ -68,8 +68,8 @@ public class DeleteContactBLR {
 				.channel("mbr");
 		
     	AddContactsInput addContactInput = new AddContactsInput()
-    			.documentNumber(docNum)
-    			.documentType(docType)
+    			.documentNumber("16445351")
+    			.documentType("04")
     			.cuitCuilNumber("27148193342")
     			.cbuNumber("0150501601000008074781")
     			.description("del carmen")
@@ -90,39 +90,38 @@ public class DeleteContactBLR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
-//					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
     	
 		assertEquals("El status code es incorrecto " + response2.getStatusCode() , 200, response2.getStatusCode());    	
 
-    	
-    	
-    	//------------------------------------------------------------------------------------------------------------------------------------------------------
+        System.out.println("------------------------------DELETECONTACT");
+
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.DELETECONTACTBLR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
-    	
+    	/*
 		RequestHeader rh = new RequestHeader()
 				.transactionId(transactionid)
 				.channel(channel);
 		
     	DeleteContactInput deleteContactInput = new DeleteContactInput()
-    			.destinationCbuCvuAlias("0150501601000008074781")
-    			.documentNumber(docNum)
-    			.documentCode(docType);
-    	
+    			.destinationCbuCvuAlias(destinationcbucvualias)
+    			.documentNumber(documentnumber)
+    			.documentCode(documentcode);
     	
     	RequestDeleteContactInput request = (RequestDeleteContactInput) new RequestDeleteContactInput()
     			.data(deleteContactInput)
-    			.header(rh);
+    			.header(rh);*/
     	    	
+    	DeleteContactAux aux = new DeleteContactAux();
+    	
+    	String request = aux.getBody(transactionid, channel, documentnumber, documentcode, destinationcbucvualias);
+    	
     	response =		
 				given().
 					spec(requestSpec).
@@ -131,17 +130,26 @@ public class DeleteContactBLR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
-//					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
+    	
+    	System.out.println("------------------------------ERRORCODE");
+    	
+    	if(errorCode.contentEquals("1000")) {
+    		Utilities utils = new Utilities();
+    		JSONArray jsonArray = new JSONObject(utils.prettyPrintResponse(response)).getJSONObject("header").getJSONArray("errorDetail");
+    		String errorCodeFromJsonArray = utils.getStringFromJsonArray(jsonArray, "code");
+    		assertEquals("El errorCode es incorrecto: " + errorCodeFromJsonArray , errorCode, errorCodeFromJsonArray);    	
+    	}
+
     	
     }
 
     @Then("^Verifico el codigo de respuesta$")
     public void verificoElCodigoDeRespuesta() {
+    	System.out.println("------------------------------FINAL");
+
 		assertEquals("El status code es incorrecto " + response.getStatusCode() , 200, response.getStatusCode());    	
 
     }

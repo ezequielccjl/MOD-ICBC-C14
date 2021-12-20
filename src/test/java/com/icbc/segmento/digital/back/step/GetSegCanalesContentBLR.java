@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -35,8 +36,8 @@ public class GetSegCanalesContentBLR {
 				.build();
 	}
 
-	@When("llamamos al metodo getSegCanalesContent con {string} {string} {string} {string}")
-	public void llamamosAlMetodoGetSegCanalesContentCon(String transactionId, String channel, String userId, String password) {
+	@When("llamamos al metodo getSegCanalesContent con {string} {string} {string} {string} {string}")
+	public void llamamosAlMetodoGetSegCanalesContentCon(String transactionId, String channel, String userId, String password, String resultCode) {
 		RequestHeader rh = new RequestHeader()
 				.transactionId(transactionId)
 				.channel(channel)
@@ -53,7 +54,7 @@ public class GetSegCanalesContentBLR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
+					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

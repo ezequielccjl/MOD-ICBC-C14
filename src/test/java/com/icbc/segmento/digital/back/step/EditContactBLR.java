@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -20,6 +21,11 @@ import com.ebanking.retail.model.EditContactInput;
 import com.ebanking.retail.model.RequestEditContactInput;
 import com.icbc.segmento.digital.util.Link;
 import com.icbc.segmento.digital.util.LoginBE;
+import com.icbc.segmento.digital.util.Utilities;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
@@ -39,13 +45,12 @@ public class EditContactBLR {
     	
     }
 
-    @When("^Hace la consulta con los datos \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-    public void haceLaConsultaConLosDatosSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomething(String transactionid, String channel, String destinationcbucvualias, String documentnumber, String documentcode, String cuitcuilnumber, String cbunumber, String description, String accountcode) {
+    @When("^Hace la consulta con los datos \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void haceLaConsultaConLosDatosSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomething(String transactionid, String channel, String destinationcbucvualias, String documentnumber, String documentcode, String cuitcuilnumber, String cbunumber, String description, String accountcode, String errorCode) {
         
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.EDITCONTACTBLR)
-//				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
     	
@@ -66,9 +71,7 @@ public class EditContactBLR {
     	RequestEditContactInput request = (RequestEditContactInput) new RequestEditContactInput()
     			.data(editContactInput)
     			.header(rh);
-    	
-    	System.out.println(request);
-    	
+    	    	
     	response =		
 				given().
 					spec(requestSpec).
@@ -77,13 +80,16 @@ public class EditContactBLR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
-//					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
-    	
+
+    	if(errorCode.contentEquals("1000")) {
+    		Utilities utils = new Utilities();
+    		JSONArray jsonArray = new JSONObject(utils.prettyPrintResponse(response)).getJSONObject("header").getJSONArray("error");
+    		String errorCodeFromJsonArray = utils.getStringFromJsonArray(jsonArray, "code");
+    		assertEquals("El errorCode es incorrecto: " + errorCodeFromJsonArray , errorCode, errorCodeFromJsonArray);    	
+    	}
     }
 
     @Then("^Verifico la respuesta$")

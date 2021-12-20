@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.sql.Date;
 
@@ -29,21 +30,15 @@ import com.icbc.segmento.digital.util.dependency.RequestListBlrTwelveStatementIn
 public class ListTwelveStatementBLR {
 	
 	private static Response response;
-	private static String hzSessionId;
 
     @Given("^El usuario loguea correctamente con \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
     public void elUsuarioLogueaCorrectamenteConSomethingSomethingSomething(String user, String pass, String deviceId) {
         
-    	LoginBE login = new LoginBE(user, pass, deviceId);
-		Response loginResponse = login.getResponse();
-		hzSessionId = login.getHzSessionId(loginResponse.asString());
-		
-		assertEquals("El status code es incorrecto" + loginResponse.getStatusCode() , 200, loginResponse.getStatusCode());
-    	
+    	//refactorizar, no hace falta el login, cambiar gherkin
     }
 
-    @When("^Hace la consulta con \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" (.+) (.+) \"([^\"]*)\"$")
-    public void haceLaConsultaConSomethingSomethingSomethingSomething(String transactionId, String cardbrandindicatorcode, String cardproductnumber, Integer fromdate, Integer todate, String maxresultsnumber) {
+    @When("Hace la consulta con {string} {string} {string} {int} {int} {string} {string}")
+    public void haceLaConsultaConSomethingSomethingSomethingSomething(String transactionId, String cardbrandindicatorcode, String cardproductnumber, Integer fromdate, Integer todate, String maxresultsnumber, String resultCode) {
         
     	long fromDate = fromdate.longValue();
     	long toDate = todate.longValue();
@@ -77,7 +72,7 @@ public class ListTwelveStatementBLR {
     			when().
     				post().
     			then().
-//    				body("header.resultCode", equalTo("ok")).
+    				body("header.resultCode", equalTo(resultCode)).
 //    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
 //    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

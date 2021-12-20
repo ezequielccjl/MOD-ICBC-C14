@@ -45,11 +45,16 @@ public class Link {
     public static final String APPLEPAYISENABLEDMBR = "https://mbr-channel-apple-pay-1-0-fbd.apps.ocp4-tst.intranet.local/channel-apple-pay/1.0/apple-pay-is-enabled";
     public static final String CANCELEDPRODUCTSBLR = "https://blr-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/home-product/1.0/canceled-products";
     public static final String GETAVAILABLECARDBLR = "https://blr-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/home-product/1.0/get-available-card";
-    public static final String CANCELEDPRODUCTSMBR = "https://mbr-channel-home-product-1-0-dev.apps.ocp4-tst.intranet.local/channel-home-product/1.0/canceled-products";
-    public static final String MESSAGINGOPMBR = "https://mbr-channel-home-product-1-0-dev.apps.ocp4-tst.intranet.local/channel-home-product/1.0/get-message?=";
+    public static final String CANCELEDPRODUCTSMBR = "https://mbr-channel-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/channel-home-product/1.0/canceled-products";
+    public static final String MESSAGINGOPMBR = "https://mbr-channel-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/channel-home-product/1.0/get-message?=";
     public static final String MESSAGINGOPBLR = "https://blr-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/home-product/1.0/get-message";
     public static final String OWNTRANSFERBLR = "https://blr-transfer-1-0-fbd.apps.ocp4-tst.intranet.local/transfer/1.0/own-transfer";
     public static final String NEWGETCLIENTDATA = "https://mbr-channel-client-1-0-fbd.apps.ocp4-tst.intranet.local/channel-client/1.0/get-client-data";
-    public static final String GETAVAILABLECARDMBR = "https://mbr-channel-home-product-1-0-dev.apps.ocp4-tst.intranet.local/channel-home-product/1.0/get-available-card";
+    public static final String GETAVAILABLECARDMBR = "https://mbr-channel-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/channel-home-product/1.0/get-available-card";
     public static final String LISTDEVICESMBR = "https://mbr-channel-user-devices-1-0-dev.apps.ocp4-tst.intranet.local/channel-user-devices/1.0/list-devices";
+    public static final String LISTEXTRACTIONMBR = "https://mbr-channel-cardless-extraction-1-0-fbd.apps.ocp4-tst.intranet.local/channel-cardless-extraction/1.0/list-extraction";
+    public static final String SERVICESHIERARCHYBLR = "https://blr-service-payment-1-0-dev.apps.ocp4-tst.intranet.local/service-payment/1.0/services-hierarchy";
+    public static final String SERVICESHIERARCHYMBR = "https://mbr-channel-service-payment-1-0-dev.apps.ocp4-tst.intranet.local/channel-service-payment/1.0/services-hierarchy";
+    public static final String CARDEXPENSESRECENTBLR = "https://blr-credit-card-purchases-1-0-fbd.apps.ocp4-tst.intranet.local/credit-card-purchases/1.0/card-expenses-recent";
+    public static final String CARDEXPENSESRECENTMBR = "https://mbr-channel-credit-card-purchases-1-0-fbd.apps.ocp4-tst.intranet.local/channel-credit-card-purchases/1.0/card-expenses-recent";
 }

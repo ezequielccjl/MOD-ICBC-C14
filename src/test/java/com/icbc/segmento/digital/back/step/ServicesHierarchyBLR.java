@@ -12,7 +12,6 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -22,22 +21,22 @@ import com.icbc.segmento.digital.util.Link;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
-public class GetContactContentBLR {
+public class ServicesHierarchyBLR {
 
 	private static RequestSpecification requestSpec;
 	private static Response response;
 	
-	@Given("preparamos las especificaciones del request")
-	public void preparamosLasEspecificacionesDelRequest() {
+	@Given("Se hace la preparacion de las especificaciones")
+	public void seHaceLaPreparacionDeLasEspecificaciones() {
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.GETCONTACTCONTENTBLR)
+				.setBaseUri(Link.SERVICESHIERARCHYBLR)
 				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
 	}
 
-	@When("llamamos al metodo getFaqContent con {string} {string} {string}")
-	public void llamamosAlMetodoGetFaqContentCon(String channel, String transactionId, String resultCode) {
+	@When("Se realiza la consulta al metodo servicesHierarchyBLR con {string} {string}")
+	public void seRealizaLaConsultaAlMetodoServicesHierarchyBLRCon(String channel, String transactionId) {
 		RequestHeader rh = new RequestHeader()
 				.channel(channel)
 				.transactionId(transactionId);
@@ -52,7 +51,7 @@ public class GetContactContentBLR {
 				when().
 					post().
 				then().
-					body("header.resultCode", equalTo(resultCode)).
+//					body("header.resultCode", equalTo("ok")).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
@@ -60,8 +59,8 @@ public class GetContactContentBLR {
 					response();	
 	}
 
-	@Then("validamos la response")
-	public void validamosLaResponse() {
+	@Then("Se verifica la response devuelta por el metodo")
+	public void seVerificaLaResponseDevueltaPorElMetodo() {
 		assertEquals("El status code es incorrecto " + response.getStatusCode() , 200, response.getStatusCode());    	
 	}
 	

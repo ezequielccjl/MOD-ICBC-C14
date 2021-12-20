@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -39,8 +40,8 @@ public class ModifyUserLogonMBR {
 	
 	}
 
-	@When("llamo al metodo modifyUserLogonMBR con {string} {string} {string} {string} {string} {string} {string}")
-	public void llamoAlMetodoModifyUserLogonMBRCon(String channel, String transactionId, String klogonUserId, String klogonType, String klogonNum, String klogonPass, String kgender) {
+	@When("llamo al metodo modifyUserLogonMBR con {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void llamoAlMetodoModifyUserLogonMBRCon(String channel, String transactionId, String klogonUserId, String klogonType, String klogonNum, String klogonPass, String kgender, String resultCode) {
 		RequestSpecification requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.MODIFYUSERLOGONMBR)
 				.setContentType(ContentType.JSON)
@@ -70,7 +71,7 @@ public class ModifyUserLogonMBR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
+					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.runner.RunWith;
@@ -39,8 +40,8 @@ public class GetPrivacyPoliciesContentMBR {
 	
 	}
 
-	@When("llamo al metodo getPrivacyPoliciesContentMBR con {string} {string}")
-	public void llamoAlMetodoGetPrivacyPoliciesContentMBRCon(String transactionId, String contentName) {
+	@When("llamo al metodo getPrivacyPoliciesContentMBR con {string} {string} {string}")
+	public void llamoAlMetodoGetPrivacyPoliciesContentMBRCon(String transactionId, String contentName, String resultCode) {
 		RequestSpecification requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.GETPRIVACYPOLICIESCONTENTMBR)
 				.setContentType(ContentType.JSON)
@@ -65,7 +66,7 @@ public class GetPrivacyPoliciesContentMBR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
+					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

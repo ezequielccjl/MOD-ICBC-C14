@@ -19,6 +19,7 @@ import org.junit.runner.RunWith;
 
 import com.ebanking.model.Request;
 import com.ebanking.model.RequestHeader;
+import com.icbc.segmento.digital.back.LoginC1;
 import com.icbc.segmento.digital.util.Link;
 import com.icbc.segmento.digital.util.LoginBE;
 

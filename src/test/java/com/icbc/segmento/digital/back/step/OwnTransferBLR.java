@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -41,8 +42,8 @@ public class OwnTransferBLR {
 				.build();
 	}
 
-	@When("llamamos al metodo ownTransferBLR con {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
-	public void llamamosAlMetodoOwnTransferBLRCon(String transactionId, String channel, String number, String docCode, String docNumber, String accountCode, String code, String description, String destinationNumber, String destinationCode, String destionationDescription, String currencyDescription, String amount) {
+	@When("llamamos al metodo ownTransferBLR con {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void llamamosAlMetodoOwnTransferBLRCon(String transactionId, String channel, String number, String docCode, String docNumber, String accountCode, String code, String description, String destinationNumber, String destinationCode, String destionationDescription, String currencyDescription, String amount, String resultCode) {
 		RequestHeader header = new RequestHeader()
 				.transactionId(transactionId)
 				.channel(channel);
@@ -77,25 +78,19 @@ public class OwnTransferBLR {
     			.currencyTransfer(currencyTransfer)
     			.amount(Double.valueOf(amount));
     	
-    	
     	RequestOwnTransferInput request = (RequestOwnTransferInput) new RequestOwnTransferInput()
     			.data(data)
     			.header(header);
-    	
-    	System.out.println(request);
-    	
+    	    	
     	response =		
 				given().
 					spec(requestSpec).
-//					contentType(ContentType.JSON).
 					body(request).
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
-//					body("data.accounts[0].productType.code", equalTo("01")).
+					body("header.resultCode", equalTo(resultCode)).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
 					response();	
 	}
