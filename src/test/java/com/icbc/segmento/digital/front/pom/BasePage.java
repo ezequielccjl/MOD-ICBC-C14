@@ -1,4 +1,4 @@
-package com.icbc.segmento.digital.front.step;
+package com.icbc.segmento.digital.front.pom;
 import java.util.HashMap;
 
 import org.openqa.selenium.By;
@@ -12,13 +12,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.java.Before;
 
 public class BasePage {
 	
 	public static WebDriver driver;
-	private static WebDriverWait wait;
+	protected static WebDriverWait wait;
 	private static Actions action;
+	
+	
 
 	static {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");
@@ -44,14 +45,15 @@ public class BasePage {
 		
 	public static void navigateTo(String url) {
 		driver.get(url);
-		driver.manage().window().setSize(new Dimension(320, 774));
+		driver.manage().window().setSize(new Dimension(250, 800));
+		//driver.manage().window().maximize();
 	}
 
 	public static void closeBrowser() {
 		driver.quit();
 	}
 	
-	protected WebElement find(String locator) {
+	public WebElement find(String locator) {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 	}
 	
@@ -115,5 +117,8 @@ public class BasePage {
 	public boolean elementIsSelected(String locator) {
 		return find(locator).isSelected();
 	}
+	
+	
+
 
 }

@@ -1,139 +1,80 @@
 package com.icbc.segmento.digital.front.step;
 
-import java.util.HashMap;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
+
+import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import com.icbc.segmento.digital.front.pom.PageModel;
+
+import cucumber.api.java.en.And;
 
 public class PantallaPagoTarjeta {
-	//PageModel page = new PageModel();
-	public WebDriver driver;
-	private WebDriverWait wait;
-	private Actions action;
-	WebElement ingresarBtn;
-	WebElement pagarBtn;
-	WebElement liCuentaCorriente;
-	WebElement cuentaCorriente;
-	WebElement liMonedaWeb;
-	WebElement moneda;
 	
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnIngresar = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[2]/div/ly-flex-layout/div/ly-button/button";
-	private String btnPagar = "//*[@id=\"flex_163526211107270629\"]/ly-button[1]/button";
-	private String liCuenta = "/html/body/main[1]/div/app-root/ly-app-container/div/app-card-payment-form-cont/ly-layout-container/div/div/app-card-payment-form-data/form/ly-form-field[1]/div/ly-select/div/div/ly-drop-frame/div/div[1]/ly-list-item/li";
-	private String liMoneda = "/html/body/main[1]/div/app-root/ly-app-container/div/app-card-payment-form-cont/ly-layout-container/div/div/app-card-payment-form-data/form/ly-form-field[2]/div/ly-select/div/div/ly-drop-frame/div/div[1]";
-	
-	@Given("El usuario se logea con {string} y {string}")
-	public void elUsuarioSeLogeaConY(String user, String pass) {
-		
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-			driver.manage().window().setSize(new Dimension(250, 800));
-			driver = new ChromeDriver(chromeOptions());
-			wait = new WebDriverWait(driver, 15);
-		
-        driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
-        ingresarUsuario(user);
-        ingresarContraseña(pass);
-        ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-        ingresarBtn.click();
-        System.out.println("se ingresa");
-	}
+	PageModel pm = new PageModel();
 
-	@When("El usuario clickea en pagar")
-	public void elUsuarioClickeaEnPagar() throws InterruptedException {
+    @Given("^El usuario se logea con \"([^\"]*)\" y \"([^\"]*)\"$")
+    public void elUsuarioSeLogeaConSomethingYSomething(String user, String password) {
+    	pm.navigateToFBD();
+	    pm.loginFBD(user, password);
+	    System.out.println("Se ingresa: Pago Tarjeta de Crédito");
+    }
 
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2000)");
-		pagarBtn = driver.findElement(By.xpath("/html/body/main[1]/div/app-root/ly-app-container/div/app-home/ly-layout-container[1]/div/ly-section/div/ly-block[2]/div/app-card[1]/ly-card/div/ly-card-footer/div/div[1]/ly-flex-layout/div/ly-button[1]/button"));
-		pagarBtn.click();
-		
-	}
+    @When("^El usuario clickea en pagar \"([^\"]*)\"$")
+    public void elUsuarioClickeaEnPagarSomething(String tarjeta) {
+    	
+    	if (tarjeta.equals("Visa")) {
+    		pm.implicitWait();
+    		pm.jseClickIntercepted("//button[contains(@class,'ng-tns-c39-17')]");
+    		
+    		System.out.println("VISA");
+    		
+		}else if (tarjeta.equals("Mastercard")) {
+			pm.implicitWait();
+			pm.jseClickIntercepted("//button[contains(@class,'ng-tns-c39-11')]");
+			System.out.println("MASTER");
+		}
+    	
+    }
 
-	@When("Selecciona {string} {string} {string} y clickea continuar")
-	public void seleccionaYClickeaContinuar(String cuentaDebitar, String monedaPagar, String importe) throws InterruptedException {
-		
-		Thread.sleep(3000);
-		liCuentaCorriente = driver.findElement(By.xpath(liCuenta));
-		liCuentaCorriente.click();
-		
-		Thread.sleep(1000);
-		System.out.println("//div[contains(text(),'" + cuentaDebitar + "')]");
-		cuentaCorriente = driver.findElement(By.xpath("//div[contains(text(),'"+ cuentaDebitar +"')]"));
-		cuentaCorriente.click();
-		
-		Thread.sleep(1000);
-		liMonedaWeb = driver.findElement(By.xpath(liMoneda));
-		liMonedaWeb.click();
-		
-		Thread.sleep(1000);
-		moneda = driver.findElement(By.xpath("//span[contains(text(),'"+monedaPagar+"')]"));
-		cuentaCorriente.click();
-		
-		
-	}
+    @Then("^Visualiza comprobante de pago$")
+    public void visualizaComprobanteDePago()  {
+    	assertTrue(pm.verificarPagoTC());
+    	System.out.println("Finalización del test");
+    }
 
-	@When("Clickea pagar")
-	public void clickeaPagar() {
-	}
+    @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y clickea continuar$")
+    public void seleccionaSomethingSomethingSomethingYClickeaContinuar(String cuentadebitar, String monedapagar, String importe) throws InterruptedException {
+    	pm.implicitWait();
+    	pm.clickElement("//div[contains(@class,'ng-tns-c67-3')]");
+    	pm.implicitWait();
+    	pm.jseClickIntercepted("//div[contains(text(),'" + cuentadebitar + "')]");
+    	
+    	if (monedapagar.equals("DOLAR")) {
+			pm.clickElement("//div[contains(@class,'ng-tns-c67-7')]");
+			pm.implicitWait();
+			pm.jseClickIntercepted("//span[contains(text(),'DOLAR')]");
+		}
+    	
+    	pm.implicitWait();
+    	pm.ingresarImportePagoTC(importe);
+    	Thread.sleep(2000);
+    	System.out.println("Se completa: \nCuenta a debitar: " + cuentadebitar + "\nMoneda a pagar: " + monedapagar + "\nImporte: " + importe);
+    	
+    }
 
-	@Then("Visualiza comprobante de pago")
-	public void visualizaComprobanteDePago() {
-	}
-	
-	private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-	    return chromeOptions;
-	}
-	
-	public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
-	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void clickIngresar() {
-		clickElement(btnIngresar);
-	}
-	
-	public void navigateTo(String url) {
-		//driver.get(url);
-		driver.manage().window().setSize(new Dimension(320, 774));
-	}
-	
-	public void clickElement(String locator) {
-		find(locator).click();
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
+    @And("^Clickea pagar$")
+    public void clickeaPagar() {
+    	pm.implicitWait();
+    	pm.clickElement("//button[contains(text(),'Continuar')]");
+    	pm.implicitWait();
+    	pm.clickElement("//button[contains(text(),'Pagar')]");
+    	System.out.println("Click en pagar.");
+    }
 
 }

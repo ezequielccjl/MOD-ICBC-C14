@@ -1,7 +1,7 @@
 @pantallaResumenRefactor
 Feature: El usuario accede a sus resumenes
 
-  Scenario Outline: Resumen de TC hasta 12 liquidaciones
+  Scenario Outline: Resumen de TC hasta doce liquidaciones
     Given El "<user>" hace login con "<password>"
     When Clickea en pestania mas
     And Selecciona Resumenes

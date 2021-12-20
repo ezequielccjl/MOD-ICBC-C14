@@ -15,123 +15,56 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.icbc.segmento.digital.front.pom.PageModel;
+
 import cucumber.api.java.en.And;
 
 public class TransferenciaInmediata {
 	
-	private String buttonTranferir = "/html/body/main[1]/div/app-root/ly-app-container/div/app-home/ly-layout-container[1]/div/ly-section/div/ly-block[1]/div/app-account[1]/ly-block-layout/div/ly-card/div/ly-card-footer/div/div[1]/ly-flex-layout/div/ly-button[1]/button";
-	public WebDriver driver;
-	private WebDriverWait wait;
-	WebElement ingresarBtn;
-	
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String inputDestino = "/html/body/main[1]/div/app-root/ly-app-container/div/app-transferences/app-transference/ly-layout-container/div/ly-block/div/ly-tabs/div/div[2]/ly-tab[1]/div/ly-block/div/form/ly-block/div/ly-form-field[2]/div/ly-drop-frame/div/div[1]";
-	private String inputMonto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-transferences/app-transference/ly-layout-container/div/ly-block/div/ly-tabs/div/div[2]/ly-tab[1]/div/ly-block/div/form/ly-block/div/ly-form-field[3]/div/ly-text-field/div/input";
-	private String inputConcepto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-transferences/app-transference/ly-layout-container/div/ly-block/div/ly-tabs/div/div[2]/ly-tab[1]/div/ly-block/div/form/ly-block/div/ly-form-field[4]/div/ly-select/div/div/ly-drop-frame/div/div[1]";
-	
-	@Given("^El user \"([^\"]*)\" se loguea con \"([^\"]*)\"$")
+	PageModel pm = new PageModel();
+
+    @Given("^El user \"([^\"]*)\" se loguea con \"([^\"]*)\"$")
     public void elUserSomethingSeLogueaConSomething(String user, String password) {
-    	System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");	
-		driver = new ChromeDriver(chromeOptions());
-		wait = new WebDriverWait(driver, 15);	
-	
-	    driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
-	    driver.manage().window().setSize(new Dimension(250, 800));
-	    ingresarUsuario(user);
-	    ingresarContraseña(password);
-	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-	    ingresarBtn.click();
-	    System.out.println("Se ingresa");
+    	pm.navigateToFBD();
+	    pm.loginFBD(user, password);
+	    System.out.println("Se ingresa: Transferencia Inmediata");
     }
 
     @When("^Presiona en la pestania Transferir$")
-    public void presionaEnLaPestaniaTransferir() throws InterruptedException {
-    	
-    	Thread.sleep(3000);
-    	WebElement buttonTrans= driver.findElement(By.xpath("//button[contains(text(),'Transferir')]"));
-    	buttonTrans.click();
+    public void presionaEnLaPestaniaTransferir() {
+        pm.implicitWait();
+        pm.jseClickIntercepted("//button[contains(text(),'Transferir')]");
+    }
+
+    @Then("^Verfica transferencia exitosa$")
+    public void verficaTransferenciaExitosa() {
         
     }
 
-    @Then("^Verfica que este en pantalla de SMS$")
-    public void verficaQueEsteEnPantallaDeSMS() {
+    @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y presiona continuar$")
+    public void seleccionaSomethingSomethingSomethingYPresionaContinuar(String destino, String monto, String concepto) {
+    	pm.implicitWait();
+    	pm.clickElement("//div[contains(@class,'ng-tns-c77-2')]");
+		pm.implicitWait();
+		pm.clickElement("//span[contains(text(),'" + destino + "')]");
+		pm.implicitWait();
+		pm.ingresarMontoTransferencia(monto);
+		pm.implicitWait();
+    	pm.clickElement("//div[contains(@class,'ng-tns-c77-12')]");
+    	pm.implicitWait();
+    	pm.jseClickIntercepted("//span[contains(text(),'" + concepto + "')]");
         
     }
 
-    @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-    public void seleccionaSomethingSomethingSomething(String destino, String monto, String concepto) throws InterruptedException {
-    	
-    	Thread.sleep(2000);
-    	WebElement inpDestino = driver.findElement(By.xpath(inputDestino));
-    	inpDestino.click();
-    	
-    	Thread.sleep(1000);
-    	
-    	WebElement des = driver.findElement(By.xpath("//span[contains(text(),'"+ destino +"')]"));
-    	des.click();
-    	
-    	Thread.sleep(1000);
-    	
-    	WebElement inpMonto = driver.findElement(By.xpath(inputMonto));
-    	inpMonto.sendKeys(monto);
-    	
-    	WebElement inpConcepto = driver.findElement(By.xpath(inputConcepto));
-    	inpConcepto.click();
-    	
-    	Thread.sleep(1000);
-    	
-    	WebElement spanConcepto= driver.findElement(By.xpath("//span[contains(text(),'"+ concepto +"')]"));
-    	spanConcepto.click();
-          
-    }
-
-    @And("^Presiona continuar$")
-    public void presionaContinuar() throws InterruptedException {
-    	
-    	Thread.sleep(2000);
-    	
-    	WebElement btnContinuar = driver.findElement(By.xpath("//button[contains(text(),'Continuar')]"));
-    	btnContinuar.click();
+    @And("^Presiona continuar ingresa token y confirma transferencia$")
+    public void presionaContinuarIngresaTokenYConfirmaTransferencia() {
+    	pm.implicitWait();
+    	pm.clickElement("//button[contains(text(),'Continuar')]");
+    	pm.implicitWait();
+    	pm.clickElement("//button[contains(text(),'Continuar')]");
+    	pm.implicitWait();
+    	pm.ingresarTokenTransferencia("11111");
         
     }
-
-    @And("^Confirma transferencia$")
-    public void confirmaTransferencia() throws InterruptedException {
-    	
-    	Thread.sleep(2000);
-    	
-    	WebElement btnContinuar = driver.findElement(By.xpath("//button[contains(text(),'Continuar')]"));
-    	btnContinuar.click();
-        
-    }
-    
-    public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
-	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
-	
-	private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-	    return chromeOptions;
-	}
 
 }

@@ -19,93 +19,70 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.icbc.segmento.digital.front.pom.BasePage;
+import com.icbc.segmento.digital.front.pom.PageModel;
+
 import cucumber.api.java.en.And;
 
 public class CardlessExtraction {
 	
 	int montoConst;
-	BasePage bp;
+	PageModel pm = new PageModel();
 	
-	public WebDriver driver;
-	private WebDriverWait wait;
-	WebElement ingresarBtn;
-
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnIngresar = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[2]/div/ly-flex-layout/div/ly-button/button";
-	private String btnMas = "/html/body/main[1]/div/app-root/ly-app-container/div/app-footer/ly-footer-bar/div/ly-flex-layout/div/ly-footer-bar-item[5]/button";
-
-	private String selectCajaAhorro = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[1]/div/ly-select/div/div/ly-drop-frame/div";
-	private String inputMonto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[2]/div/ly-text-field/div/input";
 	private String inputNumero = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-flex-layout/div/ly-form-field[2]/div/ly-text-field/div/input";
+	private String inputMonto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[2]/div/ly-text-field/div/input";
 	
 
     @Given("^El \"([^\"]*)\" hace log con \"([^\"]*)\"$")
     public void elSomethingHaceLogConSomething(String user, String password) {
-    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriver.exe");	
-		driver = new ChromeDriver(chromeOptions());
-		
-		wait = new WebDriverWait(driver, 15);	
-	
-		bp.navigateTo("https://mbrfbd.intranet.local/mbr/fbd/shell-mf/#/login");
-	    driver.manage().window().setSize(new Dimension(250, 800));
-	   //driver.manage().window().maximize();
-	    
-	    ingresarUsuario(user);
-	    ingresarContraseña(password);
-	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-	    ingresarBtn.click();
-	    System.out.println("Se ingresa: Cardless Extraction");
+    	pm.navigateToFBD();
+	    pm.loginFBD(user, password);
+	    System.out.println("Se ingresa: Extraccion sin Tarjeta");
     }
 
     @When("^Clickea pestania mas$")
     public void clickeaPestaniaMas() {
-    	//WebDriverWait wait = new WebDriverWait(driver, 10);
-    	WebElement element = wait.until(
-    	        ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Quiero un nuevo producto')]")));
-    	
-    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    	WebElement buttonMas = driver.findElement(By.xpath("//span[contains(text(),'Más')]"));
-    	buttonMas.click();
+    	pm.esperarElemento("//button[contains(text(),'Quiero un nuevo producto')]");
+    	pm.implicitWait();
+    	pm.clickMas();
     	System.out.println("PRESIONA BOTON MAS-------------");
     }
 
     @Then("^Verifica orden completada$")
     public void verificaOrdenCompletada() {
-        if (montoConst > 15000 ) {
-        	Boolean montoSuperiorBool = driver.findElement(By.xpath("//span[contains(text(),'Superaste el monto máximo permitido.')]")).isDisplayed();
-        	assertTrue(montoSuperiorBool);
-        	if(montoSuperiorBool) {
-        		System.out.println("VALIDACIÓN MONTO SUPERIOR COMPLETA.");
-        	}
-		}
+    	System.out.println("Se hace verificación");
+    	pm.implicitWait();
+        Boolean montoSuperiorBool = pm.elementoDisponible("//span[contains(text(),'Superaste el monto máximo permitido.')]");
+        System.out.println(montoSuperiorBool);
+       	assertTrue(montoSuperiorBool);
+       	if(montoSuperiorBool) {
+       		System.out.println("VALIDACIÓN MONTO SUPERIOR COMPLETA.");
+       	}
+		
     }
 
     @And("^Selecciona Extraccion sin tarjeta$")
     public void seleccionaExtraccionSinTarjeta() {
-    	//Thread.sleep(2000);
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement buttonResumenes= driver.findElement(By.xpath("//li[contains(text(),'Extracción sin tarjeta')]"));
-    	buttonResumenes.click();
+    	pm.implicitWait();
+    	pm.clickCardless();
     	System.out.println("PRESIONA BOTON EXTRACCION-------------");
     }
 
     @And("^Selecciona nueva extraccion$")
     public void seleccionaNuevaExtraccion() {
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement buttonExtraction= driver.findElement(By.xpath("//a[contains(text(),'Nueva extracción sin tarjeta')]"));
-    	buttonExtraction.click();
+    	pm.implicitWait();
+    	pm.clickNuevaOrden();
     	System.out.println("PRESIONA BOTON NUEVA EXTRACCION-------------");
     }
 
     @And("^Completa campos para verificar \"([^\"]*)\"$")
     public void completaCamposParaVerificarSomething(String montoinferior) {
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement inputMontoElement= driver.findElement(By.xpath(inputMonto));
-    	inputMontoElement.sendKeys(montoinferior + Keys.TAB);
-    	Boolean montoInferiorBool = driver.findElement(By.xpath("//div[contains(text(),'El monto mínimo permitido es 100')]")).isDisplayed();
-    	assertTrue(montoInferiorBool);
-    	if(montoInferiorBool) {
+    	pm.implicitWait();
+    	pm.escribrirMonto(montoinferior);
+    	
+    	Boolean verificacion = pm.elementoDisponible("//div[contains(text(),'El monto mínimo permitido es 100')]");
+    	assertTrue(verificacion);
+    	if(verificacion) {
     		System.out.println("VALIDACIÓN MONTO INFERIOR COMPLETA.");
     	}
     }
@@ -115,73 +92,26 @@ public class CardlessExtraction {
     	
     	montoConst = Integer.parseInt(monto);
     	
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement inputMontoElement= driver.findElement(By.xpath(inputMonto));
-    	inputMontoElement.clear();
-    	inputMontoElement.sendKeys(monto);
+    	pm.implicitWait();
+    	pm.write(inputMonto, monto);
     	System.out.println("SE BORRA / MONTO: "+ monto);
     	
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement inputNumeroElement= driver.findElement(By.xpath(inputNumero));
-    	inputNumeroElement.sendKeys(numero);
+    	pm.implicitWait();
+    	pm.write(inputNumero, numero);
     	
-    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    	WebElement btnContinuar= driver.findElement(By.xpath("//button[contains(text(),'Continuar')]"));
+    	pm.implicitWait();
+    	WebElement btnContinuar= pm.find("//button[contains(text(),'Continuar')]");
     	btnContinuar.click();
     	
-    	WebElement element = wait.until(
-    	        ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Verificá los datos ingresados')]")));
+    	pm.esperarElemento("//div[contains(text(),'Verificá los datos ingresados')]");
     	
-    	WebElement btnContinuar2= driver.findElement(By.xpath("//button[contains(text(),'Continuar')]"));
+    	WebElement btnContinuar2 = pm.find("//button[contains(text(),'Continuar')]");
     	btnContinuar2.click();
     	
-    	WebElement smsInput = driver.findElement(By.xpath("//input[@maxlength='5']"));
-    	smsInput.sendKeys("11111");
+    	pm.write("//input[@maxlength='5']", "11111");
     	
-    	WebElement btnGenerarToken= driver.findElement(By.xpath("//button[contains(text(),'Generar')]"));
-    	btnGenerarToken.click();
+    	pm.clickElement("//button[contains(text(),'Generar')]");
     	
     }
     
-    private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-	    return chromeOptions;
-	}
-	
-	public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
-	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void clickIngresar() {
-		clickElement(btnIngresar);
-	}
-	
-	public void navigateTo(String url) {
-		//driver.get(url);
-		driver.manage().window().setSize(new Dimension(320, 774));
-	}
-	
-	public void clickElement(String locator) {
-		find(locator).click();
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
-
 }

@@ -13,7 +13,7 @@ Feature: El usuario realiza una extraccion sin tarjeta
 
     Examples:
 		| user       | password | origen | montoInferior | montoCorrecto| tipo | numero   |
-		|u92308675   | prueba01 | 39/29  | 				1 		 |1000   				| DNI	 | 32532678 |
+		|u92308675   | prueba01 | 39/29  | 				1 		 |30000   				| DNI	 | 32532678 |
 		#|u92308675   | prueba01 | 39/29  | 				1			 |20000  				| DNI	 | 32532678 |
 		
 		@cardlessMaximos
