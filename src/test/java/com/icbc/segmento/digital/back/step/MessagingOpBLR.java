@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -36,36 +37,36 @@ public class MessagingOpBLR {
 				.build();
 	}
 
-	@When("Llamada al metodo messagingOpBLR con {string} {string} {string} {string} {string} {string}")
-	public void llamadaAlMetodoMessagingOpBLRCon(String channel, String clientNumber, String docNumber, String typeDoc, String gender, String show) {
+	@When("Llamada al metodo messagingOpBLR con {string} {string} {string} {string} {string} {string} {string}")
+	public void llamadaAlMetodoMessagingOpBLRCon(String channel, String clientNumber, String docNumber, String typeDoc, String gender, String show, String resultCode) {
 		
 		RequestHeader header = new RequestHeader()
 				.channel(channel);
-		
-    	MessagingInput data = new MessagingInput()
-    			.clientNumber(clientNumber)
-    			.docNumber(docNumber)
-    			.typeDoc(typeDoc)
-    			.gender(gender)
-    			.show(show);
-    	
     	
     	RequestMessagingInput request = (RequestMessagingInput) new RequestMessagingInput()
-    			.data(data)
     			.header(header);
     	
-    	System.out.println(request);
-    	
+    	if(resultCode.contentEquals("ok")) {
+    		
+    		MessagingInput data = new MessagingInput()
+        			.clientNumber(clientNumber)
+        			.docNumber(docNumber)
+        			.typeDoc(typeDoc)
+        			.gender(gender)
+        			.show(show);
+    		
+    		request.data(data);
+    	}
+    	    	
     	response =		
 				given().
 					spec(requestSpec).
-//					contentType(ContentType.JSON).
+					contentType(ContentType.JSON).
 					body(request).
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
-//					body("data.accounts[0].productType.code", equalTo("01")).
+					body("header.resultCode", equalTo(resultCode)).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().

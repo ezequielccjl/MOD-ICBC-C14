@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -38,8 +39,8 @@ public class PaymentBLR {
 				.build();
 	}
 
-	@When("Llamo al metodo paymentBLR con los datos {string} {string} {string} {string} {string} {string} {string} {string}")
-	public void llamoAlMetodoPaymentBLRConLosDatos(String channel, String transactionId, String confirmPaymentIndicator, String currencyCode, String cardNumber, String accountProductNumber, String accountProductCurrency, String cardTypeIndicator) {
+	@When("Llamo al metodo paymentBLR con los datos {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void llamoAlMetodoPaymentBLRConLosDatos(String channel, String transactionId, String confirmPaymentIndicator, String currencyCode, String cardNumber, String accountProductNumber, String accountProductCurrency, String cardTypeIndicator, String resultCode) {
 		
 		RequestHeader rh = new RequestHeader()
 				.channel(channel)
@@ -65,7 +66,7 @@ public class PaymentBLR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
+					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

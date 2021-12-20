@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.sql.Date;
 
@@ -124,8 +125,8 @@ public class ListTwelveStatemenetMBR {
 		
 	}
 
-	@When("Realiza la consulta al metodo listTwelveStatementMBR con {string} {string} {string} {string}")
-	public void realizaLaConsultaAlMetodoListTwelveStatementMBRCon(String transactionId, String canceledIndicator, String cardProductIndexNumber, String cardBrandIndicatorCode) {
+	@When("Realiza la consulta al metodo listTwelveStatementMBR con {string} {string} {string} {string} {string}")
+	public void realizaLaConsultaAlMetodoListTwelveStatementMBRCon(String transactionId, String canceledIndicator, String cardProductIndexNumber, String cardBrandIndicatorCode, String resultCode) {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
@@ -155,7 +156,7 @@ public class ListTwelveStatemenetMBR {
     			when().
     				post().
     			then().
-//    				body("header.resultCode", equalTo("ok")).
+    				body("header.resultCode", equalTo(resultCode)).
 //    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
 //    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

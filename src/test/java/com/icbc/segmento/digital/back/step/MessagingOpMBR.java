@@ -12,6 +12,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
 
@@ -42,7 +43,7 @@ public class MessagingOpMBR {
 		LoginBE login = new LoginBE(user, pass, deviceId);
 		Response loginResponse = login.getResponse();
 		hzSessionId = login.getHzSessionId(loginResponse.asString());
-		System.out.println(hzSessionId);
+
 		assertEquals("El status code es incorrecto" + loginResponse.getStatusCode() , 200, loginResponse.getStatusCode());
 		
 	}
@@ -109,9 +110,7 @@ public class MessagingOpMBR {
     				contentType(ContentType.JSON).
     				header("Cookie", hzSessionId).
     				body(auxiliar.getBodyWithChannelAndShow(channel, show)).
-    				log().all().
     			when().
-    				log().all().
     				post().
     			then().
 //    				body("header.resultCode", equalTo("ok")).

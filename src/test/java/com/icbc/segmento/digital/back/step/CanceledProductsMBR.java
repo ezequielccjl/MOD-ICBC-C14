@@ -1,7 +1,6 @@
 package com.icbc.segmento.digital.back.step;
 
 
-import cucumber.api.PendingException;
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -9,14 +8,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,20 +21,11 @@ import org.junit.runner.RunWith;
 
 import com.ebanking.model.RequestHeader;
 import com.ebanking.retail.model.ChannelCanceledProductsInput;
-import com.ebanking.retail.model.ChannelDeleteExtractionInput;
-import com.ebanking.retail.model.ChannelProductListInputMbr;
 import com.ebanking.retail.model.ChannelProductType;
-import com.ebanking.retail.model.Filter;
-import com.ebanking.retail.model.LoginSessionInput;
-import com.ebanking.retail.model.ProductListInput;
 import com.ebanking.retail.model.RequestChannelCanceledProductsInput;
-import com.ebanking.retail.model.RequestChannelDeleteExtractionInput;
-import com.ebanking.retail.model.RequestChannelProductListInputMbr;
-import com.ebanking.retail.model.RequestLoginSessionInput;
 import com.icbc.segmento.digital.util.Link;
 import com.icbc.segmento.digital.util.LoginBE;
 
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
@@ -58,12 +46,11 @@ public class CanceledProductsMBR {
 	    
 	}
 
-	@When("Realiza la consulta canceledProductsMBR con {string} {string} {string}")
-	public void realizaLaConsultaCanceledProductsMBRCon(String channel, String transactionId, String clientNumber) {
+	@When("Realiza la consulta canceledProductsMBR con {string} {string} {string} {string}")
+	public void realizaLaConsultaCanceledProductsMBRCon(String channel, String transactionId, String clientNumber, String resultCode) {
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.CANCELEDPRODUCTSMBR)
-//				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
     	
@@ -91,7 +78,7 @@ public class CanceledProductsMBR {
 				when().
 					post().
 				then().
-//					body("header.resultCode", equalTo("ok")).
+					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).

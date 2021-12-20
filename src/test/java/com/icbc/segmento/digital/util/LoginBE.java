@@ -36,7 +36,6 @@ public class LoginBE {
 		
 //		HashMap<String, String> loginData = getLoginDataHashMap(user, pass, deviceId);
 		
-		
 		resp = 
 				given().
 				relaxedHTTPSValidation().
@@ -69,19 +68,17 @@ public class LoginBE {
 	}
 	
 	public String getHzSessionId(String aJsonOutput) {
-//		JSONObject jsonObj = new JSONObject(aJsonOutput);
-//		System.out.println("---"+jsonObj.getString("hzSessionId"));
-		String hzSessionId = aJsonOutput.substring(aJsonOutput.length()-55, aJsonOutput.length()-3);
-		return "dse_sessionId=" + hzSessionId;
+		JSONObject jsonObj = new JSONObject(aJsonOutput);
+		return "dse_sessionId=" + jsonObj.getJSONObject("data").getString("hzSessionId");
 	}
 	
 	public String getDocType(String aJsonOutput) {
-		String docType = aJsonOutput.substring(aJsonOutput.length()-229, aJsonOutput.length()-227);
-		return docType;
+		JSONObject jsonObj = new JSONObject(aJsonOutput);
+		return jsonObj.getJSONObject("data").getString("docType");
 	}
 	
 	public String getDocNum(String aJsonOutput) {
-		String docNum = aJsonOutput.substring(aJsonOutput.length()-215, aJsonOutput.length()-207);
-		return docNum;
+		JSONObject jsonObj = new JSONObject(aJsonOutput);
+		return jsonObj.getJSONObject("data").getString("docNum");
 	}
 }

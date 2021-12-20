@@ -1,6 +1,8 @@
 package com.icbc.segmento.digital.back.step;
 
 import io.restassured.response.Response;
+
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 import cucumber.api.CucumberOptions;
@@ -40,8 +42,8 @@ public class ListDevicesMBR {
 	
 	}
 
-	@When("Se realiza la consulta al metodo listDevicesMBR con {string} {string}")
-	public void seRealizaLaConsultaAlMetodoListDevicesMBRCon(String transactionId, String channel) {
+	@When("Se realiza la consulta al metodo listDevicesMBR con {string} {string} {string}")
+	public void seRealizaLaConsultaAlMetodoListDevicesMBRCon(String transactionId, String channel, String resultCode) {
 		RequestSpecification requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.LISTDEVICESMBR)
 				.setContentType(ContentType.JSON)
@@ -63,6 +65,7 @@ public class ListDevicesMBR {
 				when().
 					post().
 				then().
+					body("header.resultCode", equalTo(resultCode)).
 					log().all().
 					extract().
 					response();	

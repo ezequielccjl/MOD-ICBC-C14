@@ -43,6 +43,7 @@ public class GetAvailableCardMBR {
 	
 	@Given("Se realiza login con {string} {string} {string} correctamente")
 	public void seRealizaLoginConCorrectamente(String user, String pass, String deviceId) {
+		System.out.println("----------------------------LOGIN");
 		LoginBE login = new LoginBE(user, pass, deviceId);
 		Response loginResponse = login.getResponse();
 		hzSessionId = login.getHzSessionId(loginResponse.asString());
@@ -53,6 +54,7 @@ public class GetAvailableCardMBR {
 
 	@When("Se realiza la consulta al metodo getClientData con {string}")
 	public void seRealizaLaConsultaAlMetodoGetClientDataCon(String transactionId) {
+		System.out.println("----------------------------GETCLIENTDATA");
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.NEWGETCLIENTDATA)
@@ -62,13 +64,13 @@ public class GetAvailableCardMBR {
 		
 		BodyHeader header = new BodyHeader();
 		String request = header.getHeaderWithTransactionId(transactionId);
-	
+		
     	Response responseGetClientData =		
     			given().
     				spec(requestSpec).
-    				contentType(ContentType.JSON).
+//    				contentType(ContentType.JSON).
     				header("Cookie", hzSessionId).
-    				header("Content-Type", "application/json").
+//    				header("Content-Type", "application/json").
     				body(request).
     			when().
     			log().all().
@@ -80,7 +82,6 @@ public class GetAvailableCardMBR {
 //    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
     				extract().
     				response();	
-    	String respGetClientData = responseGetClientData.asPrettyString();
 		
 		assertEquals("El status code es incorrecto " + responseGetClientData.getStatusCode() , 200, responseGetClientData.getStatusCode());
 		
@@ -88,6 +89,7 @@ public class GetAvailableCardMBR {
 
 	@When("Se realiza la consulta al metodo listProducts con {string}")
 	public void seRealizaLaConsultaAlMetodoListProductsCon(String transactionId) {
+		System.out.println("----------------------------LISTPRODUCTS");
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.LISTPRODUCTS)
@@ -134,6 +136,7 @@ public class GetAvailableCardMBR {
 
 	@When("Se realiza la consulta al metodo getAvailableCardMBR con {string}")
 	public void seRealizaLaConsultaAlMetodoGetAvailableCardMBRCon(String channel) {
+		System.out.println("----------------------------GETAVAILABLECARD");
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
 				.setBaseUri(Link.GETAVAILABLECARDMBR)
@@ -166,6 +169,7 @@ public class GetAvailableCardMBR {
 
 	@Then("Se verifica la response devuelta")
 	public void seVerificaLaResponseDevuelta() {
+		System.out.println("----------------------------FINAL");
 		assertEquals("El status code es incorrecto " + response.getStatusCode() , 200, response.getStatusCode());
 	}
 	
