@@ -32,6 +32,8 @@ public class Link {
     public static final String GETLEGALCONTENTBLR = "https://blr-content-1-0-fbd.apps.ocp4-tst.intranet.local/content/1.0/get-legal-content";
     public static final String GETTYCCONTENTBLR = "https://blr-content-1-0-fbd.apps.ocp4-tst.intranet.local/content/1.0/get-ty-ccontent";
     public static final String GETPRIVACYPOLICIESCONTENTBLR = "https://blr-content-1-0-fbd.apps.ocp4-tst.intranet.local/content/1.0/get-privacy-policies";
+    public static final String GETDOLLARPRICEBLR = "https://blr-dollars-buy-sell-1-0-dev.apps.ocp4-tst.intranet.local/dollars-buy-sell/1.0/get-dollar-price";
+    public static final String GETDOLLARPRICEMBR = "https://mbr-channel-dollars-buy-sell-1-0-dev.apps.ocp4-tst.intranet.local/channel-dollars-buy-sell/1.0/get-dollar-price";
     public static final String GETFAQCONTENTMBR = "https://mbr-channel-content-sessionless-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content-sessionless/1.0/get-faq-content";
     public static final String GETSEGCANALESCONTENTMBR = "https://mbr-channel-content-sessionless-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content-sessionless/1.0/get-seg-canales-content";
     public static final String GETLEGALCONTENTMBR = "https://mbr-channel-content-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content/1.0/get-legal-content";

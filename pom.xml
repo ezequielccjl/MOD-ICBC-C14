@@ -450,6 +450,20 @@
 	<artifactId>channel-credit-card-purchases-stub</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 </dependency>
+
+<dependency>
+	<groupId>com.ebanking.retail.blr</groupId>
+	<artifactId>dollars-buy-sell-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+
+<dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-dollars-buy-sell-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+
+
 	
 	
 	</dependencies>

@@ -58,7 +58,7 @@ public class GetFaqContentBLR {
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().
-					response();	
+					response();
 		
 	}
 
