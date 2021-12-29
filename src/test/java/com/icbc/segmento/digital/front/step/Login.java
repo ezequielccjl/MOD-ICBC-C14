@@ -2,127 +2,83 @@ package com.icbc.segmento.digital.front.step;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import cucumber.api.java.en.Then;
 
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertTrue;
 
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import com.icbc.segmento.digital.front.pom.PageModel;
+import com.icbc.segmento.digital.util.Link;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import cucumber.api.java.en.And;
 
 public class Login {
 	
-	public WebDriver driver;
-	private WebDriverWait wait;
-	WebElement ingresarBtn;
-
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnIngresar = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[2]/div/ly-flex-layout/div/ly-button/button";
-
-
-    @Given("^El usuario se encuentra en la App$")
-    public void elUsuarioSeEncuentraEnLaApp() {
-    	System.out.println(System.getProperty("user.home") + "/drivers/chromedriver.exe");
-    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/drivers/chromedriverNuevo.exe");	
-		driver = new ChromeDriver(chromeOptions());
-		wait = new WebDriverWait(driver, 15);	
+	PageModel pm = new PageModel();
+	private static RequestSpecification requestSpec;
+	private static Response response;
 	
-	    driver.get("https://mbrfbd.intranet.local/mbr/fbd/shell-mf/#/login");
-	    driver.manage().window().setSize(new Dimension(250, 800));
-	   //driver.manage().window().maximize();
-        
-    }
+	@Given("El usuario se encuentra en la App")
+	public void elUsuarioSeEncuentraEnLaApp() {
+	    pm.navigateToFBD();
+	}
 
-    @When("^Ingresa su \"([^\"]*)\" y \"([^\"]*)\"$")
-    public void ingresaSuSomethingYSomething(String usuario, String contrasenia) {
-    	ingresarUsuario(usuario);
-	    ingresarContraseña(contrasenia);
-    }
+	@When("Ingresa su {string} y {string} {string}")
+	public void ingresaSuY(String user, String contrasenia, String loop) {
+	    for (int i = 0; i < Integer.parseInt(loop); i++) {
+	    	System.out.println("VUELTA: "+i);
+			pm.ingresarUsuario(user);
+			pm.ingresarContraseña(contrasenia);
+			pm.jseClickIntercepted("//button[contains(text(),'Ingresar')]");
+		}
+	}
 
-    @Then("^Verifica \"([^\"]*)\"$")
-    public void verificaSomething(String respuestaesperada) {
-    	
-        if(respuestaesperada == "LoginOk") {
-        	
-        	System.out.println("CASO: Se ingresa a Home Productos");
-        	
-        	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        	boolean btnAddProductPresent = driver.findElement(By.xpath("//button[contains(text(),'Quiero un nuevo producto')]")).isDisplayed();
-        	assertTrue(btnAddProductPresent);
-        	
-        }else if(respuestaesperada == "WrongPass") {
-        	
-        	System.out.println("CASO: Contraseña inválida");
-        	//Usuario y/o clave incorrectos
-        	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        	boolean spanWrongPassPresent = driver.findElement(By.xpath("//span[contains(text(),'Usuario y/o clave incorrectos')]")).isDisplayed();
-        	assertTrue(spanWrongPassPresent);
-        	
-        }
-        
-    }
-
-    @And("^Presiona ingresar$")
-    public void presionaIngresar() {
-    	
-    	ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-	    ingresarBtn.click();
-        
-    }
-    
-    private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-
+	@Then("Verifica {string}")
+	public void verifica(String respuestaEsperada) {
+	    Boolean verificacion = pm.elementoDisponible("//span[contains(text(),'"+respuestaEsperada+"')]");
 	    
-	    return chromeOptions;
+	    assertTrue(verificacion);
 	}
-	
-	public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
+
+	@Then("Blanquea usuario con {string} {string} {string} {string} {string} {string} {string}")
+	public void blanqueaUsuarioCon(String tipoDocumento, String numeroDocumento, String genero, String usuario, String clave, String canalOrigen, String requestId) {
+		 
+			requestSpec = (RequestSpecification) new RequestSpecBuilder()
+					.setBaseUri("http://aamr-fbd.intranet.local/intranet/usuario/altaUsuarioRetail.rs")
+//					.setContentType(ContentType.JSON)
+					.setRelaxedHTTPSValidation()
+					.build();
+		
+		String request = "{\r\n" + 
+				"\"tipoDocumento\": \""+tipoDocumento+"\",\r\n" + 
+				"\"numeroDocumento\": \""+numeroDocumento+"\",\r\n" + 
+				"\"genero\": \""+genero+"\",\r\n" + 
+				"\"usuario\": \""+usuario+"\",\r\n" + 
+				"\"clave\": \""+clave+"\",\r\n" + 
+				"\"canalOrigen\": \""+canalOrigen+"\",\r\n" + 
+				"\"trace\": {\r\n" + 
+				"\"requestId\": \""+requestId+"\"\r\n" + 
+				"}\r\n" + 
+				"}";
+		
+				given().
+				spec(requestSpec).
+				contentType(ContentType.JSON).
+				body(request).
+			when().
+				post().
+			then().
+		//		body("header.resultCode", equalTo("ok")).
+		//		body("data.accounts[0].productType.code", equalTo("01")).
+				log().all().
+		//		body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+				extract().
+				response();
+		
 	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void clickIngresar() {
-		clickElement(btnIngresar);
-	}
-	
-	public void navigateTo(String url) {
-		//driver.get(url);
-		driver.manage().window().setSize(new Dimension(320, 774));
-	}
-	
-	public void clickElement(String locator) {
-		find(locator).click();
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
+
 
 }

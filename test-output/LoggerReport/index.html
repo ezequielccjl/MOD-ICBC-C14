@@ -111,7 +111,8 @@
 								        </span>
 							        </a>
 							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
-						    	        <a class="dropdown-item" href="#"><span class="cf">@getDollarPriceMBR</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@cardlessExtraction</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@cardlessNormal</span></a>
 						    	        <div class="dropdown-divider"></div>
 						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 						    	      </div>
@@ -130,46 +131,50 @@
 										<h6 class="mb-3 ml-1">Test Logs</h6>
 											<div class="tsc" status="pass">
 											<div class="st pass test l0" 
-												tags=""
+												tags="@cardlessExtraction"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:52</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">[Servicio - llamada al metodo POST getFaqContentMBR] started</span>
+												<span class="tn">[El usuario realiza una extraccion sin tarjeta] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @cardlessExtraction</span>
+												</span>
 												
 											</div>
 											<div class="st pass test l1" 
-												tags="@getDollarPriceMBR"
+												tags="@cardlessNormal"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:52</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">|---[llamada al metodo POST getDollarPriceMBR] started</span>
+												<span class="tn">|---[Orden de extraccion sin tarjeta: Comprobacion de limites] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @getDollarPriceMBR</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @cardlessNormal</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l2" 
-												tags="@getDollarPriceMBR"
+												tags="@cardlessExtraction @cardlessNormal"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:52</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[llamada al metodo POST getDollarPriceMBR] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Orden de extraccion sin tarjeta: Comprobacion de limites] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @getDollarPriceMBR</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @cardlessExtraction</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @cardlessNormal</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:52</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given preparamos logueo con "F27308585" "prueba01" ""] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El "u92308675" hace log con "prueba01"] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:10</span>&nbsp;
+													<span class="tt">12.28.2021 09:59:57</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given preparamos logueo con "F27308585" "prueba01" ""]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given El "u92308675" hace log con "prueba01"]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -177,14 +182,14 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:10</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:57</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getDollarPriceMBR con "mbr" "9f73364f-28e4-4729-84b8-47363713a7c4-dollar" "true"] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Clickea pestania mas] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+													<span class="tt">12.28.2021 09:59:59</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getDollarPriceMBR con "mbr" "9f73364f-28e4-4729-84b8-47363713a7c4-dollar" "true"]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When Clickea pestania mas]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -192,14 +197,74 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+												<span class="tt">12.28.2021 09:59:59</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then validamos el codigo final del response] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona Extraccion sin tarjeta] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+													<span class="tt">12.28.2021 09:59:59</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then validamos el codigo final del response]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona Extraccion sin tarjeta]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">12.28.2021 09:59:59</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona nueva extraccion] started</span>
+												
+												<div class="st pass">
+													<span class="tt">12.28.2021 10:00:00</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Selecciona nueva extraccion]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">12.28.2021 10:00:00</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Completa campos para verificar "1"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">12.28.2021 10:00:01</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Completa campos para verificar "1"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">12.28.2021 10:00:01</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Completa correctamente "39/29" "30000" "DNI" "32532678" y presiona continuar] started</span>
+												
+												<div class="st pass">
+													<span class="tt">12.28.2021 10:00:02</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[And Completa correctamente "39/29" "30000" "DNI" "32532678" y presiona continuar]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">12.28.2021 10:00:02</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifica orden completada] started</span>
+												
+												<div class="st pass">
+													<span class="tt">12.28.2021 10:00:03</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then Verifica orden completada]</span>
 													
 													<span class="td"></span>
 												</div>

@@ -72,7 +72,7 @@ public class PageModel extends BasePage {
 	}
 	
 	public void clickCardless() {
-		clickElement(btnCardless);
+		jseClickIntercepted(btnCardless);
 	}
 	
 	public void clickNuevaOrden() {

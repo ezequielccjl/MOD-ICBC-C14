@@ -18,7 +18,7 @@ import cucumber.api.java.BeforeStep;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@transferenciaInmediata"})
+		tags = {"@cardlessNormal"})
 
 public class TestRunnerFront {
 	
