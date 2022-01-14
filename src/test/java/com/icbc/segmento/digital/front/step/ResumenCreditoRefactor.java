@@ -35,7 +35,7 @@ public class ResumenCreditoRefactor {
 
     @When("^Clickea en pestania mas$")
     public void clickeaEnPestaniaMas() {
-    	pm.esperarElemento("//button[contains(text(),'Quiero un nuevo producto')]");
+    	pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
     	pm.implicitWait();
     	pm.clickMas();
     	System.out.println("PRESIONA BOTON MAS-------------");

@@ -37,12 +37,12 @@ public class CardlessExtraction {
     public void elSomethingHaceLogConSomething(String user, String password) {
     	pm.navigateToFBD();
 	    pm.loginFBD(user, password);
-	    System.out.println("Se ingresa: Extraccion sin Tarjeta");
+	    System.out.println("Se ingresa: Cardless Extraction");
     }
 
     @When("^Clickea pestania mas$")
     public void clickeaPestaniaMas() {
-    	pm.esperarElemento("//button[contains(text(),'Quiero un nuevo producto')]");
+    	pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
     	pm.implicitWait();
     	pm.clickMas();
     	System.out.println("PRESIONA BOTON MAS-------------");

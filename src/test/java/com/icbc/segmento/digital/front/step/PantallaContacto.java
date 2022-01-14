@@ -35,7 +35,7 @@ public class PantallaContacto {
 
     @When("Presiona en la pestania Mas")
     public void presionaEnLaPestaniaMas() {
-    	pm.esperarElemento("//button[contains(text(),'Quiero un nuevo producto')]");
+    	pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
     	pm.implicitWait();
     	pm.clickMas();
     	System.out.println("PRESIONA BOTON MAS-------------");

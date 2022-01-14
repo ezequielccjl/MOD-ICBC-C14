@@ -22,43 +22,30 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.icbc.segmento.digital.front.pom.PageModel;
+
 public class PantallaTerminosCondiciones {
 	
-	public WebDriver driver;
-	private WebDriverWait wait;
-	WebElement ingresarBtn;
-	
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnMas = "/html/body/main[1]/div/app-root/ly-app-container/div/app-footer/ly-footer-bar/div/ly-flex-layout/div/ly-footer-bar-item[5]/button";
+	PageModel pm = new PageModel();
 	
     @Given("^El usuario se loguea con \"([^\"]*)\" \"([^\"]*)\"$")
     public void elUsuarioSeLogueaConSomethingSomething(String user, String pass) {
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		driver = new ChromeDriver(chromeOptions());
-		wait = new WebDriverWait(driver, 15);
-	
-	    driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
-	    driver.manage().window().setSize(new Dimension(250, 800));
-	    ingresarUsuario(user);
-	    ingresarContraseña(pass);
-	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-	    ingresarBtn.click();
-	    System.out.println("SE INGRESA A TERMINOS");
+		
+    	pm.navigateToFBD();
+    	pm.loginFBD(user, pass);
+	    System.out.println("Se ingresa: Términos y condiciones");
     }
 
     @When("Presiona en la pestania mas")
     public void presionaEnLaPestaniaMas() throws InterruptedException {
-    	System.out.println("PRESIONA BOTON MAS-------------");
-    	Thread.sleep(3000);
-    	WebElement buttonMas = driver.findElement(By.xpath(btnMas));
-    	buttonMas.click();
+    	pm.implicitWait();
+    	pm.clickMas();
     }
 
     @Then("^Verifica que se encuentre en terminos y condiciones$")
-    public void verificaQueSeEncuentreEnTerminosYCondiciones() throws InterruptedException {
-    	Thread.sleep(2000);
-    	WebElement body = driver.findElement(By.tagName("body"));
+    public void verificaQueSeEncuentreEnTerminosYCondiciones() {
+    	pm.implicitWait();
+    	WebElement body = pm.driver.findElement(By.tagName("body"));
     	String bodyText = body.getText();
 
     	// count occurrences of the string
@@ -80,49 +67,18 @@ public class PantallaTerminosCondiciones {
     }
 
     @And("^Selecciona Ayuda$")
-    public void seleccionaAyuda() throws InterruptedException {
-    	System.out.println("PRESIONA BOTON AYUDA-------------");
-    	Thread.sleep(1500);
-    	WebElement buttonAyuda = driver.findElement(By.xpath("//li[contains(text(),'Ayuda')]"));
-    	buttonAyuda.click();
+    public void seleccionaAyuda() {
+    	pm.implicitWait();
+    	pm.jseClickIntercepted("//li[contains(text(),'Ayuda')]");
         
     }
 
     @And("^Selecciona terminos y condiciones$")
-    public void seleccionaTerminosYCondiciones() throws InterruptedException {
+    public void seleccionaTerminosYCondiciones() {
     	System.out.println("PRESIONA BOTON AYUDA-------------");
-    	Thread.sleep(1500);
-    	WebElement buttonTerminos= driver.findElement(By.xpath("//span[contains(text(),'Terminos y condiciones')]"));
-    	buttonTerminos.click();
+    	pm.implicitWait();
+    	pm.clickElement("//span[contains(text(),'Terminos y condiciones')]");
         
     }
-    
-    public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
-	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
-	
-	private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-	    return chromeOptions;
-	}
 
 }
