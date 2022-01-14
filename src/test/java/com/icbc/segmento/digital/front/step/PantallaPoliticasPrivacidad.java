@@ -22,47 +22,50 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.icbc.segmento.digital.front.pom.PageModel;
+
 public class PantallaPoliticasPrivacidad {
 	
-	public WebDriver driver;
-	private WebDriverWait wait;
-	WebElement ingresarBtn;
+	PageModel pm = new PageModel();
 	
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
-	private String btnMas = "/html/body/main[1]/div/app-root/ly-app-container/div/app-footer/ly-footer-bar/div/ly-flex-layout/div/ly-footer-bar-item[5]/button";
-		
     @Given("^El usuario se loguea con \"([^\"]*)\" y \"([^\"]*)\"$")
     public void elUsuarioSeLogeaConSomethingYSomething(String user, String password)  {
     	
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		driver = new ChromeDriver(chromeOptions());
-		wait = new WebDriverWait(driver, 15);
-		driver.get("https://mobile.ebankingfbd.stdtest-idc.com.ar/mbr/fbd/shell-mf/#/login");
-		//driver.get("https://mbrdev.intranet.local/mbr/dev/shell-mf/#/login");
-	    driver.manage().window().setSize(new Dimension(250, 800));
-	    ingresarUsuario(user);
-	    ingresarContraseña(password);
-	    ingresarBtn = driver.findElement(By.xpath("//button[contains(text(),'Ingresar')]"));
-	    ingresarBtn.click();
-	    System.out.println("SE INGRESA A POLITICAS");
+		pm.navigateToFBD();
+		pm.loginFBD(user, password);
+		System.out.println("SE INGRESA A POLITICAS");
         
     }
     
     @When("Presiona la pestania Mas")
-    public void presionaLaPestaniaMas() throws InterruptedException {
-    	System.out.println("PRESIONA BOTON MAS-------------");
-    	Thread.sleep(3000);
-    	WebElement buttonMas = driver.findElement(By.xpath(btnMas));
-    	buttonMas.click();
+    public void presionaLaPestaniaMas() {
+    	pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
+    	pm.clickMas();
     }
 
+    @And("^Selecciona ayuda$")
+    public void seleccionaAyuda()  {
+    	System.out.println("PRESIONA BOTON AYUDA-------------");
+    	pm.implicitWait();
+    	pm.jseClickIntercepted("//li[contains(text(),'Ayuda')]");
+        
+    }
+
+    @And("^Selecciona politicas y privacidad$")
+    public void seleccionaPoliticasYPrivacidad()  {
+    	System.out.println("PRESIONA BOTON POLITICAS----------------");
+    	pm.implicitWait();
+    	pm.clickElement("//span[contains(text(),'Politicas de privacidad')]");
+        
+    }
+    
     @Then("^Verifica que se encuentre en politicas y privacidad$")
     public void verificaQueSeEncuentreEnPoliticasYPrivacidad() throws InterruptedException  {
     	// get the text of the body element
     	Thread.sleep(2000);
-    	WebElement body = driver.findElement(By.tagName("body"));
+    	WebElement body = pm.driver.findElement(By.tagName("body"));
     	String bodyText = body.getText();
+    	System.out.println(bodyText);
 
     	// count occurrences of the string
     	int cont = 0;
@@ -80,51 +83,5 @@ public class PantallaPoliticasPrivacidad {
     	
     	assertEquals(2, cont);
     }
-
-    @And("^Selecciona ayuda$")
-    public void seleccionaAyuda() throws InterruptedException  {
-    	System.out.println("PRESIONA BOTON AYUDA-------------");
-    	Thread.sleep(1500);
-    	WebElement buttonAyuda = driver.findElement(By.xpath("//li[contains(text(),'Ayuda')]"));
-    	buttonAyuda.click();
-        
-    }
-
-    @And("^Selecciona politicas y privacidad$")
-    public void seleccionaPoliticasYPrivacidad() throws InterruptedException  {
-    	System.out.println("PRESIONA BOTON POLITICAS----------------");
-    	Thread.sleep(1500);
-    	WebElement buttonPoliticas = driver.findElement(By.xpath("//span[contains(text(),'Politicas de privacidad')]"));
-    	buttonPoliticas.click();
-        
-    }
-    
-    public void ingresarUsuario(String usuario) {
-		write(inputUsuarioXPath, usuario);
-	}
-	
-	public void ingresarContraseña(String contraseña) {
-		write(inputContraseñaXPath, contraseña);
-	}
-	
-	public void write(String locator, String textToWrite) {
-		find(locator).clear();
-		find(locator).sendKeys(textToWrite);
-	}
-	
-	protected WebElement find(String locator) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-	}
-	
-	private ChromeOptions chromeOptions(){
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("download.default_directory", "D:\\");	
-		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.setHeadless(true);
-		chromeOptions.setExperimentalOption("prefs", chromePrefs);
-	    chromeOptions.addArguments("--disable-dev-shm-usage");
-	    chromeOptions.addArguments("--ignore-certificate-errors");
-	    return chromeOptions;
-	}
 
 }

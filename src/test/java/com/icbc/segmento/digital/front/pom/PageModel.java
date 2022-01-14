@@ -25,6 +25,7 @@ public class PageModel extends BasePage {
 	private String inputImportePagoTC = "//input[contains(@aria-label,'Esté es un campo tipo Importe a pagar')]";
 	private String inputMontoTransferencia= "//input[contains(@aria-label,'Esté es un campo tipo Monto en $')]";
 	private String inputTokenTransferencia= "//input[contains(@aria-label,'Esté es un campo tipo Cód. aprob.')]";
+	private String inputCBUAgenda = "//input[contains(@aria-label, 'Esté es un campo tipo CBU-CVU-Alias')]";
 	private String spanPagoTC = "//span[contains(text(),'Listo. Pagaste')]";
 	
 	private String btnNuevaOrden= "//a[contains(text(),'Nueva extracción sin tarjeta')]";
@@ -127,8 +128,25 @@ public class PageModel extends BasePage {
 		elemento.sendKeys(token);
 	}
 	
+	public void ingresarCBUAgenda(String cbu) {
+		WebElement elemento = find(inputCBUAgenda);
+		elemento.clear();
+		elemento.sendKeys(cbu);
+	}
+	
+	public void ingresarTexto(String xpath, String texto) {
+		WebElement elemento = find(xpath);
+		elemento.clear();
+		elemento.sendKeys(texto);
+	}
+	
 	public Boolean verificarPagoTC() {
 		return elementoDisponible(spanPagoTC);
+	}
+	
+	public WebElement devolverElemento(String xpath) {
+		WebElement elemento = find(xpath);
+		return elemento;
 	}
 	
 }

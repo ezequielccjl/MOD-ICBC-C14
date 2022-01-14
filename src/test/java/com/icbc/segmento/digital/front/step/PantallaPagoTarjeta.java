@@ -25,38 +25,38 @@ public class PantallaPagoTarjeta {
 	    System.out.println("Se ingresa: Pago Tarjeta de Crédito");
     }
 
-    @When("^El usuario clickea en pagar \"([^\"]*)\"$")
-    public void elUsuarioClickeaEnPagarSomething(String tarjeta) {
+    @When("^El usuario clickea en pagar \"([^\"]*)\" \"([^\"]*)\"$")
+    public void elUsuarioClickeaEnPagarSomethingSomething(String tarjeta, String nroTarjeta) {
     	
     	if (tarjeta.equals("Visa")) {
     		pm.implicitWait();
-    		pm.jseClickIntercepted("//button[contains(@class,'ng-tns-c39-17')]");
+    		pm.jseClickIntercepted("//span[contains(text(),'"+ nroTarjeta +"')]");
     		
     		System.out.println("VISA");
     		
 		}else if (tarjeta.equals("Mastercard")) {
 			pm.implicitWait();
-			pm.jseClickIntercepted("//button[contains(@class,'ng-tns-c39-11')]");
+			pm.jseClickIntercepted("//span[contains(text(),'"+ nroTarjeta +"')]");
 			System.out.println("MASTER");
 		}
     	
     }
-
-    @Then("^Visualiza comprobante de pago$")
-    public void visualizaComprobanteDePago()  {
-    	assertTrue(pm.verificarPagoTC());
-    	System.out.println("Finalización del test");
+    
+    @And("^Clickea en boton pagar$")
+    public void clickeaEnBotonPagar() {
+        pm.implicitWait();
+        pm.clickElement("//button[contains(text(),'Pagar')]");
     }
 
     @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y clickea continuar$")
     public void seleccionaSomethingSomethingSomethingYClickeaContinuar(String cuentadebitar, String monedapagar, String importe) throws InterruptedException {
     	pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c67-3')]");
+    	pm.clickElement("//div[contains(@class,'ng-tns-c71-10')]");
     	pm.implicitWait();
     	pm.jseClickIntercepted("//div[contains(text(),'" + cuentadebitar + "')]");
     	
     	if (monedapagar.equals("DOLAR")) {
-			pm.clickElement("//div[contains(@class,'ng-tns-c67-7')]");
+			pm.clickElement("//div[contains(@class,'ng-tns-c71-11')]");
 			pm.implicitWait();
 			pm.jseClickIntercepted("//span[contains(text(),'DOLAR')]");
 		}
@@ -75,6 +75,12 @@ public class PantallaPagoTarjeta {
     	pm.implicitWait();
     	pm.clickElement("//button[contains(text(),'Pagar')]");
     	System.out.println("Click en pagar.");
+    }
+    
+    @Then("^Visualiza comprobante de pago$")
+    public void visualizaComprobanteDePago()  {
+    	assertTrue(pm.verificarPagoTC());
+    	System.out.println("Finalización del test");
     }
 
 }

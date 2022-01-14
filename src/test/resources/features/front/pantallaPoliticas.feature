@@ -10,4 +10,4 @@ Feature: El usuario se dirige a la pantalla Politicas y Privacidad
 
     Examples:
 		| user    | password |
-		|corona01 | Prueba01 |
+		|U8295439 | prueba01 |
