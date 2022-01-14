@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - MBR channel-transfer-account destination-info
 
   @destinationInfoMBR

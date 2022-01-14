@@ -57,7 +57,7 @@ public class CardExpensesRecentMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTS)
+				.setBaseUri(Link.LIST_PRODUCTS_MBR)
 				.setRelaxedHTTPSValidation()
 				.build();
     	

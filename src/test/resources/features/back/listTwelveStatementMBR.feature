@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - list twelve statement MBR
 
   @listTwelveStatementMBR

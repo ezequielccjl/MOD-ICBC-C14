@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST canceledProductsBLR
 
   @canceledProductsBLR
@@ -9,5 +10,5 @@ Feature: Servicio - llamada al metodo POST canceledProductsBLR
     Examples: 
       | channel  | transactionId		 | clientNumber | fromCode | toCode | resultCode |
       | mbr			 | jacome.rodrigo.pm | 04647871			| 01			 | 99 		| ok				 |
-      | mbr			 | jacome.rodrigo.pm | 							| 01			 | 99 		| fallo			 |
+      | mbr			 | jacome.rodrigo.pm | 							| 01			 | 99 		| error			 |
 

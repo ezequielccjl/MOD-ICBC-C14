@@ -464,6 +464,41 @@
 </dependency>
 
 
+	<dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-payment-alias-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+	
+	<dependency>
+	<groupId>com.ebanking.retail.blr</groupId>
+	<artifactId>send-email-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+	
+	<dependency>
+	<groupId>com.ebanking.retail.blr</groupId>
+	<artifactId>mail-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+	
+	<dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-mail-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+	
+	<dependency>
+	<groupId>com.ebanking.retail.blr</groupId>
+	<artifactId>services-op-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
+	
+	<dependency>
+	<groupId>com.ebanking.retail.mbr</groupId>
+	<artifactId>channel-send-email-stub</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+</dependency>
 	
 	
 	</dependencies>

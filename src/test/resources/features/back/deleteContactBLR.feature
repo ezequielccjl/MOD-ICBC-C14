@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - BLR Agenda deleteContact
 
   @deleteContactBLR

@@ -111,7 +111,8 @@
 								        </span>
 							        </a>
 							        <div class="dropdown-menu pt-0 mt-2 animate fadeIn">
-						    	        <a class="dropdown-item" href="#"><span class="cf">@getDollarPriceMBR</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@backEnd</span></a>
+						    	        <a class="dropdown-item" href="#"><span class="cf">@getEmailsMBR</span></a>
 						    	        <div class="dropdown-divider"></div>
 						    	        <a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
 						    	      </div>
@@ -130,46 +131,50 @@
 										<h6 class="mb-3 ml-1">Test Logs</h6>
 											<div class="tsc" status="pass">
 											<div class="st pass test l0" 
-												tags=""
+												tags="@backEnd"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:02</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">[Servicio - llamada al metodo POST getFaqContentMBR] started</span>
+												<span class="tn">[Servicio - llamada al metodo POST getEmailsMBR] started</span>
+												<span class="category-list">
+													<span class="category badge"><i class="fa fa-tag"></i> @backEnd</span>
+												</span>
 												
 											</div>
 											<div class="st pass test l1" 
-												tags="@getDollarPriceMBR"
+												tags="@getEmailsMBR"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:02</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">|---[llamada al metodo POST getDollarPriceMBR] started</span>
+												<span class="tn">|---[llamada al metodo POST getEmailsMBR] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @getDollarPriceMBR</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @getEmailsMBR</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l2" 
-												tags="@getDollarPriceMBR"
+												tags="@backEnd @getEmailsMBR"
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:02</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[llamada al metodo POST getDollarPriceMBR] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[llamada al metodo POST getEmailsMBR] started</span>
 												<span class="category-list">
-													<span class="category badge"><i class="fa fa-tag"></i> @getDollarPriceMBR</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @backEnd</span>
+													<span class="category badge"><i class="fa fa-tag"></i> @getEmailsMBR</span>
 												</span>
 												
 											</div>
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:06</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:02</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given preparamos logueo con "F27308585" "prueba01" ""] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given se prepara el metodo login con los datos "F27308585" "prueba01" ""] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:10</span>&nbsp;
+													<span class="tt">01.14.2022 16:49:06</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given preparamos logueo con "F27308585" "prueba01" ""]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Given se prepara el metodo login con los datos "F27308585" "prueba01" ""]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -177,14 +182,14 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:10</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:06</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getDollarPriceMBR con "mbr" "9f73364f-28e4-4729-84b8-47363713a7c4-dollar" "true"] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getClientData] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+													<span class="tt">01.14.2022 16:49:06</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getDollarPriceMBR con "mbr" "9f73364f-28e4-4729-84b8-47363713a7c4-dollar" "true"]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getClientData]</span>
 													
 													<span class="td"></span>
 												</div>
@@ -192,14 +197,29 @@
 											<div class="st pass test l3" 
 												tags=""
 												devices="">
-												<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+												<span class="tt">01.14.2022 16:49:06</span>&nbsp;
 												<span class="ts">pass</span>&nbsp;&nbsp;
-												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then validamos el codigo final del response] started</span>
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getEmailsMBR con "5544ad82-98e4-496c-8fad-2a900bec2a72"] started</span>
 												
 												<div class="st pass">
-													<span class="tt">12.20.2021 17:07:18</span>&nbsp;
+													<span class="tt">01.14.2022 16:49:07</span>&nbsp;
 													<span class="ts">pass</span>&nbsp;&nbsp; 
-													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then validamos el codigo final del response]</span>
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[When llamo al metodo getEmailsMBR con "5544ad82-98e4-496c-8fad-2a900bec2a72"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l3" 
+												tags=""
+												devices="">
+												<span class="tt">01.14.2022 16:49:07</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then se valida que el code sea el esperado de getEmailsMBR] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.14.2022 16:49:07</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---[Then se valida que el code sea el esperado de getEmailsMBR]</span>
 													
 													<span class="td"></span>
 												</div>

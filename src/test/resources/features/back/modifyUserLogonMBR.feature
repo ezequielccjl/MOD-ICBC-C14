@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST modifyUserLogonMBR
 
   @modifyUserLogonMBR
@@ -9,4 +10,4 @@ Feature: Servicio - llamada al metodo POST modifyUserLogonMBR
     Examples: 
       | user		| pass	 | deviceId | channel | transactionId												| klogonUserId | klogonType | klogonNum | klogonPass | kgender | resultCode | 
       |F27308585|prueba01|					| mbr			|9f73364f-28e4-4729-84b8-47363713a7c4 | m20444413		 | 04 				| 20444413  | prueba01   | M			 | ok 				|
-      |F27308585|prueba01|					| mbr			|9f73364f-28e4-4729-84b8-47363713a7c4 | m20444413		 | 04 				| 20444413  | 				   | M			 | fail				|
+      |F27308585|prueba01|					| mbr			|9f73364f-28e4-4729-84b8-47363713a7c4 | m20444413		 | 04 				| 20444413  | 				   | M			 | FAIL				|

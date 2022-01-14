@@ -92,8 +92,7 @@ public class GetAvailableCardMBR {
 		System.out.println("----------------------------LISTPRODUCTS");
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTS)
-//				.setContentType(ContentType.JSON)
+				.setBaseUri(Link.LIST_PRODUCTS_MBR)
 				.setRelaxedHTTPSValidation()
 				.build();
     	
@@ -126,10 +125,7 @@ public class GetAvailableCardMBR {
     			when().
     				post().
     			then().
-//    				body("header.resultCode", equalTo("ok")).
-//    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
-//    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
     				extract().
     				response();	
 	}

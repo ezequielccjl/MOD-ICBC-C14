@@ -12,6 +12,10 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.runner.RunWith;
@@ -22,6 +26,7 @@ import com.ebanking.retail.model.GetSecondFactorInput;
 import com.ebanking.retail.model.RequestAvailableCardInput;
 import com.ebanking.retail.model.RequestGetSecondFactorInput;
 import com.icbc.segmento.digital.util.Link;
+import com.icbc.segmento.digital.util.Utilities;
 
 @RunWith(Cucumber.class)
 @CucumberOptions()
@@ -40,7 +45,7 @@ public class GetAvailableCardBLR {
 	}
 
 	@When("llamamos al metodo getAvailableCardBLR con {string} {string} {string} {string} {string}")
-	public void llamamosAlMetodoGetAvailableCardBLRCon(String channel, String cardNumber, String operationType, String productType, String resultCode) {
+	public void llamamosAlMetodoGetAvailableCardBLRCon(String channel, String cardNumber, String operationType, String productType, String messageDescription) {
 		RequestHeader rh = new RequestHeader()
 				.channel(channel);
 		
@@ -49,27 +54,35 @@ public class GetAvailableCardBLR {
     			.operationType(operationType)
     			.productType(productType);
     	
-    	
     	RequestAvailableCardInput request = (RequestAvailableCardInput) new RequestAvailableCardInput()
     			.data(input)
     			.header(rh);
-    	
-    	System.out.println(request);
-    	
-    	response =		
-				given().
-					spec(requestSpec).
-//					contentType(ContentType.JSON).
-					body(request).
-				when().
-					post().
-				then().
-					body("header.resultCode", equalTo(resultCode)).
-//					body("data.accounts[0].productType.code", equalTo("01")).
-					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
-					extract().
-					response();	
+ 
+    	if(messageDescription.contentEquals("ProductType not support.")) {
+    		response =		
+    				given().
+    					spec(requestSpec).
+    					body(request).
+    				when().
+    					post().
+    				then().
+    					body("header.messageDescription", equalTo(messageDescription)).
+    					log().all().
+    					extract().
+    					response();	
+    	}else {
+    		response =		
+    				given().
+    					spec(requestSpec).
+    					body(request).
+    				when().
+    					post().
+    				then().
+    					log().all().
+    					extract().
+    					response();	
+    	}
+
 	}
 
 	@Then("validamos la response devuelta")

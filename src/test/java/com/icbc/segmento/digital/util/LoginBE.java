@@ -3,12 +3,17 @@ package com.icbc.segmento.digital.util;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONObject;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -34,17 +39,26 @@ public class LoginBE {
 				.setRelaxedHTTPSValidation()
 				.build();
 		
-//		HashMap<String, String> loginData = getLoginDataHashMap(user, pass, deviceId);
+//		Map<String, String> headers = new HashMap<String, String>();
 		
+//		headers.put("Postman-Token", "<calculated when request is sent>");
+////		headers.put("Content-Length", "0");
+//		headers.put("Host", "<calculated when request is sent>");
+//		headers.put("User-Agent", "PostmanRuntime/7.28.4");
+//		headers.put("Accept", "*/*");
+//		headers.put("Accept-Encoding", "gzip, deflate, br");
+//		headers.put("Connection", "keep-alive");
+				
 		resp = 
 				given().
+				redirects().follow(false).
 				relaxedHTTPSValidation().
 				spec(requestSpec).
 				contentType(ContentType.JSON).
-//				queryParams(loginData).
 				queryParam("klogonUserId", user).
 				queryParam("klogonPass", pass).
 				queryParam("kdeviceId", deviceId).
+//				headers(headers).
 			when().
 				post().
 			then().

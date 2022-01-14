@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - MBR canceledProductsMBR
 
   @canceledProductsMBR
@@ -9,4 +10,4 @@ Feature: Servicio - MBR canceledProductsMBR
     Examples: 
       | user      | pass     | deviceId| channel  |transactionId  | clientNumber | resultCode |
       | F27308585 | prueba01 |         | mbr		  | xxxx 					| 04647871		 | ok					|
-      | F27308585 | prueba01 |         | mbr		  | xxxx 					| 						 | fallo			|
+      | F27308585 | prueba01 |         | mbr		  | xxxx 					| 						 | error			|

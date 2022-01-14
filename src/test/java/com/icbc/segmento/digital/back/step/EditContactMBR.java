@@ -47,7 +47,7 @@ public class EditContactMBR {
 		 
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.EDITCONTACTMBR)
+				.setBaseUri(Link.EDIT_CONTACT_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();

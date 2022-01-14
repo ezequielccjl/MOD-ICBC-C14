@@ -1,7 +1,8 @@
-@listProductCardMBR
+@backEnd
 Feature: Servicio - Consulta a los productos
  
 
+	@listProductCardMBR
   Scenario Outline: Llamada al metodo POST listProductCard
     Given El usuario se loguea correctamente con "<user>" "<pass>" "<deviceId>"
     When Hace la consulta al servicio con "<transactionId>"

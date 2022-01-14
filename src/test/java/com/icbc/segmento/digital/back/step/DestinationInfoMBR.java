@@ -51,7 +51,7 @@ public class DestinationInfoMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.DESTINATIONINFOMBR)
+				.setBaseUri(Link.DESTINATION_INFO_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();

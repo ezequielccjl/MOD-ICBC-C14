@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST listExtractionMBR
 
   @listExtractionMBR

@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - MBR Agenda editContact
 
   @editContactMBR

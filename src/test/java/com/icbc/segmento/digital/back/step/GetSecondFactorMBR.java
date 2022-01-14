@@ -47,7 +47,7 @@ public class GetSecondFactorMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.GETSECONDFACTORMBR)
+				.setBaseUri(Link.GET_SECOND_FACTOR_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();

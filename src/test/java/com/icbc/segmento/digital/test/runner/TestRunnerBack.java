@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 		strict = true,
 		dryRun = false,
 		snippets = SnippetType.CAMELCASE,
-		tags = {"@getDollarPriceMBR"})
+		tags = {"@getEmailsMBR"})
 
 public class TestRunnerBack {
 
