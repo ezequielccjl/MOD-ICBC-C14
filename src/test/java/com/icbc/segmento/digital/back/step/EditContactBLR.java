@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -45,8 +46,8 @@ public class EditContactBLR {
     	
     }
 
-    @When("^Hace la consulta con los datos \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-    public void haceLaConsultaConLosDatosSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomething(String transactionid, String channel, String destinationcbucvualias, String documentnumber, String documentcode, String cuitcuilnumber, String cbunumber, String description, String accountcode, String errorCode) {
+    @When("^Hace la consulta con los datos \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void haceLaConsultaConLosDatosSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomethingSomething(String transactionid, String channel, String destinationcbucvualias, String documentnumber, String documentcode, String cuitcuilnumber, String cbunumber, String description, String accountcode, String errorCode, String schema) {
         
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
@@ -81,6 +82,7 @@ public class EditContactBLR {
 					post().
 				then().
 					log().all().
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();	
 

@@ -21,7 +21,7 @@ public class Link {
     public static final String GET_SECOND_FACTOR_MBR = "https://mbr-channel-transfer-1-0-fbd.apps.ocp4-tst.intranet.local/channel-transfer/1.0/get-second-factor";
     public static final String DESTINATION_INFO_MBR = "https://mbr-channel-transfer-account-1-0-fbd.apps.ocp4-tst.intranet.local/channel-transfer-account/1.0/destination-info-service";
     public static final String GETCLIENTDATAMBR = "https://mbrdev.intranet.local/mbr-server/channelclient/1.0/get-client-data";
-    public static final String GETDOLLARPRICEMBR = "https://mbr-channel-dollars-buy-sell-1-0-dev.apps.ocp4-tst.intranet.local/channel-dollars-buy-sell/1.0/get-dollar-price";
+    public static final String GETDOLLARPRICEMBR = "https://mbr-channel-dollars-buy-sell-1-0-fbd.apps.ocp4-tst.intranet.local/channel-dollars-buy-sell/1.0/get-dollar-price";
     public static final String GETFAQCONTENTMBR = "https://mbr-channel-content-sessionless-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content-sessionless/1.0/get-faq-content";
     public static final String GETSEGCANALESCONTENTMBR = "https://mbr-channel-content-sessionless-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content-sessionless/1.0/get-seg-canales-content";
     public static final String GETLEGALCONTENTMBR = "https://mbr-channel-content-1-0-fbd.apps.ocp4-tst.intranet.local/channel-content/1.0/get-legal-content";
@@ -41,7 +41,7 @@ public class Link {
     public static final String CARDEXPENSESRECENTMBR = "https://mbr-channel-credit-card-purchases-1-0-fbd.apps.ocp4-tst.intranet.local/channel-credit-card-purchases/1.0/card-expenses-recent";
     public static final String CHECK_LIMIT_TRANSACTION_MBR = "https://mbr-channel-payment-alias-1-0-dev.apps.ocp4-tst.intranet.local/channel-payment-alias/1.0/check-limit-transaction";
     public static final String NEW_PRODUCT_SEND_MAIL_MBR = "https://mbr-channel-send-email-1-0-dev.apps.ocp4-tst.intranet.local/channel-send-email/1.0/new-product-send-mail";
-    public static final String GET_EMAILS_MBR = "https://mbr-channel-mail-1-0-dev.apps.ocp4-tst.intranet.local/channel-mail/1.0/get-emails";
+    public static final String GET_EMAILS_MBR = "https://mbr-channel-mail-1-0-fbd.apps.ocp4-tst.intranet.local/channel-mail/1.0/get-emails";
     public static final String PAYMENT_MBR = "https://mbr-channel-card-2-1-fbd.apps.ocp4-tst.intranet.local/channel-card/2.1/payment";
     public static final String AVAILABLE_FUND_MBR = "https://mbr-channel-funds-1-0-dev.apps.ocp4-tst.intranet.local/channel-funds/1.0/available-fund";
     

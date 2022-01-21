@@ -10,4 +10,4 @@ Feature: Servicio - messagingOpBLR
     Examples: 
       | channel  | clientNumber | docNumber| typeDoc| gender | show | resultCode |
       | MBR 		 | 02110087		  | 25371858 | 04 		| M 		 | N	  | ok				 |
-      | MBR 		 | 						  | 				 |		 		|   		 |  	  | fail			 |
+      | MBR 		 | 						  | 				 |		 		|   		 |  	  | EXC01234	 |

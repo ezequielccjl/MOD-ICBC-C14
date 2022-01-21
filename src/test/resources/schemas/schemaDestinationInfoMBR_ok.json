@@ -1,0 +1,185 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome3",
+    "definitions": {
+        "Welcome3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome3"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "channelExternalAccount": {
+                    "$ref": "#/definitions/ChannelExternalAccount"
+                }
+            },
+            "required": [
+                "channelExternalAccount"
+            ],
+            "title": "Data"
+        },
+        "ChannelExternalAccount": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "accountCode": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "activeAccountIndicator": {
+                    "type": "boolean"
+                },
+                "agendadoAliasIndicator": {
+                    "type": "boolean"
+                },
+                "aliasName": {
+                    "type": "string"
+                },
+                "bank": {
+                    "$ref": "#/definitions/Bank"
+                },
+                "cbuNumber": {
+                    "type": "string"
+                },
+                "cuitCuilNumber": {
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "ownAccountIndicator": {
+                    "type": "boolean"
+                },
+                "personName": {
+                    "type": "string"
+                },
+                "personTypeCode": {
+                    "type": "string"
+                },
+                "propCode": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "reasing": {
+                    "type": "string"
+                },
+                "transactionNumber": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "holders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Holder"
+                    }
+                }
+            },
+            "required": [
+                "accountCode",
+                "activeAccountIndicator",
+                "agendadoAliasIndicator",
+                "aliasName",
+                "bank",
+                "cbuNumber",
+                "cuitCuilNumber",
+                "currency",
+                "holders",
+                "ownAccountIndicator",
+                "personName",
+                "personTypeCode",
+                "propCode",
+                "reasing",
+                "transactionNumber"
+            ],
+            "title": "ChannelExternalAccount"
+        },
+        "Bank": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "bankCode": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "bankDescription": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bankCode",
+                "bankDescription"
+            ],
+            "title": "Bank"
+        },
+        "Currency": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "description"
+            ],
+            "title": "Currency"
+        },
+        "Holder": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "personTypeCode": {
+                    "type": "string"
+                },
+                "personName": {
+                    "type": "string"
+                },
+                "personCuitNumber": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "personCuitNumber",
+                "personName",
+                "personTypeCode"
+            ],
+            "title": "Holder"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

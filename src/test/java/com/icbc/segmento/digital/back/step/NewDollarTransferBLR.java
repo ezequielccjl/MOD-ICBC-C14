@@ -3,6 +3,7 @@ package com.icbc.segmento.digital.back.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import com.icbc.segmento.digital.util.Link;
 
@@ -15,6 +16,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import com.ebanking.model.RequestHeader;
+import com.ebanking.model.ServiceInstance;
 import com.ebanking.retail.model.NewDollarTransferInput;
 import com.ebanking.retail.model.RequestNewDollarTransferInput;
 
@@ -32,8 +34,8 @@ public class NewDollarTransferBLR {
 				.build();
 	}
 
-	@When("llamamos al metodo newDollarTransferBLR con {string} {string} {string} {string} {string} {string} {string}")
-	public void llamamosAlMetodoNewDollarTransferBLRCon(String channel, String transactionId, String cuentao, String cuentad, String moneda, String monto, String resultCode) {
+	@When("llamamos al metodo newDollarTransferBLR con {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void llamamosAlMetodoNewDollarTransferBLRCon(String channel, String transactionId, String cuentao, String cuentad, String moneda, String monto, String resultCode, String schema) {
 	    
 		RequestHeader header = new RequestHeader()
 				.channel(channel)
@@ -58,8 +60,7 @@ public class NewDollarTransferBLR {
 				then().
 					log().all().
 					body("header.resultCode", equalTo(resultCode)).
-//					body("data.accounts[0].productType.code", equalTo("01")).
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();	
 		

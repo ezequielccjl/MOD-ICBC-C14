@@ -1,0 +1,127 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome9",
+    "definitions": {
+        "Welcome9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome9"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "dollarPrice": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DollarPrice"
+                    }
+                }
+            },
+            "required": [
+                "dollarPrice"
+            ],
+            "title": "Data"
+        },
+        "DollarPrice": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ctouniq": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "prcbm": {
+                    "type": "string"
+                },
+                "prcbm1": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "prcbm2": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "prvbm": {
+                    "type": "string"
+                },
+                "prvbm1": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "prvbm2": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "prcbmVal": {
+                    "type": "string"
+                },
+                "prvbmVal": {
+                    "type": "string"
+                },
+                "prcbmForm": {
+                    "type": "string"
+                },
+                "prvbmForm": {
+                    "type": "string"
+                },
+                "inHours": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ctouniq",
+                "inHours",
+                "prcbm",
+                "prcbm1",
+                "prcbm2",
+                "prcbmForm",
+                "prcbmVal",
+                "prvbm",
+                "prvbm1",
+                "prvbm2",
+                "prvbmForm",
+                "prvbmVal"
+            ],
+            "title": "DollarPrice"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "messageDescription": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "messageCode",
+                "messageDescription",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome10",
+    "definitions": {
+        "Welcome10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome10"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "channelProductCanceleds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChannelProductCanceled"
+                    }
+                }
+            },
+            "required": [
+                "channelProductCanceleds"
+            ],
+            "title": "Data"
+        },
+        "ChannelProductCanceled": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "channelProductSubType": {
+                    "$ref": "#/definitions/ChannelProductType"
+                },
+                "channelProductType": {
+                    "$ref": "#/definitions/ChannelProductType"
+                },
+                "accountProductNumber": {
+                    "type": "string"
+                },
+                "alternativeNumber": {
+                    "type": "string"
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "descriptionText": {
+                    "type": "string"
+                },
+                "hireDate": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "required": [
+                "accountProductNumber",
+                "alternativeNumber",
+                "cancelDate",
+                "channelProductSubType",
+                "channelProductType",
+                "descriptionText",
+                "hireDate",
+                "index"
+            ],
+            "title": "ChannelProductCanceled"
+        },
+        "ChannelProductType": {
+            "type": "object",
+            "additionalProperties": false,
+            "title": "ChannelProductType"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "messageCode",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

@@ -1,0 +1,159 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome10",
+    "definitions": {
+        "Welcome10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome10"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "channelAvailableFunds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChannelAvailableFund"
+                    }
+                }
+            },
+            "required": [
+                "channelAvailableFunds"
+            ],
+            "title": "Data"
+        },
+        "ChannelAvailableFund": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "classFund": {
+                    "$ref": "#/definitions/ClassFund"
+                },
+                "fundType": {
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "minSubscription": {
+                    "type": "number"
+                },
+                "maxSubscription": {
+                    "type": "number"
+                },
+                "minRescue": {
+                    "type": "number"
+                },
+                "maxRescue": {
+                    "type": "number"
+                },
+                "valueDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "daySubscription": {
+                    "type": "number"
+                },
+                "dayRescue": {
+                    "type": "string"
+                },
+                "dayVaries": {
+                    "type": "number"
+                },
+                "varies30": {
+                    "type": "number"
+                },
+                "varies180": {
+                    "type": "number"
+                },
+                "varies360": {
+                    "type": "number"
+                },
+                "quotaPartValue": {
+                    "type": "number"
+                },
+                "fundCode": {
+                    "type": "string"
+                },
+                "fundTerm": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "fundNumber": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "classFund",
+                "currency",
+                "dayRescue",
+                "daySubscription",
+                "dayVaries",
+                "fundCode",
+                "fundNumber",
+                "fundTerm",
+                "fundType",
+                "maxRescue",
+                "maxSubscription",
+                "minRescue",
+                "minSubscription",
+                "quotaPartValue",
+                "valueDate",
+                "varies180",
+                "varies30",
+                "varies360"
+            ],
+            "title": "ChannelAvailableFund"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageDescription": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "messageDescription",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        },
+        "ClassFund": {
+            "type": "string",
+            "enum": [
+                "B",
+                "C"
+            ],
+            "title": "ClassFund"
+        },
+        "Currency": {
+            "type": "string",
+            "enum": [
+                "$",
+                "U$S"
+            ],
+            "title": "Currency"
+        }
+    }
+}

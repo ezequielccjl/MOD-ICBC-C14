@@ -20,6 +20,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONArray;
@@ -92,6 +93,7 @@ public class CheckLimitTransactionMBR {
 					post().
 				then().
 					log().all().
+					body(matchesJsonSchemaInClasspath("schemas/schemaCheckLimitTransactionMBR_ok.json")).
 					extract().
 					response();	
 	}

@@ -1,0 +1,121 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome8",
+    "definitions": {
+        "Welcome8": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome8"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "listCanceledProducts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ListCanceledProduct"
+                    }
+                }
+            },
+            "required": [
+                "listCanceledProducts"
+            ],
+            "title": "Data"
+        },
+        "ListCanceledProduct": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/Type"
+                },
+                "accountProductNumber": {
+                    "type": "string"
+                },
+                "typeIndicator": {
+                    "type": "string"
+                },
+                "seccionNumber": {
+                    "type": "string"
+                },
+                "descriptionText": {
+                    "type": "string"
+                },
+                "alternativeNumber": {
+                    "type": "string"
+                },
+                "hireDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "required": [
+                "accountProductNumber",
+                "alternativeNumber",
+                "cancelDate",
+                "descriptionText",
+                "hireDate",
+                "seccionNumber",
+                "type",
+                "typeIndicator"
+            ],
+            "title": "ListCanceledProduct"
+        },
+        "Type": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "description"
+            ],
+            "title": "Type"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "messageCode",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

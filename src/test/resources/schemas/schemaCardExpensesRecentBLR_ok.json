@@ -1,0 +1,181 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome7",
+    "definitions": {
+        "Welcome7": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome7"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "expensesRecentList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ExpensesRecentList"
+                    }
+                }
+            },
+            "required": [
+                "expensesRecentList"
+            ],
+            "title": "Data"
+        },
+        "ExpensesRecentList": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "typeOp": {
+                    "$ref": "#/definitions/TypeOp"
+                },
+                "catCard": {
+                    "$ref": "#/definitions/CatCard"
+                },
+                "opDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "presDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "commerceName": {
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "opAmount": {
+                    "type": "number"
+                },
+                "planAmount": {
+                    "type": "number"
+                },
+                "totalDues": {
+                    "type": "string"
+                },
+                "activeDue": {
+                    "type": "string"
+                },
+                "commerceNumber": {
+                    "type": "string"
+                },
+                "ticketNumber": {
+                    "type": "string"
+                },
+                "totalDuesPend": {
+                    "type": "string"
+                },
+                "remainPesAmount": {
+                    "type": "number"
+                },
+                "remainDolAmount": {
+                    "type": "number"
+                },
+                "conTotCardPes": {
+                    "type": "number"
+                },
+                "conTotCardDol": {
+                    "type": "number"
+                },
+                "conTotAccountPes": {
+                    "type": "number"
+                },
+                "conTotAccountDol": {
+                    "type": "number"
+                },
+                "cardNumber": {
+                    "$ref": "#/definitions/CardNumber"
+                }
+            },
+            "required": [
+                "activeDue",
+                "cardNumber",
+                "catCard",
+                "commerceName",
+                "commerceNumber",
+                "conTotAccountDol",
+                "conTotAccountPes",
+                "conTotCardDol",
+                "conTotCardPes",
+                "currency",
+                "opAmount",
+                "planAmount",
+                "remainDolAmount",
+                "remainPesAmount",
+                "ticketNumber",
+                "totalDues",
+                "totalDuesPend",
+                "typeOp"
+            ],
+            "title": "ExpensesRecentList"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        },
+        "CardNumber": {
+            "type": "string",
+            "enum": [
+                "4423120001187332",
+                "4423120000336427",
+                " "
+            ],
+            "title": "CardNumber"
+        },
+        "CatCard": {
+            "type": "string",
+            "enum": [
+                " ",
+                "NEME/SOLEDAD",
+                "PAIVA/CHRISTIAN L"
+            ],
+            "title": "CatCard"
+        },
+        "Currency": {
+            "type": "string",
+            "enum": [
+                "$",
+                "N/A"
+            ],
+            "title": "Currency"
+        },
+        "TypeOp": {
+            "type": "string",
+            "enum": [
+                "CON",
+                "TOT",
+                "TOC"
+            ],
+            "title": "TypeOp"
+        }
+    }
+}

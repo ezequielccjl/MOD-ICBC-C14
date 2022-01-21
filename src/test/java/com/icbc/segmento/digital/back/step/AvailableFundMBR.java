@@ -16,6 +16,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.runner.RunWith;
@@ -88,6 +89,7 @@ public class AvailableFundMBR {
 				when().
 					post().
 				then().
+					body(matchesJsonSchemaInClasspath("schemas/schemaAvailableFundMBR_ok.json")).
 					log().all().
 					extract().
 					response();	

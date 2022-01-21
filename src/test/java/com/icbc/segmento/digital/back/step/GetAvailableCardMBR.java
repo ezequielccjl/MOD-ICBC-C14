@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
@@ -79,7 +80,6 @@ public class GetAvailableCardMBR {
 //    				body("header.resultCode", equalTo("ok")).
 //    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
-//    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
     				extract().
     				response();	
 		
@@ -158,7 +158,7 @@ public class GetAvailableCardMBR {
 //    				body("header.resultCode", equalTo("ok")).
 //    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
-//    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+					body(matchesJsonSchemaInClasspath("schemas/schemaGetAvailableCardMBR_ok.json")).
     				extract().
     				response();	
 	}

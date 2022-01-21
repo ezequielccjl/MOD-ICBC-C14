@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONArray;
@@ -44,8 +45,8 @@ public class GetAvailableCardBLR {
 				.build();
 	}
 
-	@When("llamamos al metodo getAvailableCardBLR con {string} {string} {string} {string} {string}")
-	public void llamamosAlMetodoGetAvailableCardBLRCon(String channel, String cardNumber, String operationType, String productType, String messageDescription) {
+	@When("llamamos al metodo getAvailableCardBLR con {string} {string} {string} {string} {string} {string}")
+	public void llamamosAlMetodoGetAvailableCardBLRCon(String channel, String cardNumber, String operationType, String productType, String messageDescription, String schema) {
 		RequestHeader rh = new RequestHeader()
 				.channel(channel);
 		
@@ -67,6 +68,7 @@ public class GetAvailableCardBLR {
     					post().
     				then().
     					body("header.messageDescription", equalTo(messageDescription)).
+    					body(matchesJsonSchemaInClasspath(schema)).
     					log().all().
     					extract().
     					response();	
@@ -78,6 +80,7 @@ public class GetAvailableCardBLR {
     				when().
     					post().
     				then().
+						body(matchesJsonSchemaInClasspath(schema)).
     					log().all().
     					extract().
     					response();	

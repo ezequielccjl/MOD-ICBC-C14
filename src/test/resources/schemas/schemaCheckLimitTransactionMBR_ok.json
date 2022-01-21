@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome3",
+    "definitions": {
+        "Welcome3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome3"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "channelLimitTransactions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChannelLimitTransaction"
+                    }
+                }
+            },
+            "required": [
+                "channelLimitTransactions"
+            ],
+            "title": "Data"
+        },
+        "ChannelLimitTransaction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "summation": {
+                    "type": "number"
+                },
+                "amountAvailable": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "amountAvailable",
+                "summation"
+            ],
+            "title": "ChannelLimitTransaction"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageDescription": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "messageDescription",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}
