@@ -66,7 +66,7 @@ public class Link {
     public static final String GETAVAILABLECARDBLR = "https://blr-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/home-product/1.0/get-available-card";
     public static final String MESSAGINGOPBLR = "https://blr-home-product-1-0-fbd.apps.ocp4-tst.intranet.local/home-product/1.0/get-message";
     public static final String OWNTRANSFERBLR = "https://blr-transfer-1-0-fbd.apps.ocp4-tst.intranet.local/transfer/1.0/own-transfer";
-    public static final String SERVICESHIERARCHYBLR = "https://blr-service-payment-1-0-dev.apps.ocp4-tst.intranet.local/service-payment/1.0/services-hierarchy";
+    public static final String SERVICESHIERARCHYBLR = "https://blr-services-op-1-0-dev.apps.ocp4-tst.intranet.local/services-op/1.0/services-hierarchy";
     public static final String CARDEXPENSESRECENTBLR = "https://blr-credit-card-purchases-1-0-fbd.apps.ocp4-tst.intranet.local/credit-card-purchases/1.0/card-expenses-recent";
     public static final String NEW_PRODUCT_SEND_MAIL_BLR = "https://blr-send-email-1-0-dev.apps.ocp4-tst.intranet.local/send-email/1.0/new-product-send-mail";
     public static final String GET_EMAILS_BLR = "https://blr-mail-1-0-dev.apps.ocp4-tst.intranet.local/mail/1.0/get-emails";
