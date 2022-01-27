@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome10",
+    "definitions": {
+        "Welcome10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                }
+            },
+            "required": [
+                "header"
+            ],
+            "title": "Welcome10"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "errorDetail": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ErrorDetail"
+                    }
+                }
+            },
+            "required": [
+                "errorDetail",
+                "messageCode",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        },
+        "ErrorDetail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "description"
+            ],
+            "title": "ErrorDetail"
+        }
+    }
+}

@@ -19,6 +19,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONArray;
@@ -57,7 +58,7 @@ public class CardExpensesRecentMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTS)
+				.setBaseUri(Link.LIST_PRODUCTS_MBR)
 				.setRelaxedHTTPSValidation()
 				.build();
     	
@@ -92,8 +93,8 @@ public class CardExpensesRecentMBR {
 		
 	}
 
-	@When("se ejecuta el metodo cardExpensesRecentMBR con los datos {string} {string} {string}")
-	public void seEjecutaElMetodoCardExpensesRecentMBRConLosDatos(String transactionId, String productId, String errorCode) {
+	@When("se ejecuta el metodo cardExpensesRecentMBR con los datos {string} {string} {string} {string}")
+	public void seEjecutaElMetodoCardExpensesRecentMBRConLosDatos(String transactionId, String productId, String errorCode, String schema) {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
@@ -121,6 +122,7 @@ public class CardExpensesRecentMBR {
 					post().
 				then().
 					log().all().
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();	
 		

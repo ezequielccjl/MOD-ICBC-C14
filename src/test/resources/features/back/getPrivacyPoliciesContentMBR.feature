@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST getPrivacyPoliciesContentMBR
 
   @getPrivacyPoliciesContentMBR
@@ -9,4 +10,4 @@ Feature: Servicio - llamada al metodo POST getPrivacyPoliciesContentMBR
     Examples: 
       | user		| pass	 | deviceId | transactionId												 | contentName 				 | resultCode |
       |F27308585|prueba01|					| 8a33ff49-64adce33-0164-add58e7b-0032 | politica_privacidad | ok					|
-      |F27308585|prueba01|					| 8a33ff49-64adce33-0164-add58e7b-0032 | 										 | error			|
+      |F27308585|prueba01|					| 8a33ff49-64adce33-0164-add58e7b-0032 | 										 | FMT00461		|

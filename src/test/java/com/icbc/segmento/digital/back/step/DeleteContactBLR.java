@@ -12,6 +12,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONArray;
@@ -53,8 +54,8 @@ public class DeleteContactBLR {
     	
     }
 
-    @When("Realiza la consulta con los datos {string} {string} {string} {string} {string} {string}")
-    public void realizaLaConsultaConLosDatos(String transactionid, String channel, String documentnumber, String documentcode,  String destinationcbucvualias, String errorCode) {
+    @When("Realiza la consulta con los datos {string} {string} {string} {string} {string} {string} {string}")
+    public void realizaLaConsultaConLosDatos(String transactionid, String channel, String documentnumber, String documentcode,  String destinationcbucvualias, String errorCode, String schema) {
         System.out.println("------------------------------ADDCONTACT");
     	RequestSpecification requestSpec2;
 		requestSpec2 = (RequestSpecification) new RequestSpecBuilder()
@@ -131,6 +132,7 @@ public class DeleteContactBLR {
 					post().
 				then().
 					log().all().
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();	
     	

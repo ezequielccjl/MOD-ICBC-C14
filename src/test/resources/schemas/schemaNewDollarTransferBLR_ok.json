@@ -1,0 +1,156 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome5",
+    "definitions": {
+        "Welcome5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome5"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transaction": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Transaction"
+                    }
+                }
+            },
+            "required": [
+                "transaction"
+            ],
+            "title": "Data"
+        },
+        "Transaction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "entity": {
+                    "type": "string"
+                },
+                "currencyO": {
+                    "type": "string"
+                },
+                "currencyD": {
+                    "type": "string"
+                },
+                "channel": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "dateForm": {
+                    "type": "string"
+                },
+                "amountIn": {
+                    "type": "string"
+                },
+                "amountInForm": {
+                    "type": "string"
+                },
+                "amountFi": {
+                    "type": "string"
+                },
+                "amountFiForm": {
+                    "type": "string"
+                },
+                "priceC": {
+                    "type": "string"
+                },
+                "priceCForm": {
+                    "type": "string"
+                },
+                "priceV": {
+                    "type": "string"
+                },
+                "priceVForm": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "inHours": {
+                    "type": "string"
+                },
+                "impuesto_importe": {
+                    "type": "string"
+                },
+                "impuesto_porcentaje": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "impuesto_importe35": {
+                    "type": "string"
+                },
+                "impuesto_porcentaje35": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "amountFi",
+                "amountFiForm",
+                "amountIn",
+                "amountInForm",
+                "channel",
+                "currencyD",
+                "currencyO",
+                "date",
+                "dateForm",
+                "entity",
+                "impuesto_importe",
+                "impuesto_importe35",
+                "impuesto_porcentaje",
+                "impuesto_porcentaje35",
+                "inHours",
+                "priceC",
+                "priceCForm",
+                "priceV",
+                "priceVForm",
+                "unit"
+            ],
+            "title": "Transaction"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "messageDescription": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "messageCode",
+                "messageDescription",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

@@ -66,7 +66,7 @@ public class MessagingOpBLR {
 				when().
 					post().
 				then().
-					body("header.resultCode", equalTo(resultCode)).
+//					body("header.resultCode", equalTo(resultCode)).
 					log().all().
 //					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
 					extract().

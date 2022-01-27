@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST getSegCanalesContentBLR
 
   @getSegCanalesContentBLR
@@ -9,4 +10,4 @@ Feature: Servicio - llamada al metodo POST getSegCanalesContentBLR
     Examples: 
       | transactionId	 | channel | userId | password | resultCode |
       | jacome.rodrigo | mbr		 | mbrusr | mbr2014  | ok					|
-      | jacome.rodrigo | 				 | mbrusr | mbr2014  | fail				|
+      | jacome.rodrigo | 				 | mbrusr | mbr2014  | EXC01190		|

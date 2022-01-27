@@ -1,0 +1,278 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome9",
+    "definitions": {
+        "Welcome9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome9"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "cardExpenses": {
+                    "$ref": "#/definitions/CardExpenses"
+                },
+                "cardExpensesRecentTotal": {
+                    "$ref": "#/definitions/CardExpensesRecentTotal"
+                },
+                "operationCardExpensesRecentList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OperationCardExpensesRecentList"
+                    }
+                }
+            },
+            "required": [
+                "cardExpenses",
+                "cardExpensesRecentTotal",
+                "operationCardExpensesRecentList"
+            ],
+            "title": "Data"
+        },
+        "CardExpenses": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "productId": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "accTypeDesc": {
+                    "type": "string"
+                },
+                "accountType": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "productNumber": {
+                    "type": "string"
+                },
+                "productFormNum": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "expiredDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "minPaid": {
+                    "type": "number"
+                },
+                "balPesos": {
+                    "type": "number"
+                },
+                "balDolares": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "accTypeDesc",
+                "accountType",
+                "balDolares",
+                "balPesos",
+                "endDate",
+                "expiredDate",
+                "minPaid",
+                "productFormNum",
+                "productId",
+                "productNumber"
+            ],
+            "title": "CardExpenses"
+        },
+        "CardExpensesRecentTotal": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "conTotAccountPes": {
+                    "type": "number"
+                },
+                "conTotAccountDol": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "conTotAccountDol",
+                "conTotAccountPes"
+            ],
+            "title": "CardExpensesRecentTotal"
+        },
+        "OperationCardExpensesRecentList": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "cardNumber": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "expensesRecentList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ExpensesRecentList"
+                    }
+                },
+                "conTotCardPes": {
+                    "type": "number"
+                },
+                "conTotCardDol": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "cardNumber",
+                "conTotCardDol",
+                "conTotCardPes",
+                "expensesRecentList"
+            ],
+            "title": "OperationCardExpensesRecentList"
+        },
+        "ExpensesRecentList": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "typeOp": {
+                    "$ref": "#/definitions/TypeOp"
+                },
+                "catCard": {
+                    "$ref": "#/definitions/CatCard"
+                },
+                "opDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "presDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "commerceName": {
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "opAmount": {
+                    "type": "number"
+                },
+                "planAmount": {
+                    "type": "number"
+                },
+                "totalDues": {
+                    "type": "string"
+                },
+                "activeDue": {
+                    "type": "string"
+                },
+                "commerceNumber": {
+                    "type": "string"
+                },
+                "ticketNumber": {
+                    "type": "string"
+                },
+                "totalDuesPend": {
+                    "type": "string"
+                },
+                "remainPesAmount": {
+                    "type": "number"
+                },
+                "remainDolAmount": {
+                    "type": "number"
+                },
+                "conTotCardPes": {
+                    "type": "number"
+                },
+                "conTotCardDol": {
+                    "type": "number"
+                },
+                "conTotAccountPes": {
+                    "type": "number"
+                },
+                "conTotAccountDol": {
+                    "type": "number"
+                },
+                "cardNumber": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "activeDue",
+                "cardNumber",
+                "catCard",
+                "commerceName",
+                "commerceNumber",
+                "conTotAccountDol",
+                "conTotAccountPes",
+                "conTotCardDol",
+                "conTotCardPes",
+                "currency",
+                "opAmount",
+                "opDate",
+                "planAmount",
+                "presDate",
+                "remainDolAmount",
+                "remainPesAmount",
+                "ticketNumber",
+                "totalDues",
+                "totalDuesPend",
+                "typeOp"
+            ],
+            "title": "ExpensesRecentList"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        },
+        "CatCard": {
+            "type": "string",
+            "enum": [
+                " "
+            ],
+            "title": "CatCard"
+        },
+        "Currency": {
+            "type": "string",
+            "enum": [
+                "$"
+            ],
+            "title": "Currency"
+        },
+        "TypeOp": {
+            "type": "string",
+            "enum": [
+                "CON"
+            ],
+            "title": "TypeOp"
+        }
+    }
+}

@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST getNewClientContentBLR
 
   @getNewClientContentBLR
@@ -9,4 +10,4 @@ Feature: Servicio - llamada al metodo POST getNewClientContentBLR
     Examples: 
       | transactionId								 | channel | userId | password | resultCode |
       | sergio-BLR-new-clien-content | mbr		 | mbrusr | mbr2014  | ok					|
-      | sergio-BLR-new-clien-content | 				 | mbrusr | mbr2014  | fail				|
+      | sergio-BLR-new-clien-content | 				 | mbrusr | mbr2014  | EXC01189		|

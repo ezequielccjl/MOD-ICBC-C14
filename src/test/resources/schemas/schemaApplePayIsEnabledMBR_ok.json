@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome2",
+    "definitions": {
+        "Welcome2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome2"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "applePayEnabledIndicator": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "applePayEnabledIndicator"
+            ],
+            "title": "Data"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "messageCode",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

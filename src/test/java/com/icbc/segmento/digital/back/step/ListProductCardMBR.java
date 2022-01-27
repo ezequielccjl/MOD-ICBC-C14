@@ -51,7 +51,7 @@ public class ListProductCardMBR {
 
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTCARD)
+				.setBaseUri(Link.LIST_PRODUCT_CARD_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();

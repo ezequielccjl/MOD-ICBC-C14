@@ -1,0 +1,155 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome10",
+    "definitions": {
+        "Welcome10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome10"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "availableFundList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AvailableFundList"
+                    }
+                }
+            },
+            "required": [
+                "availableFundList"
+            ],
+            "title": "Data"
+        },
+        "AvailableFundList": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "fundType": {
+                    "type": "string"
+                },
+                "class": {
+                    "$ref": "#/definitions/Class"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "minSubscription": {
+                    "type": "string"
+                },
+                "maxSubscription": {
+                    "type": "string"
+                },
+                "minRescue": {
+                    "type": "string"
+                },
+                "maxRescue": {
+                    "type": "string"
+                },
+                "valueDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "daySubscription": {
+                    "type": "string"
+                },
+                "dayRescue": {
+                    "type": "string"
+                },
+                "dayVaries": {
+                    "type": "string"
+                },
+                "varies30": {
+                    "type": "string"
+                },
+                "varies180": {
+                    "type": "string"
+                },
+                "varies360": {
+                    "type": "string"
+                },
+                "quotaPartValue": {
+                    "type": "string"
+                },
+                "fundCode": {
+                    "type": "string"
+                },
+                "fundTerm": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "fundNro": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "class",
+                "currency",
+                "dayRescue",
+                "daySubscription",
+                "dayVaries",
+                "fundCode",
+                "fundNro",
+                "fundTerm",
+                "fundType",
+                "maxRescue",
+                "maxSubscription",
+                "minRescue",
+                "minSubscription",
+                "quotaPartValue",
+                "valueDate",
+                "varies180",
+                "varies30",
+                "varies360"
+            ],
+            "title": "AvailableFundList"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        },
+        "Class": {
+            "type": "string",
+            "enum": [
+                "B",
+                "C"
+            ],
+            "title": "Class"
+        },
+        "Currency": {
+            "type": "string",
+            "enum": [
+                "$",
+                "U$S"
+            ],
+            "title": "Currency"
+        }
+    }
+}

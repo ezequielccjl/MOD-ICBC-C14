@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome1",
+    "definitions": {
+        "Welcome1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome1"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "availableBalAmount": {
+                    "type": "number"
+                },
+                "cardNumber": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "availableBalAmount",
+                "cardNumber"
+            ],
+            "title": "Data"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageCode": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "messageCode",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

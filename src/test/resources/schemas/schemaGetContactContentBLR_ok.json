@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome6",
+    "definitions": {
+        "Welcome6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome6"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "portalContent": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "portalContent"
+            ],
+            "title": "Data"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "messageDescription": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "messageDescription",
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome5",
+    "definitions": {
+        "Welcome5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "header": {
+                    "$ref": "#/definitions/Header"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "header"
+            ],
+            "title": "Welcome5"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "partACode": {
+                    "type": "string"
+                },
+                "referenceDescription": {
+                    "type": "string"
+                },
+                "medioCode": {
+                    "type": "string"
+                },
+                "claveNumber": {
+                    "type": "string"
+                },
+                "coordCantAvailableNumber": {
+                    "type": "string"
+                },
+                "coordChannelCode": {
+                    "type": "string"
+                },
+                "serieNumber": {
+                    "type": "string"
+                },
+                "coordinate1Number": {
+                    "type": "string"
+                },
+                "coordinate2Number": {
+                    "type": "string"
+                },
+                "coordinate3Number": {
+                    "type": "string"
+                },
+                "coordinate4Number": {
+                    "type": "string"
+                },
+                "coordDisplay1Number": {
+                    "type": "string"
+                },
+                "coordDisplay2Number": {
+                    "type": "string"
+                },
+                "coordDisplay3Number": {
+                    "type": "string"
+                },
+                "coordDisplay4Number": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "claveNumber",
+                "coordCantAvailableNumber",
+                "coordChannelCode",
+                "coordDisplay1Number",
+                "coordDisplay2Number",
+                "coordDisplay3Number",
+                "coordDisplay4Number",
+                "coordinate1Number",
+                "coordinate2Number",
+                "coordinate3Number",
+                "coordinate4Number",
+                "medioCode",
+                "partACode",
+                "phoneNumber",
+                "referenceDescription",
+                "serieNumber"
+            ],
+            "title": "Data"
+        },
+        "Header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "resultCode",
+                "transactionId"
+            ],
+            "title": "Header"
+        }
+    }
+}

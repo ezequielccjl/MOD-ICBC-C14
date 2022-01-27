@@ -2,6 +2,7 @@ package com.icbc.segmento.digital.back.step;
 
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -46,12 +47,12 @@ public class DestinationInfoMBR {
 		
 	}
 
-	@When("Realiza la consulta con {string} {string} {string}")
-	public void realizaLaConsultaCon(String transactionId, String destinationAliasCbuCvu, String resultCode) {
+	@When("Realiza la consulta con {string} {string} {string} {string}")
+	public void realizaLaConsultaCon(String transactionId, String destinationAliasCbuCvu, String resultCode, String schema) {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.DESTINATIONINFOMBR)
+				.setBaseUri(Link.DESTINATION_INFO_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
@@ -76,9 +77,8 @@ public class DestinationInfoMBR {
     				post().
     			then().
     				body("header.resultCode", equalTo(resultCode)).
-//    				body("data.accounts[0].productType.code", equalTo("01")).
     				log().all().
-//    				body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+					body(matchesJsonSchemaInClasspath(schema)).
     				extract().
     				response();	
 		

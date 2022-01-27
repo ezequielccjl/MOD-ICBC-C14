@@ -1,6 +1,7 @@
 package com.icbc.segmento.digital.back.step;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
@@ -32,8 +33,8 @@ public class GetDollarPriceBLR {
 				.build();
 	}
 
-	@When("llamo al metodo getDollarPrice con {string} {string} {string} {string} {string}")
-	public void llamoAlMetodoGetDollarPriceCon(String channel, String transactionId, String codorgb, String codsegm, String resultCode) {
+	@When("llamo al metodo getDollarPrice con {string} {string} {string} {string} {string} {string}")
+	public void llamoAlMetodoGetDollarPriceCon(String channel, String transactionId, String codorgb, String codsegm, String resultCode, String schema) {
 		RequestHeader rh = new RequestHeader()
 				.channel(channel)
 				.transactionId(transactionId);
@@ -54,7 +55,7 @@ public class GetDollarPriceBLR {
 					body("header.resultCode", equalTo(resultCode)).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();
     	

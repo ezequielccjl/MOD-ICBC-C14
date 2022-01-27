@@ -13,6 +13,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -77,7 +78,7 @@ public class ApplePayIsEnabledMBR {
 //					body("header.resultCode", equalTo("ok")).
 //					body("data.accounts[0].productType.code", equalTo("01")).
 					log().all().
-//					body(matchesJsonSchemaInClasspath("schemas/schemaListProducts.json")).
+					body(matchesJsonSchemaInClasspath("schemas/schemaApplePayIsEnabledMBR_ok.json")).
 					extract().
 					response();	
 	}

@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONArray;
@@ -45,8 +46,8 @@ public class CardExpensesRecentBLR {
 				.build();
 	}
 
-	@When("Realiza la consulta con los datos a cardExpensesRecentBLR con {string} {string} {string} {string} {string}")
-	public void realizaLaConsultaConLosDatosACardExpensesRecentBLRCon(String transactionId, String typeOp, String cardNumber, String typeCard, String errorCode) {
+	@When("Realiza la consulta con los datos a cardExpensesRecentBLR con {string} {string} {string} {string} {string} {string}")
+	public void realizaLaConsultaConLosDatosACardExpensesRecentBLRCon(String transactionId, String typeOp, String cardNumber, String typeCard, String errorCode, String schema) {
 		
 		RequestHeader header = new RequestHeader()
 				.transactionId(transactionId);
@@ -68,6 +69,7 @@ public class CardExpensesRecentBLR {
 					post().
 				then().
 					log().all().
+					body(matchesJsonSchemaInClasspath(schema)).
 					extract().
 					response();	
 		

@@ -1,3 +1,4 @@
+@backEnd
 Feature: Servicio - llamada al metodo POST getLegalContentBLR
 
   @getLegalContentBLR
@@ -9,4 +10,4 @@ Feature: Servicio - llamada al metodo POST getLegalContentBLR
     Examples: 
       | channel  | transactionId												| resultCode |
       | mbr			 | 9f73364f-28e4-4729-84b8-47363713a7c4 | ok				 |
-      | 				 | 9f73364f-28e4-4729-84b8-47363713a7c4 | fail			 |
+      | 				 | 9f73364f-28e4-4729-84b8-47363713a7c4 | EXC01192	 |

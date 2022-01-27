@@ -92,7 +92,7 @@ public class ListTwelveStatemenetMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTPRODUCTCARD)
+				.setBaseUri(Link.LIST_PRODUCT_CARD_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();
@@ -130,7 +130,7 @@ public class ListTwelveStatemenetMBR {
 	    
 		RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
-				.setBaseUri(Link.LISTTWELVESTATEMENTMBR)
+				.setBaseUri(Link.LIST_TWELVE_STATEMENT_MBR)
 //				.setContentType(ContentType.JSON)
 				.setRelaxedHTTPSValidation()
 				.build();

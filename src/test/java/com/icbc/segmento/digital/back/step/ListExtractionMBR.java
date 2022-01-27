@@ -68,15 +68,12 @@ public class ListExtractionMBR {
 				.header(header);
 		
 		
-    	Response responseGetClientData =		
+    	response =		
     			given().
     				spec(requestSpec).
-    				contentType(ContentType.JSON).
     				header("Cookie", hzSessionId).
-    				header("Content-Type", "application/json").
     				body(request).
     			when().
-    			log().all().
     				post().
     			then().
 //    				body("header.resultCode", equalTo("ok")).
@@ -86,7 +83,6 @@ public class ListExtractionMBR {
     				extract().
     				response();	
 		
-		assertEquals("El status code es incorrecto " + responseGetClientData.getStatusCode() , 200, responseGetClientData.getStatusCode());
 		
 	}
 

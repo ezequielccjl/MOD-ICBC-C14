@@ -37,11 +37,11 @@ public class ListTwelveStatementBLR {
     	//refactorizar, no hace falta el login, cambiar gherkin
     }
 
-    @When("Hace la consulta con {string} {string} {string} {int} {int} {string} {string}")
-    public void haceLaConsultaConSomethingSomethingSomethingSomething(String transactionId, String cardbrandindicatorcode, String cardproductnumber, Integer fromdate, Integer todate, String maxresultsnumber, String resultCode) {
+    @When("Hace la consulta con {string} {string} {string} {string} {string} {string} {string} {string}")
+    public void haceLaConsultaConSomethingSomethingSomethingSomething(String transactionId, String channel, String cardbrandindicatorcode, String cardproductnumber, String fromdate, String todate, String maxresultsnumber, String resultCode) {
         
-    	long fromDate = fromdate.longValue();
-    	long toDate = todate.longValue();
+    	long fromDate = Long.parseLong(fromdate.replace("-", ""));
+    	long toDate = Long.parseLong(todate.replace("-", ""));
     	
     	RequestSpecification requestSpec;
 		requestSpec = (RequestSpecification) new RequestSpecBuilder()
@@ -51,7 +51,8 @@ public class ListTwelveStatementBLR {
 				.build();
     	
     	RequestHeader rh = new RequestHeader()
-    			.transactionId(transactionId);
+    			.transactionId(transactionId)
+    			.channel(channel);
     	
     	ListBlrTwelveStatementInput listTwelveStatementInput = new ListBlrTwelveStatementInput()
     			.cardBrandIndicatorCode(cardbrandindicatorcode)
