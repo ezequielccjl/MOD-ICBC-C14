@@ -62,4 +62,66 @@ Feature: Rediseño de Home
     | user			| pass  	 |
     | U10567381 | prueba01 |
     
+    
+  @NuevaHome-BarraInferiorDisponible
+  Scenario Outline: Verificar que se encuentre la barra inferior
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que aparezca barra inferior
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
+  @NuevaHome-BotonInversiones
+  Scenario Outline: Verificar funcionamiento de Botón Inversiones
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que funcione de boton Inversiones
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
+  @NuevaHome-BotonPagos
+  Scenario Outline: Verificar funcionamiento de Botón Pagos
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que funcione de boton Pagos
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
+  #Escenario con usuario sin OnBoarding
+  @NuevaHome-BotonMODO
+  Scenario Outline: Verificar funcionamiento de Botón MODO
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que funcione de boton MODO
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
+  @NuevaHome-MenuHamburguesa
+  Scenario Outline: Verificar funcionamiento de Menu hamburguesa
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que funcione menu hamburguesa
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
+  @NuevaHome-BotonExtraccionSinTarjeta
+  Scenario Outline: Verificar funcionamiento de Boton Extraccion sin Tarjeta
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que me redirija a pantalla Extraccion sin tarjeta
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
 	

@@ -1,5 +1,6 @@
 package com.icbc.segmento.digital.front.pom;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -59,6 +60,7 @@ public class BasePage {
 	
 	public void clickElement(String locator) {
 		find(locator).click();
+		implicitWait();
 	}
 	
 	public void write(String locator, String textToWrite) {
@@ -118,7 +120,9 @@ public class BasePage {
 		return find(locator).isSelected();
 	}
 	
-	
+	public void implicitWait() {
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	}
 
 
 }

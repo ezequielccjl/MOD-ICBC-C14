@@ -4,6 +4,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +45,8 @@ public class ResumenCreditoRefactor {
 
     @Then("^Verifica su lista de resumenes$")
     public void verificaSuListaDeResumenes() {
-        
+        assertTrue(pm.verificarResumenes("//div[contains(text(), 'Últimos resúmenes')]"));
+        assertTrue(pm.verificarResumenes("//span[contains(text(), 'jun-06')]"));
     }
 
     @And("^Selecciona Resumenes$")

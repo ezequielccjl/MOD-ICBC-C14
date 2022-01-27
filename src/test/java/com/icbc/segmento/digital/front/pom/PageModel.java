@@ -61,7 +61,8 @@ public class PageModel extends BasePage {
 	}
 	
 	public void clickResumenes() {
-		clickElement(btnResumenes);
+		
+		jseClickIntercepted(btnResumenes);
 	}
 	
 	public void clickContacto() {
@@ -90,9 +91,7 @@ public class PageModel extends BasePage {
     	        ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 	
-	public void implicitWait() {
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-	}
+	
 	
 	public void escribrirMonto(String montoinferior) {
 		WebElement input = find(inputMonto);
@@ -108,6 +107,7 @@ public class PageModel extends BasePage {
 		WebElement elemento = find(xpath);
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", elemento);
+		implicitWait();
 	}
 	
 	public void ingresarImportePagoTC(String importe) {
@@ -147,6 +147,10 @@ public class PageModel extends BasePage {
 	public WebElement devolverElemento(String xpath) {
 		WebElement elemento = find(xpath);
 		return elemento;
+	}
+	
+	public Boolean verificarResumenes(String xpath) {
+		return elementoDisponible(xpath);
 	}
 	
 }

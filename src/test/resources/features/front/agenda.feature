@@ -2,7 +2,8 @@
 Feature: Agenda de transferencias
 
   Scenario Outline: Agenda
-    Given El usuario "<user>" "<pass>" se encuentra en la app
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
     When Se dirige a agenda
     And Selecciona crear un nuevo destinatario
     And Completa "<cvualias>" "<descripcion>" y presiona continuar
@@ -10,4 +11,4 @@ Feature: Agenda de transferencias
 
     Examples: 
       | user      | pass     | cvualias 							 | descripcion    |
-      | U32881700 | prueba01 | 0150545002000102333912  | PruebaTesting  |
+      | U32881700 | prueba01 | 0150501602000001476653  | PruebaTesting  |

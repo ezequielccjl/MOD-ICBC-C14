@@ -46,7 +46,7 @@ public class ConsultaAliasCBU {
     @Then("Verifica {string} {string}")
     public void verifica(String alias, String cbu) {
     	
-    	System.out.println("VERIFICACION DE ALIAS");
+    	System.out.println("VERIFICACION DE CBU");
     	
     	pm.implicitWait();
     	Boolean cbuDisp = pm.elementoDisponible("//span[contains(text(), '"+cbu+"')]");

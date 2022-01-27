@@ -61,14 +61,14 @@ public class CardlessExtractionMaximos {
         
     	for (int i = 0; i < Integer.parseInt(loops) ; i++) {
     		
-    		if (i==0) {
+    		//if (i==0) {
     			pm.implicitWait();
     			pm.escribrirMonto(monto);
             	System.out.println("SE BORRA / MONTO: "+ monto);
             	
             	pm.implicitWait();
             	pm.write(inputNumero, numero);
-			}
+			//}
         	
     		pm.implicitWait();
         	pm.jseClickIntercepted("//button[contains(text(),'Continuar')]");

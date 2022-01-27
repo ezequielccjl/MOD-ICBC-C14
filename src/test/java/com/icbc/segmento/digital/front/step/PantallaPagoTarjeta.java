@@ -51,9 +51,9 @@ public class PantallaPagoTarjeta {
     @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y clickea continuar$")
     public void seleccionaSomethingSomethingSomethingYClickeaContinuar(String cuentadebitar, String monedapagar, String importe) throws InterruptedException {
     	pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c71-10')]");
+    	//pm.clickElement("//div[contains(@class,'ng-tns-c71-10')]");
     	pm.implicitWait();
-    	pm.jseClickIntercepted("//div[contains(text(),'" + cuentadebitar + "')]");
+    	//pm.jseClickIntercepted("//div[contains(text(),'" + cuentadebitar + "')]");
     	
     	if (monedapagar.equals("DOLAR")) {
 			pm.clickElement("//div[contains(@class,'ng-tns-c71-11')]");
@@ -73,7 +73,8 @@ public class PantallaPagoTarjeta {
     	pm.implicitWait();
     	pm.clickElement("//button[contains(text(),'Continuar')]");
     	pm.implicitWait();
-    	pm.clickElement("//button[contains(text(),'Pagar')]");
+    	pm.esperarElemento("//div[contains(text(),'Confirmación de Pago')]");
+    	pm.clickElement("//button[contains(text(),'Continuar')]");
     	System.out.println("Click en pagar.");
     }
     

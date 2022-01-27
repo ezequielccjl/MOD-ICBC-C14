@@ -30,10 +30,11 @@ public class TransferenciaInmediata {
 	    System.out.println("Se ingresa: Transferencia Inmediata");
     }
 
-    @When("^Presiona en la pestania Transferir$")
-    public void presionaEnLaPestaniaTransferir() {
-        pm.implicitWait();
-        pm.jseClickIntercepted("//button[contains(text(),'Transferir')]");
+    @When("Presiona en el boton Transferir")
+    public void presionaEnElBotonTransferir() {
+    	pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
+    	pm.implicitWait();
+        pm.clickElement("//div[contains(text(),'Transferir')]");
     }
 
     @Then("^Verfica transferencia exitosa$")
@@ -41,29 +42,44 @@ public class TransferenciaInmediata {
         
     }
 
-    @And("^Selecciona \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" y presiona continuar$")
-    public void seleccionaSomethingSomethingSomethingYPresionaContinuar(String destino, String monto, String concepto) {
+    @When("Selecciona {string} {string} {string}")
+    public void selecciona(String origen, String monto, String concepto) {
+    	pm.esperarElemento("//h2[contains(text(),'Transferencias')]");
     	pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c77-2')]");
-		pm.implicitWait();
-		pm.clickElement("//span[contains(text(),'" + destino + "')]");
-		pm.implicitWait();
+    	pm.clickElement("//div[contains(@class,'ng-tns-c77-10')]");
+    	pm.jseClickIntercepted("//div[contains(text(),'"+ origen +"')]");
+    	
+    	
+    	
 		pm.ingresarMontoTransferencia(monto);
 		pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c77-12')]");
-    	pm.implicitWait();
+    	pm.clickElement("//div[contains(@class,'ng-tns-c77-8 ly-drop-frame__input')]");
     	pm.jseClickIntercepted("//span[contains(text(),'" + concepto + "')]");
         
+    }
+    
+    @When("Seleccina destino y agrega nuevo destinatario con {string}")
+    public void seleccinaDestinoYAgregaNuevoDestinatarioConCBU(String cbu) {
+    	pm.clickElement("//div[contains(@class,'ng-tns-c77-5')]");
+    	pm.clickElement("//a[contains(text(), 'Nuevo destinatario')]");
+    	pm.ingresarCBUAgenda(cbu);
+    	pm.implicitWait();
+    	pm.ingresarTexto("//input[contains(@aria-label, 'Esté es un campo tipo Descripción')]", "PRUEBA TESTING AUTOMATICO");
+    	pm.jseClickIntercepted("//button[contains(text(), 'Continuar')]");
+    }
+
+    @When("Marca palomita para a?adir destinatario")
+    public void marcaPalomitaParaAAdirDestinatario() {
+        pm.clickElement("//input[contains(@type, 'checkbox')]");
     }
 
     @And("^Presiona continuar ingresa token y confirma transferencia$")
     public void presionaContinuarIngresaTokenYConfirmaTransferencia() {
     	pm.implicitWait();
     	pm.clickElement("//button[contains(text(),'Continuar')]");
-    	pm.implicitWait();
     	pm.clickElement("//button[contains(text(),'Continuar')]");
-    	pm.implicitWait();
     	pm.ingresarTokenTransferencia("11111");
+    	pm.clickElement("//button[contains(text(),'Transferir')]");
         
     }
 

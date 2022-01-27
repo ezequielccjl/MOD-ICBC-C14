@@ -61,6 +61,8 @@ public class NuevaHomeProducts {
 	@Then("Verifico funcionamiento de boton CBU Alias")
 	public void verificoFuncionamientoDeBotonCBUAlias() {
 		pm.implicitWait();
+		pm.esperarElemento("//h3[contains(text(),'¡Hola')]");
+		pm.implicitWait();
 	    pm.clickElement("//button[contains (text(), 'CBU-ALIAS-QR')]");
 	    pm.implicitWait();
 	    assertTrue(pm.elementoDisponible("//li[contains(text(), 'Consulta de CBU - Alias')]"));
@@ -91,7 +93,71 @@ public class NuevaHomeProducts {
 	    
 	}
 
+	// NuevaHome-BarraInferiorDisponible
+	@Then("Valido que aparezca barra inferior")
+	public void validoQueAparezcaBarraInferior() {
+	    assertTrue(pm.elementoDisponible("//div[@class='ly-footer-bar']"));
+	    assertTrue(pm.elementoDisponible("//span[contains(text(), 'Inversiones')]"));
+	    assertTrue(pm.elementoDisponible("//span[contains(text(), 'Pagos')]"));
+	    assertTrue(pm.elementoDisponible("//span[contains(text(), 'Inicio')]"));
+	    assertTrue(pm.elementoDisponible("//span[contains(text(), 'MODO')]"));
+	    assertTrue(pm.elementoDisponible("//span[contains(text(), 'Más')]"));
+	}
 	
+	// NuevaHome-BotonInversiones
+	@Then("Valido que funcione de boton Inversiones")
+	public void validoQueFuncioneDeBotonInversiones() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Inversiones')]");
+		assertTrue(pm.elementoDisponible("//h1[contains(text(), 'Inversiones')]"));
+	}
+
+	
+	// NuevaHome-BotonPagos
+	@Then("Valido que funcione de boton Pagos")
+	public void validoQueFuncioneDeBotonPagos() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Pagos')]");
+		assertTrue(pm.elementoDisponible("//span[contains(text(), 'Pagos')]"));
+		assertTrue(pm.elementoDisponible("//span[contains(text(), 'DEBIN')]"));
+	}
+
+	// NuevaHome-BotonMODO
+	@Then("Valido que funcione de boton MODO")
+	public void validoQueFuncioneDeBotonMODO() {
+		pm.jseClickIntercepted("//span[contains(text(), 'MODO')]");
+		assertTrue(pm.elementoDisponible("//div[contains(text(), 'Llegó MODO a tu APP ICBC')]"));
+		assertTrue(pm.elementoDisponible("//div[contains(text(), 'Ya no necesitás tu billetera')]"));
+		assertTrue(pm.elementoDisponible("//div[contains(text(), 'Pagá con QR')]"));
+		assertTrue(pm.elementoDisponible("//div[contains(text(), 'Enviá y recibí plata')]"));
+		
+	}
+	
+	// NuevaHome-MenuHamburguesa
+	@Then("Valido que funcione menu hamburguesa")
+	public void validoQueFuncioneMenuHamburguesa() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Extracción sin tarjeta')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Gestión de productos')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'CompraVenta de U$$')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Resumenes')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Contacto')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Recomendar')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Perfil')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Ayuda')]"));
+		assertTrue(pm.elementoDisponible("//li[contains(text(), 'Cerrar sesión')]"));
+	}
+	
+	// NuevaHome-BotonExtraccionSinTarjeta
+	@Then("Valido que me redirija a pantalla Extraccion sin tarjeta")
+	public void validoQueMeRedirijaAPantallaExtraccionSinTarjeta() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Extracción sin tarjeta')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h1[contains (text(), 'Extracción sin tarjeta')]"));
+		assertTrue(pm.elementoDisponible("//h2[contains (text(), 'Órdenes de extracción')]"));
+	}
+
 
 
 }

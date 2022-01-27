@@ -126,8 +126,8 @@
 	
 <tr class="s-fail" test-id="6" parent-id="1">
 	<td><span class="w-32 avatar circle fail"><span class="badge">fail</span></span></td>
-	<td class="_600">Then Verifico que boton Nuevo Producto este funcional <br/><span class="text-muted text-sm">Boton Nuevo Producto en pantalla</span></td>
-	<td>0h 0m 56s+788msc</td>
+	<td class="_600">Then Valido que me redirija a pantalla Extraccion sin tarjeta <br/><span class="text-muted text-sm">Verificar funcionamiento de Menu hamburguesa</span></td>
+	<td>0h 0m 51s+556msc</td>
 	<td></td>
 	<td>
 	</td>
@@ -136,22 +136,23 @@
 <tr class="details">
 	<td colspan="5">
 		
-		<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //strong[contains(text(), 'Créditos a Tasa Cero')] (tried for 50 second(s) with 500 milliseconds interval)
+		<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //h1[contains, (text(), 'Extracción sin tarjeta')] (tried for 50 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.icbc.segmento.digital.front.pom.BasePage.find(BasePage.java:57)
-	at com.icbc.segmento.digital.front.pom.PageModel.elementoDisponible(PageModel.java:103)
-	at com.icbc.segmento.digital.front.step.NuevaHomeProducts.verificoQueBotonNuevoProductoEsteFuncional(NuevaHomeProducts.java:88)
-	at ?.Verifico que boton Nuevo Producto este funcional(src/test/resources/features/front/nuevaHome.feature:59)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//strong[contains(text(), 'Créditos a Tasa Cero')]"}
-  (Session info: chrome=96.0.4664.110)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+	at com.icbc.segmento.digital.front.pom.BasePage.find(BasePage.java:58)
+	at com.icbc.segmento.digital.front.pom.PageModel.elementoDisponible(PageModel.java:102)
+	at com.icbc.segmento.digital.front.step.NuevaHomeProducts.validoQueMeRedirijaAPantallaExtraccionSinTarjeta(NuevaHomeProducts.java:157)
+	at ?.Valido que me redirija a pantalla Extraccion sin tarjeta(src/test/resources/features/front/nuevaHome.feature:121)
+Caused by: org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression //h1[contains, (text(), 'Extracción sin tarjeta')] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//h1[contains, (text(), 'Extracción sin tarjeta')]' is not a valid XPath expression.
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VDAEB015', ip: '123.200.223.132', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+System info: host: 'VDCEB016', ip: '123.202.223.187', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\CE211556\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63640}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 7aec94eb0cf9906de4b0903a13c29bdd
-*** Element info: {Using=xpath, value=//strong[contains(text(), 'Créditos a Tasa Cero')]}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\CE211556\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61273}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a7612c9f5f68d36e8cd4ade440b41b8e
+*** Element info: {Using=xpath, value=//h1[contains, (text(), 'Extracción sin tarjeta')]}
 	at sun.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
@@ -168,9 +169,9 @@ Session ID: 7aec94eb0cf9906de4b0903a13c29bdd
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.icbc.segmento.digital.front.pom.BasePage.find(BasePage.java:57)
-	at com.icbc.segmento.digital.front.pom.PageModel.elementoDisponible(PageModel.java:103)
-	at com.icbc.segmento.digital.front.step.NuevaHomeProducts.verificoQueBotonNuevoProductoEsteFuncional(NuevaHomeProducts.java:88)
+	at com.icbc.segmento.digital.front.pom.BasePage.find(BasePage.java:58)
+	at com.icbc.segmento.digital.front.pom.PageModel.elementoDisponible(PageModel.java:102)
+	at com.icbc.segmento.digital.front.step.NuevaHomeProducts.validoQueMeRedirijaAPantallaExtraccionSinTarjeta(NuevaHomeProducts.java:157)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -239,7 +240,7 @@ Session ID: 7aec94eb0cf9906de4b0903a13c29bdd
 						            </div>
 									<ul class="nav nav-xs flex-row no-border pull-right">
 <li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
-<li><a href="#" class="b-l"><span class="badge badge-pull">Jan 14, 2022 04:47:09 PM</span></a></li>
+<li><a href="#" class="b-l"><span class="badge badge-pull">Jan 26, 2022 05:13:43 PM</span></a></li>
 <li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
 								    </ul>
 								</div>
