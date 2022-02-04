@@ -158,6 +158,115 @@ public class NuevaHomeProducts {
 		assertTrue(pm.elementoDisponible("//h2[contains (text(), 'Órdenes de extracción')]"));
 	}
 
+//	NuevaHome-PantallaGestionDeProductos
+	@Then("Valido que me redirija a Pantalla Gestion de Productos")
+	public void validoQueMeRedirijaAPantallaGestionDeProductos() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Gestión de productos')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Solicitud de un nuevo producto')]"));
+		assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Cuentas')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Tarjetas')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Inversiones')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Préstamos')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Crédito a Tasa Cero')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Seguros')]"));
+	    assertTrue(pm.elementoDisponible("//strong[contains(text(), 'Paquetes')]"));
+	}
+	
+//	NuevaHome-PantallaCompraVentaUSD ERROR POR SPINNER
+	@Then("Valido que me redirija a Pantalla Compra Venta USD")
+	public void validoQueMeRedirijaAPantallaCompraVentaUSD() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.clickCompraVenta("//li[contains(text(), 'CompraVenta de U$$')]");
+		pm.esperarElemento("//h3[contains (text(), 'Compra / Venta de U$S')]");
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Compra / Venta de U$S')]"));
+		assertTrue(pm.elementoDisponible("//div[contains (text(), 'Para realizar la operación de Compra / Venta de U$S se requiere una cuenta de distinta moneda para acreditar los fondos.')]"));
+	}
+	
+//	NuevaHome-PantallaResumenes - DECIDIR SI AVANZAR EN LA PANTALLA
+	@Then("Valido que me redirija a Pantalla Resumenes")
+	public void validoQueMeRedirijaAPantallaResumenes() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Resumenes')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Resúmenes')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Tarjetas')]"));
+	}
+	
+//	NuevaHome-PantallaContacto
+	@Then("Valido que me redirija a Pantalla Contacto")
+	public void validoQueMeRedirijaAPantallaContacto() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Contacto')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Teléfonos útiles')]"));
+		assertTrue(pm.elementoDisponible("//h3[contains(text(),'Teléfonos útiles')]"));
+		assertTrue(pm.elementoDisponible("//p[contains(text(),'Lunes a viernes de 8 a 20 hs y sábados y domingos de 10 a 16 hs')]"));
+		assertTrue(pm.elementoDisponible("//a[contains(text(),'0810-555-9200')]"));
+		assertTrue(pm.elementoDisponible("//a[contains(text(),'(54-11) 4820-9200')]"));
+	}
+	
+//	NuevaHome-PantallaRecomendar
+	@Then("Valido que me redirija a Pantalla Recomendar")
+	public void validoQueMeRedirijaAPantallaRecomendar() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Recomendar')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Recomenda y Gana')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'E-mail')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Facebook')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Twitter')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Messenger')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Whatsapp')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Instagram')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Telegram')]"));
+	}
+	
+//	NuevaHome-PantallaPerfil
+	@Then("Valido que me redirija a Pantalla Perfil")
+	public void validoQueMeRedirijaAPantallaPerfil() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Perfil')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//p[contains (text(), 'Hola,')]"));
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Cambio de clave de ICBC Access y Mobile Banking')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Cambiar la clave')]"));
+	}
+	
+//	NuevaHome-PantallaAyuda DECIDIR SI HACER NAVEGACION
+	@Then("Valido que me redirija a Pantalla Ayuda")
+	public void validoQueMeRedirijaAPantallaAyuda() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Ayuda')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//h3[contains (text(), 'Ayuda')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Preguntas Frecuentes')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Terminos y condiciones')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Politicas de privacidad')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Seguridad')]"));
+		assertTrue(pm.elementoDisponible("//span[contains (text(), 'Contactos')]"));
+	}
+	
+//	NuevaHome-CerrarSesion
+	@Then("Verifico que cierro sesion")
+	public void verificoQueCierroSesion() {
+		pm.jseClickIntercepted("//span[contains(text(), 'Más')]");
+		pm.implicitWait();
+		pm.jseClickIntercepted("//li[contains(text(), 'Cerrar sesión')]");
+		pm.implicitWait();
+		assertTrue(pm.elementoDisponible("//div[contains (text(), 'Ingresar con biometría')]"));
+		assertTrue(pm.elementoDisponible("//button[contains (text(), 'Ingresar')]"));
+		assertTrue(pm.elementoDisponible("//input[contains (@aria-label, 'Esté es un campo tipo Usuario')]"));
+		assertTrue(pm.elementoDisponible("//input[contains (@aria-label, 'Esté es un campo tipo Clave')]"));
+	}
 
 
 }

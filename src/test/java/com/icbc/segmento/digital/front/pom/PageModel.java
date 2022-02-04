@@ -13,8 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageModel extends BasePage {
 	
-	private String inputUsuarioXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[1]/div/ly-text-field/div/input";
-	private String inputContraseñaXPath = "/html/body/main[1]/div/app-root/ly-app-container/div/app-login/ly-layout-container/div/ly-main/div/form/ly-block[1]/div/ly-layout-form/div/ly-form-field[2]/div/ly-text-field/div/input";
+	private String inputUsuarioXPath = "//input[contains(@aria-label, 'Esté es un campo tipo Usuario')]";
+	private String inputContraseñaXPath = "//input[contains(@aria-label, 'Esté es un campo tipo Clave')]";
 	private String inputMonto = "/html/body/main[1]/div/app-root/ly-app-container/div/app-cardless-extraction-cont/ly-block/div/app-cardless-extraction/ly-data-block/article/ly-data-block-body/div/ly-block-layout/div/form/ly-form-field[2]/div/ly-text-field/div/input";
 	private String btnIngresar = "//button[contains(text(),'Ingresar')]";
 	private String btnMas = "//span[contains(text(),'Más')]";
@@ -24,7 +24,7 @@ public class PageModel extends BasePage {
 	private String btnCardless= "//li[contains(text(),'Extracción sin tarjeta')]";
 	private String inputImportePagoTC = "//input[contains(@aria-label,'Esté es un campo tipo Importe a pagar')]";
 	private String inputMontoTransferencia= "//input[contains(@aria-label,'Esté es un campo tipo Monto en $')]";
-	private String inputTokenTransferencia= "//input[contains(@aria-label,'Esté es un campo tipo Cód. aprob.')]";
+	private String inputTokenTransferencia= "//input[contains(@aria-label,'Esté es un campo tipo Código de seguridad')]";
 	private String inputCBUAgenda = "//input[contains(@aria-label, 'Esté es un campo tipo CBU-CVU-Alias')]";
 	private String spanPagoTC = "//span[contains(text(),'Listo. Pagaste')]";
 	
@@ -151,6 +151,12 @@ public class PageModel extends BasePage {
 	
 	public Boolean verificarResumenes(String xpath) {
 		return elementoDisponible(xpath);
+	}
+	
+	public void clickCompraVenta(String xpath) {
+		WebElement elemento = find(xpath);
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", elemento);
 	}
 	
 }

@@ -19,6 +19,7 @@ public class Login {
 	    pm.navigateToFBD();
 	}
 	
+	//Caracteres especiales
 	@When("Ingreso usuario {string} y verifico que no se pueda continuar")
 	public void ingresoUsuarioYVerificoQueNoSePuedaContinuar(String caracteresEspeciales) {
 	    pm.write("//input[contains(@aria-label, 'Esté es un campo tipo Usuario')]", caracteresEspeciales + Keys.TAB);
@@ -40,6 +41,7 @@ public class Login {
 
 	@Then("Verifica {string} de su logueo")
 	public void verificaDeSuLogueo(String respuestaEsperada) {
+		//Login Satisfactorio y erroneo
 		if (respuestaEsperada.equals("loginCorrecto")) {
     		pm.implicitWait();
     		assertTrue(pm.elementoDisponible("//h3[contains(text(),'¡Hola')]"));

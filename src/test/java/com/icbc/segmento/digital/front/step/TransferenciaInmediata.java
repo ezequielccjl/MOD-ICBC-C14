@@ -49,7 +49,7 @@ public class TransferenciaInmediata {
     	pm.clickElement("//div[contains(@class,'ng-tns-c77-10')]");
     	pm.jseClickIntercepted("//div[contains(text(),'"+ origen +"')]");
     	
-    	
+    	//XPath de concepto trae problemas, es dinamico y no pude conseguir algo identificable
     	
 		pm.ingresarMontoTransferencia(monto);
 		pm.implicitWait();
@@ -78,8 +78,13 @@ public class TransferenciaInmediata {
     	pm.implicitWait();
     	pm.clickElement("//button[contains(text(),'Continuar')]");
     	pm.clickElement("//button[contains(text(),'Continuar')]");
-    	pm.ingresarTokenTransferencia("11111");
+    	pm.ingresarTokenTransferencia("111111");
     	pm.clickElement("//button[contains(text(),'Transferir')]");
+        
+    }
+    
+    @Then("Verfica transferencia erronea")
+    public void verficaTransferenciaErronea() {
         
     }
 

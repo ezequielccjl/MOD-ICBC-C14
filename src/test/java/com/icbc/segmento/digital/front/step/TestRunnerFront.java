@@ -18,7 +18,7 @@ import cucumber.api.java.BeforeStep;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@NuevaHome-BotonExtraccionSinTarjeta"})
+		tags = {"@Transferencia-SinAgregarDestinatario"})
 
 public class TestRunnerFront {
 	
