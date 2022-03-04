@@ -7,7 +7,7 @@
     <cucumber.version>4.2.0</cucumber.version>
   </properties>
     <dependencies>
-    <dependency>
+    	<dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>4.4.0</version>
@@ -90,322 +90,74 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
-        <dependency>
-            <groupId>com.ebanking</groupId>
-            <artifactId>dsf-headers</artifactId>
-            <version>2.0.5</version>
-        </dependency>
-	<dependency>
-		<groupId>com.ebanking.retail.mds</groupId>
-		<artifactId>channel-onboarding-stub</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
-	</dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.blr</groupId>
-            <artifactId>onboarding-stub</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.mds</groupId>
-            <artifactId>channel-prospect-clients</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.mds</groupId>
-            <artifactId>channel-card-clients</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.blr</groupId>
-            <artifactId>onboarding-procedure-stub</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.blr</groupId>
-            <artifactId>branch-office-stub</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ebanking.retail.mds</groupId>
-            <artifactId>channel-branch-office-stub</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-<dependency>
-    <groupId>com.ebanking</groupId>
-    <artifactId>dsf-headers</artifactId>
-    <version>2.0.5</version>
-</dependency>
-<dependency>
-	<groupId>com.ebanking.retail.mds</groupId>
-	<artifactId>channel-new-product-stub</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
-</dependency>
-<dependency>
-	<groupId>com.ebanking.retail.blr</groupId>
-	<artifactId>new-product-stub</artifactId>
-	<version>1.1.0</version>
-</dependency>
-<!-- <dependency>
-    <groupId>com.ebanking.retail.mds</groupId>
-    <artifactId>channel-new-product-clients</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
-</dependency>  -->
-<dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>card-stub</artifactId>
-    <version>1.1.0</version>
-</dependency>
-<dependency>
-    <groupId>com.ebanking.retail.mds</groupId>
-    <artifactId>channel-card-clients</artifactId>
-    <version>1.2.0</version>
-</dependency>
-<dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>onboarding-data-process-stub</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
-</dependency>
- <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.4.4</version>
-        <exclusions>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>2.4.4</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-annotations</artifactId>
-        <version>2.7.4</version>
-    </dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-cardless-extraction-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-product-stub</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-product-clients</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-security-authentication-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-security-authentication-clients</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-   <groupId>com.jayway.jsonpath</groupId>
-   <artifactId>json-path</artifactId>
-   <version>2.6.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.nebhale.jsonpath/jsonpath -->
-<dependency>
-   <groupId>com.nebhale.jsonpath</groupId>
-   <artifactId>jsonpath</artifactId>
-   <version>1.2</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>card-midd-clients</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>card-stub</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>card-stub</artifactId>
-    <version>2.0.0</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>agenda-stub</artifactId>
-    <version>2.0.0</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-agenda-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
- <dependency>
-	<groupId>com.ebanking.retail.blr</groupId>
-	<artifactId>client-stub</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-card-stub</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>card-midd-clients</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-transfer-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-<dependency>
-<groupId>com.ebanking.retail.blr</groupId>
-<artifactId>card-stub</artifactId>
-<version>3.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-transfer-account-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
- <dependency>
-	<groupId>com.ebanking.retail.mbr</groupId>
-	<artifactId>channel-card-stub</artifactId>
-	<version>2.1.4-SNAPSHOT</version>
-</dependency>
+        
 
-
-        <!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
-<dependency>
-    <groupId>com.mashape.unirest</groupId>
-    <artifactId>unirest-java</artifactId>
-    <version>1.4.9</version>
-</dependency>
-        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-objectmapper-jackson -->
-<dependency>
-    <groupId>com.konghq</groupId>
-    <artifactId>unirest-objectmapper-jackson</artifactId>
-    <version>4.0.0-RC1</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-content-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>content-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-key-management-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>key-management-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-apple-pay-stub</artifactId>
-    <version>1.0.0</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-content-sessionless-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20210307</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>home-product-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-home-product-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>transfer-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-        <!-- tuteeeeeeeeeeee -->
-        <dependency>
-    <groupId>com.ebanking.retail.mds</groupId>
-    <artifactId>channel-security-authentication-stub</artifactId>
-    <version>5.0.0</version>
-</dependency>
-        <!--  -->
-    <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>credit-card-purchases-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-credit-card-purchases-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-<dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>dollars-buy-sell-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-<dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-dollars-buy-sell-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-payment-alias-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>send-email-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>mail-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-mail-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.blr</groupId>
-    <artifactId>services-op-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-    <dependency>
-    <groupId>com.ebanking.retail.mbr</groupId>
-    <artifactId>channel-send-email-stub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
+	 	<dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-databind</artifactId>
+	        <version>2.4.4</version>
+	        <exclusions>
+	            <exclusion>
+	                <groupId>com.fasterxml.jackson.core</groupId>
+	                <artifactId>jackson-core</artifactId>
+	            </exclusion>
+	            <exclusion>
+	                <groupId>com.fasterxml.jackson.core</groupId>
+	                <artifactId>jackson-annotations</artifactId>
+	            </exclusion>
+	        </exclusions>
+	    </dependency>
+	    
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-core</artifactId>
+	        <version>2.4.4</version>
+	    </dependency>
+	    
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-annotations</artifactId>
+	        <version>2.7.4</version>
+	    </dependency>
+	    
+	    <dependency>
+		   <groupId>com.jayway.jsonpath</groupId>
+		   <artifactId>json-path</artifactId>
+		   <version>2.6.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.nebhale.jsonpath/jsonpath -->
+		<dependency>
+		   <groupId>com.nebhale.jsonpath</groupId>
+		   <artifactId>jsonpath</artifactId>
+		   <version>1.2</version>
+		</dependency>
+	        
+		<!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
+		<dependency>
+		    <groupId>com.mashape.unirest</groupId>
+		    <artifactId>unirest-java</artifactId>
+		    <version>1.4.9</version>
+		</dependency>
+		        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-objectmapper-jackson -->
+		<dependency>
+		    <groupId>com.konghq</groupId>
+		    <artifactId>unirest-objectmapper-jackson</artifactId>
+		    <version>4.0.0-RC1</version>
+		</dependency>
+	       
+	     <dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20210307</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+		<dependency>
+		    <groupId>io.appium</groupId>
+		    <artifactId>java-client</artifactId>
+		    <version>7.6.0</version>
+		</dependency>
+	       
     </dependencies>
 </project>

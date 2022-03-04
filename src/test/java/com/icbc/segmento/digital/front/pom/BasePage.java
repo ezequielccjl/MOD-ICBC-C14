@@ -29,6 +29,7 @@ public class BasePage {
 	}
 	
 	private static ChromeOptions chromeOptions(){
+		
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		chromePrefs.put("download.default_directory", "D:\\");	
 		ChromeOptions chromeOptions = new ChromeOptions();
@@ -36,6 +37,7 @@ public class BasePage {
 		chromeOptions.setExperimentalOption("prefs", chromePrefs);
 	    chromeOptions.addArguments("--disable-dev-shm-usage");
 	    chromeOptions.addArguments("--ignore-certificate-errors");
+	    chromeOptions.addArguments("--auto-open-devtools-for-tabs");
 	    return chromeOptions;
 	}
 	
@@ -46,8 +48,8 @@ public class BasePage {
 		
 	public static void navigateTo(String url) {
 		driver.get(url);
-		driver.manage().window().setSize(new Dimension(250, 800));
-		//driver.manage().window().maximize();
+		//driver.manage().window().setSize(new Dimension(250, 800));
+		driver.manage().window().maximize();
 	}
 
 	public static void closeBrowser() {

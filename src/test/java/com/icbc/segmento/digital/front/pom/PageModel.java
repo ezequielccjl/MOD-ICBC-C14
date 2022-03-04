@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,6 +37,12 @@ public class PageModel extends BasePage {
 
 	public void navigateToFBD() {
 		navigateTo("https://mbrfbd.intranet.local/mbr/fbd/shell-mf/#/login");
+		
+	}
+	
+	public void navigateToQAT() {
+		navigateTo("https://mbrqat.intranet.local/mbr/qat/shell-mf/#/login");
+		
 	}
 	
 	public void loginFBD(String user, String password) {
@@ -157,6 +164,10 @@ public class PageModel extends BasePage {
 		WebElement elemento = find(xpath);
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", elemento);
+	}
+	
+	public void aprietoF12() {
+		driver.navigate().refresh();
 	}
 	
 }

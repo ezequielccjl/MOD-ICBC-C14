@@ -37,42 +37,32 @@ public class TransferenciaInmediata {
         pm.clickElement("//div[contains(text(),'Transferir')]");
     }
 
-    @Then("^Verfica transferencia exitosa$")
-    public void verficaTransferenciaExitosa() {
-        
-    }
-
     @When("Selecciona {string} {string} {string}")
     public void selecciona(String origen, String monto, String concepto) {
     	pm.esperarElemento("//h2[contains(text(),'Transferencias')]");
     	pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c77-10')]");
-    	pm.jseClickIntercepted("//div[contains(text(),'"+ origen +"')]");
+    	//pm.clickElement("//div[contains(@id,'drop-frame-164486498424483480')]");
+    	//pm.jseClickIntercepted("//div[contains(text(),'"+ origen +"')]");
     	
-    	//XPath de concepto trae problemas, es dinamico y no pude conseguir algo identificable
+    	//XPath de CONCEPTO/ORIGEN traen problemas, son dinamicos y no pude conseguir algo identificable
     	
 		pm.ingresarMontoTransferencia(monto);
 		pm.implicitWait();
-    	pm.clickElement("//div[contains(@class,'ng-tns-c77-8 ly-drop-frame__input')]");
+    	pm.clickElement("//div[contains(@class,'ng-tns-c86-17 ly-drop-frame__input')]");
     	pm.jseClickIntercepted("//span[contains(text(),'" + concepto + "')]");
         
     }
     
     @When("Seleccina destino y agrega nuevo destinatario con {string}")
     public void seleccinaDestinoYAgregaNuevoDestinatarioConCBU(String cbu) {
-    	pm.clickElement("//div[contains(@class,'ng-tns-c77-5')]");
+    	pm.clickElement("//div[contains(@class,'ng-tns-c86-5 ly-drop-frame--double ly-drop-frame__input')]");
     	pm.clickElement("//a[contains(text(), 'Nuevo destinatario')]");
     	pm.ingresarCBUAgenda(cbu);
     	pm.implicitWait();
     	pm.ingresarTexto("//input[contains(@aria-label, 'Esté es un campo tipo Descripción')]", "PRUEBA TESTING AUTOMATICO");
     	pm.jseClickIntercepted("//button[contains(text(), 'Continuar')]");
     }
-
-    @When("Marca palomita para a?adir destinatario")
-    public void marcaPalomitaParaAAdirDestinatario() {
-        pm.clickElement("//input[contains(@type, 'checkbox')]");
-    }
-
+    
     @And("^Presiona continuar ingresa token y confirma transferencia$")
     public void presionaContinuarIngresaTokenYConfirmaTransferencia() {
     	pm.implicitWait();
@@ -83,6 +73,19 @@ public class TransferenciaInmediata {
         
     }
     
+    @Then("^Verfica transferencia exitosa$")
+    public void verficaTransferenciaExitosa() {
+        
+    }
+
+//	Transferencia-AgregandoDestinatario
+    @When("Marca palomita para a?adir destinatario")
+    public void marcaPalomitaParaAAdirDestinatario() {
+        pm.clickElement("//input[contains(@type, 'checkbox')]");
+    }
+
+    
+//	Transferencia-CBUCVUAliasInexistente
     @Then("Verfica transferencia erronea")
     public void verficaTransferenciaErronea() {
         

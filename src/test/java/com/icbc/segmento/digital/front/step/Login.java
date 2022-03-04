@@ -3,6 +3,7 @@ package com.icbc.segmento.digital.front.step;
 import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 
 import com.icbc.segmento.digital.front.pom.PageModel;
 
@@ -16,7 +17,8 @@ public class Login {
 	
 	@Given("Estoy en la pantalla de Login")
 	public void estoyEnLaPantallaDeLogin() {
-	    pm.navigateToFBD();
+	    pm.navigateToQAT();
+	    pm.aprietoF12();
 	}
 	
 	//Caracteres especiales

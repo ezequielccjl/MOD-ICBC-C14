@@ -1,4 +1,4 @@
-package com.icbc.segmento.digital.front.step;
+package com.icbc.segmento.digital.test.runner;
 
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
@@ -12,13 +12,13 @@ import cucumber.api.java.BeforeStep;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/front"},
-		glue = {"com.icbc.segmento.digital/front/step"},
+		glue = {"com.icbc.segmento.digital.front.step"},
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:\", \"json:target/front/cucumber-reports.json"},
 		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@Transferencia-SinAgregarDestinatario"})
+		tags = {"@NuevaHome"})
 
 public class TestRunnerFront {
 	
