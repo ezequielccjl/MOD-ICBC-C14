@@ -25,8 +25,10 @@ public class HomeMobile {
 		
 		// NuevaHome-SaludoAlUsuario
 		@Then("Reviso que aparezca el saludo al usuario")
-		public void revisoQueAparezcaElSaludoAlUsuario() {
+		public void revisoQueAparezcaElSaludoAlUsuario() throws InterruptedException {
 			//¡Hola Goem!
+			Thread.sleep(3000);
+			System.out.println("VERIFICACION THEN");
 			Boolean apareceSaludo = driver.findElement(By.xpath(saludo)).isDisplayed();
 	        System.out.println(apareceSaludo);
 	       	assertTrue(apareceSaludo);
@@ -38,7 +40,8 @@ public class HomeMobile {
 		public void presionoEnOcultarSaldos() {
 			//Ocultar saldos
 			driver.findElement(By.xpath(ocultarSaldos)).click();
-		    
+			//XCUIElementTypeTextField[@name="Esté es un campo tipo Usuario"]
+			driver.findElement(By.xpath("//XCUIElementTypeTextField[@name=\"Esté es un campo tipo Usuario\"]")).isDisplayed();
 		}
 	
 		@Then("Valido que el saldo este oculto")

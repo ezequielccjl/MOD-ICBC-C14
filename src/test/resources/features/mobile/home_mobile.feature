@@ -3,8 +3,8 @@ Feature: Rediseño de Home
 
   @HomeMobile-SaludoAlUsuario
   Scenario Outline: Saludo al usuario
-    Given Estoy en la pantalla de Login
-    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Given El usuario se encuentra en la app ICBC
+    When Completa "<user>" "<password>" presiona ingresar
     Then Reviso que aparezca el saludo al usuario
     And Cierro sesion
     Examples:
@@ -13,8 +13,8 @@ Feature: Rediseño de Home
 
 	@HomeMobile-OcultarSaldos
   Scenario Outline: Ocultar Saldos
-    Given Estoy en la pantalla de Login
-    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Given El usuario se encuentra en la app ICBC
+    When Completa "<user>" "<password>" presiona ingresar
     And Presiono en ocultar saldos
     Then Valido que el saldo este oculto
     And Cierro sesion

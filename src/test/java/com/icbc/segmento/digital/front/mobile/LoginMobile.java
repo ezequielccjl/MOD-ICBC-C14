@@ -21,6 +21,10 @@ public class LoginMobile {
 	String inputUsuario = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.EditText";
 	String inputPass = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.widget.EditText";
 	String btnIngresar = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]/android.widget.Button";
+	
+	String inputUsuarioIOS = "//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']";
+	String inputPassIOS = "//XCUIElementTypeSecureTextField[@name='Esté es un campo tipo Clave']";
+	String btnIngresarIOS = "//XCUIElementTypeButton[@name='Ingresar']";
 	//static AppiumDriver<WebElement> driver = Hooks.getDriver();
 	//PageModelMobile pm = new PageModelMobile();
 	static AppiumDriver<MobileElement> driver = Hooks.getDriver();
@@ -30,16 +34,18 @@ public class LoginMobile {
 		//driver.findElement(By.xpath(inputUsuario)).sendKeys("ASDASD");
 	}
 
-	@When("Completa {string} {string}presiona ingresar")
+	@When("Completa {string} {string} presiona ingresar")
 	public void completaPresionaIngresar(String user, String password) {
 		driver.findElement(By.xpath(inputUsuario)).sendKeys(user);
 		driver.findElement(By.xpath(inputPass)).sendKeys(password);
-		driver.findElement(By.xpath("//android.widget.Button[@text='Ingresar']")).click();
+		driver.findElement(By.xpath(btnIngresar)).click();
+		//"//android.widget.Button[@text='Ingresar']"
 	}
 
 	@Then("Verifica que se haya logueado correctamente")
 	public void verificaQueSeHayaLogueadoCorrectamente() throws InterruptedException {
-	    Thread.sleep(15000);}
+	    Thread.sleep(10000);
+	    }
 	
 	@When("Me logueo con el usuario {string} y la pass {string}")
 	public void meLogueoConElUsuarioYLaPass(String user, String password) {

@@ -37,21 +37,25 @@ public class Configs {
 		//String kobitonServerUrl = "https://CE211556:16a9f5e2-cae3-4e8b-9526-949e21961065@api.kobiton.com/wd/hub";
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("sessionName", "PruebaS20");
+		capabilities.setCapability("sessionName", "Prueba Modernizacion");
 		capabilities.setCapability("sessionDescription", "");
 		capabilities.setCapability("deviceOrientation", "portrait");
 		capabilities.setCapability("captureScreenshots", true);
-		capabilities.setCapability("networkActivity", false);
-		capabilities.setCapability("app", "kobiton-store:308388");
+//		capabilities.setCapability("app", "kobiton-store:308388");
+		capabilities.setCapability("app", "kobiton-store:v354310");
 		// The given team is used for finding devices and the created session will be visible for all members within the team.
 		capabilities.setCapability("groupId", 2222); // Group: Retail
 		capabilities.setCapability("deviceGroup", "KOBITON");
 		// For deviceName, platformVersion Kobiton supports wildcard
 		// character *, with 3 formats: *text, text* and *text*
 		// If there is no *, Kobiton will match the exact text provided
-		capabilities.setCapability("deviceName", "Google Pixel 6");
-		capabilities.setCapability("platformVersion", "12");
-		capabilities.setCapability("platformName", "Android"); 
+//		capabilities.setCapability("deviceName", "Google Pixel 6");
+//		capabilities.setCapability("platformVersion", "12");
+//		capabilities.setCapability("platformName", "Android"); 
+		
+		capabilities.setCapability("deviceName", "iPhone 13 Pro");
+		capabilities.setCapability("platformVersion", "15.1.1");
+		capabilities.setCapability("platformName", "iOS"); 
 		
 		return capabilities;
 		

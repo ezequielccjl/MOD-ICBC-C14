@@ -36,6 +36,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -45,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Mar 3, 2022 03:25:51 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Mar 7, 2022 11:33:41 AM</span>
 			</a>
 		</ul>
 	</div>
@@ -61,6 +62,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -72,8 +75,8 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@LoginMobile</a></li>
-					<li><a href='#'>@tag2</a></li>
+					<li><a href='#'>@HomeMobile</a></li>
+					<li><a href='#'>@HomeMobile-SaludoAlUsuario</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -114,10 +117,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -128,10 +131,10 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -142,10 +145,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>3</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>2</span> others
                 </div>
             </div>
         </div>
@@ -163,11 +166,11 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Login Mobile ICBC AA</span>
-						<span class='test-time'>Mar 3, 2022 03:25:51 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-name'>Redise?o de Home</span>
+						<span class='test-time'>Mar 7, 2022 11:33:41 AM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class="sr-filters bdd-filters">
@@ -176,18 +179,18 @@
     <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-<div class='scenariooutline node' test-id='2' status='pass'>
+<div class='scenariooutline node' test-id='2' status='fail'>
     <div class='category-list'>
-        <span class='category label'>@tag2</span>
+        <span class='category label'>@HomeMobile-SaludoAlUsuario</span>
     </div>
-    <span class='duration right label'>0h 1m 40s+831ms</span>
+    <span class='duration right label'>0h 1m 5s+178ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: El usuario se loguea en ICBC</div>
-        <table class='runtime-table table-striped table'><tr><td>user</td><td>password</td></tr><tr><td>U10567381</td><td>prueba01</td></tr></table>
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Saludo al usuario</div>
+        <table class='runtime-table table-striped table'><tr><td>user</td><td>pass</td></tr><tr><td>U10567381</td><td>prueba01</td></tr></table>
     </div>
     <ul class='steps'>
-        <li test-id='3' class='node scenario pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>El usuario se loguea en ICBC</div>
+        <li test-id='3' class='node scenario fail' status='fail'>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Saludo al usuario</div>
             <ul class='gc steps'>
                     <li test-id='4' class='gc asterisk pass' status='pass'>
                         <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.setup()</h6>
@@ -197,15 +200,56 @@
                         <h6 class="step-name" title="LoginMobile.elUsuarioSeEncuentraEnLaAppICBC()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given El usuario se encuentra en la app ICBC</h6>
                             <div class="node-step"></div>
                     </li>
-                    <li test-id='6' class='gc when pass' status='pass'>
-                        <h6 class="step-name" title="LoginMobile.completaPresionaIngresar(String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Completa "U10567381" "prueba01"presiona ingresar</h6>
-                            <div class="node-step"></div>
+                    <li test-id='6' class='gc when fail' status='fail'>
+                        <h6 class="step-name" title="LoginMobile.completaPresionaIngresar(String,String)"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>When Completa "U10567381" "<password>" presiona ingresar</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.ios.IOSDriver
+Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 354310, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 13 Pro, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 3967107, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 15.1.1, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 59344, takesScreenshot: true, udid: 00008110-001C1D41263A801E, useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 59346, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
+Session ID: 257eaecf-0cf1-4e12-bb4e-57df02e63c99
+*** Element info: {Using=xpath, value=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.EditText}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at com.icbc.segmento.digital.front.mobile.LoginMobile.completaPresionaIngresar(LoginMobile.java:35)
+	at ?.Completa "U10567381" "<password>" presiona ingresar(src/test/resources/features/mobile/home_mobile.feature:7)
+</textarea>
+                                                </li>
+                    <li test-id='7' class='gc then skip' status='skip'>
+                        <h6 class="step-name" title="HomeMobile.revisoQueAparezcaElSaludoAlUsuario()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Reviso que aparezca el saludo al usuario</h6>
+                            <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='7' class='gc then pass' status='pass'>
-                        <h6 class="step-name" title="LoginMobile.verificaQueSeHayaLogueadoCorrectamente()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verifica que se haya logueado correctamente</h6>
-                            <div class="node-step"></div>
+                    <li test-id='8' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="LoginMobile.cierroSesion()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Cierro sesion</h6>
+                            <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='8' class='gc asterisk pass' status='pass'>
+                    <li test-id='9' class='gc asterisk pass' status='pass'>
                         <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.teardown()</h6>
                             <div class="node-step"></div>
                     </li>
@@ -255,15 +299,15 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@LoginMobile</span>
+						<span class='category-name'>@HomeMobile</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
 							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 						<div class='category-tests'>
@@ -277,14 +321,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 3, 2022 03:25:51 PM</td>
-										<td class='linked' test-id='1'>Login Mobile ICBC AA</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Mar 7, 2022 11:33:41 AM</td>
+										<td class='linked' test-id='1'>Redise?o de Home</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Mar 3, 2022 03:25:51 PM</td>
-										<td class='linked' test-id='3'>Login Mobile ICBC AA.El usuario se loguea en ICBC.El usuario se loguea en ICBC</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Mar 7, 2022 11:33:41 AM</td>
+										<td class='linked' test-id='3'>Redise?o de Home.Saludo al usuario.Saludo al usuario</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -293,15 +337,15 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@tag2</span>
+						<span class='category-name'>@HomeMobile-SaludoAlUsuario</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
 							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 						<div class='category-tests'>
@@ -315,14 +359,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 3, 2022 03:25:51 PM</td>
-										<td class='linked' test-id='2'>Login Mobile ICBC AA.El usuario se loguea en ICBC</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Mar 7, 2022 11:33:41 AM</td>
+										<td class='linked' test-id='2'>Redise?o de Home.Saludo al usuario</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Mar 3, 2022 03:25:51 PM</td>
-										<td class='linked' test-id='3'>Login Mobile ICBC AA.El usuario se loguea en ICBC.El usuario se loguea en ICBC</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Mar 7, 2022 11:33:41 AM</td>
+										<td class='linked' test-id='3'>Redise?o de Home.Saludo al usuario.Saludo al usuario</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -338,7 +382,99 @@
 		</div>
 	</div>
 </div>
-<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 7, 2022 11:34:14 AM</td>
+										<td class='linked' test-id='6'>Redise?o de Home.Saludo al usuario.Saludo al usuario.When Completa "U10567381" "<password>" presiona ingresar</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.ios.IOSDriver
+Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 354310, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 13 Pro, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 3967107, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 15.1.1, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 59344, takesScreenshot: true, udid: 00008110-001C1D41263A801E, useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 59346, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
+Session ID: 257eaecf-0cf1-4e12-bb4e-57df02e63c99
+*** Element info: {Using=xpath, value=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.EditText}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at com.icbc.segmento.digital.front.mobile.LoginMobile.completaPresionaIngresar(LoginMobile.java:35)
+	at ?.Completa "U10567381" "<password>" presiona ingresar(src/test/resources/features/mobile/home_mobile.feature:7)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -358,25 +494,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 3, 2022 03:25:51 PM</div>
+					<div class='panel-lead'>Mar 7, 2022 11:33:41 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 3, 2022 03:27:32 PM</div>
+			 		<div class='panel-lead'>Mar 7, 2022 11:34:46 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 41s+91ms</div>
+					<div class='panel-lead'>0h 1m 5s+544ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -392,21 +528,21 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@LoginMobile</td>
+							<td>@HomeMobile</td>
+							<td>0</td>
 							<td>2</td>
 							<td>0</td>
-							<td>0</td>
 							<td>
-									100%
+									0%
 							</td>
 						</tr>
 						<tr>
-							<td>@tag2</td>
+							<td>@HomeMobile-SaludoAlUsuario</td>
+							<td>0</td>
 							<td>2</td>
 							<td>0</td>
-							<td>0</td>
 							<td>
-									100%
+									0%
 							</td>
 						</tr>
 					</table>
@@ -421,38 +557,38 @@
 		<script>
 			var statusGroup = {
                 parentCount: 1,
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				childCount: 1,
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
 				debugChild: 0,
-				exceptionsChild: 0,
-				grandChildCount: 5,
-				passGrandChild: 5,
-				failGrandChild: 0,
+				exceptionsChild: 1,
+				grandChildCount: 6,
+				passGrandChild: 3,
+				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 2,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 3,
 			};
 		</script>
 		<script>
 			var timeline = {
-			        "Login Mobile ICBC AA":100.831
+			        "Redise?o de Home":65.178
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
