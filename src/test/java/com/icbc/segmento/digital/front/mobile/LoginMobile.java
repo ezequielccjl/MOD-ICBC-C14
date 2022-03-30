@@ -29,30 +29,34 @@ public class LoginMobile {
 	//PageModelMobile pm = new PageModelMobile();
 	static AppiumDriver<MobileElement> driver = Hooks.getDriver();
 	
+	
 	@Given("El usuario se encuentra en la app ICBC")
 	public void elUsuarioSeEncuentraEnLaAppICBC() {
-		//driver.findElement(By.xpath(inputUsuario)).sendKeys("ASDASD");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		System.out.println("Ejecucion del caso");
 	}
 
-	@When("Completa {string} {string} presiona ingresar")
-	public void completaPresionaIngresar(String user, String password) {
-		driver.findElement(By.xpath(inputUsuario)).sendKeys(user);
-		driver.findElement(By.xpath(inputPass)).sendKeys(password);
-		driver.findElement(By.xpath(btnIngresar)).click();
-		//"//android.widget.Button[@text='Ingresar']"
+	@When("Me logueo con el usuario {string} y la pass {string}")
+	public void meLogueoConElUsuarioYLaPass(String user, String password) {
+		if (Hooks.esAndroid()) {
+			driver.findElement(By.xpath(inputUsuario)).sendKeys(user);
+			driver.findElement(By.xpath(inputPass)).sendKeys(password);
+			driver.findElement(By.xpath(btnIngresar)).click();
+		}else {
+			
+			driver.findElement(By.xpath(inputUsuarioIOS)).sendKeys(user);
+			driver.findElement(By.xpath(inputPassIOS)).sendKeys(password);
+			driver.findElement(By.xpath(btnIngresarIOS)).click();
+			
+		}
+		
 	}
 
 	@Then("Verifica que se haya logueado correctamente")
 	public void verificaQueSeHayaLogueadoCorrectamente() throws InterruptedException {
-	    Thread.sleep(10000);
+		System.out.println("SLEEP");
+	    Thread.sleep(5000);
 	    }
-	
-	@When("Me logueo con el usuario {string} y la pass {string}")
-	public void meLogueoConElUsuarioYLaPass(String user, String password) {
-		driver.findElement(By.xpath(inputUsuario)).sendKeys(user);
-		driver.findElement(By.xpath(inputPass)).sendKeys(password);
-		driver.findElement(By.xpath("//android.widget.Button[@text='Ingresar']")).click();
-	}
 	
 	@Given("Estoy en la pantalla de Login")
 	public void estoyEnLaPantallaDeLogin() {

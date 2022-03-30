@@ -52,5 +52,9 @@ public class Hooks {
 		return driver;		
 	}
 
+	public static Boolean esAndroid() {
+		System.out.println(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android"));
+		return Configs.capabilitiesAndroid().getCapability("platformName").equals("Android");
+	}
 	
 }

@@ -53,8 +53,8 @@ public class Configs {
 //		capabilities.setCapability("platformVersion", "12");
 //		capabilities.setCapability("platformName", "Android"); 
 		
-		capabilities.setCapability("deviceName", "iPhone 13 Pro");
-		capabilities.setCapability("platformVersion", "15.1.1");
+		capabilities.setCapability("deviceName", "iPhone 8");
+		capabilities.setCapability("platformVersion", "14.8");
 		capabilities.setCapability("platformName", "iOS"); 
 		
 		return capabilities;
