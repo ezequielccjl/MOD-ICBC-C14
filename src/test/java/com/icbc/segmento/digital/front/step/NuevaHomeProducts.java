@@ -17,7 +17,6 @@ public class NuevaHomeProducts {
 		Boolean apareceSaludo = pm.elementoDisponible("//h3[contains(text(),'¡Hola')]");
         System.out.println(apareceSaludo);
        	assertTrue(apareceSaludo);
-
 	}
 	
 	// NuevaHome-OcultarSaldos

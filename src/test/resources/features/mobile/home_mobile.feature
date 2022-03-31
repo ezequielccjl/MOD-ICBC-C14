@@ -42,6 +42,16 @@ Feature: Rediseño de Home
     | user			| pass  	 |
     | U10567381 | prueba01 |
     
+  @HomeMobile-BotonTresPuntitos
+  Scenario Outline: Boton Tres Puntitos
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Verifico funcionamiento de boton Tres Puntitos
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+    
   @HomeMobile-BotonNuevoProducto
   Scenario Outline: Boton Nuevo Producto en pantalla
     Given Estoy en la pantalla de Login
@@ -102,4 +112,53 @@ Feature: Rediseño de Home
     | user			| pass  	 |
     | U10567381 | prueba01 |
     
+  @HomeMobile-BotonExtraccionSinTarjeta
+  Scenario Outline: Verificar visualizacion de Pantalla Extraccion sin Tarjeta
+    Given Estoy en la pantalla de Login
+    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Then Valido que me redirija a pantalla Extraccion sin tarjeta
+    And Cierro sesion
+    Examples:
+    | user			| pass  	 |
+    | U10567381 | prueba01 |
+      
+  @HomeMobile-PantallaGestionDeProductos
+	 Scenario Outline: Verificar visualizacion de Pantalla Gestion de Productos
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Gestion de Productos
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	   
+	 @HomeMobile-PantallaCompraVentaUSD
+	 Scenario Outline: Verificar visualizacion de Pantalla Compra Venta USD
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Compra Venta USD
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    #--------------------------------------------------------------------------
+	 @HomeMobile-PantallaResumenes
+	 Scenario Outline: Verificar visualizacion de Pantalla Resumenes
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Resumenes
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    
+	 @NuevaHome-PantallaContacto
+	 Scenario Outline: Verificar visualizacion de Pantalla Contacto
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Contacto
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
     

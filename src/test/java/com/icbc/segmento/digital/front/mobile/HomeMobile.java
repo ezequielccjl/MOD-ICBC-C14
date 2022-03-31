@@ -118,6 +118,23 @@ public class HomeMobile {
 			
 		}
 		
+		// HomeMobile-BotonTresPuntitos
+				@Then("Verifico funcionamiento de boton Tres Puntitos")
+				public void verificoFuncionamientoDeBotonTresPuntitos() {
+					if (Hooks.esAndroid()) {
+						
+					}else {
+						driver.findElement(By.xpath("(//XCUIElementTypeButton[@name='sub-menu'])[1]")).click();
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Compra/Venta de U$S']")).isDisplayed());
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Extracción sin tarjeta']")).isDisplayed());
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Agenda']")).isDisplayed());
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Saldo al 31/12']")).isDisplayed());
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Aviso de viaje']")).isDisplayed());
+						assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='e-resumen']")).isDisplayed());
+					}
+					
+				}
+		
 		// HomeMobile-BotonNuevoProducto
 		@Then("Verifico que boton Nuevo Producto se encuentre en pantalla")
 		public void verificoQueBotonNuevoProductoSeEncuentreEnPantalla() {
@@ -198,15 +215,69 @@ public class HomeMobile {
 			String xpathAyudaIphone = "//XCUIElementTypeStaticText[@name=\"Ayuda\"]";
 			String xpathCerrarSesionIphone = "//XCUIElementTypeStaticText[@name=\"Cerrar sesión\"]";
 
-			assertTrue(driver.findElement(By.xpath();
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Gestión de productos')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'CompraVenta de U$$')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Resumenes')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Contacto')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Recomendar')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Perfil')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Ayuda')]"));
-			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Cerrar sesión')]"));
+			assertTrue(driver.findElement(By.xpath(xpathExtraccionSinTarjetaIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathGestionDeProductosIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathCompraVentaDolaresIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathResumenesIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathContactoIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathRecomendarIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathPerfilIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathAyudaIphone)).isDisplayed());
+			assertTrue(driver.findElement(By.xpath(xpathCerrarSesionIphone)).isDisplayed());
+		}
+		
+		// HomeMobile-BotonExtraccionSinTarjeta
+		@Then("Valido que me redirija a pantalla Extraccion sin tarjeta")
+		public void validoQueMeRedirijaAPantallaExtraccionSinTarjeta() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
+			
+			driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Extracción sin tarjeta']")).click();
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Extracción sin tarjeta']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Los estados de las órdenes de extracción pueden demorar hasta 24hs en actualizarse. Ante cualquier duda, consultá los movimientos de cuenta.']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Nueva extracción sin tarjeta']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Órdenes de extracción']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Pendientes Pendientes']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Historial Historial']")).isDisplayed());
+		}
+		
+		// HomeMobile-PantallaGestionDeProductos
+		@Then("Valido que me redirija a Pantalla Gestion de Productos")
+		public void validoQueMeRedirijaAPantallaGestionDeProductos() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
+			driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Gestión de productos']")).click();
+			
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Cuentas')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Tarjetas')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Inversiones')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Préstamos')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Crédito a Tasa Cero')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Seguros')]")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Paquetes')]")).isDisplayed());	
+		  
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Dar de baja mis productos']")).isDisplayed());	
+		}
+		
+		// HomeMobile-PantallaCompraVentaUSD
+		@Then("Valido que me redirija a Pantalla Compra Venta USD")
+		public void validoQueMeRedirijaAPantallaCompraVentaUSD() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
+			driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Compra/Venta de U$S']")).click();
+			
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Compra / Venta de U$S']")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Comprás a']")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Vendés a']")).isDisplayed());
+		    
+		}
+		
+		// HomeMobile-PantallaResumenes - DECIDIR SI AVANZAR EN LA PANTALLA
+		@Then("Valido que me redirija a Pantalla Resumenes")
+		public void validoQueMeRedirijaAPantallaResumenes() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
+			driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Resúmenes']")).click();
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Resúmenes']")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Consultá los extractos de movimientos y avisos de tus productos ICBC.']")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Tarjetas']")).isDisplayed());
+		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='chevron-right']")).isDisplayed());
 		}
 
 }

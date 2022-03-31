@@ -69,8 +69,8 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 	@LoginNuevo-Mobile-13
 	Scenario Outline: 013_Nuevo Login - Intento de ingreso sin clave
 		Given El usuario se encuentra en la app ICBC
-    When Me logueo con el usuario "<user>" y la pass "<pass>"
-    Then Verificar que se despliegue el mensaje de error
+    When Ingreso usuario "<user>"
+    Then Verifico falta de contraseña
     Examples:
 		| user    | pass	 |
 		|U10567381|        |

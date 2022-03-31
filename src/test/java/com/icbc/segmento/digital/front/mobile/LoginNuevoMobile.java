@@ -11,6 +11,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class LoginNuevoMobile {
 
@@ -145,12 +147,25 @@ public class LoginNuevoMobile {
 	}
 	
 	// LoginNuevo-Mobile-13 013_Nuevo Login - Intento de ingreso sin clave
-	@Then("Me logueo con el usuario {string} presiono ingresar y verifico mensaje de error")
-	public void MeLogueoConElUsuarioPresionoIngresarYVerificoMensajeDeError(String user) {
+	@When("Ingreso usuario {string}")
+	public void ingresoUsuario(String user) {
 		driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
-		driver.findElement(By.xpath("//XCUIElementTypeSecureTextField[@name='Esté es un campo tipo Clave']")).click();
+	}
+	
+	@Then("Verifico falta de contraseña")
+	public void verificoFaltaDeContraseña() {
 		
 		// FALTA CLICKEAR EN COORDENADAS 10 PUNTOS DE X ARRIBA
+		
+		MobileElement inputPass = driver.findElementByXPath("//XCUIElementTypeSecureTextField[@name='Esté es un campo tipo Clave']");
+		inputPass.click();
+		
+		
+		int locationXInputPass= inputPass.getLocation().getX();
+		int locationYInputPass = inputPass.getLocation().getY() - 20;
+		new TouchAction(driver).press(PointOption.point(locationXInputPass, locationYInputPass)).release().perform();
+
+		
 		
 		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La clave debe tener 8 dígitos']")).isDisplayed());	
 	}
