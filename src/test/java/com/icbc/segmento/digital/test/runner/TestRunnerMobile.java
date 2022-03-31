@@ -15,7 +15,7 @@ import cucumber.api.SnippetType;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@LoginNuevo-Mobile-09"})
+		tags = {"@HomeMobile-BarraInferiorDisponible"})
 
 public class TestRunnerMobile {
 

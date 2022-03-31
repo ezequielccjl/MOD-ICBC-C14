@@ -147,5 +147,66 @@ public class HomeMobile {
 			}
 		    
 		}
+		
+		// HomeMobile-BarraInferiorDisponible
+		@Then("Valido que aparezca barra inferior")
+		public void validoQueAparezcaBarraInferior() {
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Inversiones')]")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Pagos')]")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Inicio')]")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'MODO')]")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).isDisplayed());
+		}
+		
+		// HomeMobile-BotonInversiones
+		@Then("Valido que funcione de boton Inversiones")
+		public void validoQueFuncioneDeBotonInversiones() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Inversiones')]")).click();
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Inversiones']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Plazos Fijos']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Fondos de Inversión']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Compra / Venta de U$S']")).isDisplayed());
+			
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Simular']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Nuevo plazo fijo']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Consulta de fondos']")).isDisplayed());
+		}
+
+		
+		// HomeMobile-BotonPagos
+		@Then("Valido que funcione de boton Pagos")
+		public void validoQueFuncioneDeBotonPagos() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Pagos')]")).click();
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Pagos']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DEBIN']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Pagá todos tus servicios, impuestos, tarjetas de crédito y recargá tu celular en línea, sin manejar dinero en efectivo.']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Generá cobros y autorizá pagos en forma inmediata.']")).isDisplayed());
+		}
+		
+		// MobileMobile-MenuHamburguesa
+		@Then("Valido que funcione menu hamburguesa")
+		public void validoQueFuncioneMenuHamburguesa() {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
+			
+			String xpathExtraccionSinTarjetaIphone = "//XCUIElementTypeStaticText[@name=\"Extracción sin tarjeta\"]";
+			String xpathGestionDeProductosIphone = "//XCUIElementTypeStaticText[@name=\"Gestión de productos\"]";
+			String xpathCompraVentaDolaresIphone = "//XCUIElementTypeStaticText[@name=\"Compra/Venta de U$S\"]";
+			String xpathResumenesIphone = "//XCUIElementTypeStaticText[@name=\"Resúmenes\"]";
+			String xpathContactoIphone = "//XCUIElementTypeStaticText[@name=\"Contacto\"]";
+			String xpathRecomendarIphone = "//XCUIElementTypeStaticText[@name=\"Recomendar\"]";
+			String xpathPerfilIphone = "//XCUIElementTypeStaticText[@name=\"Perfil\"]";
+			String xpathAyudaIphone = "//XCUIElementTypeStaticText[@name=\"Ayuda\"]";
+			String xpathCerrarSesionIphone = "//XCUIElementTypeStaticText[@name=\"Cerrar sesión\"]";
+
+			assertTrue(driver.findElement(By.xpath();
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Gestión de productos')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'CompraVenta de U$$')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Resumenes')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Contacto')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Recomendar')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Perfil')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Ayuda')]"));
+			assertTrue(pm.elementoDisponible("//li[contains(text(), 'Cerrar sesión')]"));
+		}
 
 }

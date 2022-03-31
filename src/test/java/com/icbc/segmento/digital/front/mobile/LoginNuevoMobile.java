@@ -137,18 +137,36 @@ public class LoginNuevoMobile {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Olvide mi clave']")).isDisplayed());	
 	}
 			
-	// LoginNuevo-Mobile-12
+	// LoginNuevo-Mobile-12 12_Nuevo Login - Usuario con menos de 8 caracteres
 	@Then("Me logueo con el usuario {string} y verifico mensaje de error")
 	public void MeLogueoConElUsuarioYVerificoMensajeDeError(String user) {
 		driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
 		assertTrue(driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='Letras y números, de 8 a 12 caracteres'])[2]")).isDisplayed());	
 	}
 	
-	// LoginNuevo-Mobile-13
-		@Then("Me logueo con el usuario {string} presiono ingresar y verifico mensaje de error")
-		public void MeLogueoConElUsuarioPresionoIngresarYVerificoMensajeDeError(String user) {
-			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La clave debe tener 8 dígitos']")).isDisplayed());	
-		}
+	// LoginNuevo-Mobile-13 013_Nuevo Login - Intento de ingreso sin clave
+	@Then("Me logueo con el usuario {string} presiono ingresar y verifico mensaje de error")
+	public void MeLogueoConElUsuarioPresionoIngresarYVerificoMensajeDeError(String user) {
+		driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
+		driver.findElement(By.xpath("//XCUIElementTypeSecureTextField[@name='Esté es un campo tipo Clave']")).click();
+		
+		// FALTA CLICKEAR EN COORDENADAS 10 PUNTOS DE X ARRIBA
+		
+		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La clave debe tener 8 dígitos']")).isDisplayed());	
+	}
+	
+	// LoginNuevo-Mobile-14 14_Nuevo Login - Link Tenes problemas para ingresar
+	@When("Clickeo en Tenes problemas para ingresar")
+	public void clickeoEnTenesProblemasParaIngresar() {
+		driver.findElement(By.xpath("//XCUIElementTypeButton[@name='¿Tenés problemas para ingresar?']")).click();
+	}
+
+	@Then("Reviso correcta visualizacion de pantalla Problemas para ingresar")
+	public void revisoCorrectaVisualizacionDePantallaProblemasParaIngresar() {
+		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación Online')]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación en cajeros Benelco')]")).isDisplayed());
+	}
 				
 	
 }

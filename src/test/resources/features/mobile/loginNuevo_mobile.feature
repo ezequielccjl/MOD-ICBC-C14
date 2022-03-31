@@ -67,13 +67,18 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 		|asdasd   |prueba01|
 	
 	@LoginNuevo-Mobile-13
-	Scenario Outline: 013_Nuevo Login_Pantalla Login-Intento de ingreso sin clave
+	Scenario Outline: 013_Nuevo Login - Intento de ingreso sin clave
 		Given El usuario se encuentra en la app ICBC
     When Me logueo con el usuario "<user>" y la pass "<pass>"
     Then Verificar que se despliegue el mensaje de error
     Examples:
 		| user    | pass	 |
-		|asdasd   |        |
-	
+		|U10567381|        |
+		
+	@LoginNuevo-Mobile-14
+	Scenario: 14_Nuevo Login - Link Tenes problemas para ingresar
+    Given El usuario se encuentra en la app ICBC
+    When Clickeo en Tenes problemas para ingresar
+    Then Reviso correcta visualizacion de pantalla Problemas para ingresar
 	
 	
