@@ -60,14 +60,23 @@ public class LoginNuevoMobile {
 	// LoginNuevo-Mobile-03
 	@When("Clickeo en Accesos utiles")
 	public void clickeoEnAccesosUtiles() {
-		driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Accesos útiles')]")).click();
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Accesos útiles')]")).click();
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Accesos útiles')]")).click();
+		}
 	}
 
 	@Then("Reviso correcta visualizacion de Accesos utiles")
 	public void revisoCorrectaVisualizacionDeAccesosUtiles() {
 		System.out.println("Step: Verifico pantalla Accesos utiles");
 	    if (Hooks.esAndroid()) {
-			
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Accesos útiles']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Hacete cliente')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'ICBC Mall')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Beneficios')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Informacion')]")).isDisplayed());
 		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Accesos útiles']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Turnos')]")).isDisplayed());
@@ -77,6 +86,55 @@ public class LoginNuevoMobile {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Informacion')]")).isDisplayed());
 		}
 	}
+	
+	// LoginNuevo-Mobile-04
+		@Then("Clickeo Turnos y reviso correcta visualizacion de pantalla")
+		public void ClickeoTurnosYRevisoCorrectaVisualizacionDePantalla() {
+		    if (Hooks.esAndroid()) {
+		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).click();
+		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
+			}else {
+				
+			}
+	}
+		
+		// LoginNuevo-Mobile-05
+		@Then("Clickeo Hacete cliente y reviso correcta visualizacion de pantalla")
+		public void ClickeoHaceteClienteYRevisoCorrectaVisualizacionDePantalla() {
+		if (Hooks.esAndroid()) {
+		   	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Hacete cliente')]")).click();
+		   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Sacá ahora tu tarjeta de crédito ICBC.']")).isDisplayed());
+		   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Comenzar Ahora']")).isDisplayed());
+		}else {
+						
+		}
+	}
+				
+		// LoginNuevo-Mobile-06
+		@Then("Clickeo ICBC Mall y reviso correcta visualizacion de pantalla")
+		public void ClickeoICBCMallYRevisoCorrectaVisualizacionDePantalla() {
+		    if (Hooks.esAndroid()) {
+		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'ICBC Mall')]")).click();
+		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
+		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='mall.icbc.com.ar wants to send you notifications']")).isDisplayed());
+		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Block']")).isDisplayed());
+		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Allow']")).click();
+		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='INGRESAR']")).isDisplayed());
+			}else {
+					
+			}
+		}
+				
+		// LoginNuevo-Mobile-07
+		@Then("Clickeo Beneficios y reviso correcta visualizacion de pantalla")
+		public void ClickeoBeneficiosYRevisoCorrectaVisualizacionDePantalla() {
+			if (Hooks.esAndroid()) {
+				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).click();
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
+			}else {
+						
+			}
+		}
 	
 	// LoginNuevo-Mobile-08
 	@When("Clickeo en Transferir de Accesos utiles")

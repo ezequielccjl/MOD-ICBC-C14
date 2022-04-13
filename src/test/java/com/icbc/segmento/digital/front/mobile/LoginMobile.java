@@ -32,16 +32,15 @@ public class LoginMobile {
 	
 	@Given("El usuario se encuentra en la app ICBC")
 	public void elUsuarioSeEncuentraEnLaAppICBC() {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		System.out.println("Ejecucion del caso");
 	}
 
 	@When("Me logueo con el usuario {string} y la pass {string}")
 	public void meLogueoConElUsuarioYLaPass(String user, String password) {
 		if (Hooks.esAndroid()) {
-			driver.findElement(By.xpath(inputUsuario)).sendKeys(user);
-			driver.findElement(By.xpath(inputPass)).sendKeys(password);
-			driver.findElement(By.xpath(btnIngresar)).click();
+			Hooks.getDriver().findElement(By.xpath(inputUsuario)).sendKeys(user);
+			Hooks.getDriver().findElement(By.xpath(inputPass)).sendKeys(password);
+			Hooks.getDriver().findElement(By.xpath(btnIngresar)).click();
 		}else {
 			
 			driver.findElement(By.xpath(inputUsuarioIOS)).sendKeys(user);
@@ -65,7 +64,7 @@ public class LoginMobile {
 	
 	@Then("Cierro sesion")
 	public void cierroSesion() {
-	    System.out.println("CIERRA SESION");
+	    //System.out.println("CIERRA SESION");
 	}
 	
 }

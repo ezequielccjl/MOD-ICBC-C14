@@ -48,10 +48,9 @@ public class TransferMobile {
 
 	@When("Selecciona {string} {string} {string}")
 	public void selecciona(String origen, String monto, String concepto) {
-//		(//XCUIElementTypeOther[@name="main"])[1]/XCUIElementTypeOther[7]
 		
 		//Seleccionar destino
-		//driver.findElement(By.xpath("(//XCUIElementTypeOther[@name='main'])[1]/XCUIElementTypeOther[7]")).click();
+		driver.findElement(By.xpath("(//XCUIElementTypeOther[@width = 15])[2]")).click();
 		//driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='AGENDAR'])[2]")).click();
 		driver.findElement(By.xpath("(//XCUIElementTypeTextField[@name='Esté es un campo tipo Monto en $'])[2]")).sendKeys(monto);
 		

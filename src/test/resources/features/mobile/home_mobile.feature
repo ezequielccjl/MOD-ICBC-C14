@@ -141,7 +141,7 @@ Feature: Rediseño de Home
 	    Examples:
 	    | user			| pass  	 |
 	    | U10567381 | prueba01 |
-	    #--------------------------------------------------------------------------
+	    
 	 @HomeMobile-PantallaResumenes
 	 Scenario Outline: Verificar visualizacion de Pantalla Resumenes
 	    Given Estoy en la pantalla de Login
@@ -152,12 +152,51 @@ Feature: Rediseño de Home
 	    | user			| pass  	 |
 	    | U10567381 | prueba01 |
 	    
-	 @NuevaHome-PantallaContacto
+	 @HomeMobile-PantallaContacto
 	 Scenario Outline: Verificar visualizacion de Pantalla Contacto
 	    Given Estoy en la pantalla de Login
 	    When Me logueo con el usuario "<user>" y la pass "<pass>"
 	    Then Valido que me redirija a Pantalla Contacto
 	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    
+	 @HomeMobile-PantallaRecomendar
+	  Scenario Outline: Verificar visualizacion de Pantalla Recomendar
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Recomendar
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    #
+	 @HomeMobile-PantallaPerfil
+	  Scenario Outline: Verificar visualizacion de Pantalla Perfil
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Perfil
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    ###
+	 @HomeMobile-PantallaAyuda
+	  Scenario Outline: Verificar visualizacion de Pantalla Ayuda
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Valido que me redirija a Pantalla Ayuda
+	    And Cierro sesion
+	    Examples:
+	    | user			| pass  	 |
+	    | U10567381 | prueba01 |
+	    #
+	 @HomeMobile-CerrarSesion
+	  Scenario Outline: Verificar Cerrar sesión
+	    Given Estoy en la pantalla de Login
+	    When Me logueo con el usuario "<user>" y la pass "<pass>"
+	    Then Verifico que cierro sesion
 	    Examples:
 	    | user			| pass  	 |
 	    | U10567381 | prueba01 |

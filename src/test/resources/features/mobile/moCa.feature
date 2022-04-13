@@ -1,10 +1,10 @@
 @MoCa
 Feature: El usuario testea los distintos plugins de MoCa
 
+#CHEQUEADO
 @MoCa-Splash
 Scenario: Abrir aplicacion y visualizar Splash
-    Given El usuario se encuentra en la app ICBC
-    When Me logueo con el usuario "<user>" y la pass "<pass>"
+    Given Que el usuario abre la aplicacion
     When Se encuentra en la pantalla de carga
     Then Verifica que se visualice el Splash
 

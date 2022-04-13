@@ -21,11 +21,11 @@ public class Hooks {
 	@Before
 	public void setup() {
 		
-		System.out.println("HOLA MUNDO");
+		System.out.println("SetUp...");
 		
 		if(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android")) {
-			driver = new AndroidDriver<MobileElement>(Configs.kobitonServerUrl(), Configs.capabilitiesAndroid());	
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver = new AndroidDriver<MobileElement>(Configs.localServerUrl(), Configs.capabilitiesAndroid());	
+			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			try {
 				//politicasPrivacidad();
 			}catch(NoSuchElementException e) {
@@ -34,9 +34,8 @@ public class Hooks {
 			}
 		}else {
 			driver = new IOSDriver<MobileElement>(Configs.kobitonServerUrl(), Configs.capabilitiesAndroid());
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			//errorDeConexion();
 		}
@@ -53,7 +52,7 @@ public class Hooks {
 	}
 
 	public static Boolean esAndroid() {
-		System.out.println(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android"));
+		//System.out.println(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android"));
 		return Configs.capabilitiesAndroid().getCapability("platformName").equals("Android");
 	}
 	

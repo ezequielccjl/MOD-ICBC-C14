@@ -23,8 +23,26 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
   Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón Turnos
     Given El usuario se encuentra en la app ICBC
     When Clickeo en Accesos utiles
-    Then Reviso correcta visualizacion de Accesos utiles
+    Then Clickeo Turnos y reviso correcta visualizacion de pantalla
     
+  @LoginNuevo-Mobile-05
+  Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón Hacete cliente
+    Given El usuario se encuentra en la app ICBC
+    When Clickeo en Accesos utiles
+    Then Clickeo Hacete cliente y reviso correcta visualizacion de pantalla
+    
+  @LoginNuevo-Mobile-06
+  Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón ICBC Mall
+    Given El usuario se encuentra en la app ICBC
+    When Clickeo en Accesos utiles
+    Then Clickeo ICBC Mall y reviso correcta visualizacion de pantalla
+    
+  @LoginNuevo-Mobile-07
+  Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón Beneficios
+    Given El usuario se encuentra en la app ICBC
+    When Clickeo en Accesos utiles
+    Then Clickeo Beneficios y reviso correcta visualizacion de pantalla
+  #------------
   @LoginNuevo-Mobile-08
   Scenario: 08_Nuevo Login - Botón Transferir
     Given El usuario se encuentra en la app ICBC
