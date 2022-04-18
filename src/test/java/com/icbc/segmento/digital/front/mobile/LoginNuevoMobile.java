@@ -23,7 +23,13 @@ public class LoginNuevoMobile {
 	public void verificoCamposDePantallaLogin() {
 		System.out.println("Step: Verifico campos de pantalla login");
 	    if (Hooks.esAndroid()) {
-			
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Ingresar con biometría')]")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Usuario']")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Clave']")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Ingresar']")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='¿Tenés problemas para ingresar?']")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).isDisplayed());
+		    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Accesos útiles')]")).isDisplayed());
 		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeOther[@name='banner']")).isDisplayed());
 		    assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Ingresar con biometría')]")).isDisplayed());
@@ -39,14 +45,23 @@ public class LoginNuevoMobile {
 	// LoginNuevo-Mobile-02
 	@When("Clickeo en Ingresar por biometria")
 	public void clickeoEnIngresarPorBiometria() {
-		driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Ingresar con biometría')]")).click();
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Ingresar con biometría')]")).click();
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Ingresar con biometría')]")).click();
+		}
 	}
 
 	@Then("Reviso correcta visualizacion de Ingresar por biometria")
 	public void revisoCorrectaVisualizacionDeIngresarPorBiometria() {
 		System.out.println("Step: Verifico campos de pantalla biometria");
 	    if (Hooks.esAndroid()) {
-			
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@name='Ingresá los datos de tu DNI']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Número de DNI']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Número de trámite']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='¿Qué es el número de trámite?']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Cancelar']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Continuar']")).isDisplayed());
 		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Ingresá los datos de tu DNI']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='Esté es un campo tipo Número de DNI']")).isDisplayed());
@@ -146,7 +161,14 @@ public class LoginNuevoMobile {
 	public void revisoCorrectaVisualizacionDePantallaTransferir() {
 		System.out.println("Step: Verifico pantalla Accesos utiles");
 	    if (Hooks.esAndroid()) {
-			
+	    	
+	    	//HAY QUE AGREGAR XPATH DE INPUTS (NO TIENEN IDENTIFICADOR)
+	    	
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Transferir con alias']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Destino']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Ingresá un alias de cuenta y un importe.']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Cancelar']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Continuar']")).isDisplayed());
 		}else {
 			//Para este caso faltaría clickear en select y verificar que se muestren opciones $ y u$d
 			
@@ -166,35 +188,65 @@ public class LoginNuevoMobile {
 	// LoginNuevo-Mobile-09
 	@Then("Verificar el correcto acceso a la Home de Mobile")
 	public void verificarElCorrectoAccesoALaHomeDeMobile() {
-		Boolean aparecePagarQR = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagar con QR')]")).isDisplayed();
-        System.out.println(aparecePagarQR);
-       	assertTrue(aparecePagarQR);
-       	
-       	Boolean apareceTransferir = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Transferir')]")).isDisplayed();
-        System.out.println(apareceTransferir);
-       	assertTrue(apareceTransferir);
-       	
-       	Boolean aparecePagarServicios = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagar Servicios')]")).isDisplayed();
-        System.out.println(aparecePagarServicios);
-       	assertTrue(aparecePagarServicios);
-       	
-       	Boolean apareceNuevoProducto = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Nuevo Producto')]")).isDisplayed();
-        System.out.println(apareceNuevoProducto);
-       	assertTrue(apareceNuevoProducto);
-       	
-       	assertTrue(driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='Ocultar saldos'])[2]")).isDisplayed());
-       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Inversiones')]")).isDisplayed());
-       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagos')]")).isDisplayed());
-       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Inicio')]")).isDisplayed());
-       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'MODO')]")).isDisplayed());
-       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Más')]")).isDisplayed());
+		if (Hooks.esAndroid()) {
+			Boolean aparecePagarQR = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar con QR')]")).isDisplayed();
+	        System.out.println(aparecePagarQR);
+	       	assertTrue(aparecePagarQR);
+	       	
+	       	Boolean apareceTransferir = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).isDisplayed();
+	        System.out.println(apareceTransferir);
+	       	assertTrue(apareceTransferir);
+	       	
+	       	Boolean aparecePagarServicios = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar Servicios')]")).isDisplayed();
+	        System.out.println(aparecePagarServicios);
+	       	assertTrue(aparecePagarServicios);
+	       	
+	       	Boolean apareceNuevoProducto = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Nuevo Producto')]")).isDisplayed();
+	        System.out.println(apareceNuevoProducto);
+	       	assertTrue(apareceNuevoProducto);
+	       	
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.view.View[@text='Ocultar saldos'])[2]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Inversiones')]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagos')]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Inicio')]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'MODO')]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Más')]")).isDisplayed());
+		}else {
+			Boolean aparecePagarQR = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagar con QR')]")).isDisplayed();
+	        System.out.println(aparecePagarQR);
+	       	assertTrue(aparecePagarQR);
+	       	
+	       	Boolean apareceTransferir = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Transferir')]")).isDisplayed();
+	        System.out.println(apareceTransferir);
+	       	assertTrue(apareceTransferir);
+	       	
+	       	Boolean aparecePagarServicios = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagar Servicios')]")).isDisplayed();
+	        System.out.println(aparecePagarServicios);
+	       	assertTrue(aparecePagarServicios);
+	       	
+	       	Boolean apareceNuevoProducto = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Nuevo Producto')]")).isDisplayed();
+	        System.out.println(apareceNuevoProducto);
+	       	assertTrue(apareceNuevoProducto);
+	       	
+	       	assertTrue(driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='Ocultar saldos'])[2]")).isDisplayed());
+	       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Inversiones')]")).isDisplayed());
+	       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Pagos')]")).isDisplayed());
+	       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Inicio')]")).isDisplayed());
+	       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'MODO')]")).isDisplayed());
+	       	assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Más')]")).isDisplayed());
+		}
 	}
 	
 	// LoginNuevo-Mobile-10 y 11
 	@Then("Verificar que se despliegue el mensaje de error")
 	public void verificarQueSeDespliegueElMensajeDeError() {
+		if (Hooks.esAndroid()) {
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='Usuario y/o contraseña incorrecta']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//XCUIElementTypeButton[@name='Olvide mi clave']")).isDisplayed());	
+		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Usuario y/o contraseña incorrecta']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Olvide mi clave']")).isDisplayed());	
+		}
 	}
 			
 	// LoginNuevo-Mobile-12 12_Nuevo Login - Usuario con menos de 8 caracteres
@@ -231,14 +283,24 @@ public class LoginNuevoMobile {
 	// LoginNuevo-Mobile-14 14_Nuevo Login - Link Tenes problemas para ingresar
 	@When("Clickeo en Tenes problemas para ingresar")
 	public void clickeoEnTenesProblemasParaIngresar() {
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name='¿Tenés problemas para ingresar?']")).click();
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='¿Tenés problemas para ingresar?']")).click();
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[@name='¿Tenés problemas para ingresar?']")).click();
+		}
 	}
 
 	@Then("Reviso correcta visualizacion de pantalla Problemas para ingresar")
 	public void revisoCorrectaVisualizacionDePantallaProblemasParaIngresar() {
-		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
-		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación Online')]")).isDisplayed());
-		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación en cajeros Benelco')]")).isDisplayed());
+		if (Hooks.esAndroid()) {
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Generación Online')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Generación en cajeros Benelco')]")).isDisplayed());
+		}else {
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación Online')]")).isDisplayed());
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación en cajeros Benelco')]")).isDisplayed());
+		}
 	}
 				
 	
