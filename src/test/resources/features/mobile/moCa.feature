@@ -19,23 +19,26 @@ Scenario: Cerrar aplicacion con Back nativo
     Given Que el usuario abre la aplicacion
     When Clickea en el Back nativo
     Then Verifica que se cierre la aplicacion
-    
+#CHEQUEADO
 @MoCa-Mall
 Scenario: Ir a pantalla Mall
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Mall
+    When Clickea en Accesos utiles
+    And Clickea en Mall
     Then Verifica que se visualice la pantalla Mall
-    
+#CHEQUEADO
 @MoCa-Beneficios
 Scenario: Ir a pantalla Beneficios
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Beneficios
+    When Clickea en Accesos utiles
+    And Clickea en Beneficios
     Then Verifica que se visualice la pantalla Beneficios
-    
-@MoCa-QuieroSerCliente
-Scenario: Ir a pantalla Quiero ser cliente
+#CHEQUEADO
+@MoCa-HaceteCliente
+Scenario: Ir a pantalla Hacete Cliente
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Quiero ser cliente
+    When Clickea en Accesos utiles
+    And Clickea en Hacete Cliente
     Then Verifica que se visualice la pantalla Quiero ser cliente
     
 @MoCa-Contacto
@@ -50,45 +53,51 @@ Scenario: Realizar llamada desde Contacto
     When Clickea en Contacto
     And Clickea en un telefono
     Then Verifica que se marque el numero
-    
+#CHEQUEADO
 @MoCa-Ayuda
 Scenario: Ir a pantalla Ayuda
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     Then Verifica que se visualice la pantalla Ayuda
-    
+#CHEQUEADO    
 @MoCa-Ayuda-PreguntasFrecuentes
 Scenario: Ir a pantalla Ayuda y Preguntas frecuentes
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     And Clickea en Preguntas frecuentes
     Then Verifica que se visualice la pantalla Preguntas frecuentes
-    
+#CHEQUEADO      
 @MoCa-Ayuda-TerminosYCondiciones
 Scenario: Ir a pantalla Ayuda y Terminos y condiciones
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     And Clickea en Terminos y condiciones desde Ayuda
     Then Verifica que se visualice la pantalla Terminos y condiciones
     
 @MoCa-Ayuda-PoliticasDePrivacidad
 Scenario: Ir a pantalla Ayuda y Politicas de privacidad
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     And Clickea en Politicas de privacidad desde Ayuda
     Then Verifica que se visualice la pantalla Politicas de privacidad
     
 @MoCa-Ayuda-Seguridad
 Scenario: Ir a pantalla Ayuda y Seguridad
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     And Clickea en Seguridad
     Then Verifica que se visualice la pantalla Seguridad
     
 @MoCa-Ayuda-Contacto
 Scenario: Ir a pantalla Ayuda y Contacto
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Ayuda
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
     And Clickea en Contacto
     Then Verifica que se visualice la pantalla Contacto
       
