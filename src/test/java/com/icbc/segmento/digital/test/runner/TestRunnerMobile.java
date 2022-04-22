@@ -15,7 +15,7 @@ import cucumber.api.SnippetType;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@MoCa-Ayuda-PoliticasDePrivacidad"})
+		tags = {"@MoCa-BackNativo"})
 
 public class TestRunnerMobile {
 

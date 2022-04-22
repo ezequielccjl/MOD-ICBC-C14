@@ -47,7 +47,7 @@ public class MoCa {
 		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.ImageView").isDisplayed(), true);
 	}
 	
-	//SPINNER
+	//MoCa-Spinner
 	@Then("Verifica que se visualice el Spinner")
 	public void verifica_que_se_visualice_el_Spinner() {
 		
@@ -55,12 +55,12 @@ public class MoCa {
 		
 	}
 	
-	//BACK
+	//MoCa-BackNativo
 	@When("Clickea en el Back nativo")
 	public void clickea_en_el_Back_nativo() {
 		
-		Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='ACEPTAR']"));
-		
+		//Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='ACEPTAR']"));
+		Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Accesos útiles')]")).isDisplayed();
 		Hooks.getDriver().navigate().back();
 		
 	}
@@ -70,7 +70,7 @@ public class MoCa {
 		
 		try {
 			
-			Hooks.getDriver().findElementByXPath("//android.widget.Button[@text='ACEPTAR']");
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Accesos útiles')]")).isDisplayed();
 			
 		} catch(Exception e) {
 			
@@ -80,7 +80,7 @@ public class MoCa {
 		
 	}
 	
-	//MALL
+	//MoCa-Mall
 	@When("Clickea en Accesos utiles")
 	public void clickea_en_Accesos_utiles() {
 			
@@ -102,7 +102,7 @@ public class MoCa {
 		
 	}
 	
-	//BENEFICIOS
+	//MoCa-Beneficios
 	@When("Clickea en Beneficios")
 	public void clickea_en_Beneficios() {
 			
@@ -117,7 +117,7 @@ public class MoCa {
 		
 	}
 
-	//QUIERO SER CLIENTE
+	//MoCa-HaceteCliente
 	
 	@When("Clickea en Hacete Cliente")
 	public void clickeaEnHaceteCliente() {	
@@ -129,6 +129,39 @@ public class MoCa {
 	public void verifica_que_se_visualice_la_pantalla_Quiero_ser_cliente() {
 		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.EditText[contains(@text,'onboarding.icbc.com.ar/digital/online/inicio/solicita-tu-tarjeta/')]").isDisplayed(), true);
 		
+	}
+	
+	//MoCa-Contacto
+	@When("Clickea en Contacto")
+	public void clickea_en_Contacto() {
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Contactos']")).click();
+	}
+
+	@And("Clickea en un telefono")
+	public void clickea_en_un_telefono() {
+		driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'0810-555-9200')]")).click();
+	}
+
+	@And("Clickea en Contacto desde Mas")
+	public void clickea_en_Contacto_desde_Mas() {
+		driver.findElementByXPath("//android.view.View[contains(@text,'Contacto')]").click();
+	}
+			
+	@Then("Verifica que se visualice la pantalla Contacto")
+	public void verifica_que_se_visualice_la_pantalla_Contacto() {
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Teléfonos útiles']").isDisplayed(), true);
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Mesa de ayuda']").isDisplayed(), true);
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'(54-11) 4820-9200')]").isDisplayed(), true);
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'(54-11) 4820-2021')]").isDisplayed(), true);
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'0810-555-9200')]").isDisplayed(), true);
+		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'0810-444-4652 ó *4652')]").isDisplayed(), true);
+		
+	}
+			
+	@Then("Verifica que se marque el numero")
+	public void verifica_que_se_marque_el_numero() {
+		//Puede variar segun el modelo del teléfono
+		assertEquals(driver.findElementByXPath("//android.widget.EditText[@text='08105559200']").isDisplayed(), true);
 	}
 
 	//MoCa-Ayuda
@@ -183,60 +216,34 @@ public class MoCa {
 	//MoCa-Ayuda-PoliticasDePrivacidad
 	@And("Clickea en Politicas de privacidad desde Ayuda")
 	public void clickea_en_Politicas_de_privacidad_desde_Ayuda() {
-		driver.findElement(By.xpath("//android.widget.TextView[@text='Politicas de privacidad']")).click();
+		Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Politicas de privacidad']")).click();
 	}
 
 	@Then("Verifica que se visualice la pantalla Politicas de privacidad")
 	public void verifica_que_se_visualice_la_pantalla_Politicas_de_privacidad() {
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Política de privacidad de ICBC Mobile Banking (Argentina) Esta Aplicación recoge algunos Datos Personales de sus Usuarios.')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Datos Personales: Permiso para la cámara. Identificador único del dispositivo')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Aplicación: ICBC Mobile Banking (Argentina).')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Datos Personales y/o Datos: Constituye un dato personal cualquier información relativa a una persona humana, identificada o identificable')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Datos de Uso: Las informaciones recogidas de forma automática por esta Aplicación (o por servicios de terceros utilizados por esta Aplicación)')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Política de privacidad de ICBC Mobile Banking (Argentina)')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Datos Personales: Permiso para la cámara.')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[@text='Aplicación: ICBC Mobile Banking (Argentina).']").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Datos Personales y/o Datos: Constituye un dato personal cualquier información relativa a una persona humana')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Datos de Uso: Las informaciones recogidas de forma automática por esta Aplicación (o por servicios de terceros utilizados por esta Aplicación)')]").isDisplayed(), true);
 	}
 	
 	//MoCa-Ayuda-Seguridad
 	@And("Clickea en Seguridad")
 	public void clickea_en_Seguridad() {
-		driver.findElement(By.xpath("//android.widget.TextView[@text='Seguridad']")).click();
+		Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Seguridad']")).click();
 	}
 
 	@Then("Verifica que se visualice la pantalla Seguridad")
 	public void verifica_que_se_visualice_la_pantalla_Seguridad() {
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Seguridad']").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Estándares de seguridad']").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Robustez de las claves']").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Los sistemas de seguridad provistos por ICBC cumplen con estándares internacionales y los más modernos mecanismos orientados a la prevención')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'ICBC generará tu usuario y contraseña de identificación personal, cumpliendo con los mejores estándares de seguridad del mercado.')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Desconexión automática por inactividad (Time Out) Si transcurre un período de tiempo en el que tu dispositivo permanece inactivo durante la sesión de ICBC Mobile Banking')]").isDisplayed(), true);
-		assertEquals(driver.findElementByXPath("//android.widget.TextView[contains(@text,'Tu identificación de usuario y tu clave personal son los elementos que te permiten el acceso a los servicios que ofrece el ICBC desde tu celular.')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[@text='Seguridad']").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[@text='Estándares de seguridad']").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[@text='Robustez de las claves']").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Los sistemas de seguridad provistos por ICBC cumplen con estándares internacionales y los más modernos mecanismos orientados a la prevención')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'ICBC generará tu usuario y contraseña de identificación personal, cumpliendo con los mejores estándares de seguridad del mercado.')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Desconexión automática por inactividad (Time Out)')]").isDisplayed(), true);
+		assertEquals(Hooks.getDriver().findElementByXPath("//android.widget.TextView[contains(@text,'Tu identificación de usuario y tu clave personal son los elementos que te permiten el acceso a los servicios que ofrece el ICBC desde tu celular.')]").isDisplayed(), true);
 	}
-	
-	//MoCa-Contacto
-		@When("Clickea en Contacto")
-		public void clickea_en_Contacto() {
-			driver.findElement(By.xpath("//android.widget.TextView[@text='Contacto']")).click();
-		}
-
-		@And("Clickea en un telefono")
-		public void clickea_en_un_telefono() {
-			driver.findElement(By.xpath("//android.widget.TextView[@text='0810-555-9200']")).click();
-		}
-
-		@And("Clickea en Contacto desde Mas")
-		public void clickea_en_Contacto_desde_Mas() {
-			driver.findElementByXPath("//android.view.View[contains(@text,'Contacto')]").click();
-		}
-		
-		@Then("Verifica que se visualice la pantalla Contacto")
-		public void verifica_que_se_visualice_la_pantalla_Contacto() {
-			assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Mesa de ayuda']").isDisplayed(), true);
-		}
-		
-		@Then("Verifica que se marque el numero")
-		public void verifica_que_se_marque_el_numero() {
-			assertEquals(driver.findElementByXPath("//android.widget.EditText[@text='08105559200']").isDisplayed(), true);
-		}
 
 	//MÃ�S
 	

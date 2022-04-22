@@ -13,7 +13,7 @@ Scenario: Abrir aplicacion y visualizar Spinner
     Given Que el usuario ingresa a la pantalla de Login
     When Se encuentra en la pantalla de carga
     Then Verifica que se visualice el Spinner
-    
+#CHEQUEADO    
 @MoCa-BackNativo
 Scenario: Cerrar aplicacion con Back nativo
     Given Que el usuario abre la aplicacion
@@ -40,17 +40,21 @@ Scenario: Ir a pantalla Hacete Cliente
     When Clickea en Accesos utiles
     And Clickea en Hacete Cliente
     Then Verifica que se visualice la pantalla Quiero ser cliente
-    
+#CHEQUEADO
 @MoCa-Contacto
 Scenario: Ir a pantalla Contacto
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Contacto
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
+    And Clickea en Contacto
     Then Verifica que se visualice la pantalla Contacto
-    
+#CHEQUEADO  
 @MoCa-Contacto-Telefono
 Scenario: Realizar llamada desde Contacto
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Contacto
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
+    And Clickea en Contacto
     And Clickea en un telefono
     Then Verifica que se marque el numero
 #CHEQUEADO
@@ -76,7 +80,7 @@ Scenario: Ir a pantalla Ayuda y Terminos y condiciones
     And Clickea boton Informacion
     And Clickea en Terminos y condiciones desde Ayuda
     Then Verifica que se visualice la pantalla Terminos y condiciones
-    
+#CHEQUEADO    
 @MoCa-Ayuda-PoliticasDePrivacidad
 Scenario: Ir a pantalla Ayuda y Politicas de privacidad
     Given Que el usuario ingresa a la pantalla de Login
@@ -84,7 +88,7 @@ Scenario: Ir a pantalla Ayuda y Politicas de privacidad
     And Clickea boton Informacion
     And Clickea en Politicas de privacidad desde Ayuda
     Then Verifica que se visualice la pantalla Politicas de privacidad
-    
+#CHEQUEADO    
 @MoCa-Ayuda-Seguridad
 Scenario: Ir a pantalla Ayuda y Seguridad
     Given Que el usuario ingresa a la pantalla de Login
@@ -92,7 +96,7 @@ Scenario: Ir a pantalla Ayuda y Seguridad
     And Clickea boton Informacion
     And Clickea en Seguridad
     Then Verifica que se visualice la pantalla Seguridad
-    
+#CHEQUEADO    
 @MoCa-Ayuda-Contacto
 Scenario: Ir a pantalla Ayuda y Contacto
     Given Que el usuario ingresa a la pantalla de Login
@@ -100,17 +104,21 @@ Scenario: Ir a pantalla Ayuda y Contacto
     And Clickea boton Informacion
     And Clickea en Contacto
     Then Verifica que se visualice la pantalla Contacto
-      
+#No estan en la Nueva Home      
 @MoCa-TerminosYCondiciones
 Scenario: Ir a pantalla Terminos y condiciones
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Terminos y condiciones
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
+    And Clickea en Terminos y condiciones
     Then Verifica que se visualice la pantalla Terminos y condiciones
-      
+#No estan en la Nueva Home      
 @MoCa-PoliticasDePrivacidad
 Scenario: Ir a pantalla Politicas de privacidad
     Given Que el usuario ingresa a la pantalla de Login
-    When Clickea en Politicas de privacidad
+    When Clickea en Accesos utiles
+    And Clickea boton Informacion
+    And Clickea en Politicas de privacidad
     Then Verifica que se visualice la pantalla Politicas de privacidad
 
 @MoCa-Mas-Contacto
@@ -330,4 +338,82 @@ Scenario Outline: Enviar movimiento de caja de ahorro pesos
 		Examples:
 		| user      | pass     |
 		| T17319044 | prueba01 |
+		
+		
+#------------------------ Nuevas cosas de guille
+	@MoCa-CajaDeAhorroPesos-Saldo
+  Scenario Outline: Enviar saldo de caja de ahorro pesos
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en tres puntos de Caja de ahorro pesos
+    And Clickea en Saldo
+    And Clickea en Enviar saldo
+    Then Verifica que se visualice la pantalla de enviar saldo
+
+    Examples: 
+      | username  | password |
+      | T17319044 | prueba01 |
+
+  @MoCa-TarjetaDeCredito-Resumen-MasterCard
+  Scenario Outline: Compartir resumen tarjeta de credito MasterCard
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en Tarjeta de credito "<numeroDeTarjeta>"
+    And Clickea en Resumen
+    And Clickea en Compartir resumen
+    Then Verifica que se visualice la pantalla de compartir resumen
+
+    Examples: 
+      | username  | password | numeroDeTarjeta |
+      | T17319044 | prueba01 | ...4205         |
+
+  @MoCa-TarjetaDeCredito-Resumen-Visa
+  Scenario Outline: Compartir resumen tarjeta de credito Visa
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en Tarjeta de credito "<numeroDeTarjeta>"
+    And Clickea en Resumen
+    And Clickea en Compartir resumen
+    Then Verifica que se visualice la pantalla de compartir resumen
+
+    Examples: 
+      | username  | password | numeroDeTarjeta |
+      | T17319044 | prueba01 | ...4701         |
+
+  @MoCa-Inversiones-NuevoPlazoFijo
+  Scenario Outline: Compartir plazo fijo
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en Inversiones
+    And Clickea en Nuevo Plazo Fijo
+    And Da de alta el plazo fijo
+    And Clickea en Enviar plazo fijo
+    Then Verifica que se visualice la pantalla de enviar plazo fijo
+
+    Examples: 
+      | username  | password |
+      | T17319044 | prueba01 |
+
+  @MoCa-CajaDeAhorroPesos-EnviarOperacionDeUSD
+  Scenario Outline: Enviar operacion de USD
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en Mas
+    And Clickea en CompraVenta de USD
+    And Realiza la operacion de USD
+    And Clickea en Enviar operacion de USD
+    Then Verifica que se visualice la pantalla de enviar operacion de USD
+
+    Examples: 
+      | username  | password |
+      | T10136908 | prueba01 |
+
+  @MoCa-CajaDeAhorroPesos-ExtraccionSinTarjeta
+  Scenario Outline: Enviar extraccion sin tarjeta
+    Given Que el usuario se loguea con "<username>" "<password>"
+    When Clickea en tres puntos de Caja de ahorro pesos
+    And Clickea en Extraccion sin tarjeta
+    And Clickea en Nueva Extraccion sin tarjeta
+    And Clickea en Enviar extraccion sin tarjeta
+    Then Verifica que se visualice la pantalla de enviar extraccion sin tarjeta
+
+    Examples: 
+      | username  | password |
+      | T17319044 | prueba01 |
+
 		

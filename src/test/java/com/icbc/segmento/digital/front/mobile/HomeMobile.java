@@ -462,7 +462,7 @@ public class HomeMobile {
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Mesa de ayuda']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='ICBC Mobile Banking y Access Banking']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Lunes a viernes de 7 a 24 hs y sábados, domingos y feriados de 10 a 18 hs']")).isDisplayed()); 
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='0810-555-9200']")).isDisplayed());//ARREGLAR
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[contains(@text,'0810-555-9200')]")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='(54-11) 4820-9200']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='0810-444-4652 ó *4652']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='(54-11) 4820-2021']")).isDisplayed());
