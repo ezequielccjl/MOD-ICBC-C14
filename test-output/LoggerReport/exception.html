@@ -107,12 +107,12 @@
 				<div class="p-2 px-3 text-muted text-sm">Tags</div>
 					<div class="list-item attr">
 						<div class="list-body">
-							<a href="#" class="item-title _500">org.openqa.selenium.WebDriverException</a>
+							<a href="#" class="item-title _500">org.openqa.selenium.NoSuchElementException</a>
 							<div class="item-except text-sm text-muted h-1x">
-								2 tests
+								1 tests
 							</div>
 							<div class="tc d-none">
-								<h5 class="mb-4">org.openqa.selenium.WebDriverException</h5>
+								<h5 class="mb-4">org.openqa.selenium.NoSuchElementException</h5>
 								<table class="table">
 									<thead><tr>
 										<th id="status-col"></th>
@@ -124,10 +124,10 @@
 									</tr></thead>
 									<tbody>
 	
-<tr class="s-fail" test-id="5" parent-id="1">
+<tr class="s-fail" test-id="6" parent-id="1">
 	<td><span class="w-32 avatar circle fail"><span class="badge">fail</span></span></td>
-	<td class="_600">When Clickea en Accesos utiles <br/><span class="text-muted text-sm">Ir a pantalla Ayuda y Politicas de privacidad</span></td>
-	<td>0h 0m 0s+925msc</td>
+	<td class="_600">When Me logueo con el usuario "U26363609" y la pass "prueba01" <br/><span class="text-muted text-sm">Agrego un nuevo destinatario</span></td>
+	<td>0h 0m 31s+117msc</td>
 	<td></td>
 	<td>
 	</td>
@@ -136,13 +136,14 @@
 <tr class="details">
 	<td colspan="5">
 		
-		<textarea disabled class="code-block">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+		<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.21', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, databaseEnabled: false, desired: {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, deviceGroup: KOBITON, deviceName: motorola one fusion, deviceOrientation: portrait, groupId: 2222, platformName: android, sessionDescription: , sessionName: Prueba Modernizacion}, deviceApiLevel: 30, deviceGroup: KOBITON, deviceManufacturer: motorola, deviceModel: motorola one fusion, deviceName: ZE222DP9FB, deviceOrientation: portrait, deviceScreenDensity: 280, deviceScreenSize: 720x1600, deviceUDID: ZE222DP9FB, groupId: 2222, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 1.75, platform: LINUX, platformName: Android, platformVersion: 11, sessionDescription: , sessionName: Prueba Modernizacion, statBarHeight: 54, takesScreenshot: true, viewportRect: {height: 1461, left: 0, top: 54, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: 1943aa23-5687-4f14-98f5-c1f4995f5197
-*** Element info: {Using=xpath, value=//android.widget.Button[contains(@text,'Accesos útiles')]}
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.ios.IOSDriver
+Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 360839, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 8 Plus, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 4209784, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 14.4, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 49089, takesScreenshot: true, udid: 30d57866fb974a2d2b2362a7124..., useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 49091, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
+Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
+*** Element info: {Using=xpath, value=//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -156,103 +157,22 @@ Session ID: 1943aa23-5687-4f14-98f5-c1f4995f5197
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
 	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at com.icbc.segmento.digital.front.mobile.MoCa.clickea_en_Accesos_utiles(MoCa.java:87)
-	at ?.Clickea en Accesos utiles(src/test/resources/features/mobile/moCa.feature:87)
-</textarea>
-	</td>
-</tr>
-	
-<tr class="s-fail" test-id="9" parent-id="1">
-	<td><span class="w-32 avatar circle fail"><span class="badge">fail</span></span></td>
-	<td class="_600">Hooks.teardown() <br/><span class="text-muted text-sm">Ir a pantalla Ayuda y Politicas de privacidad</span></td>
-	<td>0h 0m 1s+487msc</td>
-	<td></td>
-	<td>
-	</td>
-	<td class="static"><i class="static fa fa-external-link"></i></td>
-</tr>
-<tr class="details">
-	<td colspan="5">
-		
-		<textarea disabled class="code-block">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command 'C:\\Users\\ezeqi\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe -P 5037 -s ZE222DP9FB shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy'' exited with code 1'; Stderr: 'adb.exe: device unauthorized.
-This adb server's $ADB_VENDOR_KEYS is not set
-Try 'adb kill-server' if that seems wrong.
-Otherwise check for a confirmation dialog on your device.'; Code: '1'
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.21', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, databaseEnabled: false, desired: {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, deviceGroup: KOBITON, deviceName: motorola one fusion, deviceOrientation: portrait, groupId: 2222, platformName: android, sessionDescription: , sessionName: Prueba Modernizacion}, deviceApiLevel: 30, deviceGroup: KOBITON, deviceManufacturer: motorola, deviceModel: motorola one fusion, deviceName: ZE222DP9FB, deviceOrientation: portrait, deviceScreenDensity: 280, deviceScreenSize: 720x1600, deviceUDID: ZE222DP9FB, groupId: 2222, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 1.75, platform: LINUX, platformName: Android, platformVersion: 11, sessionDescription: , sessionName: Prueba Modernizacion, statBarHeight: 54, takesScreenshot: true, viewportRect: {height: 1461, left: 0, top: 54, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: 1943aa23-5687-4f14-98f5-c1f4995f5197
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:45)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:452)
-	at com.icbc.segmento.digital.front.hooks.Hooks.teardown(Hooks.java:46)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at cucumber.runtime.Utils$1.call(Utils.java:26)
-	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
-	at cucumber.runtime.Utils.invoke(Utils.java:20)
-	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
-	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
-	at cucumber.runner.TestStep.executeStep(TestStep.java:63)
-	at cucumber.runner.TestStep.run(TestStep.java:49)
-	at cucumber.runner.TestCase.run(TestCase.java:48)
-	at cucumber.runner.Runner.runPickle(Runner.java:40)
-	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:124)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at cucumber.api.junit.Cucumber$1.evaluate(Cucumber.java:133)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at com.icbc.segmento.digital.front.mobile.LoginMobile.meLogueoConElUsuarioYLaPass(LoginMobile.java:46)
+	at ?.Me logueo con el usuario "U26363609" y la pass "prueba01"(src/test/resources/features/mobile/agenda_mobile.feature:7)
 </textarea>
 	</td>
 </tr>
@@ -280,7 +200,7 @@ Session ID: 1943aa23-5687-4f14-98f5-c1f4995f5197
 						            </div>
 									<ul class="nav nav-xs flex-row no-border pull-right">
 <li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
-<li><a href="#" class="b-l"><span class="badge badge-pull">Apr 21, 2022 04:45:23 PM</span></a></li>
+<li><a href="#" class="b-l"><span class="badge badge-pull">May 10, 2022 03:46:18 PM</span></a></li>
 <li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
 								    </ul>
 								</div>

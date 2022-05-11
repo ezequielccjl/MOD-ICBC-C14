@@ -50,12 +50,12 @@ public class LoginMobile {
 		}
 		
 	}
-
+	
 	@Then("Verifica que se haya logueado correctamente")
 	public void verificaQueSeHayaLogueadoCorrectamente() throws InterruptedException {
 		System.out.println("SLEEP");
 	    Thread.sleep(5000);
-	    }
+	}
 	
 	@Given("Estoy en la pantalla de Login")
 	public void estoyEnLaPantallaDeLogin() {

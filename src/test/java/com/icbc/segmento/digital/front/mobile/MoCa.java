@@ -249,10 +249,7 @@ public class MoCa {
 	
 	@When("Clickea en Mas")
 	public void clickea_en_Mas() {
-
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);	
-		driver.findElementByXPath("//android.widget.Button[contains(@text,'MÃ¡s')]").click();
-		
+		driver.findElementByXPath("//android.widget.Button[contains (@text, 'Más')]").click();
 	}
 	
 	//TARJETAS

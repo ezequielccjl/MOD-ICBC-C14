@@ -15,7 +15,7 @@ import cucumber.api.SnippetType;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@MoCa-BackNativo"})
+		tags = {"@AgendaMobile_caso001"})
 
 public class TestRunnerMobile {
 

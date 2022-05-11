@@ -24,7 +24,8 @@ public class Hooks {
 		System.out.println("SetUp...");
 		
 		if(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android")) {
-			driver = new AndroidDriver<MobileElement>(Configs.localServerUrl(), Configs.capabilitiesAndroid());	
+			driver = new AndroidDriver<MobileElement>(Configs.kobitonServerUrl(), Configs.capabilitiesAndroid());
+//			driver = new AndroidDriver<MobileElement>(Configs.localServerUrl(), Configs.capabilitiesAndroid());
 			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			try {
 				//politicasPrivacidad();
