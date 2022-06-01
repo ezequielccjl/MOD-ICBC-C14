@@ -398,3 +398,18 @@ Scenario: Ir a pantalla Politicas de privacidad
     Examples: 
       | username  | password |
       | T17319044 | prueba01 |
+      
+  @MoCa-018-CompartirTransferencia
+  Scenario Outline: Usuario comparte comprobante de transferencia
+  	Given Estoy en la pantalla de Login
+    And Me logueo con el usuario "<username>" y la pass "<password>"
+    When Clickea en Transferir
+    And Completa campos y presiona continuar
+    And Verifica datos ingresados y presiona continuar
+    And Ingresa Token y presiona Transferir
+    And Verifica que se haya hecho la transferencia
+    Then Presiona Compartir y verifica que se haya abierto Pop up
+
+    Examples: 
+      | username  | password |
+      | U21465763 | prueba01 |

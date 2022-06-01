@@ -12,8 +12,8 @@ Feature: Agenda de transferencias mobile
     Then Verifica que se haya agregado el destinatario "<cbucvualias>" "<descripcion>"
 
     Examples: 
-      | user      | pass     | cbucvualias            | descripcion   |
-      | U26363609 | prueba01 | 0150501602000001476653 | AgregarDestinatario |
+      | user      | pass     | cvualias            | descripcion   |
+      | U21465763 | prueba01 | 0150501602000001476653 | AgregarDestinatario |
 
 @AgendaMobile_caso002
   Scenario Outline: Agrego un nuevo destinatario desde transferir

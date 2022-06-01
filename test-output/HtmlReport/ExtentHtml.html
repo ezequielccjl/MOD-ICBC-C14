@@ -46,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 10, 2022 03:46:18 PM</span>
+			<span class='label blue darken-3 suite-start-time'>May 30, 2022 05:23:35 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -75,8 +75,8 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@AgendaMobile</a></li>
-					<li><a href='#'>@AgendaMobile_caso001</a></li>
+					<li><a href='#'>@MoCa</a></li>
+					<li><a href='#'>@MoCa-018-CompartirTransferencia</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -145,10 +145,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>3</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='40%'><span class='strong'>4</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='11.111%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='55.556%'>5</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='10%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='50%'>5</span> others
                 </div>
             </div>
         </div>
@@ -168,8 +168,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Agenda de transferencias mobile</span>
-						<span class='test-time'>May 10, 2022 03:46:18 PM</span>
+						<span class='test-name'>El usuario testea los distintos plugins de MoCa</span>
+						<span class='test-time'>May 30, 2022 05:23:35 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -181,16 +181,16 @@
 </div>
 <div class='scenariooutline node' test-id='2' status='fail'>
     <div class='category-list'>
-        <span class='category label'>@AgendaMobile_caso001</span>
+        <span class='category label'>@MoCa-018-CompartirTransferencia</span>
     </div>
-    <span class='duration right label'>0h 1m 7s+194ms</span>
+    <span class='duration right label'>0h 0m 25s+213ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Agrego un nuevo destinatario</div>
-        <table class='runtime-table table-striped table'><tr><td>user</td><td>pass</td><td>cbucvualias</td><td>descripcion</td></tr><tr><td>U26363609</td><td>prueba01</td><td>0150501602000001476653</td><td>AgregarDestinatario</td></tr></table>
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Usuario comparte comprobante de transferencia</div>
+        <table class='runtime-table table-striped table'><tr><td>username</td><td>password</td></tr><tr><td>U21465763</td><td>prueba01</td></tr></table>
     </div>
     <ul class='steps'>
         <li test-id='3' class='node scenario fail' status='fail'>
-            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Agrego un nuevo destinatario</div>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Usuario comparte comprobante de transferencia</div>
             <ul class='gc steps'>
                     <li test-id='4' class='gc asterisk pass' status='pass'>
                         <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.setup()</h6>
@@ -200,16 +200,19 @@
                         <h6 class="step-name" title="LoginMobile.estoyEnLaPantallaDeLogin()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Estoy en la pantalla de Login</h6>
                             <div class="node-step"></div>
                     </li>
-                    <li test-id='6' class='gc when fail' status='fail'>
-                        <h6 class="step-name" title="LoginMobile.meLogueoConElUsuarioYLaPass(String,String)"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>When Me logueo con el usuario "U26363609" y la pass "prueba01"</h6>
-                            <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+                    <li test-id='6' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="LoginMobile.meLogueoConElUsuarioYLaPass(String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Me logueo con el usuario "U21465763" y la pass "prueba01"</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='7' class='gc when fail' status='fail'>
+                        <h6 class="step-name" title="MoCa.clickeaEnTransferir()"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>When Clickea en Transferir</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.StaleElementReferenceException: The element 'By.xpath: //android.widget.Button[contains(@text,'Transferir')]' does not exist in DOM anymore
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: io.appium.java_client.ios.IOSDriver
-Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 360839, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 8 Plus, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 4209784, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 14.4, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 49089, takesScreenshot: true, udid: 30d57866fb974a2d2b2362a7124..., useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 49091, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
-Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
-*** Element info: {Using=xpath, value=//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']}
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, databaseEnabled: false, desired: {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, deviceGroup: KOBITON, deviceName: motorola one fusion, deviceOrientation: portrait, groupId: 2222, platformName: android, sessionDescription: , sessionName: Prueba Modernizacion}, deviceApiLevel: 30, deviceGroup: KOBITON, deviceManufacturer: motorola, deviceModel: motorola one fusion, deviceName: ZE222DP9FB, deviceOrientation: portrait, deviceScreenDensity: 280, deviceScreenSize: 720x1600, deviceUDID: ZE222DP9FB, groupId: 2222, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 1.75, platform: LINUX, platformName: Android, platformVersion: 11, sessionDescription: , sessionName: Prueba Modernizacion, statBarHeight: 54, takesScreenshot: true, viewportRect: {height: 1461, left: 0, top: 54, width: 720}, warnings: {}, webStorageEnabled: false}
+Session ID: 5c752cd0-e596-4d08-87a1-e03a5b56233e
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -223,45 +226,37 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
-	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at com.icbc.segmento.digital.front.mobile.LoginMobile.meLogueoConElUsuarioYLaPass(LoginMobile.java:46)
-	at ?.Me logueo con el usuario "U26363609" y la pass "prueba01"(src/test/resources/features/mobile/agenda_mobile.feature:7)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
+	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.icbc.segmento.digital.front.mobile.MoCa.clickeaEnTransferir(MoCa.java:745)
+	at ?.Clickea en Transferir(src/test/resources/features/mobile/moCa.feature:406)
 </textarea>
                                                 </li>
-                    <li test-id='7' class='gc when skip' status='skip'>
-                        <h6 class="step-name" title="AgendaMobile.irAAgenda()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When Voy a agenda</h6>
-                            <div class="node-step">Step skipped</div>
-                    </li>
                     <li test-id='8' class='gc and skip' status='skip'>
-                        <h6 class="step-name" title="AgendaMobile.irACrearUnNuevoDestinatario()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Voy a la opcion crear un nuevo destinatario</h6>
+                        <h6 class="step-name" title="MoCa.completaCamposYPresionaContinuar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Completa campos y presiona continuar</h6>
                             <div class="node-step">Step skipped</div>
                     </li>
                     <li test-id='9' class='gc and skip' status='skip'>
-                        <h6 class="step-name" title="AgendaMobile.completarCBUCVUAliasYDescripcion(String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Completa "<cvualias>" "AgregarDestinatario"</h6>
+                        <h6 class="step-name" title="MoCa.verificaDatosIngresadosYPresionaContinuar()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verifica datos ingresados y presiona continuar</h6>
                             <div class="node-step">Step skipped</div>
                     </li>
                     <li test-id='10' class='gc and skip' status='skip'>
-                        <h6 class="step-name" title="AgendaMobile.continuarYConfirmarDatos(String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Presiona continuar y confirma los datos ingresados "<cvualias>" "AgregarDestinatario"</h6>
+                        <h6 class="step-name" title="MoCa.ingresaTokenYPresionaTransferir()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Ingresa Token y presiona Transferir</h6>
                             <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='11' class='gc then skip' status='skip'>
-                        <h6 class="step-name" title="AgendaMobile.verificarDestinatarioAgregado(String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Verifica que se haya agregado el destinatario "0150501602000001476653" "AgregarDestinatario"</h6>
+                    <li test-id='11' class='gc and skip' status='skip'>
+                        <h6 class="step-name" title="MoCa.verificaQueSeHayaHechoLaTransferencia()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verifica que se haya hecho la transferencia</h6>
                             <div class="node-step">Step skipped</div>
                     </li>
-                    <li test-id='12' class='gc asterisk pass' status='pass'>
+                    <li test-id='12' class='gc then skip' status='skip'>
+                        <h6 class="step-name" title="MoCa.presionaCompartirYVerificaQueSeHayaAbiertoPopUp()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Presiona Compartir y verifica que se haya abierto Pop up</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+                    <li test-id='13' class='gc asterisk pass' status='pass'>
                         <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.teardown()</h6>
                             <div class="node-step"></div>
                     </li>
@@ -311,7 +306,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@AgendaMobile</span>
+						<span class='category-name'>@MoCa</span>
 						<span class='category-status right'>
 						<span class='label fail'>2</span>
 						</span>
@@ -333,13 +328,13 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 10, 2022 03:46:18 PM</td>
-										<td class='linked' test-id='1'>Agenda de transferencias mobile</td>
+										<td>May 30, 2022 05:23:35 PM</td>
+										<td class='linked' test-id='1'>El usuario testea los distintos plugins de MoCa</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>May 10, 2022 03:46:18 PM</td>
-										<td class='linked' test-id='3'>Agenda de transferencias mobile.Agrego un nuevo destinatario.Agrego un nuevo destinatario</td>
+										<td>May 30, 2022 05:23:35 PM</td>
+										<td class='linked' test-id='3'>El usuario testea los distintos plugins de MoCa.Usuario comparte comprobante de transferencia.Usuario comparte comprobante de transferencia</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
@@ -349,7 +344,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@AgendaMobile_caso001</span>
+						<span class='category-name'>@MoCa-018-CompartirTransferencia</span>
 						<span class='category-status right'>
 						<span class='label fail'>2</span>
 						</span>
@@ -371,13 +366,13 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 10, 2022 03:46:18 PM</td>
-										<td class='linked' test-id='2'>Agenda de transferencias mobile.Agrego un nuevo destinatario</td>
+										<td>May 30, 2022 05:23:35 PM</td>
+										<td class='linked' test-id='2'>El usuario testea los distintos plugins de MoCa.Usuario comparte comprobante de transferencia</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>May 10, 2022 03:46:18 PM</td>
-										<td class='linked' test-id='3'>Agenda de transferencias mobile.Agrego un nuevo destinatario.Agrego un nuevo destinatario</td>
+										<td>May 30, 2022 05:23:35 PM</td>
+										<td class='linked' test-id='3'>El usuario testea los distintos plugins de MoCa.Usuario comparte comprobante de transferencia.Usuario comparte comprobante de transferencia</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
@@ -414,7 +409,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 			<ul id='exception-collection' class='exception-collection'>
 				<li class='exception displayed active'>
 					<div class='exception-heading'>
-						<span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+						<span class='exception-name'>org.openqa.selenium.StaleElementReferenceException</span>
 						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
 					</div>
 					<div class='exception-content hide'>
@@ -429,17 +424,16 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 10, 2022 03:46:53 PM</td>
-										<td class='linked' test-id='6'>Agenda de transferencias mobile.Agrego un nuevo destinatario.Agrego un nuevo destinatario.When Me logueo con el usuario "U26363609" y la pass "prueba01"</td>
+										<td>May 30, 2022 05:23:58 PM</td>
+										<td class='linked' test-id='7'>El usuario testea los distintos plugins de MoCa.Usuario comparte comprobante de transferencia.Usuario comparte comprobante de transferencia.When Clickea en Transferir</td>
 										<td>
-											<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+											<textarea disabled class="code-block">org.openqa.selenium.StaleElementReferenceException: The element 'By.xpath: //android.widget.Button[contains(@text,'Transferir')]' does not exist in DOM anymore
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: io.appium.java_client.ios.IOSDriver
-Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 360839, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 8 Plus, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 4209784, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 14.4, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 49089, takesScreenshot: true, udid: 30d57866fb974a2d2b2362a7124..., useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 49091, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
-Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
-*** Element info: {Using=xpath, value=//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']}
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, databaseEnabled: false, desired: {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, deviceGroup: KOBITON, deviceName: motorola one fusion, deviceOrientation: portrait, groupId: 2222, platformName: android, sessionDescription: , sessionName: Prueba Modernizacion}, deviceApiLevel: 30, deviceGroup: KOBITON, deviceManufacturer: motorola, deviceModel: motorola one fusion, deviceName: ZE222DP9FB, deviceOrientation: portrait, deviceScreenDensity: 280, deviceScreenSize: 720x1600, deviceUDID: ZE222DP9FB, groupId: 2222, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 1.75, platform: LINUX, platformName: Android, platformVersion: 11, sessionDescription: , sessionName: Prueba Modernizacion, statBarHeight: 54, takesScreenshot: true, viewportRect: {height: 1461, left: 0, top: 54, width: 720}, warnings: {}, webStorageEnabled: false}
+Session ID: 5c752cd0-e596-4d08-87a1-e03a5b56233e
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -453,22 +447,14 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
-	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at com.icbc.segmento.digital.front.mobile.LoginMobile.meLogueoConElUsuarioYLaPass(LoginMobile.java:46)
-	at ?.Me logueo con el usuario "U26363609" y la pass "prueba01"(src/test/resources/features/mobile/agenda_mobile.feature:7)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
+	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.icbc.segmento.digital.front.mobile.MoCa.clickeaEnTransferir(MoCa.java:745)
+	at ?.Clickea en Transferir(src/test/resources/features/mobile/moCa.feature:406)
 </textarea>
 										</td>
 									</tr>
@@ -506,25 +492,25 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>9</div>
+					<div class='panel-lead'>10</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 10, 2022 03:46:18 PM</div>
+					<div class='panel-lead'>May 30, 2022 05:23:35 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 10, 2022 03:47:25 PM</div>
+			 		<div class='panel-lead'>May 30, 2022 05:24:00 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 7s+478ms</div>
+					<div class='panel-lead'>0h 0m 25s+446ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -540,7 +526,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@AgendaMobile</td>
+							<td>@MoCa</td>
 							<td>0</td>
 							<td>2</td>
 							<td>0</td>
@@ -549,7 +535,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 							</td>
 						</tr>
 						<tr>
-							<td>@AgendaMobile_caso001</td>
+							<td>@MoCa-018-CompartirTransferencia</td>
 							<td>0</td>
 							<td>2</td>
 							<td>0</td>
@@ -586,8 +572,8 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 				infoChild: 0,
 				debugChild: 0,
 				exceptionsChild: 1,
-				grandChildCount: 9,
-				passGrandChild: 3,
+				grandChildCount: 10,
+				passGrandChild: 4,
 				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -600,7 +586,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 		</script>
 		<script>
 			var timeline = {
-			        "Agenda de transferencias mobile":67.194
+			        "El usuario testea los distintos plugins de MoCa":25.213
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

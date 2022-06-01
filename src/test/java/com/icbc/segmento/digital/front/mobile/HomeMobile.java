@@ -29,7 +29,6 @@ public class HomeMobile {
 		public void revisoQueAparezcaElSaludoAlUsuario() throws InterruptedException {
 			System.out.println("// HomeMobile-SaludoAlUsuario");
 			
-			Thread.sleep(3000);
 			if (Hooks.esAndroid()) {
 				assertTrue(Hooks.getDriver().findElement(By.xpath(saludo)).isDisplayed());
 			}else {

@@ -43,7 +43,20 @@ public class AgendaMobile {
 	//Android
 	String btnTresPuntosAndroid = "//android.widget.Button[@text='sub-menu']";
 	String agendaAndroid = "//android.view.View[contains(@text,'Agenda')]";
-	String nuevoDestinatarioAndroid = "";
+	String nuevoDestinatarioAndroid = "//android.view.View[contains(@text,'Nuevo destinatario')]";
+	String ingresarCBUCVUAliasAndroid = "(//android.widget.EditText)[1]";
+	String descripcionAgendaAndroid = "(//android.widget.EditText)[2]";
+	String identificacionDeCuentaAndroid = "//android.widget.TextView[@text = 'Identificación de cuenta']";
+	String continuarAgendaAndroid = "//android.widget.Button[@text='Continuar']";
+	String verificaLosDatosIngresadosAndroid = "//android.widget.TextView[@text='Verificá los datos ingresados']";
+	String descripcionDatoAndroid = "//android.widget.TextView[@text='";
+	String CBUDatoAndroid = "//android.widget.TextView[@text='";
+	String continuarVerificaLosDatosAndroid = "//android.widget.Button[@text='Continuar']";
+	
+	String listoAndroid = "//android.widget.TextView[@text='¡Listo!']";
+	String agregasteUnNuevoDestinatarioAndroid = "//android.widget.TextView[@text='Agendaste un nuevo destinatario.']";
+	String cbucvualiasAndroid = "//android.widget.TextView[@text='CBU ";
+	String cbucvualias2Android = "//android.widget.TextView[@text='";
 	
 	
 	//Verificacion Datos Ingresados IOS 
@@ -58,6 +71,7 @@ public class AgendaMobile {
 	String lblCUITCUILIOS = "//XCUIElementTypeStaticText[@name=\"CUIT/CUIL\"]";
 	String lblTitularidadIOS = "//XCUIElementTypeStaticText[@name=\"Titularidad\"]";
 	String CBUDatoIOS = "(//XCUIElementTypeOther[@name=\"article\"])[2]/XCUIElementTypeOther[7]/XCUIElementTypeStaticText";
+	
 	
 	//Detalle Destinatario IOS
 	String detalleDeDestinatarioIOS = "//XCUIElementTypeStaticText[@name=\"Detalle de destinatario\"]";
@@ -100,7 +114,8 @@ public class AgendaMobile {
 	@When("Completa {string} {string}")
 	public void completarCBUCVUAliasYDescripcion(String cvualias, String descripcion) {
 		if (Hooks.esAndroid()) {
-
+			Hooks.getDriver().findElement(By.xpath(ingresarCBUCVUAliasAndroid)).sendKeys(cvualias);
+			Hooks.getDriver().findElement(By.xpath(descripcionAgendaAndroid)).sendKeys(descripcion);
 		}else {
 			Hooks.getDriver().findElement(By.xpath(ingresarCBUCVUAliasIOS)).sendKeys(cvualias);
 			Hooks.getDriver().findElement(By.xpath(descripcionAgendaIOS)).sendKeys(descripcion);
@@ -111,6 +126,21 @@ public class AgendaMobile {
 	@When("Presiona continuar y confirma los datos ingresados {string} {string}")
 	public void continuarYConfirmarDatos(String cvualias, String descripcion) {
 		if (Hooks.esAndroid()) {
+			
+			Hooks.getDriver().findElement(By.xpath(continuarAgendaAndroid)).click();
+			assertEquals(Hooks.getDriver().findElement(By.xpath(verificaLosDatosIngresadosAndroid)).isEnabled(), true);
+			System.out.println(descripcion.toUpperCase());
+			if(Hooks.getDriver().findElement(By.xpath(descripcionDatoAndroid + descripcion.toUpperCase() + "']")).isDisplayed()) {
+				System.out.println("La descripcion en la verificacion de datos coincide");
+			}else {
+				System.out.println("La descripcion en la verificacion de datos NO coincide");				
+			}
+			if(Hooks.getDriver().findElement(By.xpath(CBUDatoAndroid +cvualias+ "']")).isDisplayed()) {
+				System.out.println("El cbu/cvu/alias en la verificacion de datos coincide");
+			}else {
+				System.out.println("El cbu/cvu/alias en la verificacion de datos NO coincide");				
+			}
+			Hooks.getDriver().findElement(By.xpath(continuarVerificaLosDatosAndroid)).click();
 
 		}else {
 			Hooks.getDriver().findElement(By.xpath(continuarAgendaIOS)).click();
@@ -132,7 +162,10 @@ public class AgendaMobile {
 	@Then("Verifica que se haya agregado el destinatario {string} {string}")
 	public void verificarDestinatarioAgregado(String cbucvualias, String descripcion) {
 		if (Hooks.esAndroid()) {
-
+			assertEquals(Hooks.getDriver().findElement(By.xpath(listoAndroid)).isEnabled(), true);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(agregasteUnNuevoDestinatarioAndroid)).isEnabled(), true);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasAndroid + cbucvualias + "']" )).isEnabled(), true);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasAndroid + descripcion.toUpperCase() + "']" )).isEnabled(), true);
 		}else {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
 			assertEquals(Hooks.getDriver().findElement(By.xpath(agregasteUnNuevoDestinatarioIOS)).isEnabled(), true);
@@ -141,6 +174,7 @@ public class AgendaMobile {
 		}
 	}
 
+	//CASO 3 - EDITAR
 	@When("Aprieta el boton tres puntos del {string}")
 	public void apretarBotonTresPuntosAgenda(String cvucbualias) {
 		if (Hooks.esAndroid()) {
@@ -150,16 +184,7 @@ public class AgendaMobile {
 			Hooks.getDriver().findElement(By.xpath(tresPuntosAgendaIOS + cvucbualias + tresPuntosAgenda2IOS)).click();
 		}
 	}
-
-	@When("Selecciono el {string}")
-	public void seleccionarCBUCVUAlias(String cvucbualias) {
-		if (Hooks.esAndroid()) {
-
-		}else {
-			Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + cvucbualias + cbucvualias2IOS)).click();
-		}
-	}
-
+	
 	@When("Aprieta el boton editar")
 	public void apretarEditar() {
 		if (Hooks.esAndroid()) {
@@ -168,7 +193,7 @@ public class AgendaMobile {
 			Hooks.getDriver().findElement(By.xpath(editarDestinatarioIOS)).click();
 		}
 	}
-
+	
 	@When("Edita el campo de cvucbualias con {string} y la descripcion con {string}")
 	public void editarDestinatario(String nuevocvucbualias, String descripcion) {
 		if (Hooks.esAndroid()) {
@@ -187,26 +212,13 @@ public class AgendaMobile {
 		}
 	}
 
-	@When("Aprieta el boton eliminar y cancela")
-	public void apretarCancelar() {
+	//CASO 4 - Ver detalle
+	@When("Selecciono el {string}")
+	public void seleccionarCBUCVUAlias(String cvucbualias) {
 		if (Hooks.esAndroid()) {
 
 		}else {
-			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
-			Hooks.getDriver().findElement(By.xpath(cancelarEliminacionIOS)).click();
-			Hooks.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			assertEquals(Hooks.getDriver().findElement(By.xpath(popUpEliminacionIOS)).isEnabled(), null);
-			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		}
-	}
-
-	@When("Aprieta el boton eliminar y confirma eliminacion")
-	public void apretarEliminar() {
-		if (Hooks.esAndroid()) {
-
-		}else {
-			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
-			Hooks.getDriver().findElement(By.xpath(confirmarEliminacionIOS)).click();
+			Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + cvucbualias + cbucvualias2IOS)).click();
 		}
 	}
 	
@@ -252,6 +264,31 @@ public class AgendaMobile {
 		}else {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
 			assertEquals(Hooks.getDriver().findElement(By.xpath(actualizasteLosDatosIOS)).isEnabled(), true);			
+		}
+	}
+	
+	//CASO 5 - Eliminar
+
+	@When("Aprieta el boton eliminar y cancela")
+	public void apretarCancelar() {
+		if (Hooks.esAndroid()) {
+
+		}else {
+			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
+			Hooks.getDriver().findElement(By.xpath(cancelarEliminacionIOS)).click();
+			Hooks.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(popUpEliminacionIOS)).isEnabled(), null);
+			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		}
+	}
+
+	@When("Aprieta el boton eliminar y confirma eliminacion")
+	public void apretarEliminar() {
+		if (Hooks.esAndroid()) {
+
+		}else {
+			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
+			Hooks.getDriver().findElement(By.xpath(confirmarEliminacionIOS)).click();
 		}
 	}
 

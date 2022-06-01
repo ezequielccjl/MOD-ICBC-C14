@@ -12,6 +12,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -734,6 +735,43 @@ public class MoCa {
 			assertEquals(true, true);
 			
 		}	
+		
+	}
+	
+	//MoCa-018-CompartirTransferencia
+	@When("Clickea en Transferir")
+	public void clickeaEnTransferir() {
+	
+		Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).click();
+	
+	}
+
+	@When("Completa campos y presiona continuar")
+	public void completaCamposYPresionaContinuar() {
+		MobileElement lblDestino = Hooks.getDriver().findElementByXPath("//android.view.View[@text = 'Destino']");
+		int locationXlblDestino = lblDestino.getLocation().getX() + 15;
+		int locationYlblDestino = lblDestino.getLocation().getY() + 20;
+		new TouchAction(driver).press(PointOption.point(locationXlblDestino, locationYlblDestino)).release().perform();
+
+	}
+
+	@When("Verifica datos ingresados y presiona continuar")
+	public void verificaDatosIngresadosYPresionaContinuar() {
+		
+	}
+
+	@When("Ingresa Token y presiona Transferir")
+	public void ingresaTokenYPresionaTransferir() {
+		
+	}
+
+	@When("Verifica que se haya hecho la transferencia")
+	public void verificaQueSeHayaHechoLaTransferencia() {
+		
+	}
+
+	@Then("Presiona Compartir y verifica que se haya abierto Pop up")
+	public void presionaCompartirYVerificaQueSeHayaAbiertoPopUp() {
 		
 	}
 	

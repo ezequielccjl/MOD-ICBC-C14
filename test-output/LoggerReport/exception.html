@@ -107,12 +107,12 @@
 				<div class="p-2 px-3 text-muted text-sm">Tags</div>
 					<div class="list-item attr">
 						<div class="list-body">
-							<a href="#" class="item-title _500">org.openqa.selenium.NoSuchElementException</a>
+							<a href="#" class="item-title _500">org.openqa.selenium.StaleElementReferenceException</a>
 							<div class="item-except text-sm text-muted h-1x">
 								1 tests
 							</div>
 							<div class="tc d-none">
-								<h5 class="mb-4">org.openqa.selenium.NoSuchElementException</h5>
+								<h5 class="mb-4">org.openqa.selenium.StaleElementReferenceException</h5>
 								<table class="table">
 									<thead><tr>
 										<th id="status-col"></th>
@@ -124,10 +124,10 @@
 									</tr></thead>
 									<tbody>
 	
-<tr class="s-fail" test-id="6" parent-id="1">
+<tr class="s-fail" test-id="7" parent-id="1">
 	<td><span class="w-32 avatar circle fail"><span class="badge">fail</span></span></td>
-	<td class="_600">When Me logueo con el usuario "U26363609" y la pass "prueba01" <br/><span class="text-muted text-sm">Agrego un nuevo destinatario</span></td>
-	<td>0h 0m 31s+117msc</td>
+	<td class="_600">When Clickea en Transferir <br/><span class="text-muted text-sm">Usuario comparte comprobante de transferencia</span></td>
+	<td>0h 0m 1s+291msc</td>
 	<td></td>
 	<td>
 	</td>
@@ -136,14 +136,13 @@
 <tr class="details">
 	<td colspan="5">
 		
-		<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+		<textarea disabled class="code-block">org.openqa.selenium.StaleElementReferenceException: The element 'By.xpath: //android.widget.Button[contains(@text,'Transferir')]' does not exist in DOM anymore
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.19', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: io.appium.java_client.ios.IOSDriver
-Capabilities {app: /Users/kobiton/Library/Appl..., appOS: IOS, appUrl: https://kobiton-us-east.s3...., appVersionId: 360839, automationName: XCUITest, browserName: , captureScreenshots: true, databaseEnabled: false, deviceGroup: KOBITON, deviceName: iPhone 8 Plus, deviceOrientation: portrait, fullReset: true, groupId: 2222, javascriptEnabled: true, kobitonSessionId: 4209784, launchTimeout: 20000, locationContextEnabled: false, networkConnectionEnabled: false, noReset: false, orientation: PORTRAIT, packageName: dev.com.icbc.argentinaclient1, platform: MAC, platformName: iOS, platformVersion: 14.4, sessionDescription: , sessionName: Prueba Modernizacion, systemPort: 49089, takesScreenshot: true, udid: 30d57866fb974a2d2b2362a7124..., useNewWDA: true, useXctestrunFile: true, versions: {appiumVersion: 1.17.1, nodeVersion: v10.11.0}, wdaLocalPort: 49091, webStorageEnabled: false, webkitResponseTimeout: 20000, webviewConnectTimeout: 90000, xctestrunFilePath: /Users/kobiton/Library/Appl...}
-Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
-*** Element info: {Using=xpath, value=//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']}
+System info: host: 'DESKTOP-0FR817J', ip: '192.168.1.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, databaseEnabled: false, desired: {appActivity: com.icbc.mobile.abroadARG.d..., appPackage: com.icbc.mobile.abroadARG.d..., captureScreenshots: true, deviceGroup: KOBITON, deviceName: motorola one fusion, deviceOrientation: portrait, groupId: 2222, platformName: android, sessionDescription: , sessionName: Prueba Modernizacion}, deviceApiLevel: 30, deviceGroup: KOBITON, deviceManufacturer: motorola, deviceModel: motorola one fusion, deviceName: ZE222DP9FB, deviceOrientation: portrait, deviceScreenDensity: 280, deviceScreenSize: 720x1600, deviceUDID: ZE222DP9FB, groupId: 2222, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 1.75, platform: LINUX, platformName: Android, platformVersion: 11, sessionDescription: , sessionName: Prueba Modernizacion, statBarHeight: 54, takesScreenshot: true, viewportRect: {height: 1461, left: 0, top: 54, width: 720}, warnings: {}, webStorageEnabled: false}
+Session ID: 5c752cd0-e596-4d08-87a1-e03a5b56233e
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -157,22 +156,14 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
-	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElementByXPath(IOSDriver.java:1)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at com.icbc.segmento.digital.front.mobile.LoginMobile.meLogueoConElUsuarioYLaPass(LoginMobile.java:46)
-	at ?.Me logueo con el usuario "U26363609" y la pass "prueba01"(src/test/resources/features/mobile/agenda_mobile.feature:7)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
+	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.icbc.segmento.digital.front.mobile.MoCa.clickeaEnTransferir(MoCa.java:745)
+	at ?.Clickea en Transferir(src/test/resources/features/mobile/moCa.feature:406)
 </textarea>
 	</td>
 </tr>
@@ -200,7 +191,7 @@ Session ID: 514e2ec6-b09c-4ae6-bcb8-f7ed78a8a8b3
 						            </div>
 									<ul class="nav nav-xs flex-row no-border pull-right">
 <li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
-<li><a href="#" class="b-l"><span class="badge badge-pull">May 10, 2022 03:46:18 PM</span></a></li>
+<li><a href="#" class="b-l"><span class="badge badge-pull">May 30, 2022 05:23:35 PM</span></a></li>
 <li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
 								    </ul>
 								</div>

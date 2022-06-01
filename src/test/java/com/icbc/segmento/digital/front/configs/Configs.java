@@ -44,23 +44,25 @@ public class Configs {
 		capabilities.setCapability("groupId", 2222); // Group: Retail
 		capabilities.setCapability("deviceGroup", "KOBITON");
 		
-//		capabilities.setCapability("deviceName", "Pixel 3a");
+//		capabilities.setCapability("deviceName", "Pixel 3a XL");
 //		capabilities.setCapability("platformVersion", "12");
 //		capabilities.setCapability("platformName", "Android"); 
 //		capabilities.setCapability("app", "kobiton-store:v433648");
+//		capabilities.setCapability("failIfNoInternet", true);
 		
-		capabilities.setCapability("deviceName", "iPhone 8 Plus");
-		capabilities.setCapability("platformVersion", "14.4");
-		capabilities.setCapability("platformName", "iOS"); 
-		capabilities.setCapability("app", "kobiton-store:v360839");
+//		capabilities.setCapability("deviceName", "iPhone 8 Plus");
+//		capabilities.setCapability("platformVersion", "14.4");
+//		capabilities.setCapability("platformName", "iOS"); 
+//		capabilities.setCapability("app", "kobiton-store:v360839");
+//		capabilities.setCapability("failIfNoInternet", true);
 		
 		
-//		capabilities.setCapability("deviceName", "motorola one fusion");
-////        capabilities.setCapability("uid", "ZE222DP9FB");
-//        capabilities.setCapability("platformName", "Android");
-////        capabilities.setCapability("platformVersion", "11");
-//        capabilities.setCapability("appPackage", "com.icbc.mobile.abroadARG.dev.mf");
-//        capabilities.setCapability("appActivity", "com.icbc.mobile.abroadARG.dev.mf.MainActivity");
+		capabilities.setCapability("deviceName", "motorola one fusion");
+//        capabilities.setCapability("uid", "ZE222DP9FB");
+        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("platformVersion", "11");
+        capabilities.setCapability("appPackage", "com.icbc.mobile.abroadARG.dev.mf");
+        capabilities.setCapability("appActivity", "com.icbc.mobile.abroadARG.dev.mf.MainActivity");
 		
 		return capabilities;
 		
