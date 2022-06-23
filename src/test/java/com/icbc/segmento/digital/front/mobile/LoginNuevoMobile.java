@@ -3,6 +3,8 @@ package com.icbc.segmento.digital.front.mobile;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 
 import com.icbc.segmento.digital.front.hooks.Hooks;
@@ -17,6 +19,9 @@ import io.appium.java_client.touch.offset.PointOption;
 public class LoginNuevoMobile {
 
 	static AppiumDriver<MobileElement> driver = Hooks.getDriver();
+	
+	String usuarioContraseniaIncorrecta = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[3]/android.view.View[1]/android.view.View[3]/android.widget.Button";
+	String olvideMiClaveBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View/android.widget.Button";
 	
 	// LoginNuevo-Mobile-01
 	@Then("Verifico campos de pantalla login")
@@ -56,7 +61,7 @@ public class LoginNuevoMobile {
 	public void revisoCorrectaVisualizacionDeIngresarPorBiometria() {
 		System.out.println("Step: Verifico campos de pantalla biometria");
 	    if (Hooks.esAndroid()) {
-	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@name='Ingresá los datos de tu DNI']")).isDisplayed());
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Ingresá los datos de tu DNI']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Número de DNI']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Número de trámite']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='¿Qué es el número de trámite?']")).isDisplayed());
@@ -103,58 +108,87 @@ public class LoginNuevoMobile {
 	}
 	
 	// LoginNuevo-Mobile-04
-		@Then("Clickeo Turnos y reviso correcta visualizacion de pantalla")
-		public void ClickeoTurnosYRevisoCorrectaVisualizacionDePantalla() {
-		    if (Hooks.esAndroid()) {
-		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).click();
-		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
-			}else {
-				
-			}
+	@Then("Clickeo Turnos y reviso correcta visualizacion de pantalla")
+	public void ClickeoTurnosYRevisoCorrectaVisualizacionDePantalla() {
+	    if (Hooks.esAndroid()) {
+	    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).click();
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
+		}else {
+			
+		}
 	}
 		
-		// LoginNuevo-Mobile-05
-		@Then("Clickeo Hacete cliente y reviso correcta visualizacion de pantalla")
-		public void ClickeoHaceteClienteYRevisoCorrectaVisualizacionDePantalla() {
+	// LoginNuevo-Mobile-05
+	@Then("Clickeo Hacete cliente y reviso correcta visualizacion de pantalla")
+	public void ClickeoHaceteClienteYRevisoCorrectaVisualizacionDePantalla() {
+	if (Hooks.esAndroid()) {
+	   	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Hacete cliente')]")).click();
+	   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Sacá ahora tu tarjeta de crédito ICBC.']")).isDisplayed());
+	   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Comenzar Ahora']")).isDisplayed());
+	}else {
+					
+		}
+	}
+				
+	// LoginNuevo-Mobile-06
+	@Then("Clickeo ICBC Mall y reviso correcta visualizacion de pantalla")
+	public void ClickeoICBCMallYRevisoCorrectaVisualizacionDePantalla() {
+	    if (Hooks.esAndroid()) {
+	    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'ICBC Mall')]")).click();
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='mall.icbc.com.ar wants to send you notifications']")).isDisplayed());
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Block']")).isDisplayed());
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Allow']")).isDisplayed());
+		   	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Block']")).click();
+		   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='INGRESAR']")).isDisplayed());
+		}else {
+				
+		}
+	}
+				
+	// LoginNuevo-Mobile-07
+	@Then("Clickeo Beneficios y reviso correcta visualizacion de pantalla")
+	public void ClickeoBeneficiosYRevisoCorrectaVisualizacionDePantalla() {
 		if (Hooks.esAndroid()) {
-		   	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Hacete cliente')]")).click();
-		   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Sacá ahora tu tarjeta de crédito ICBC.']")).isDisplayed());
-		   	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Comenzar Ahora']")).isDisplayed());
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Beneficios')]")).click();
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='ICBC Beneficios']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.EditText[@text='beneficios.icbc.com.ar/?cm_mmc=mbr-_-icono-_-login-_-beneficios']")).isDisplayed());
+	    	
 		}else {
 						
 		}
 	}
-				
-		// LoginNuevo-Mobile-06
-		@Then("Clickeo ICBC Mall y reviso correcta visualizacion de pantalla")
-		public void ClickeoICBCMallYRevisoCorrectaVisualizacionDePantalla() {
-		    if (Hooks.esAndroid()) {
-		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'ICBC Mall')]")).click();
-		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
-		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='mall.icbc.com.ar wants to send you notifications']")).isDisplayed());
-		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Block']")).isDisplayed());
-		    	Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Allow']")).click();
-		    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='INGRESAR']")).isDisplayed());
-			}else {
-					
-			}
-		}
-				
-		// LoginNuevo-Mobile-07
-		@Then("Clickeo Beneficios y reviso correcta visualizacion de pantalla")
-		public void ClickeoBeneficiosYRevisoCorrectaVisualizacionDePantalla() {
-			if (Hooks.esAndroid()) {
-				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Turnos')]")).click();
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Turnos online para atención en sucursales ICBC']")).isDisplayed());
-			}else {
+	
+	// LoginNuevo-Mobile-07-Extra
+	@Then("Clickeo Informacion y reviso correcta visualizacion de pantalla")
+	public void ClickeoInformacionYRevisoCorrectaVisualizacionDePantalla() {
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Informacion')]")).click();
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Preguntas Frecuentes']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Términos y condiciones']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Políticas de privacidad']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Seguridad']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Contacto']")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='chevron-right'])[1]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='chevron-right'])[2]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='chevron-right'])[3]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='chevron-right'])[4]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='chevron-right'])[5]")).isDisplayed());
+		}else {
 						
-			}
 		}
+	}
 	
 	// LoginNuevo-Mobile-08
 	@When("Clickeo en Transferir de Accesos utiles")
 	public void clickeoEnTransferirDeAccesosUtiles() {
-		driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Accesos útiles')]")).click();
+		
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir con Alias')]")).click();
+			
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Transferir con Alias')]")).click();			
+		}
+		
 	}
 
 	@Then("Reviso correcta visualizacion de pantalla Transferir")
@@ -162,19 +196,16 @@ public class LoginNuevoMobile {
 		System.out.println("Step: Verifico pantalla Accesos utiles");
 	    if (Hooks.esAndroid()) {
 	    	
-	    	//HAY QUE AGREGAR XPATH DE INPUTS (NO TIENEN IDENTIFICADOR)
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[1]")).isDisplayed());
+	    	assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[2]")).isDisplayed());
 	    	
 	    	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Transferir con alias']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Destino']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Ingresá un alias de cuenta y un importe.']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Cancelar']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Continuar']")).isDisplayed());
-		}else {
-			//Para este caso faltaría clickear en select y verificar que se muestren opciones $ y u$d
-			
-//			(//XCUIElementTypeOther[@name="main"])[1]/XCUIElementTypeOther[6]/XCUIElementTypeOther[5] (SELECT FLECHITA)
-//			(//XCUIElementTypeStaticText[@name="$"])[2]	
-//			//XCUIElementTypeStaticText[@name="U$S"]
+		
+	    }else {
 			
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Transferir con alias']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='Esté es un campo tipo Ingrese un alias']")).isDisplayed());
@@ -187,25 +218,24 @@ public class LoginNuevoMobile {
 	
 	// LoginNuevo-Mobile-09
 	@Then("Verificar el correcto acceso a la Home de Mobile")
-	public void verificarElCorrectoAccesoALaHomeDeMobile() {
+	public void verificarElCorrectoAccesoALaHomeDeMobile() throws InterruptedException {
 		if (Hooks.esAndroid()) {
-			Boolean aparecePagarQR = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar con QR')]")).isDisplayed();
-	        System.out.println(aparecePagarQR);
-	       	assertTrue(aparecePagarQR);
+			
+			if (Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Términos y condiciones ICBC Mobile Banking']")).isDisplayed()) {
+				Hooks.getDriver().findElement(By.xpath("(//android.widget.TextView)[2]")).click();
+			}
+			
+			Thread.sleep(4000);
+			
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar con QR')]")).isDisplayed());
 	       	
-	       	Boolean apareceTransferir = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).isDisplayed();
-	        System.out.println(apareceTransferir);
-	       	assertTrue(apareceTransferir);
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).isDisplayed());
 	       	
-	       	Boolean aparecePagarServicios = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar Servicios')]")).isDisplayed();
-	        System.out.println(aparecePagarServicios);
-	       	assertTrue(aparecePagarServicios);
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar Servicios')]")).isDisplayed());
 	       	
-	       	Boolean apareceNuevoProducto = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Nuevo Producto')]")).isDisplayed();
-	        System.out.println(apareceNuevoProducto);
-	       	assertTrue(apareceNuevoProducto);
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Nuevo Producto')]")).isDisplayed());
 	       	
-	       	assertTrue(Hooks.getDriver().findElement(By.xpath("(//android.view.View[@text='Ocultar saldos'])[2]")).isDisplayed());
+	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Ocultar saldos')]")).isDisplayed());
 	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Inversiones')]")).isDisplayed());
 	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagos')]")).isDisplayed());
 	       	assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Inicio')]")).isDisplayed());
@@ -239,10 +269,14 @@ public class LoginNuevoMobile {
 	
 	// LoginNuevo-Mobile-10 y 11
 	@Then("Verificar que se despliegue el mensaje de error")
-	public void verificarQueSeDespliegueElMensajeDeError() {
+	public void verificarQueSeDespliegueElMensajeDeError() throws InterruptedException {
 		if (Hooks.esAndroid()) {
-			assertTrue(Hooks.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='Usuario y/o contraseña incorrecta']")).isDisplayed());
-			assertTrue(Hooks.getDriver().findElement(By.xpath("//XCUIElementTypeButton[@name='Olvide mi clave']")).isDisplayed());	
+			Thread.sleep(5000);
+//			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Usuario y/o contraseña incorrecta']")).isDisplayed());
+//			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Olvide mi clave']")).isDisplayed());	
+			
+			assertTrue(Hooks.getDriver().findElement(By.xpath(usuarioContraseniaIncorrecta)).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath(olvideMiClaveBtn)).isDisplayed());	
 		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Usuario y/o contraseña incorrecta']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Olvide mi clave']")).isDisplayed());	
@@ -252,32 +286,39 @@ public class LoginNuevoMobile {
 	// LoginNuevo-Mobile-12 12_Nuevo Login - Usuario con menos de 8 caracteres
 	@Then("Me logueo con el usuario {string} y verifico mensaje de error")
 	public void MeLogueoConElUsuarioYVerificoMensajeDeError(String user) {
-		driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
-		assertTrue(driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='Letras y números, de 8 a 12 caracteres'])[2]")).isDisplayed());	
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[1]")).sendKeys(user);
+			Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[2]")).click();
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Letras y números, de 8 a 12 caracteres']")).isDisplayed());	
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
+			assertTrue(driver.findElement(By.xpath("(//XCUIElementTypeStaticText[@name='Letras y números, de 8 a 12 caracteres'])[2]")).isDisplayed());	
+		}
+		
 	}
 	
 	// LoginNuevo-Mobile-13 013_Nuevo Login - Intento de ingreso sin clave
 	@When("Ingreso usuario {string}")
 	public void ingresoUsuario(String user) {
-		driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);
+		if (Hooks.esAndroid()) {
+			Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[2]")).click();
+			Hooks.getDriver().findElement(By.xpath("(//android.widget.EditText)[1]")).sendKeys(user);
+		}else {
+			driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Clave']")).click();		
+			driver.findElement(By.xpath("//XCUIElementTypeTextField[@name = 'Esté es un campo tipo Usuario']")).sendKeys(user);			
+		}
 	}
 	
-	@Then("Verifico falta de contraseña")
-	public void verificoFaltaDeContraseña() {
+	@Then("Verifico falta de password")
+	public void verificoFaltaDePassword() {
 		
-		// FALTA CLICKEAR EN COORDENADAS 10 PUNTOS DE X ARRIBA
+		if (Hooks.esAndroid()) {
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Ingresá tu clave']")).isDisplayed());
+		}else {
+			
+			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La clave debe tener 8 dígitos']")).isDisplayed());	
+		}
 		
-		MobileElement inputPass = driver.findElementByXPath("//XCUIElementTypeSecureTextField[@name='Esté es un campo tipo Clave']");
-		inputPass.click();
-		
-		
-		int locationXInputPass= inputPass.getLocation().getX();
-		int locationYInputPass = inputPass.getLocation().getY() - 20;
-		new TouchAction(driver).press(PointOption.point(locationXInputPass, locationYInputPass)).release().perform();
-
-		
-		
-		assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La clave debe tener 8 dígitos']")).isDisplayed());	
 	}
 	
 	// LoginNuevo-Mobile-14 14_Nuevo Login - Link Tenes problemas para ingresar
@@ -295,7 +336,8 @@ public class LoginNuevoMobile {
 		if (Hooks.esAndroid()) {
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
 			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Generación Online')]")).isDisplayed());
-			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Generación en cajeros Benelco')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Tengo una clave provisoria')]")).isDisplayed());
+			assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Generación en cajeros Banelco')]")).isDisplayed());
 		}else {
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Si es la primera vez que ingresás, o bloqueaste u olvidaste tu usuario/clave, podés obtenerlos mediante una de estas opciones:']")).isDisplayed());
 			assertTrue(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Generación Online')]")).isDisplayed());

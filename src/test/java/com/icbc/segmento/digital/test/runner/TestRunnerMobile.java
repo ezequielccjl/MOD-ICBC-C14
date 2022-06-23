@@ -15,7 +15,7 @@ import cucumber.api.SnippetType;
 		monochrome = true,
 		strict = true,
 		dryRun = false,
-		tags = {"@MoCa-018-CompartirTransferencia"})
+		tags = {"@TransferMobile-SinPrevioAgendamiento_caso001"})
 
 public class TestRunnerMobile {
 

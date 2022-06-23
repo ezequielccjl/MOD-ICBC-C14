@@ -1,6 +1,7 @@
 package com.icbc.segmento.digital.front.mobile;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,25 +40,7 @@ public class AgendaMobile {
 	String actualizasteLosDatosIOS = "//XCUIElementTypeStaticText[contains (@name, \"Actualizaste los datos de\") and contains(@name, \"en tu agenda.\")]";
 	String cbucvualiasIOS = "//XCUIElementTypeStaticText[@name=\"";
 	String cbucvualias2IOS = "\"]";
-	
-	//Android
-	String btnTresPuntosAndroid = "//android.widget.Button[@text='sub-menu']";
-	String agendaAndroid = "//android.view.View[contains(@text,'Agenda')]";
-	String nuevoDestinatarioAndroid = "//android.view.View[contains(@text,'Nuevo destinatario')]";
-	String ingresarCBUCVUAliasAndroid = "(//android.widget.EditText)[1]";
-	String descripcionAgendaAndroid = "(//android.widget.EditText)[2]";
-	String identificacionDeCuentaAndroid = "//android.widget.TextView[@text = 'Identificación de cuenta']";
-	String continuarAgendaAndroid = "//android.widget.Button[@text='Continuar']";
-	String verificaLosDatosIngresadosAndroid = "//android.widget.TextView[@text='Verificá los datos ingresados']";
-	String descripcionDatoAndroid = "//android.widget.TextView[@text='";
-	String CBUDatoAndroid = "//android.widget.TextView[@text='";
-	String continuarVerificaLosDatosAndroid = "//android.widget.Button[@text='Continuar']";
-	
-	String listoAndroid = "//android.widget.TextView[@text='¡Listo!']";
-	String agregasteUnNuevoDestinatarioAndroid = "//android.widget.TextView[@text='Agendaste un nuevo destinatario.']";
-	String cbucvualiasAndroid = "//android.widget.TextView[@text='CBU ";
-	String cbucvualias2Android = "//android.widget.TextView[@text='";
-	
+	String checkAgregarDestinatarioAMiAgenda = "(//XCUIElementTypeSwitch[@name=\"Agregar destinatario a mi agenda\"])[1]";
 	
 	//Verificacion Datos Ingresados IOS 
 	String verificaLosDatosIngresadosIOS = "//XCUIElementTypeStaticText[@name=\"Verificá los datos ingresados\"]";
@@ -71,7 +54,6 @@ public class AgendaMobile {
 	String lblCUITCUILIOS = "//XCUIElementTypeStaticText[@name=\"CUIT/CUIL\"]";
 	String lblTitularidadIOS = "//XCUIElementTypeStaticText[@name=\"Titularidad\"]";
 	String CBUDatoIOS = "(//XCUIElementTypeOther[@name=\"article\"])[2]/XCUIElementTypeOther[7]/XCUIElementTypeStaticText";
-	
 	
 	//Detalle Destinatario IOS
 	String detalleDeDestinatarioIOS = "//XCUIElementTypeStaticText[@name=\"Detalle de destinatario\"]";
@@ -90,58 +72,95 @@ public class AgendaMobile {
 	String iconoTransferirIOS = "//XCUIElementTypeOther/XCUIElementTypeStaticText[@name=\"Transferir\"]/../preceding-sibling::XCUIElementTypeOther/XCUIElementTypeStaticText";
 	String iconoEliminarIOS = "//XCUIElementTypeOther/XCUIElementTypeStaticText[@name=\"Eliminar\"]/../preceding-sibling::XCUIElementTypeOther/XCUIElementTypeStaticText";
 	
+	//------------------------------------------------------------------
+	
+	String btnTresPuntosAndroid = "//android.widget.Button[@text='sub-menu']";
+	String agendaAndroid = "//android.view.View[contains(@text,'Agenda')]";
+	String nuevoDestinatarioAndroid = "//android.view.View[contains(@text,'Nuevo destinatario')]";
+//	String identificacionDeCuentaAndroid = "//XCUIElementTypeStaticText[@name=\"Identificación de cuenta\"]";
+	String ingresarCBUCVUAliasAndroid = "(//android.widget.EditText)[1]";
+	String descripcionAgendaAndroid = "(//android.widget.EditText)[2]";
+	String continuarAgendaAndroid = "//android.widget.Button[@text='Continuar']";
+	String continuarVerificaLosDatosAndroid = "//android.widget.Button[@text='Continuar']";
+	String listoAndroid = "//android.widget.TextView[@text='¡Listo!']";
+	String agregasteUnNuevoDestinatarioAndroid = "//android.widget.TextView[@text='Agendaste un nuevo destinatario.']";
+	String tresPuntosAgendaAndroid = "(//XCUIElementTypeOther/XCUIElementTypeStaticText[contains(@name, \"";               
+	String tresPuntosAgenda2Android = "\")]/../following-sibling::XCUIElementTypeOther/XCUIElementTypeButton[@name=\"sub-menu\"])[1]";
+	String editarDestinatarioAndroid = "(//android.view.View[contains(@text,'Editar')])[2]";
+	String eliminarDestinatarioAndroid = "(//android.view.View[contains(@text,'Eliminar')])[2]";
+	String cancelarEliminacionAndroid = "//android.widget.Button[@text='Cancelar']";
+	String confirmarEliminacionAndroid = "//android.widget.Button[@text='Eliminar']";
+	String popUpEliminacionAndroid = "//XCUIElementTypeOther[@name=\"web dialog\"]";
+	String eliminasteADeTuAgendaAndroid = "//XCUIElementTypeStaticText[contains(@name,\"Eliminaste a\") and contains(@name, \"de tu agenda.\")]";
+	String cbucvualiasEditarAndroid = "//XCUIElementTypeTextField[@name=\"Esté es un campo tipo CBU-CVU-Alias\"]";	
+	String descripcionEditarAndroid = "//XCUIElementTypeTextField[@name=\"Esté es un campo tipo Descripción\"]";
+	String btnNextAndroid = "//XCUIElementTypeButton[@name=\"Next\"]";
+	String btnDoneAndroid = "//XCUIElementTypeButton[@name=\"Done\"]";
+	String actualizasteLosDatosAndroid = "//XCUIElementTypeStaticText[contains (@name, \"Actualizaste los datos de\") and contains(@name, \"en tu agenda.\")]";
+	String cbucvualiasAndroid = "//android.widget.TextView[@text='";
+	String cbucvualias2Android = "']";
+	String checkAgregarDestinatarioAMiAgendaAndroid  = "//android.widget.Image";
+	
+	String buscador = "//android.widget.EditText";
+	String transferirAgendaAndroid = "//android.widget.Button[contains(@text,'Transferir')]";
+	
+	//Verificacion Datos Ingresados Android 
+	String verificaLosDatosIngresadosAndroid = "//android.widget.TextView[@text='Verificá los datos ingresados']";
+	String lblDescripcionAndroid = "//android.widget.TextView[@text='Descripción']";
+	String descripcionDatoAndroid = "";
+	String lblNombreAndroid = "//android.widget.TextView[@text='Nombre']";
+	String lblCBUAndroid = "//android.widget.TextView[@text='CBU']";
+	String lblAliasAndroid = "//android.widget.TextView[@text='Alias']";
+	String lblCuentaAndroid = "//android.widget.TextView[@text='Cuenta']";
+	String lblBancoAndroid = "//android.widget.TextView[@text='Banco']";
+	String lblCUITCUILAndroid = "//android.widget.TextView[@text='CUIT/CUIL']";
+	String lblTitularidadAndroid = "//android.widget.TextView[@text='Titularidad']";
+	String CBUDatoAndroid = "";
+	
+	
+//AgendaMobile_caso001 - Agregar destinatario desde agenda
+	
 	@When("Voy a agenda")
-	public void irAAgenda() {
+	public void irAAgenda() throws InterruptedException {
 		if (Hooks.esAndroid()) {
-			Hooks.getDriver().findElement(By.xpath(btnTresPuntosAndroid)).click();				
-			Hooks.getDriver().findElement(By.xpath(agendaAndroid)).click();
+			Thread.sleep(8000);
+			Hooks.getDriver().findElement(By.xpath(btnTresPuntosAndroid)).click();
+			Hooks.click(agendaAndroid);
 		}else {
 			Hooks.getDriver().findElement(By.xpath(btnTresPuntosIOS)).click();				
 			Hooks.getDriver().findElement(By.xpath(agendaIOS)).click();
 		}
 	}
 
-	@When("Voy a la opcion crear un nuevo destinatario")
-	public void irACrearUnNuevoDestinatario() {
+	@When("Voy a la opcion Nuevo destinatario")
+	public void voyALaOpcionNuevoDestinatario() {
 		if (Hooks.esAndroid()) {
 			Hooks.getDriver().findElement(By.xpath(nuevoDestinatarioAndroid)).click();
 		}else {
 			Hooks.getDriver().findElement(By.xpath(nuevoDestinatarioIOS)).click();
 		}
 	}
-
-
+	
 	@When("Completa {string} {string}")
-	public void completarCBUCVUAliasYDescripcion(String cvualias, String descripcion) {
+	public void completarCBUCVUAliasYDescripcion(String cvualias, String descripcion) throws InterruptedException {
 		if (Hooks.esAndroid()) {
+			Thread.sleep(4000);
 			Hooks.getDriver().findElement(By.xpath(ingresarCBUCVUAliasAndroid)).sendKeys(cvualias);
 			Hooks.getDriver().findElement(By.xpath(descripcionAgendaAndroid)).sendKeys(descripcion);
+//			Hooks.getDriver().findElement(By.xpath(ingresarCBUCVUAliasAndroid)).sendKeys(cvualias);
+			
 		}else {
 			Hooks.getDriver().findElement(By.xpath(ingresarCBUCVUAliasIOS)).sendKeys(cvualias);
 			Hooks.getDriver().findElement(By.xpath(descripcionAgendaIOS)).sendKeys(descripcion);
-			Hooks.getDriver().findElement(By.xpath(identificacionDeCuentaIOS)).click();
+			Hooks.getDriver().findElement(By.xpath(btnDoneIOS)).click();
 		}
 	}
-
+	
 	@When("Presiona continuar y confirma los datos ingresados {string} {string}")
-	public void continuarYConfirmarDatos(String cvualias, String descripcion) {
+	public void continuarYConfirmarDatos(String cvualias, String descripcion) throws InterruptedException {
 		if (Hooks.esAndroid()) {
-			
+			Thread.sleep(2000);
 			Hooks.getDriver().findElement(By.xpath(continuarAgendaAndroid)).click();
-			assertEquals(Hooks.getDriver().findElement(By.xpath(verificaLosDatosIngresadosAndroid)).isEnabled(), true);
-			System.out.println(descripcion.toUpperCase());
-			if(Hooks.getDriver().findElement(By.xpath(descripcionDatoAndroid + descripcion.toUpperCase() + "']")).isDisplayed()) {
-				System.out.println("La descripcion en la verificacion de datos coincide");
-			}else {
-				System.out.println("La descripcion en la verificacion de datos NO coincide");				
-			}
-			if(Hooks.getDriver().findElement(By.xpath(CBUDatoAndroid +cvualias+ "']")).isDisplayed()) {
-				System.out.println("El cbu/cvu/alias en la verificacion de datos coincide");
-			}else {
-				System.out.println("El cbu/cvu/alias en la verificacion de datos NO coincide");				
-			}
-			Hooks.getDriver().findElement(By.xpath(continuarVerificaLosDatosAndroid)).click();
-
 		}else {
 			Hooks.getDriver().findElement(By.xpath(continuarAgendaIOS)).click();
 			assertEquals(Hooks.getDriver().findElement(By.xpath(verificaLosDatosIngresadosIOS)).isEnabled(), true);
@@ -158,14 +177,13 @@ public class AgendaMobile {
 			Hooks.getDriver().findElement(By.xpath(continuarVerificaLosDatosIOS)).click();
 		}
 	}
-
+	
 	@Then("Verifica que se haya agregado el destinatario {string} {string}")
 	public void verificarDestinatarioAgregado(String cbucvualias, String descripcion) {
+		descripcion.toUpperCase();
 		if (Hooks.esAndroid()) {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(listoAndroid)).isEnabled(), true);
 			assertEquals(Hooks.getDriver().findElement(By.xpath(agregasteUnNuevoDestinatarioAndroid)).isEnabled(), true);
-			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasAndroid + cbucvualias + "']" )).isEnabled(), true);
-			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasAndroid + descripcion.toUpperCase() + "']" )).isEnabled(), true);
 		}else {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
 			assertEquals(Hooks.getDriver().findElement(By.xpath(agregasteUnNuevoDestinatarioIOS)).isEnabled(), true);
@@ -173,8 +191,31 @@ public class AgendaMobile {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + descripcion + cbucvualias2IOS)).isEnabled(), true);
 		}
 	}
-
-	//CASO 3 - EDITAR
+	
+//AgendaMobile_caso002 - Agregar destinatario desde transferencia
+	
+	//Steps relacionados a transferencia en su respectiva Clase
+	
+	@When("Aprieta el check de agregar destinatario a mi agenda")
+	public void agregarDestinatarioAMiAgenda() {
+		if (Hooks.esAndroid()) {
+			Hooks.click(checkAgregarDestinatarioAMiAgendaAndroid);
+		}else {
+			Hooks.getDriver().findElement(By.xpath(checkAgregarDestinatarioAMiAgenda)).click();
+		}
+	}
+	
+	@When("Presiona continuar")
+	public void continuarAgenda() {
+		if (Hooks.esAndroid()) {
+			Hooks.click(continuarAgendaAndroid);
+		}else {
+			Hooks.getDriver().findElement(By.xpath(continuarAgendaIOS)).click();
+		}	
+	}
+	
+//AgendaMobile_caso003 - Editar un edstinatario
+	
 	@When("Aprieta el boton tres puntos del {string}")
 	public void apretarBotonTresPuntosAgenda(String cvucbualias) {
 		if (Hooks.esAndroid()) {
@@ -188,7 +229,7 @@ public class AgendaMobile {
 	@When("Aprieta el boton editar")
 	public void apretarEditar() {
 		if (Hooks.esAndroid()) {
-
+			Hooks.getDriver().findElement(By.xpath(editarDestinatarioAndroid)).click();
 		}else {
 			Hooks.getDriver().findElement(By.xpath(editarDestinatarioIOS)).click();
 		}
@@ -211,8 +252,22 @@ public class AgendaMobile {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(actualizasteLosDatosIOS)).isEnabled(), true);
 		}
 	}
+	
+	@Then("Verifica la actualizacion de destinatario {string} {string}")
+	public void validarActualizacionDestinatario(String nuevocvucbualias, String descripcionEditada) {
+		descripcionEditada.toUpperCase();
+		if (Hooks.esAndroid()) {
 
-	//CASO 4 - Ver detalle
+		}else {
+			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(actualizasteLosDatosIOS)).isEnabled(), true);			
+			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + nuevocvucbualias + cbucvualias2IOS)).isEnabled(), true);			
+			assertEquals(Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + descripcionEditada + cbucvualias2IOS)).isEnabled(), true);			
+		}
+	}
+	
+//AgendaMobile_caso004 - VER DETALLE DE DESTINATARIO
+
 	@When("Selecciono el {string}")
 	public void seleccionarCBUCVUAlias(String cvucbualias) {
 		if (Hooks.esAndroid()) {
@@ -257,22 +312,16 @@ public class AgendaMobile {
 		}
 	}
 	
-	@Then("Verifica la actualizacion de destinatario {string} {string}")
-	public void validarActualizacionDestinatario(String nuevocvucbualias, String descripcion) {
-		if (Hooks.esAndroid()) {
-
-		}else {
-			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
-			assertEquals(Hooks.getDriver().findElement(By.xpath(actualizasteLosDatosIOS)).isEnabled(), true);			
-		}
-	}
-	
-	//CASO 5 - Eliminar
+//AgendaMobile_caso005 - ELIMINAR DESTINATARIO
 
 	@When("Aprieta el boton eliminar y cancela")
 	public void apretarCancelar() {
 		if (Hooks.esAndroid()) {
-
+			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioAndroid)).click();
+			Hooks.getDriver().findElement(By.xpath(cancelarEliminacionAndroid)).click();
+			Hooks.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			assertEquals(Hooks.getDriver().findElement(By.xpath(popUpEliminacionIOS)).isEnabled(), null);
+			Hooks.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}else {
 			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
 			Hooks.getDriver().findElement(By.xpath(cancelarEliminacionIOS)).click();
@@ -285,20 +334,25 @@ public class AgendaMobile {
 	@When("Aprieta el boton eliminar y confirma eliminacion")
 	public void apretarEliminar() {
 		if (Hooks.esAndroid()) {
-
+			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioAndroid)).click();
+			Hooks.getDriver().findElement(By.xpath(confirmarEliminacionAndroid)).click();
 		}else {
 			Hooks.getDriver().findElement(By.xpath(eliminarDestinatarioIOS)).click();
 			Hooks.getDriver().findElement(By.xpath(confirmarEliminacionIOS)).click();
 		}
 	}
 
-	@Then("Valida eliminacion del destinatario")
-	public void validarEliminacion() {
+	@Then("Valida eliminacion del destinatario {string}{string}")
+	public void validarEliminacion(String cbucvualias, String nombreAgendado) {
+		nombreAgendado.toUpperCase();
 		if (Hooks.esAndroid()) {
 
 		}else {
 			assertEquals(Hooks.getDriver().findElement(By.xpath(listoIOS)).isEnabled(), true);
 			assertEquals(Hooks.getDriver().findElement(By.xpath(eliminasteADeTuAgendaIOS)).isEnabled(), true);
+			Hooks.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			assertNull(Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + cbucvualias + cbucvualias2IOS)));
+			assertNull(Hooks.getDriver().findElement(By.xpath(cbucvualiasIOS + nombreAgendado + cbucvualias2IOS)));
 		}
 	}
 }

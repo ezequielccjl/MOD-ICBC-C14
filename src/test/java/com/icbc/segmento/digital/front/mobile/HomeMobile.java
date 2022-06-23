@@ -15,21 +15,28 @@ public class HomeMobile {
 	
 		
 		static AppiumDriver<MobileElement> driver = Hooks.getDriver();
-		String saludo = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.TextView";
-		String ocultarSaldos = "//android.view.View[contains(@text, 'Ocultar saldos')]";
+		String saludo = "//android.widget.TextView[contains(@text,'Hola')]";
+		String ocultarSaldos = "//android.view.View[contains(@text,'Ocultar saldos')]";
 		
 		String saludoIOS = "(//XCUIElementTypeStaticText[@name='¡Hola Goem!'])[2]";
 		String ocultarSaldosIOS = "(//XCUIElementTypeStaticText[@name='Ocultar saldos'])[2]";
 		String saldoOcultoIOS = "//XCUIElementTypeStaticText[@name='$***']";
 		
-		
-		
+		public void aceptarTerminos()
+		{
+			if (Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Términos y condiciones ICBC Mobile Banking']")).isDisplayed()) {
+				Hooks.getDriver().findElement(By.xpath("(//android.widget.TextView)[2]")).click();
+			}
+		}
 		// HomeMobile-SaludoAlUsuario
 		@Then("Reviso que aparezca el saludo al usuario")
 		public void revisoQueAparezcaElSaludoAlUsuario() throws InterruptedException {
 			System.out.println("// HomeMobile-SaludoAlUsuario");
 			
+			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
+				Thread.sleep(3000);
 				assertTrue(Hooks.getDriver().findElement(By.xpath(saludo)).isDisplayed());
 			}else {
 				assertTrue(driver.findElement(By.xpath(saludoIOS)).isDisplayed());
@@ -39,10 +46,12 @@ public class HomeMobile {
 		
 		// HomeMobile-OcultarSaldos
 		@When("Presiono en ocultar saldos")
-		public void presionoEnOcultarSaldos() {
+		public void presionoEnOcultarSaldos() throws InterruptedException {
 			System.out.println("// HomeMobile-OcultarSaldos");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
+				Thread.sleep(3000);
 				Hooks.getDriver().findElement(By.xpath(ocultarSaldos)).click(); 
 			}else {
 				driver.findElement(By.xpath(ocultarSaldosIOS)).click();
@@ -64,12 +73,14 @@ public class HomeMobile {
 		
 		// HomeMobile-NuevaBotonera
 		@Then("Verifico que se encuentre nueva botonera")
-		public void verificoQueSeEncuentreNuevaBotonera() {
+		public void verificoQueSeEncuentreNuevaBotonera() throws InterruptedException {
 			System.out.println("// HomeMobile-NuevaBotonera");
 			
 		    if (Hooks.esAndroid()) {
+		    	aceptarTerminos();
+		    	Thread.sleep(3000);
 		    	Boolean aparecePagarQR = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagar con QR')]")).isDisplayed();
-		        System.out.println(aparecePagarQR);
+		        System.out.println(aparecePagarQR + " Botón Pagar con QR");
 		       	assertTrue(aparecePagarQR);
 		       	
 		       	Boolean apareceTransferir = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Transferir')]")).isDisplayed();
@@ -104,13 +115,14 @@ public class HomeMobile {
 		
 		// HomeMobile-BotonCBUAlias
 		@Then("Verifico funcionamiento de boton CBU Alias")
-		public void verificoFuncionamientoDeBotonCBUAlias() {
+		public void verificoFuncionamientoDeBotonCBUAlias() throws InterruptedException {
 			System.out.println("// HomeMobile-BotonCBUAlias");
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
+				Thread.sleep(3000);
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='CBU-ALIAS']")).click();
 				
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Consulta de CBU - Alias - QR']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='VER CÓDIGO QR DE MI CUENTA']")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Consulta de CBU - Alias']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='COMPARTIR']")).isDisplayed());
 				
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'CBU:')]")).isDisplayed());
@@ -126,11 +138,12 @@ public class HomeMobile {
 		
 		// HomeMobile-BotonTresPuntitos
 		@Then("Verifico funcionamiento de boton Tres Puntitos")
-		public void verificoFuncionamientoDeBotonTresPuntitos() {
+		public void verificoFuncionamientoDeBotonTresPuntitos() throws InterruptedException {
 			System.out.println("// HomeMobile-BotonTresPuntitos");
 			
 			if (Hooks.esAndroid()) {
-				
+				aceptarTerminos();
+				Thread.sleep(3000);
 				Hooks.getDriver().findElement(By.xpath("(//android.widget.Button[@text='sub-menu'])[1]")).click();
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Compra/Venta de U$S')]")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Extracción sin tarjeta')]")).isDisplayed());
@@ -153,10 +166,12 @@ public class HomeMobile {
 		
 		// HomeMobile-BotonNuevoProducto
 		@Then("Verifico que boton Nuevo Producto se encuentre en pantalla")
-		public void verificoQueBotonNuevoProductoSeEncuentreEnPantalla() {
+		public void verificoQueBotonNuevoProductoSeEncuentreEnPantalla() throws InterruptedException {
 			System.out.println("// HomeMobile-BotonNuevoProducto");
 			
 		    if (Hooks.esAndroid()) {
+		    	aceptarTerminos();
+		    	Thread.sleep(3000);
 		    	Boolean apareceNuevoProducto = Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Nuevo Producto')]")).isDisplayed();
 		        System.out.println(apareceNuevoProducto);
 		       	assertTrue(apareceNuevoProducto);
@@ -167,11 +182,12 @@ public class HomeMobile {
 		
 		// HomeMobile-BotonNuevoProductoFuncional
 		@Then("Verifico que boton Nuevo Producto este funcional")
-		public void verificoQueBotonNuevoProductoEsteFuncional() {
+		public void verificoQueBotonNuevoProductoEsteFuncional() throws InterruptedException {
 			System.out.println("// HomeMobile-BotonNuevoProductoFuncional");
 			
 			if (Hooks.esAndroid()) {
-				
+				aceptarTerminos();
+				Thread.sleep(3000);
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Nuevo Producto')]")).click();
 				
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Solicitud de un nuevo producto']")).isDisplayed());
@@ -206,6 +222,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-BarraInferiorDisponible");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Inversiones')]")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Pagos')]")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Inicio')]")).isDisplayed());
@@ -228,7 +245,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-BotonInversiones");
 			
 			if (Hooks.esAndroid()) {
-				
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Inversiones')]")).click();
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Inversiones']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Plazos Fijos']")).isDisplayed());
@@ -261,6 +278,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-BotonPagos");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains(@text,'Pagos')]")).click();//NO SUCH ELEMENT
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Pagos']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='DEBIN']")).isDisplayed());
@@ -282,15 +300,14 @@ public class HomeMobile {
 			System.out.println("// MobileMobile-MenuHamburguesa");
 			
 			if (Hooks.esAndroid()) {
-				
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				
 				String xpathExtraccionSinTarjetaAndroid= "//android.view.View[contains(@text,'Extracción sin tarjeta')]";
 				String xpathGestionDeProductosAndroid = "//android.view.View[contains(@text,'Gestión de productos')]";
-				String xpathCompraVentaDolaresAndroid = "//android.view.View[contains(@text,'CompraVenta de U$$')]";
-				String xpathResumenesAndroid = "//android.view.View[contains(@text,'Resumenes')]";
+				String xpathCompraVentaDolaresAndroid = "//android.view.View[contains(@text,'Compra/Venta de U$S')]";
+				String xpathResumenesAndroid = "//android.view.View[contains(@text,'Resúmenes')]";
 				String xpathContactoAndroid = "//android.view.View[contains(@text,'Contacto')]";
-				String xpathRecomendarAndroid = "//android.view.View[contains(@text,'Recomendar')]";
 				String xpathPerfilAndroid = "//android.view.View[contains(@text,'Perfil')]";
 				String xpathAyudaAndroid = "//android.view.View[contains(@text,'Ayuda')]";
 				String xpathCerrarSesionAndroid = "//android.view.View[contains(@text,'Cerrar sesión')]";
@@ -300,7 +317,6 @@ public class HomeMobile {
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathCompraVentaDolaresAndroid)).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathResumenesAndroid)).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathContactoAndroid)).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathRecomendarAndroid)).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathPerfilAndroid)).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathAyudaAndroid)).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath(xpathCerrarSesionAndroid)).isDisplayed());
@@ -338,7 +354,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-BotonExtraccionSinTarjeta");
 			
 			if (Hooks.esAndroid()) {
-				
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Extracción sin tarjeta')]")).click();
@@ -372,6 +388,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-PantallaGestionDeProductos");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains (@text, 'Gestión de productos')]")).click();
 				
@@ -407,8 +424,9 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-PantallaCompraVentaUSD");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
-				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'CompraVenta de U$$')]")).click();
+				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Compra/Venta de U$S')]")).click();
 				
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Compra / Venta de U$S']")).isDisplayed());
 			    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Para realizar la operación de Compra / Venta de U$S se requiere una cuenta de distinta moneda para acreditar los fondos.']")).isDisplayed());
@@ -431,8 +449,9 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-PantallaResumenes - DECIDIR SI AVANZAR EN LA PANTALLA");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
-				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Resumenes')]")).click();
+				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Resúmenes')]")).click();
 				
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Resúmenes']")).isDisplayed());
 			    assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Consultá los extractos de movimientos y avisos de tus productos ICBC.']")).isDisplayed());
@@ -454,6 +473,7 @@ public class HomeMobile {
 			System.out.println("// HomeMobile-PantallaContacto");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Contacto')]")).click();
 				
@@ -462,9 +482,9 @@ public class HomeMobile {
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='ICBC Mobile Banking y Access Banking']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Lunes a viernes de 7 a 24 hs y sábados, domingos y feriados de 10 a 18 hs']")).isDisplayed()); 
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[contains(@text,'0810-555-9200')]")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='(54-11) 4820-9200']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='0810-444-4652 ó *4652']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='(54-11) 4820-2021']")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[contains(@text,'(54-11) 4820-9200')]")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[contains(@text,'0810-444-4652 ó *4652')]")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[contains(@text,'(54-11) 4820-2021')]")).isDisplayed());
 			}else {
 				driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
 				driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Contacto']")).click();
@@ -482,12 +502,13 @@ public class HomeMobile {
 			
 		}
 		
-		// HomeMobile-PantallaRecomendar
+		// HomeMobile-PantallaRecomendar - Deprecado
 		@Then("Valido que me redirija a Pantalla Recomendar")
 		public void validoQueMeRedirijaAPantallaRecomendar() {
 			System.out.println("// NuevaHome-PantallaRecomendar");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Recomendar')]")).click();
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Recomenda y Gana']")).isDisplayed());
@@ -520,6 +541,7 @@ public class HomeMobile {
 			System.out.println("// NuevaHome-PantallaPerfil");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Perfil')]")).click();
 				
@@ -533,7 +555,6 @@ public class HomeMobile {
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Confirma tu nueva clave']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.Button[@text='Cambiar la clave']")).isDisplayed());
 				
-				//No se pueden verificar inputs porque no hay referencias
 				
 			}else {
 				driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
@@ -560,17 +581,17 @@ public class HomeMobile {
 			System.out.println("// NuevaHome-PantallaAyuda");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
-				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Perfil')]")).click();
+				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Ayuda')]")).click();
 				
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.view.View[@text='Ayuda']")).isDisplayed());//NO SUCH ELEMENT
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Preguntas Frecuentes']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Terminos y condiciones']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Politicas de privacidad']")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Términos y condiciones']")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Políticas de privacidad']")).isDisplayed());
 				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Seguridad']")).isDisplayed());
-				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Contactos']")).isDisplayed());
+				assertTrue(Hooks.getDriver().findElement(By.xpath("//android.widget.TextView[@text='Contacto']")).isDisplayed());
 				
-				//INCOMPLETO
 				
 			}else {
 				driver.findElement(By.xpath("//XCUIElementTypeButton[contains (@name, 'Más')]")).click();
@@ -586,6 +607,7 @@ public class HomeMobile {
 			System.out.println("// NuevaHome-CerrarSesion");
 			
 			if (Hooks.esAndroid()) {
+				aceptarTerminos();
 				Hooks.getDriver().findElement(By.xpath("//android.widget.Button[contains (@text, 'Más')]")).click();
 				Hooks.getDriver().findElement(By.xpath("//android.view.View[contains(@text,'Cerrar sesión')]")).click();
 				

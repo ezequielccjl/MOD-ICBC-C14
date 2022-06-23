@@ -18,7 +18,6 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
     When Clickeo en Accesos utiles
     Then Reviso correcta visualizacion de Accesos utiles
     
-  #Averiguar apertura de navegador
   @LoginNuevo-Mobile-04
   Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón Turnos
     Given El usuario se encuentra en la app ICBC
@@ -42,7 +41,13 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
     Given El usuario se encuentra en la app ICBC
     When Clickeo en Accesos utiles
     Then Clickeo Beneficios y reviso correcta visualizacion de pantalla
-  #------------
+    
+  @LoginNuevo-Mobile-07-Extra
+  Scenario: 004_Nuevo Login - Boton Accesos útiles - Botón Informacion
+    Given El usuario se encuentra en la app ICBC
+    When Clickeo en Accesos utiles
+    Then Clickeo Informacion y reviso correcta visualizacion de pantalla
+
   @LoginNuevo-Mobile-08
   Scenario: 08_Nuevo Login - Botón Transferir
     Given El usuario se encuentra en la app ICBC
@@ -58,6 +63,7 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 		| user    | pass	 |
 		|U10567381|prueba01|
 		
+	#No detecta cartel - Usuario y/o contraseña incorrecta
 	@LoginNuevo-Mobile-10
 	Scenario Outline: 10_Nuevo Login - Login erróneo - Usuario incorrecto
   	Given El usuario se encuentra en la app ICBC
@@ -67,6 +73,7 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 		| user    | pass	 |
 		|USUARIO99|prueba01|
 		
+  #No detecta cartel - Usuario y/o contraseña incorrecta
 	@LoginNuevo-Mobile-11
 	Scenario Outline: 11_Nuevo Login - Login erróneo - Contraseña incorrecta
   	Given El usuario se encuentra en la app ICBC
@@ -76,6 +83,7 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 		| user    | pass	 |
 		|U10567381|error123|
 	
+	#Averiguar TAP - No aparece mensaje
 	@LoginNuevo-Mobile-12
 	Scenario Outline: 12_Nuevo Login - Usuario con menos de 8 caracteres
   	Given El usuario se encuentra en la app ICBC
@@ -84,11 +92,12 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
 		| user    | pass	 |
 		|asdasd   |prueba01|
 	
+	#Averiguar TAP - No aparece mensaje
 	@LoginNuevo-Mobile-13
 	Scenario Outline: 013_Nuevo Login - Intento de ingreso sin clave
 		Given El usuario se encuentra en la app ICBC
     When Ingreso usuario "<user>"
-    Then Verifico falta de contraseña
+    Then Verifico falta de password
     Examples:
 		| user    | pass	 |
 		|U10567381|        |
@@ -98,5 +107,3 @@ Feature: Login con nuevo usuario y clave (Gestión de claves)
     Given El usuario se encuentra en la app ICBC
     When Clickeo en Tenes problemas para ingresar
     Then Reviso correcta visualizacion de pantalla Problemas para ingresar
-	
-	

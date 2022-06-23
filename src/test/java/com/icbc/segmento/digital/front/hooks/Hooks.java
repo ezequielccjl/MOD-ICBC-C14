@@ -2,6 +2,7 @@ package com.icbc.segmento.digital.front.hooks;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
@@ -55,6 +56,10 @@ public class Hooks {
 	public static Boolean esAndroid() {
 		//System.out.println(Configs.capabilitiesAndroid().getCapability("platformName").equals("Android"));
 		return Configs.capabilitiesAndroid().getCapability("platformName").equals("Android");
+	}
+	
+	static public void click(String xpath) {
+		driver.findElement(By.xpath(xpath)).click();
 	}
 	
 }
